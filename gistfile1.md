@@ -10,6 +10,11 @@ CMOY
 
  - http://tangentsoft.net/audio/cmoy-tutorial/
 
+EMBEDDED STUFFS
+---------------
+
+ - http://www.olimex.com/dev/imx233-olinuxino-micro.html
+
 STORE
 -----
 
