@@ -23,3 +23,4 @@ STORE
  - http://www.digikey.com
  - http://www.sparkfun.com
  - http://littlebirdelectronics.com
+ - http://www.seeedstudio.com
