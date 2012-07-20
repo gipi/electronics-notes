@@ -1,3 +1,8 @@
+SOLDERING
+---------
+
+ - http://wiki.openwrt.org/doc/hardware/soldering
+
 555
 ---
 
