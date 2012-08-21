@@ -15,6 +15,10 @@ CMOY
 
  - http://tangentsoft.net/audio/cmoy-tutorial/
 
+VARIOUS
+-------
+ - http://provideyourown.com/2011/analogwrite-convert-pwm-to-voltage/
+
 EMBEDDED STUFFS
 ---------------
 
