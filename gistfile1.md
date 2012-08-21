@@ -18,6 +18,7 @@ CMOY
 VARIOUS
 -------
  - http://provideyourown.com/2011/analogwrite-convert-pwm-to-voltage/
+ - http://www.ifixit.com
 
 EMBEDDED STUFFS
 ---------------
