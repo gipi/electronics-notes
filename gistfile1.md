@@ -26,6 +26,11 @@ EMBEDDED STUFFS
  - http://www.olimex.com/dev/imx233-olinuxino-micro.html
  - http://littlewire.cc/
 
+BUS PIRATE
+----------
+
+ ![PIN SCHEME](http://dangerousprototypes.com/docs/File:Bp-pin-cable-color.png)
+
 STORE
 -----
 
