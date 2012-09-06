@@ -12,6 +12,13 @@ SOLDERING
  - http://lateblt.tripod.com/proj2.htm
  - http://www.robotroom.com/Infrared555.html
 
+SHIFT REGISTER
+--------------
+
+ - http://arduino.cc/en/Tutorial/ShiftOut
+ - http://bildr.org/2011/02/74hc595/
+ - http://www.makeuseof.com/tag/arduino-programming-playing-shift-registers-aka-leds/
+
 CMOY
 ----
 
