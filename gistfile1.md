@@ -2,6 +2,7 @@ SOLDERING
 ---------
 
  - http://wiki.openwrt.org/doc/hardware/soldering
+ - http://tronixstuff.wordpress.com/2012/09/05/adventures-with-smt-and-a-pov-smt-kit/
 
 555
 ---
@@ -9,6 +10,7 @@ SOLDERING
  - http://www.sparkfun.com/products/9273
  - http://tronixstuff.wordpress.com/2011/01/27/the-555-precision-timer-ic/
  - http://lateblt.tripod.com/proj2.htm
+ - http://www.robotroom.com/Infrared555.html
 
 CMOY
 ----
