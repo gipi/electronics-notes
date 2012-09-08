@@ -59,3 +59,4 @@ STORE
  - http://www.sparkfun.com
  - http://littlebirdelectronics.com
  - http://www.seeedstudio.com
+ - http://shop.moderndevice.com/
