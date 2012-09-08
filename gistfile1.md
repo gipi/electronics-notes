@@ -29,6 +29,11 @@ LCD
 
  - http://jormungand.net/projects/devices/avrlcd/
 
+ARDUINO
+-------
+
+ - [http://hlt.media.mit.edu/?p=1695](Programming an ATtiny w/ Arduino 1.0.1)
+
 VARIOUS
 -------
  - http://provideyourown.com/2011/analogwrite-convert-pwm-to-voltage/
