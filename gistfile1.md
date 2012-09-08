@@ -24,6 +24,11 @@ CMOY
 
  - http://tangentsoft.net/audio/cmoy-tutorial/
 
+LCD
+---
+
+ - http://jormungand.net/projects/devices/avrlcd/
+
 VARIOUS
 -------
  - http://provideyourown.com/2011/analogwrite-convert-pwm-to-voltage/
