@@ -38,6 +38,7 @@ VARIOUS
 -------
  - http://provideyourown.com/2011/analogwrite-convert-pwm-to-voltage/
  - http://www.ifixit.com
+ - http://bildr.org/2012/03/rfp30n06le-arduino/
 
 EMBEDDED STUFFS
 ---------------
