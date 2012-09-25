@@ -48,7 +48,11 @@ EMBEDDED STUFFS
 
 BUS PIRATE
 ----------
-http://dangerousprototypes.com/docs/Bus_Pirate_I/O_Pin_Descriptions
+
+ - [AVR programming](http://dangerousprototypes.com/docs/Bus_Pirate_AVR_Programming)
+
+ - http://dangerousprototypes.com/docs/Bus_Pirate_I/O_Pin_Descriptions
+ 
 
  ![PIN SCHEME](http://dangerousprototypes.com/docs/File:Bp-pin-cable-color.png)
 
