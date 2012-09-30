@@ -40,11 +40,6 @@ VARIOUS
  - http://www.ifixit.com
  - http://bildr.org/2012/03/rfp30n06le-arduino/
 
-EMBEDDED STUFFS
----------------
-
- - http://www.olimex.com/dev/imx233-olinuxino-micro.html
- - http://littlewire.cc/
 
 BUS PIRATE
 ----------
