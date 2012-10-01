@@ -37,7 +37,7 @@ You can also program the core of Arduino directly by using the BusPirate
     $ avrdude  -c buspirate 2>&1 | grep 328
     m328p = ATMEGA328P      [/etc/avrdude.conf:8547]
 
-and after connect the proper I/O pins following the scheme [http://ilikepepper.wordpress.com/2011/09/15/buspirate-arduino/](taken from here)
+and after connect the proper I/O pins following the scheme (taken from here)[http://ilikepepper.wordpress.com/2011/09/15/buspirate-arduino/]
 
 | Bus Pirate | ATMEGA28P |
 |------------|-----------|
