@@ -42,6 +42,12 @@ and after connect the proper I/O pins following the scheme
 | Bus Pirate | ATMEGA28P |
 |------------|-----------|
 | GND        | 8         |
+| VCC        | 7         |
+| CS         | 1         |
+| MOSI       | 17        |
+| MISO       | 18        |
+| CLK        | 19        |
+
 
 ARDUINO
 -------
