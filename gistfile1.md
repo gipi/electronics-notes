@@ -29,6 +29,20 @@ LCD
 
  - http://jormungand.net/projects/devices/avrlcd/
 
+ATMEGA328P
+----------
+
+You can also program the core of Arduino directly by using the BusPirate
+
+    $ avrdude  -c buspirate 2>&1 | grep 328
+    m328p = ATMEGA328P      [/etc/avrdude.conf:8547]
+
+and after connect the proper I/O pins following the scheme
+
+| Bus Pirate | ATMEGA28P |
+|------------|-----------|
+| GND        | 8         |
+
 ARDUINO
 -------
 
