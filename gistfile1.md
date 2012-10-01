@@ -32,6 +32,8 @@ LCD
 ATMEGA328P
 ----------
 
+ - http://forums.trossenrobotics.com/tutorials/introduction-129/avr-basics-3261/
+
 You can also program the core of Arduino directly by using the BusPirate
 
     $ avrdude  -c buspirate 2>&1 | grep 328
