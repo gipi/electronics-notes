@@ -29,10 +29,11 @@ LCD
 
  - http://jormungand.net/projects/devices/avrlcd/
 
-ATMEGA328P
-----------
+AVR&ATMEGA328P
+--------------
 
  - http://forums.trossenrobotics.com/tutorials/introduction-129/avr-basics-3261/
+ - http://www.nongnu.org/avr-libc/
 
 You can also program the core of Arduino directly by using the BusPirate
 
