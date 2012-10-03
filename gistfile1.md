@@ -33,6 +33,7 @@ AVR&ATMEGA328P
 --------------
 
  - Simple [AVR guide](https://sites.google.com/site/qeewiki/books/avr-guide)
+ - Some indications on [AVR programming](http://hlt.media.mit.edu/wiki/pmwiki.php?n=Main.AVRProgrammingAdvanced)
  - http://forums.trossenrobotics.com/tutorials/introduction-129/avr-basics-3261/
  - http://www.nongnu.org/avr-libc/
 
