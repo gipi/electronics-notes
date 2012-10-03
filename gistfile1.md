@@ -32,7 +32,7 @@ LCD
 AVR&ATMEGA328P
 --------------
 
- - Simple (AVR guide)[https://sites.google.com/site/qeewiki/books/avr-guide]
+ - Simple [AVR guide](https://sites.google.com/site/qeewiki/books/avr-guide)
  - http://forums.trossenrobotics.com/tutorials/introduction-129/avr-basics-3261/
  - http://www.nongnu.org/avr-libc/
 
