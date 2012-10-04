@@ -47,6 +47,8 @@ AVR&ATMEGA328P
     So, this means that the high fuse needs to be set to 0xD7.  No other
     fuses need to be changed.
 
+ - [Fuse calculator](http://www.frank-zhao.com/fusecalc/fusecalc.php?chip=atmega328p)
+
 You can also program the core of Arduino directly by using the BusPirate
 
     $ avrdude  -c buspirate 2>&1 | grep 328
