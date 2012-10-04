@@ -36,6 +36,16 @@ AVR&ATMEGA328P
  - Some indications on [AVR programming](http://hlt.media.mit.edu/wiki/pmwiki.php?n=Main.AVRProgrammingAdvanced)
  - http://forums.trossenrobotics.com/tutorials/introduction-129/avr-basics-3261/
  - http://www.nongnu.org/avr-libc/
+ - Some indication about [FUSE settings](http://coding.zencoffee.org/2011/08/aeroquad-251-code-upload-via-icsp.html): in particular
+
+    What's notable is that the default fuse setup for an Arduino (here)
+    will set the high fuse to 0xD6.  This sets up the Arduino so on boot
+    it will boot the bootloader.  In other words, code execution will not
+    begin at address 0x0000.  This won't work if you have no bootloader.
+    The fuses need to be changed so that the BOOTRST flag is unprogrammed.
+    In AVR-speak, this means it's set to a value of 1 (0 means "programmed).
+    So, this means that the high fuse needs to be set to 0xD7.  No other
+    fuses need to be changed.
 
 You can also program the core of Arduino directly by using the BusPirate
 
