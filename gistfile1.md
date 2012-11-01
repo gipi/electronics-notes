@@ -150,13 +150,13 @@ ATTINY85
 --------
 
 |BusPirate    |ATtiny85  |
---------------|----------|
-|GND (brown)  |GND (4)   |
-|+5V (orange) |Vcc (8)   |
+|-------------|----------|
 |CS (white)   |RESET (1) |
+|GND (brown)  |GND (4)   |
 |MOSI (grey)  |MOSI (5)  |
 |MISO (black) |MISO (6)  |
 |CLK (purple) |SCK (7)   |
+|+5V (orange) |Vcc (8)   |
 
 ARDUINO
 -------
