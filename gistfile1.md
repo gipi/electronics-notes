@@ -149,14 +149,14 @@ and after connect the proper I/O pins following the scheme (taken from here)[htt
 ATTINY85
 --------
 
-|BusPirate    |ATtiny85
--------------------------
-|GND (brown)  |GND (4)
-|+5V (orange) |Vcc (8)
-|CS (white)   |RESET (1)
-|MOSI (grey)  |MOSI (5)
-|MISO (black) |MISO (6)
-|CLK (purple) |SCK (7)
+|BusPirate    |ATtiny85  |
+-------------------------|
+|GND (brown)  |GND (4)   |
+|+5V (orange) |Vcc (8)   |
+|CS (white)   |RESET (1) |
+|MOSI (grey)  |MOSI (5)  |
+|MISO (black) |MISO (6)  |
+|CLK (purple) |SCK (7)   |
 
 ARDUINO
 -------
