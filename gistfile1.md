@@ -50,6 +50,7 @@ AVR&ATMEGA328P
  - [Fuse calculator](http://www.frank-zhao.com/fusecalc/fusecalc.php?chip=atmega328p)
  - [RIFF-WAVE format files in LPCM player using attiny85](http://elm-chan.org/works/sd8p/report.html)
  - [Using Arduino as ISP programmer](http://hlt.media.mit.edu/?p=1706)
+ - AVR [fuse](http://www.ladyada.net/learn/avr/fuses.html) by ladyada
 
 You can also program the core of Arduino directly by using the BusPirate
 
