@@ -4,6 +4,7 @@ SOLDERING
  - http://wiki.openwrt.org/doc/hardware/soldering
  - http://tronixstuff.wordpress.com/2012/09/05/adventures-with-smt-and-a-pov-smt-kit/
  - [Video](http://www.youtube.com/watch?feature=player_embedded&v=kROaQZOYNIw) about solder proto board.
+ - [Cleaning](http://www.instructables.com/id/Proper-Soldering-Iron-cleaning-%26-maintenance/?ALLSTEPS)
 
 555
 ---
