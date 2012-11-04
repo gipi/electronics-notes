@@ -53,6 +53,7 @@ AVR&ATMEGA328P
  - [RIFF-WAVE format files in LPCM player using attiny85](http://elm-chan.org/works/sd8p/report.html)
  - [Using Arduino as ISP programmer](http://hlt.media.mit.edu/?p=1706)
  - AVR [fuse](http://www.ladyada.net/learn/avr/fuses.html) by ladyada
+ - Type of [memory](http://www.arduino.cc/playground/Learning/Memory) available.
  - [PROGMEM](http://www.arduino.cc/en/Reference/PROGMEM) variable modifier.
 
 You can also program the core of Arduino directly by using the BusPirate
