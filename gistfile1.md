@@ -155,6 +155,8 @@ and after connect the proper I/O pins following the scheme (taken from here)[htt
 ATTINY85
 --------
 
+![PINOUT](http://provideyourown.com/wordpress/wp-content/uploads/attiny45_85pinout1.png)
+
 |BusPirate    |ATtiny85  |
 |-------------|----------|
 |CS (white)   |RESET (1) |
