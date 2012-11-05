@@ -1,3 +1,5 @@
+![test](https://www.google.it/images/srpr/logo3w.png)
+
 SOLDERING
 ---------
 
