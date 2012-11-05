@@ -184,7 +184,7 @@ BUS PIRATE
  - http://dangerousprototypes.com/docs/Bus_Pirate_I/O_Pin_Descriptions
  
 
- ![PIN SCHEME](http://dangerousprototypes.com/docs/File%3aBp-pin-cable-color.png)
+ ![PIN SCHEME](http://dangerousprototypes.com/docs/images/1/1b/Bp-pin-cable-color.png)
 
 STORE
 -----
