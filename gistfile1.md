@@ -1,5 +1,3 @@
-![test](https://www.google.it/images/srpr/logo3w.png)
-
 SOLDERING
 ---------
 
@@ -186,7 +184,7 @@ BUS PIRATE
  - http://dangerousprototypes.com/docs/Bus_Pirate_I/O_Pin_Descriptions
  
 
- ![PIN SCHEME](http://dangerousprototypes.com/docs/File:Bp-pin-cable-color.png)
+ ![PIN SCHEME](http://dangerousprototypes.com/docs/File%3aBp-pin-cable-color.png)
 
 STORE
 -----
