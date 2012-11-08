@@ -55,6 +55,7 @@ AVR&ATMEGA328P
  - AVR [fuse](http://www.ladyada.net/learn/avr/fuses.html) by ladyada
  - Type of [memory](http://www.arduino.cc/playground/Learning/Memory) available.
  - [PROGMEM](http://www.arduino.cc/en/Reference/PROGMEM) variable modifier.
+ - [VGa](http://tinyvga.com/avr-vga) with the AVR.
 
 You can also program the core of Arduino directly by using the BusPirate
 
