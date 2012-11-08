@@ -58,6 +58,7 @@ AVR&ATMEGA328P
  - [VGa](http://tinyvga.com/avr-vga) with the AVR.
  - I2C with [avr](http://www.embedds.com/programming-avr-i2c-interface/)
  - I2C for [builtin support](http://www.embedds.com/programming-avr-i2c-interface/) in ATMega chip
+ - Simple project for [POV](http://voltsandbytes.com/tinypov-yet-another-avr-pov-project/) with AVR
 
 You can also program the core of Arduino directly by using the BusPirate
 
