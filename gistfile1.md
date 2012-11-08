@@ -155,6 +155,7 @@ and after connect the proper I/O pins following the scheme (taken from here)[htt
 ATTINY85
 --------
 
+ - [Datasheet](http://www.atmel.com/Images/doc2586.pdf)
 ![PINOUT](http://provideyourown.com/wordpress/wp-content/uploads/attiny45_85pinout1.png)
 
 |BusPirate    |ATtiny85  |
