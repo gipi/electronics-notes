@@ -56,6 +56,8 @@ AVR&ATMEGA328P
  - Type of [memory](http://www.arduino.cc/playground/Learning/Memory) available.
  - [PROGMEM](http://www.arduino.cc/en/Reference/PROGMEM) variable modifier.
  - [VGa](http://tinyvga.com/avr-vga) with the AVR.
+ - I2C with [avr](http://www.embedds.com/programming-avr-i2c-interface/)
+ - I2C for [builtin support](http://www.embedds.com/programming-avr-i2c-interface/) in ATMega chip
 
 You can also program the core of Arduino directly by using the BusPirate
 
