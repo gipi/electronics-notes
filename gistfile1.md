@@ -34,6 +34,7 @@ LCD
 AVR&ATMEGA328P
 --------------
 
+ - Getting [started](http://www.evilmadscientist.com/2007/resources-for-getting-started-with-avrs/) with AVR.
  - Simple [AVR guide](https://sites.google.com/site/qeewiki/books/avr-guide)
  - Some indications on [AVR programming](http://hlt.media.mit.edu/wiki/pmwiki.php?n=Main.AVRProgrammingAdvanced)
  - http://forums.trossenrobotics.com/tutorials/introduction-129/avr-basics-3261/
