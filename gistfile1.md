@@ -40,6 +40,7 @@ AVR&ATMEGA328P
  - ATMega328 [datasheet](http://www.atmel.com/Images/8271s.pdf)
  - http://forums.trossenrobotics.com/tutorials/introduction-129/avr-basics-3261/
  - http://www.nongnu.org/avr-libc/
+ - AVR [instruction set](http://www.atmel.com/Images/doc0856.pdf)
  - Some indication about [FUSE settings](http://coding.zencoffee.org/2011/08/aeroquad-251-code-upload-via-icsp.html): in particular
 
     What's notable is that the default fuse setup for an Arduino (here)
