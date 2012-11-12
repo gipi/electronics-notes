@@ -11,6 +11,8 @@ PCB
 
  - http://www.gerber-viewer.com/
  - http://fritzing.org
+ - http://www.seeedstudio.com/depot/fusion-pcb-service-p-835.html
+ - http://be.eurocircuits.com/basic/try-pcb-visualizer.aspx#
 
 555
 ---
