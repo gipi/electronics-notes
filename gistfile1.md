@@ -72,6 +72,7 @@ AVR&ATMEGA328P
  - Simple project for [POV](http://voltsandbytes.com/tinypov-yet-another-avr-pov-project/) with AVR
  - USB to serial communication with [AVR](http://www.evilmadscientist.com/2009/basics-serial-communication-with-avr-microcontrollers/)
  - [USART](https://sites.google.com/site/qeewiki/books/avr-guide/usart)
+ - Tutorial from [Sparkfun](http://www.sparkfun.com/tutorials/104) about Serial communication, RS232, etc...
 
 You can also program the core of Arduino directly by using the BusPirate
 
