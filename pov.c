@@ -98,7 +98,11 @@ void init_all(void) {
 	USART_Init(MYUBRR);
 }
 
-// pg 183 from datasheet of atmega328
+/*
+ * pg 183 from datasheet of atmega328
+ *
+ * USART Baud Rate Register (UBRRn)
+ */
 void USART_Init(unsigned int ubrr) {
 	/* Set baud rate */
 	UBRR0H = (unsigned char)(ubrr>>8);
