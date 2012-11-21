@@ -98,14 +98,15 @@ void init_all(void) {
 	USART_Init(MYUBRR);
 }
 
+// pg 183 from datasheet of atmega328
 void USART_Init(unsigned int ubrr) {
 	/* Set baud rate */
-	UBRRH = (unsigned char)(ubrr>>8);
-	UBRRL = (unsigned char)ubrr;
+	UBRR0H = (unsigned char)(ubrr>>8);
+	UBRR0L = (unsigned char)ubrr;
 	/* Enable receiver and transmitter */
-	UCSRB = (1<<RXEN)|(1<<TXEN);
+	UCSR0B = (1<<RXEN0)|(1<<TXEN0);
 	/* Set frame format: 8data, 1stop bit */
-	UCSRC = (3<<UCSZ0);
+	UCSR0C = (3<<UCSZ00);
 }
 
 void USART_Transmit(unsigned char data) {
