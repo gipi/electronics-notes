@@ -212,8 +212,8 @@ BUS PIRATE
 
  ![PIN SCHEME](http://dangerousprototypes.com/docs/images/1/1b/Bp-pin-cable-color.png)
 
-STORE
------
+STORE&BLOGS
+-----------
 
  - http://www.radioshack.com
  - http://www.digikey.com
@@ -221,3 +221,4 @@ STORE
  - http://littlebirdelectronics.com
  - http://www.seeedstudio.com
  - http://shop.moderndevice.com/
+ - http://www.beavisaudio.com/techpages/
