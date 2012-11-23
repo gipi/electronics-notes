@@ -74,6 +74,8 @@ AVR&ATMEGA328P
  - [USART](https://sites.google.com/site/qeewiki/books/avr-guide/usart)
  - Tutorial from [Sparkfun](http://www.sparkfun.com/tutorials/104) about Serial communication, RS232, etc...
 
+![Arduino to ATMega328 pinout](http://arduino.cc/en/uploads/Hacking/Atmega168PinMap2.png)
+
 You can also program the core of Arduino directly by using the BusPirate
 
 ```
