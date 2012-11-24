@@ -74,7 +74,6 @@ AVR&ATMEGA328P
  - [USART](https://sites.google.com/site/qeewiki/books/avr-guide/usart)
  - Tutorial from [Sparkfun](http://www.sparkfun.com/tutorials/104) about Serial communication, RS232, etc...
 
-![Arduino to ATMega328 pinout](http://arduino.cc/en/uploads/Hacking/Atmega168PinMap2.png)
 
 You can also program the core of Arduino directly by using the BusPirate
 
@@ -179,7 +178,6 @@ ATTINY85
 --------
 
  - [Datasheet](http://www.atmel.com/Images/doc2586.pdf)
-![PINOUT](http://provideyourown.com/wordpress/wp-content/uploads/attiny45_85pinout1.png)
 
 |BusPirate    |ATtiny85  |
 |-------------|----------|
@@ -206,11 +204,14 @@ BUS PIRATE
 ----------
 
  - [AVR programming](http://dangerousprototypes.com/docs/Bus_Pirate_AVR_Programming)
-
  - http://dangerousprototypes.com/docs/Bus_Pirate_I/O_Pin_Descriptions
- 
 
- ![PIN SCHEME](http://dangerousprototypes.com/docs/images/1/1b/Bp-pin-cable-color.png)
+PINOUTS
+-------
+
+![Arduino to ATMega328 pinout](http://arduino.cc/en/uploads/Hacking/Atmega168PinMap2.png)
+![PINOUT](http://provideyourown.com/wordpress/wp-content/uploads/attiny45_85pinout1.png)
+![PIN SCHEME](http://dangerousprototypes.com/docs/images/1/1b/Bp-pin-cable-color.png)
 
 STORE&BLOGS
 -----------
