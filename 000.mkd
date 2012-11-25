@@ -214,6 +214,8 @@ PINOUTS
 ![PINOUT](http://provideyourown.com/wordpress/wp-content/uploads/attiny45_85pinout1.png)
 ![PIN SCHEME](http://dangerousprototypes.com/docs/images/1/1b/Bp-pin-cable-color.png)
 
+![Basic ATMega328 wiring](http://www.gammon.com.au/images/Arduino/Minimal_Arduino1.jpg)
+
 STORE&BLOGS
 -----------
 
