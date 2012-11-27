@@ -66,6 +66,7 @@ AVR&ATMEGA328P
  - [Using Arduino as ISP programmer](http://hlt.media.mit.edu/?p=1706) (also from [arduino](http://arduino.cc/en/Tutorial/ArduinoISP) site)
  - AVR [fuse](http://www.ladyada.net/learn/avr/fuses.html) by ladyada
  - Type of [memory](http://www.arduino.cc/playground/Learning/Memory) available.
+ - [Example](http://www.scienceprog.com/atmega-eeprom-memory-writing/) of EEPROM code.
  - [PROGMEM](http://www.arduino.cc/en/Reference/PROGMEM) variable modifier.
  - [VGa](http://tinyvga.com/avr-vga) with the AVR.
  - I2C with [avr](http://www.embedds.com/programming-avr-i2c-interface/)
