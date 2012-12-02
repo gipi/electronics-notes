@@ -22,6 +22,7 @@ PCB
  - http://tronixstuff.wordpress.com/2011/01/27/the-555-precision-timer-ic/
  - http://lateblt.tripod.com/proj2.htm
  - http://www.robotroom.com/Infrared555.html
+ - [PWM](http://www.dprg.org/tutorials/2005-11a/index.html) with 555
 
 SHIFT REGISTER
 --------------
