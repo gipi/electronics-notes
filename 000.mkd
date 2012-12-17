@@ -1,3 +1,8 @@
+BASIC
+-----
+
+ - [Capacitor decoupling](http://www.vagrearg.org/content/decoupling): The act of (partially) separating the logic chip's power supply from the main power supply.
+
 SOLDERING
 ---------
  - [Basic instruments](https://www.youtube.com/watch?v=Kv7Y8nAOoFE)
