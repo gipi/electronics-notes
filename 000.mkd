@@ -2,6 +2,7 @@ BASIC
 -----
 
  - [Capacitor decoupling](http://www.vagrearg.org/content/decoupling): The act of (partially) separating the logic chip's power supply from the main power supply.
+ - https://circuithub.com/
 
 SOLDERING
 ---------
