@@ -14,6 +14,7 @@ SOLDERING
  - [Video](http://www.youtube.com/watch?feature=player_embedded&v=kROaQZOYNIw) about solder proto board.
  - [Cleaning](http://www.instructables.com/id/Proper-Soldering-Iron-cleaning-%26-maintenance/?ALLSTEPS)
  - [Adafruit](http://learn.adafruit.com/adafruit-guide-excellent-soldering/) guide to soldering
+ - [SMD](http://www.enetsystems.com/~lorenzo/smd/)
 
 PCB
 ---
