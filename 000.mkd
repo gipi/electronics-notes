@@ -54,6 +54,7 @@ LCD
 AVR&ATMEGA328P
 --------------
 
+ - [Atmel AVR Dragon (ATAVRDRAGON)](http://store.atmel.com/PartDetail.aspx?q=p:10500053#tc:description) and how [use](http://www.larsen-b.com/Article/315.html) it on linux
  - Getting [started](http://www.evilmadscientist.com/2007/resources-for-getting-started-with-avrs/) with AVR.
  - Simple [AVR guide](https://sites.google.com/site/qeewiki/books/avr-guide)
  - Some indications on [AVR programming](http://hlt.media.mit.edu/wiki/pmwiki.php?n=Main.AVRProgrammingAdvanced)
