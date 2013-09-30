@@ -5,6 +5,7 @@ BASIC
  - https://circuithub.com/
  - http://blog.thelifeofkenneth.com/2013/02/diy-usb-power-strip.html
  - http://www.ladyada.net/make/mintyboost/process.html
+ - http://123d.circuits.io/
 
 SOLDERING
 ---------
