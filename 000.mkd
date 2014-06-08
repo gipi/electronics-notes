@@ -216,6 +216,8 @@ VARIOUS
  - http://provideyourown.com/2011/analogwrite-convert-pwm-to-voltage/
  - http://www.ifixit.com
  - http://bildr.org/2012/03/rfp30n06le-arduino/
+ - http://www.instructables.com/id/Attiny254585-PWM-generator-and-Servo-tester/
+ - [Hardware Random Number Generator](http://iank.org/trng.html)
 
 
 BUS PIRATE
