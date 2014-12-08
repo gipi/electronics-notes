@@ -10,6 +10,11 @@ BASIC
  - [H Bridge Motor Speed Controller Tutorial](https://www.youtube.com/watch?v=iYafyPZ15g8)
  - [How To Easily Find PCB Tracks](https://www.youtube.com/watch?v=oyedFq1VAjg)
 
+JTAG
+----
+
+ - https://hackingbtbusinesshub.wordpress.com/2012/01/26/discovering-jtag-pinouts/
+
 HACK
 ----
 
