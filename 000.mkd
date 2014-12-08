@@ -14,6 +14,7 @@ JTAG
 ----
 
  - https://hackingbtbusinesshub.wordpress.com/2012/01/26/discovering-jtag-pinouts/
+ - http://sun.hasenbraten.de/~frank/docs/mpc824x_JTAG.html
 
 HACK
 ----
