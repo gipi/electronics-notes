@@ -15,6 +15,7 @@ JTAG
 
  - https://hackingbtbusinesshub.wordpress.com/2012/01/26/discovering-jtag-pinouts/
  - http://sun.hasenbraten.de/~frank/docs/mpc824x_JTAG.html
+ - Header per SOC da [farnell](http://uk.farnell.com/fci/20021121-00010c4lf/connector-header-smt-r-a-1-27mm/dp/1865279?ost=609-3695-1-ND)
 
 HACK
 ----
