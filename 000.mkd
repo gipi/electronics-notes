@@ -18,6 +18,7 @@ JTAG
  - Header per SOC da [farnell](http://uk.farnell.com/fci/20021121-00010c4lf/connector-header-smt-r-a-1-27mm/dp/1865279?ost=609-3695-1-ND)
  - [Slide](http://elinux.org/images/d/d6/Jtag.pdf) of a talk about finding JTAG's pinout
  - https://github.com/cyphunk/JTAGenum/
+ - http://www.sodnpoo.com/posts.xml/pace4000_jtag.xml
 
 HACK
 ----
