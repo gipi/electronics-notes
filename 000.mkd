@@ -33,6 +33,7 @@ SOLDERING
  - [Video](http://www.youtube.com/watch?feature=player_embedded&v=kROaQZOYNIw) about solder proto board.
  - [Cleaning](http://www.instructables.com/id/Proper-Soldering-Iron-cleaning-%26-maintenance/?ALLSTEPS)
  - [Adafruit](http://learn.adafruit.com/adafruit-guide-excellent-soldering/) guide to soldering
+ - https://learn.sparkfun.com/tutorials/how-to-solder---through-hole-soldering/advanced-techniques-and-troubleshooting con [video](https://www.youtube.com/watch?v=t9LOtOBOTb0)
  - [SMD](http://www.enetsystems.com/~lorenzo/smd/)
 
 PCB
