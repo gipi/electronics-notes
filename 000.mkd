@@ -19,6 +19,7 @@ JTAG
  - [Slide](http://elinux.org/images/d/d6/Jtag.pdf) of a talk about finding JTAG's pinout
  - https://github.com/cyphunk/JTAGenum/
  - http://www.sodnpoo.com/posts.xml/pace4000_jtag.xml
+ - https://www.youtube.com/watch?v=TlWlLeC5BUs
 
 HACK
 ----
