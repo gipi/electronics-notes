@@ -9,6 +9,7 @@ BASIC
  - [How do I read a datasheet?](http://www.youtube.com/watch?v=DZIFlV6wAZA)
  - [H Bridge Motor Speed Controller Tutorial](https://www.youtube.com/watch?v=iYafyPZ15g8)
  - [How To Easily Find PCB Tracks](https://www.youtube.com/watch?v=oyedFq1VAjg)
+ - http://www.resistorguide.com/pull-up-resistor_pull-down-resistor/
 
 JTAG
 ----
