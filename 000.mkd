@@ -13,6 +13,10 @@ BASIC
  - [How To Easily Find PCB Tracks](https://www.youtube.com/watch?v=oyedFq1VAjg)
  - http://www.resistorguide.com/pull-up-resistor_pull-down-resistor/
 
+## UART and Serial
+
+ - http://wiki.openwrt.org/doc/hardware/port.serial
+
 JTAG
 ----
 
