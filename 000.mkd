@@ -16,6 +16,7 @@ BASIC
 ## UART and Serial
 
  - http://wiki.openwrt.org/doc/hardware/port.serial
+ - http://www.devttys0.com/2012/11/reverse-engineering-serial-ports/
 
 JTAG
 ----
