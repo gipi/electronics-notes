@@ -56,6 +56,8 @@ A good rule-of-thumb for a two-layer board is to route only horizontally on one 
  - http://www.seeedstudio.com/depot/fusion-pcb-service-p-835.html
  - http://be.eurocircuits.com/basic/try-pcb-visualizer.aspx#
  - https://www.olimex.com/PCB/
+ - http://www.instructables.com/id/How-to-reverse-engineer-a-schematic-from-a-circuit/?ALLSTEPS
+ - http://pcbshopper.com/
 
 
 555
