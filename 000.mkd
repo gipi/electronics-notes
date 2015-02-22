@@ -60,6 +60,7 @@ A good rule-of-thumb for a two-layer board is to route only horizontally on one 
  - http://www.instructables.com/id/How-to-reverse-engineer-a-schematic-from-a-circuit/?ALLSTEPS
  - http://pcbshopper.com/
  - https://learn.sparkfun.com/tutorials/using-eagle-board-layout
+ - https://github.com/civanovici/roduino/tree/master/eagle
 
 555
 ---
