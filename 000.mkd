@@ -48,6 +48,7 @@ SOLDERING
 PCB
 ---
 
+ - http://www.learnemc.com/tutorials/PCB_Layout/PCB_Layout.html
  - http://www.gerber-viewer.com/
  - http://fritzing.org
  - http://www.seeedstudio.com/depot/fusion-pcb-service-p-835.html
