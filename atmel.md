@@ -8,6 +8,42 @@ This kind of microcontrollers have three types of (linear) memory
  - SRAM: contains the running data (registers, I/O, RAM)
  - EEPROM: contains the static data (not present in all the chips)
 
+## Clocks
+
+## Fuses
+
+## Sleep modes
+
+## Interrupts
+
+## I/O
+
+Three I/O memory address locations are allocated for each port, one each for the Data Register – PORTx, Data
+Direction Register – DDRx, and the Port Input Pins – PINx. The Port Input Pins I/O location is read only, while the
+Data Register and the Data Direction Register are read/write.
+
+The ports are bi-directional I/O ports with optional internal pull-ups
+
+Each port pin consists of three register bits: DDxn, PORTxn, and PINxn. As shown in “Register Description” on
+page 64, the DDxn bits are accessed at the DDRx I/O address, the PORTxn bits at the PORTx I/O address, and
+the PINxn bits at the PINx I/O address.
+The DDxn bit in the DDRx Register selects the direction of this pin. If DDxn is written logic one, Pxn is configured
+as an output pin. If DDxn is written logic zero, Pxn is configured as an input pin.
+If PORTxn is written logic one when the pin is configured as an input pin, the pull-up resistor is activated. To switch
+the pull-up resistor off, PORTxn has to be written logic zero or the pin has to be configured as an output pin. The
+port pins are tri-stated when reset condition becomes active, even if no clocks are running.
+If PORTxn is written logic one when the pin is configured as an output pin, the port pin is driven high (one). If
+PORTxn is written logic zero when the pin is configured as an output pin, the port pin is driven low (zero).
+
+If some pins are unused, it is recommended to ensure that these pins have a defined level. Even though most of
+the digital inputs are disabled in the deep sleep modes as described above, floating inputs should be avoided to
+reduce current consumption in all other modes where the digital inputs are enabled (Reset, Active mode and Idle
+mode).
+The simplest method to ensure a defined level of an unused pin, is to enable the internal pull-up. In this case, the
+pull-up will be disabled during reset. If low power consumption during reset is important, it is recommended to use
+an external pull-up or pulldown. Connecting unused pins directly to VCC or GND is not recommended, since this
+may cause excessive currents if the pin is accidentally configured as an output.
+
 AVR&ATMEGA328P
 --------------
 
