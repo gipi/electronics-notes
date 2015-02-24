@@ -4,6 +4,7 @@ AVR&ATMEGA328P
  - [AVR selector](http://www.atmel.com/v2pfresults.aspx#(actives:!(),data:(area:'',category:'34864',pm:!(),view:list),sc:1))
  - [Write bootloader for AVR](http://www.engineersgarage.com/embedded/avr-microcontroller-projects/How-To-Write-a-Simple-Bootloader-For-AVR-In-C-language)
  - [Atmel AVR Dragon (ATAVRDRAGON)](http://store.atmel.com/PartDetail.aspx?q=p:10500053#tc:description) and how [use](http://www.larsen-b.com/Article/315.html) it on linux
+ - [A Quickstart Tutorial for ATMEL AVR Microcontrollers](http://imakeprojects.com/Projects/avr-tutorial/)
  - Getting [started](http://www.evilmadscientist.com/2007/resources-for-getting-started-with-avrs/) with AVR.
  - Simple [AVR guide](https://sites.google.com/site/qeewiki/books/avr-guide)
  - Some indications on [AVR programming](http://hlt.media.mit.edu/wiki/pmwiki.php?n=Main.AVRProgrammingAdvanced)
