@@ -142,7 +142,7 @@ and after connect the proper I/O pins following the scheme (taken from here)[htt
 ATTINY85
 --------
 
- - [Datasheet](http://www.atmel.com/Images/doc2586.pdf)
+ - [Datasheet](http://www.atmel.com/Images/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf)
 
 |BusPirate    |ATtiny85  |
 |-------------|----------|
