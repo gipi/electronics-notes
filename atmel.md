@@ -1,3 +1,13 @@
+The advice is to read the datasheets that contain a lot of info and working examples.
+
+## Memory
+
+This kind of microcontrollers have three types of (linear) memory
+
+ - flash: contains the code
+ - SRAM: contains the running data (registers, I/O, RAM)
+ - EEPROM: contains the static data (not present in all the chips)
+
 AVR&ATMEGA328P
 --------------
 
