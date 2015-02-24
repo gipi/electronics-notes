@@ -13,4 +13,5 @@ A good rule-of-thumb for a two-layer board is to route only horizontally on one 
  - http://pcbshopper.com/
  - https://learn.sparkfun.com/tutorials/using-eagle-board-layout
  - https://github.com/civanovici/roduino/tree/master/eagle
+ - http://michaelhleonard.com/how-to-design-the-perfect-pcb-part2/
  - https://www.youtube.com/watch?v=R4DYztYB6d4
