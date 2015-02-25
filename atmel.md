@@ -89,8 +89,30 @@ AVR&ATMEGA328P
 You can also program the core of Arduino directly by using the BusPirate and the ``avrdude`` program (package with the same name)
 
 ```
-$ avrdude  -c buspirate 2>&1 | grep 328
-m328p = ATMEGA328P      [/etc/avrdude.conf:8547]
+$ avrdude -c buspirate
+avrdude: No AVR part has been specified, use "-p Part"
+
+Valid parts are:
+  uc3a0512 = AT32UC3A0512
+  c128     = AT90CAN128
+  c32      = AT90CAN32
+  c64      = AT90CAN64
+  pwm2     = AT90PWM2
+  pwm2b    = AT90PWM2B
+  pwm3     = AT90PWM3
+...
+  m328     = ATmega328
+  m328p    = ATmega328P
+...
+  x64a4    = ATxmega64A4
+  x64a4u   = ATxmega64A4U
+  x64b1    = ATxmega64B1
+  x64b3    = ATxmega64B3
+  x64c3    = ATxmega64C3
+  x64d3    = ATxmega64D3
+  x64d4    = ATxmega64D4
+  x8e5     = ATxmega8E5
+  ucr2     = deprecated, use 'uc3a0512'
 $ avrdude -c arduino -p m328p -P /dev/ttyACM0 -v -b 19200
 ```
 
