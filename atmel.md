@@ -86,7 +86,7 @@ AVR&ATMEGA328P
  - http://learn.adafruit.com/memories-of-an-arduino/you-know-you-have-a-memory-problem-when-dot-dot-dot
 
 
-You can also program the core of Arduino directly by using the BusPirate
+You can also program the core of Arduino directly by using the BusPirate and the ``avrdude`` program (package with the same name)
 
 ```
 $ avrdude  -c buspirate 2>&1 | grep 328
