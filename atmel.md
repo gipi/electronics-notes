@@ -57,6 +57,7 @@ AVR&ATMEGA328P
  - ATMega328 [datasheet](http://www.atmel.com/Images/doc8161.pdf)
  - http://forums.trossenrobotics.com/tutorials/introduction-129/avr-basics-3261/
  - http://www.nongnu.org/avr-libc/
+ - [SPI](http://maxembedded.com/2013/11/the-spi-of-the-avr/)
  - AVR [instruction set](http://www.atmel.com/Images/doc0856.pdf)
  - Some indication about [FUSE settings](http://coding.zencoffee.org/2011/08/aeroquad-251-code-upload-via-icsp.html): in particular
 
