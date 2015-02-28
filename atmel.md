@@ -86,6 +86,7 @@ AVR&ATMEGA328P
  - Tutorial from [Sparkfun](http://www.sparkfun.com/tutorials/104) about Serial communication, RS232, etc...
  - http://learn.adafruit.com/memories-of-an-arduino/you-know-you-have-a-memory-problem-when-dot-dot-dot
  - [Getting Extra Pins on ATtiny](http://www.technoblogy.com/show?LSE)
+ - http://codeandlife.com/2012/01/22/avr-attiny-usb-tutorial-part-1/
 
 You can also program the core of Arduino directly by using the BusPirate and the ``avrdude`` program (package with the same name)
 
