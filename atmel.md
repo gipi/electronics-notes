@@ -222,6 +222,16 @@ ATTINY85
 |CLK (purple) |SCK (7)   |
 |+5V (orange) |Vcc (8)   |
 
+PINOUTS
+-------
+
+![Arduino to ATMega328 pinout](http://arduino.cc/en/uploads/Hacking/Atmega168PinMap2.png)
+![PINOUT](http://circuits.datasheetdir.com/18/ATTINY25-pinout.jpg)
+![PIN SCHEME](http://dangerousprototypes.com/docs/images/1/1b/Bp-pin-cable-color.png)
+
+![Basic ATMega328 wiring](http://www.gammon.com.au/images/Arduino/Minimal_Arduino1.jpg)
+
+
 ARDUINO
 -------
 
