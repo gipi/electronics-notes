@@ -212,6 +212,7 @@ and after connect the proper I/O pins following the scheme (taken from here)[htt
     
     avrdude done.  Thank you.
 
+otherwise is possible to use a [FTDI cable](http://doswa.com/2010/08/24/avrdude-5-10-with-ftdi-bitbang.html) to program it con avrdude.
 ATTINY85
 --------
 
