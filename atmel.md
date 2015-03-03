@@ -236,6 +236,7 @@ PINOUTS
 
 ![Basic ATMega328 wiring](http://www.gammon.com.au/images/Arduino/Minimal_Arduino1.jpg)
 
+![ATMega328 with FTDI](https://perhof.files.wordpress.com/2011/11/arduino_breadboard_ftdi_basic.jpg)
 
 ARDUINO
 -------
