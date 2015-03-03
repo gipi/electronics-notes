@@ -47,6 +47,7 @@ may cause excessive currents if the pin is accidentally configured as an output.
 AVR&ATMEGA328P
 --------------
 
+ - http://www.build-electronic-circuits.com/microcontroller-tutorial-part1/
  - [AVR selector](http://www.atmel.com/v2pfresults.aspx#(actives:!(),data:(area:'',category:'34864',pm:!(),view:list),sc:1))
  - [Write bootloader for AVR](http://www.engineersgarage.com/embedded/avr-microcontroller-projects/How-To-Write-a-Simple-Bootloader-For-AVR-In-C-language)
  - http://blog.schicks.net/wp-content/uploads/2009/09/bootloader_faq.pdf
