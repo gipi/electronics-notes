@@ -3,6 +3,13 @@ PCB
 
 A good rule-of-thumb for a two-layer board is to route only horizontally on one layer and only vertically on the other
 
+## Text
+
+The text goes on the silkscreen, represented by the two layers ``tPlace`` and ``bPlace`` (respectively
+layer 21 and 22)
+
+## Links
+
  - http://www.learnemc.com/tutorials/PCB_Layout/PCB_Layout.html
  - http://www.gerber-viewer.com/
  - http://fritzing.org
