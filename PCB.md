@@ -29,3 +29,4 @@ The PCB size is determined from the outline of the layer 20.
  - How To Easily Find PCB Tracks: [video](https://www.youtube.com/watch?v=oyedFq1VAjg)
  - http://www.robotroom.com/PCB-Layout-Tips.html
  - http://www.cadsoftusa.com/downloads/libraries
+ - [Better PCBs in Eagle](https://www.sparkfun.com/tutorials/115)
