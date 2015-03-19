@@ -30,3 +30,4 @@ The PCB size is determined from the outline of the layer 20.
  - http://www.robotroom.com/PCB-Layout-Tips.html
  - http://www.cadsoftusa.com/downloads/libraries
  - [Better PCBs in Eagle](https://www.sparkfun.com/tutorials/115)
+ - [Guideline](http://support.seeedstudio.com/knowledgebase/articles/422482-fusion-pcb-order-submission-guidelines) to PCB submission for Seed Studio (DRU file).
