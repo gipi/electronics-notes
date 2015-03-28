@@ -57,6 +57,15 @@ SOLDERING
 
 555
 ---
+It's one of the most common IC available.
+
+### Monostable
+
+![monostable](Images/555-monostable.png)
+
+### Astable
+
+![astable](Images/555-astable.png)
 
  - http://www.sparkfun.com/products/9273
  - http://tronixstuff.wordpress.com/2011/01/27/the-555-precision-timer-ic/
