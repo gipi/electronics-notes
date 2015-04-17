@@ -91,7 +91,7 @@ AVR&ATMEGA328P
  - [Getting Extra Pins on ATtiny](http://www.technoblogy.com/show?LSE)
  - http://codeandlife.com/2012/01/22/avr-attiny-usb-tutorial-part-1/
  - [V-USB](http://www.obdev.at/products/vusb/index.html) simple library to implements USB devices with AVR chips
-
+ - [USB PCB Business Card](http://www.instructables.com/id/USB-PCB-Business-Card/?ALLSTEPS)
 You can also program the core of Arduino directly by using the BusPirate and the ``avrdude`` program (package with the same name)
 
 ```
