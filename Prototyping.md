@@ -40,3 +40,4 @@ The PCB size is determined from the outline of the layer 20.
  - [Better PCBs in Eagle](https://www.sparkfun.com/tutorials/115)
  - [Guideline](http://support.seeedstudio.com/knowledgebase/articles/422482-fusion-pcb-order-submission-guidelines) to PCB submission for Seed Studio (DRU file).
  - http://diy.viktak.com/2013/02/tutorial-panelizing-pcbs-in-eagle.html
+ - Add a Logo to Your PCB with eagle [video](https://www.youtube.com/watch?v=z1Ej3nJz43c)
