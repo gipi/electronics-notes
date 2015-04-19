@@ -33,7 +33,7 @@ The PCB size is determined from the outline of the layer 20.
  - https://learn.sparkfun.com/tutorials/using-eagle-board-layout
  - https://github.com/civanovici/roduino/tree/master/eagle
  - http://michaelhleonard.com/how-to-design-the-perfect-pcb-part2/
- - https://www.youtube.com/watch?v=R4DYztYB6d4
+ - Getting Started with CadSoft EAGLE [video](https://www.youtube.com/watch?v=R4DYztYB6d4)
  - How To Easily Find PCB Tracks: [video](https://www.youtube.com/watch?v=oyedFq1VAjg)
  - http://www.robotroom.com/PCB-Layout-Tips.html
  - http://www.cadsoftusa.com/downloads/libraries
