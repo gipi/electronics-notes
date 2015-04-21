@@ -1,0 +1,6 @@
+site_name: electronics notes
+pages:
+- [000.md, Home]
+- [atmel.md, Atmel]
+- [Prototyping.md, Prototyping]
+theme: readthedocs
