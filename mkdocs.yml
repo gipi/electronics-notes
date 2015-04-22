@@ -3,4 +3,5 @@ pages:
 - [index.md, Home]
 - [atmel.md, Atmel]
 - [Prototyping.md, Prototyping]
+- [buspirate.md, Bus Pirate]
 theme: readthedocs
