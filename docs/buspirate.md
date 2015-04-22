@@ -110,6 +110,7 @@ error code meaning are [here](http://kernel.org/pub/linux/kernel/people/marcelo/
 
  - http://dangerousprototypes.com/docs/Practical_guide_to_Bus_Pirate_pull-up_resistors
  - http://nada-labs.net/2010/using-the-buspirate-with-a-sd-card/
+ - http://wiki.yobi.be/wiki/Bus_Pirate
  
 ## Logic Analyzer
  
@@ -117,6 +118,15 @@ error code meaning are [here](http://kernel.org/pub/linux/kernel/people/marcelo/
  - http://codeandlife.com/2012/05/05/logic-analysis-with-bus-pirate/
  - https://github.com/syntelos/jlac
  - http://www.lxtreme.nl/ols/
+
+| channel | input | color |
+|---------|-------|-------|
+| 0 | CS | white|
+| 1 | MISO | black |
+| 2 | CLK  | violet |
+| 3     | MOSI | grey |
+| 4     | AUX  | blue |
+|  |GND  | brown |
 
 ## Oscilloscope
 
