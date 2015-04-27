@@ -58,6 +58,7 @@ SOLDERING
  - [Adafruit](http://learn.adafruit.com/adafruit-guide-excellent-soldering/) guide to soldering
  - https://learn.sparkfun.com/tutorials/how-to-solder---through-hole-soldering/advanced-techniques-and-troubleshooting con [video](https://www.youtube.com/watch?v=t9LOtOBOTb0)
  - [SMD](http://www.enetsystems.com/~lorenzo/smd/)
+ - Dead bug soldering [video](https://www.youtube.com/watch?v=q53uPn1mKc0)
 
 
 555
