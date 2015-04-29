@@ -24,9 +24,13 @@ Each subsystem of an AVR chip has its own clock that is possible to deactivate i
 
 ## I/O
 
-Three I/O memory address locations are allocated for each port, one each for the Data Register – PORTx, Data
-Direction Register – DDRx, and the Port Input Pins – PINx. The Port Input Pins I/O location is read only, while the
-Data Register and the Data Direction Register are read/write.
+Three I/O memory address locations are allocated for each port
+
+* the Data Register – PORTx
+* Data Direction Register – DDRx
+* Port Input Pins – PINx.
+
+The Port Input Pins I/O location is read only, while the Data Register and the Data Direction Register are read/write.
 
 The ports are bi-directional I/O ports with optional internal pull-ups
 
