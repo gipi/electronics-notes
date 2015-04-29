@@ -54,9 +54,10 @@ pull-up will be disabled during reset. If low power consumption during reset is 
 an external pull-up or pulldown. Connecting unused pins directly to VCC or GND is not recommended, since this
 may cause excessive currents if the pin is accidentally configured as an output.
 
-AVR&ATMEGA328P
---------------
+Links
+-----
 
+ - [AVR Beginners](http://www.avrbeginners.net/)
  - http://www.build-electronic-circuits.com/microcontroller-tutorial-part1/
  - [AVR selector](http://www.atmel.com/v2pfresults.aspx#(actives:!(),data:(area:'',category:'34864',pm:!(),view:list),sc:1))
  - [Write bootloader for AVR](http://www.engineersgarage.com/embedded/avr-microcontroller-projects/How-To-Write-a-Simple-Bootloader-For-AVR-In-C-language)
