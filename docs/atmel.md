@@ -1,4 +1,8 @@
-The advice is to read the datasheets that contain a lot of info and working examples.
+
+**AVR** is a modified Harvard 8-bit RISC single chip microcontroller.
+
+The advice is to read the datasheets that contain a lot of info and working examples, for example
+the [ATMEGA32U4](https://www.pjrc.com/teensy/atmega32u4.pdf) one.
 
 ## Memory
 
@@ -9,6 +13,8 @@ This kind of microcontrollers have three types of (linear) memory
  - EEPROM: contains the static data (not present in all the chips)
 
 ## Clocks
+
+Each subsystem of an AVR chip has its own clock that is possible to deactivate in order to reduce power consumption.
 
 ## Fuses
 
