@@ -2,7 +2,7 @@ site_name: electronics notes
 pages:
 - [index.md, Home]
 - [led.md, Leds]
-- [fivefivefive.md, 555]
+- [fivefivefive.md, The 555 chip]
 - [voltagereg.md, Voltage regulator]
 - [atmel.md, Atmel]
 - [Prototyping.md, Prototyping]
