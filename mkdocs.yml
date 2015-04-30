@@ -4,6 +4,7 @@ pages:
 - [led.md, Leds]
 - [fivefivefive.md, The 555 chip]
 - [voltagereg.md, Voltage regulator]
+- [diode.md, Diodes]
 - [transistor.md, Transistors]
 - [atmel.md, Atmel]
 - [Prototyping.md, Prototyping]
