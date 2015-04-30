@@ -13,7 +13,7 @@ BASIC
  - http://123d.circuits.io/
  - [How do I read a datasheet?](http://www.youtube.com/watch?v=DZIFlV6wAZA)
  - [H Bridge Motor Speed Controller Tutorial](https://www.youtube.com/watch?v=iYafyPZ15g8)
- - Led [1](http://www.resistorguide.com/resistor-for-led/) [2](https://learn.sparkfun.com/tutorials/light-emitting-diodes-leds)
+
 
 ## Voltage regulators
 
