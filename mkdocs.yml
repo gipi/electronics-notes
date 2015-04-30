@@ -3,6 +3,7 @@ pages:
 - [index.md, Home]
 - [led.md, Leds]
 - [555.md, 555]
+- [voltagereg.md, Voltage regulator]
 - [atmel.md, Atmel]
 - [Prototyping.md, Prototyping]
 - [Sensors.md, Sensors]

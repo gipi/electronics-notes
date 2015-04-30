@@ -15,11 +15,6 @@ BASIC
  - [H Bridge Motor Speed Controller Tutorial](https://www.youtube.com/watch?v=iYafyPZ15g8)
 
 
-## Voltage regulators
-
- - http://www.slideshare.net/niiraz/voltage-regulator-29002693
- - http://datasheet.octopart.com/L7805CV-STMicroelectronics-datasheet-7264666.pdf
-
 ## Resistors
 
  - [Resistor Sizes and Packages](http://www.resistorguide.com/resistor-sizes-and-packages/)
