@@ -2,6 +2,7 @@ site_name: electronics notes
 pages:
 - [index.md, Home]
 - [led.md, Leds]
+- [555.md, 555]
 - [atmel.md, Atmel]
 - [Prototyping.md, Prototyping]
 - [Sensors.md, Sensors]
