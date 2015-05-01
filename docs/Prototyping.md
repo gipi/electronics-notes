@@ -20,6 +20,14 @@ layer 21 and 22)
 
 The PCB size is determined from the outline of the layer 20.
 
+### Creating a new part
+
+Eagle requires three things to get an IC into the library:
+
+* Package (also known as a footprint)
+* Symbol (the schematic symbol)
+* Device (mapping them together)
+
 ### Links
 
  - http://www.learnemc.com/tutorials/PCB_Layout/PCB_Layout.html
@@ -41,3 +49,4 @@ The PCB size is determined from the outline of the layer 20.
  - [Guideline](http://support.seeedstudio.com/knowledgebase/articles/422482-fusion-pcb-order-submission-guidelines) to PCB submission for Seed Studio (DRU file).
  - http://diy.viktak.com/2013/02/tutorial-panelizing-pcbs-in-eagle.html
  - Add a Logo to Your PCB with eagle [video](https://www.youtube.com/watch?v=z1Ej3nJz43c)
+ - Creating a part on Eagle: [tutorial](https://learn.sparkfun.com/tutorials/designing-pcbs-smd-footprints) by Sparkfun
