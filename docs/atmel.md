@@ -59,6 +59,12 @@ may cause excessive currents if the pin is accidentally configured as an output.
  - http://nicecircuits.com/playing-with-analog-to-digital-converter-on-arduino-due/
  - [Tutorial](http://maxembedded.com/2011/06/the-adc-of-the-avr/) about the ``ADC``
 
+## USB
+
+Some chips have USB builtin
+
+ - [LUFA](http://www.fourwalledcubicle.com/LUFA.php): open-source complete USB stack for the USB-enabled Atmel AVR8 and (some of the) AVR32 microcontroller series,
+
 ## Reset pin
 
 It's possible to reset the chip presenting a low level on the ``RESET`` pin for longer than the minimum pulse length.
