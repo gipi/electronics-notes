@@ -35,6 +35,7 @@ then check the box **Airwires hidden**.
 ### Links
 
  - [Tutorial](https://learn.sparkfun.com/tutorials/designing-pcbs-advanced-smd) by Sparkfun with a lot of info about manually routing
+ - [Guide](http://www.alternatezone.com/electronics/files/PCBDesignTutorialRevA.pdf) PCB Design Tutorial
  - http://www.learnemc.com/tutorials/PCB_Layout/PCB_Layout.html
  - http://www.gerber-viewer.com/
  - http://fritzing.org
