@@ -1,4 +1,3 @@
-[ATMEL](#file-atmel-md) | [PCB](#file-pcb-md) | [Sensors](#file-sensors-md)
 
 http://www.slideshare.net/balgan/hardware-hacking-101
  - Site with pinout, tools etc: http://www.pighixxx.com/
