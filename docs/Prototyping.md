@@ -28,6 +28,11 @@ Eagle requires three things to get an IC into the library:
 * Symbol (the schematic symbol)
 * Device (mapping them together)
 
+### Tracing
+
+You can use a trick to hide the ``GND`` wires: select with the ``info`` tool the wire and
+then check the box **Airwires hidden**.
+
 ### Links
 
  - http://www.learnemc.com/tutorials/PCB_Layout/PCB_Layout.html
