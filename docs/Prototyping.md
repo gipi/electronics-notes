@@ -7,7 +7,6 @@
  - [Prototyping Circuits with stripboards](http://www.societyofrobots.com/member_tutorials/node/90)
 
 ## PCB
----
 
 A good rule-of-thumb for a two-layer board is to route only horizontally on one layer and only vertically on the other
 
