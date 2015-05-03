@@ -60,6 +60,7 @@ Links
  - [AVR Beginners](http://www.avrbeginners.net/)
  - http://www.build-electronic-circuits.com/microcontroller-tutorial-part1/
  - [AVR selector](http://www.atmel.com/v2pfresults.aspx#(actives:!(),data:(area:'',category:'34864',pm:!(),view:list),sc:1))
+ - [Tutorial](http://maxembedded.com/2011/06/the-adc-of-the-avr/) about the ``ADC``
  - [Write bootloader for AVR](http://www.engineersgarage.com/embedded/avr-microcontroller-projects/How-To-Write-a-Simple-Bootloader-For-AVR-In-C-language)
  - http://blog.schicks.net/wp-content/uploads/2009/09/bootloader_faq.pdf
  - http://www.fischl.de/avrusbboot/
