@@ -54,6 +54,14 @@ pull-up will be disabled during reset. If low power consumption during reset is 
 an external pull-up or pulldown. Connecting unused pins directly to VCC or GND is not recommended, since this
 may cause excessive currents if the pin is accidentally configured as an output.
 
+## Reset pin
+
+It's possible to reset the chip presenting a low level on the ``RESET`` pin for longer than the minimum pulse length.
+So, in order to not have a continuous reset, you need to pull up the ``RESET`` pin; generally if in your circuit you need
+to reset the chip, a temporary switch is used
+
+![temporary switch reset](Images/reset-schematics.png)
+
 Links
 -----
 
