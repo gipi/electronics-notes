@@ -1,11 +1,11 @@
 
-http://www.slideshare.net/balgan/hardware-hacking-101
- - Site with pinout, tools etc: http://www.pighixxx.com/
 
 BASIC
 -----
 
+ - Site with pinout, tools etc: http://www.pighixxx.com/
  - [Capacitor decoupling](http://www.vagrearg.org/content/decoupling): The act of (partially) separating the logic chip's power supply from the main power supply. In this [video](https://www.youtube.com/watch?v=jz1IHapsrdk) more explanation
+ - http://www.slideshare.net/balgan/hardware-hacking-101
  - https://circuithub.com/
  - http://blog.thelifeofkenneth.com/2013/02/diy-usb-power-strip.html
  - http://www.ladyada.net/make/mintyboost/process.html
