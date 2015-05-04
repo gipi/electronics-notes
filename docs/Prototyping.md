@@ -32,6 +32,12 @@ Eagle requires three things to get an IC into the library:
 You can use a trick to hide the ``GND`` wires: select with the ``info`` tool the wire and
 then check the box **Airwires hidden**.
 
+Some chips have ``GND`` and ``VCC`` pins distribuited randomly along the sides and can be difficultous to be
+able to route all of them, so it's possible to route to the ``GND`` using [vias connected directly to the a ``GND``](http://cmosedu.com/jbaker/students/kendrick/ViasGND/ViasGND.htm)
+plane; below an image showing an example with an ``ATMEGA32U4`` chip
+
+![example of routing using via](Images/route-ground-by-via.png)
+
 ### Links
 
  - [Tutorial](https://learn.sparkfun.com/tutorials/designing-pcbs-advanced-smd) by Sparkfun with a lot of info about manually routing
