@@ -54,6 +54,7 @@ plane; below an image showing an example with an ``ATMEGA32U4`` chip
 
  - [Tutorial](https://learn.sparkfun.com/tutorials/designing-pcbs-advanced-smd) by Sparkfun with a lot of info about manually routing
  - [Guide](http://www.alternatezone.com/electronics/files/PCBDesignTutorialRevA.pdf) PCB Design Tutorial
+ - [Video](https://www.youtube.com/watch?v=NJKZZArjdg8) SparkFun According to Pete #34: PCB Layout
  - http://www.learnemc.com/tutorials/PCB_Layout/PCB_Layout.html
  - http://www.gerber-viewer.com/
  - http://fritzing.org
