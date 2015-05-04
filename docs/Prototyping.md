@@ -10,6 +10,12 @@
 
 A good rule-of-thumb for a two-layer board is to route only horizontally on one layer and only vertically on the other
 
+### Units of measure
+
+In electronics are used commonly the imperial units, the normal spacing distance is usually 0.1 inch (i.e. 2.54mm);
+a [thousandth of an inch](http://en.wikipedia.org/wiki/Thousandth_of_an_inch) is named as **mil**, and is used all over
+the place.
+
 ### Text
 
 The text goes on the silkscreen, represented by the two layers ``tPlace`` and ``bPlace`` (respectively
@@ -39,6 +45,7 @@ plane; below an image showing an example with an ``ATMEGA32U4`` chip
 ![example of routing using via](Images/route-ground-by-via.png)
 
 ### Links
+
 
  - [Tutorial](https://learn.sparkfun.com/tutorials/designing-pcbs-advanced-smd) by Sparkfun with a lot of info about manually routing
  - [Guide](http://www.alternatezone.com/electronics/files/PCBDesignTutorialRevA.pdf) PCB Design Tutorial
