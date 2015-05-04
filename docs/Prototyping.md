@@ -33,6 +33,11 @@ Eagle requires three things to get an IC into the library:
 * Symbol (the schematic symbol)
 * Device (mapping them together)
 
+It's possible to indicate in the symbol section what use have the various pins, simply open the info
+window for the pin and then select the correct indication in the ``direction`` section
+
+![direction for pin](Images/pin-menu.png)
+
 ### Tracing
 
 You can use a trick to hide the ``GND`` wires: select with the ``info`` tool the wire and
