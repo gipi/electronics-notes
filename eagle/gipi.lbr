@@ -6,7 +6,7 @@
       <setting alwaysvectorfont="no"/>
       <setting verticaltext="up"/>
     </settings>
-    <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+    <grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.025" altunitdist="inch" altunit="inch"/>
     <layers>
       <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
       <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -65,26 +65,26 @@ http://cache.freescale.com/files/sensors/doc/data_sheet/MMA3202KEG.pdf</descript
           <wire x1="3.525" y1="6.5" x2="3.525" y2="-6.5" width="0.127" layer="21"/>
           <wire x1="3.525" y1="-6.5" x2="-3.525" y2="-6.5" width="0.127" layer="21"/>
           <wire x1="-3.525" y1="-6.5" x2="-3.525" y2="6.5" width="0.127" layer="21"/>
-          <smd name="P$1" x="-4.445" y="-0.635" dx="2.03" dy="0.61" layer="1"/>
-          <smd name="P$2" x="-4.445" y="0.635" dx="2.03" dy="0.61" layer="1"/>
+          <smd name="P$1" x="-4.445" y="5.715" dx="2.03" dy="0.61" layer="1"/>
+          <smd name="P$2" x="-4.445" y="4.445" dx="2.03" dy="0.61" layer="1"/>
           <smd name="P$3" x="-4.445" y="1.905" dx="2.03" dy="0.61" layer="1"/>
           <smd name="P$4" x="-4.445" y="3.175" dx="2.03" dy="0.61" layer="1"/>
-          <smd name="P$5" x="-4.445" y="4.445" dx="2.03" dy="0.61" layer="1"/>
-          <smd name="P$6" x="-4.445" y="5.715" dx="2.03" dy="0.61" layer="1"/>
+          <smd name="P$5" x="-4.445" y="0.635" dx="2.03" dy="0.61" layer="1"/>
+          <smd name="P$100" x="-4.445" y="-0.635" dx="2.03" dy="0.61" layer="1"/>
           <smd name="P$7" x="-4.445" y="-1.905" dx="2.03" dy="0.61" layer="1"/>
           <smd name="P$8" x="-4.445" y="-3.175" dx="2.03" dy="0.61" layer="1"/>
           <smd name="P$9" x="-4.445" y="-4.445" dx="2.03" dy="0.61" layer="1"/>
           <smd name="P$10" x="-4.445" y="-5.715" dx="2.03" dy="0.61" layer="1"/>
-          <smd name="P$11" x="4.445" y="5.715" dx="2.03" dy="0.61" layer="1"/>
-          <smd name="P$12" x="4.445" y="4.445" dx="2.03" dy="0.61" layer="1"/>
-          <smd name="P$13" x="4.445" y="3.175" dx="2.03" dy="0.61" layer="1"/>
-          <smd name="P$14" x="4.445" y="1.905" dx="2.03" dy="0.61" layer="1"/>
-          <smd name="P$15" x="4.445" y="0.635" dx="2.03" dy="0.61" layer="1"/>
-          <smd name="P$16" x="4.445" y="-0.635" dx="2.03" dy="0.61" layer="1"/>
-          <smd name="P$17" x="4.445" y="-1.905" dx="2.03" dy="0.61" layer="1"/>
-          <smd name="P$18" x="4.445" y="-3.175" dx="2.03" dy="0.61" layer="1"/>
-          <smd name="P$19" x="4.445" y="-4.445" dx="2.03" dy="0.61" layer="1"/>
-          <smd name="P$20" x="4.445" y="-5.715" dx="2.03" dy="0.61" layer="1"/>
+          <smd name="P$11" x="4.445" y="-5.715" dx="2.03" dy="0.61" layer="1"/>
+          <smd name="P$12" x="4.445" y="-4.445" dx="2.03" dy="0.61" layer="1"/>
+          <smd name="P$13" x="4.445" y="-3.175" dx="2.03" dy="0.61" layer="1"/>
+          <smd name="P$14" x="4.445" y="-1.905" dx="2.03" dy="0.61" layer="1"/>
+          <smd name="P$15" x="4.445" y="-0.635" dx="2.03" dy="0.61" layer="1"/>
+          <smd name="P$16" x="4.445" y="0.635" dx="2.03" dy="0.61" layer="1"/>
+          <smd name="P$17" x="4.445" y="1.905" dx="2.03" dy="0.61" layer="1"/>
+          <smd name="P$18" x="4.445" y="3.175" dx="2.03" dy="0.61" layer="1"/>
+          <smd name="P$19" x="4.445" y="4.445" dx="2.03" dy="0.61" layer="1"/>
+          <smd name="P$20" x="4.445" y="5.715" dx="2.03" dy="0.61" layer="1"/>
           <circle x="-1.905" y="5.08" radius="0.635" width="0.127" layer="48"/>
           <text x="2.54" y="-5.08" size="0.6096" layer="27" font="vector" rot="R90">&gt;Value</text>
           <text x="-1.27" y="-5.08" size="1.27" layer="25" font="vector" rot="R90">&gt;Name</text>
@@ -97,25 +97,25 @@ http://cache.freescale.com/files/sensors/doc/data_sheet/MMA3202KEG.pdf</descript
           <wire x1="10.16" y1="-40.64" x2="-10.16" y2="-40.64" width="0.254" layer="94"/>
           <wire x1="-10.16" y1="-40.64" x2="-10.16" y2="10.16" width="0.254" layer="94"/>
           <pin name="ST" x="-15.24" y="7.62" length="middle"/>
-          <pin name="VCC" x="-15.24" y="2.54" length="middle"/>
-          <pin name="AVCC" x="-15.24" y="-2.54" length="middle"/>
-          <pin name="GND" x="-15.24" y="-7.62" length="middle"/>
+          <pin name="VCC" x="-15.24" y="2.54" length="middle" direction="pwr"/>
+          <pin name="AVCC" x="-15.24" y="-2.54" length="middle" direction="pwr"/>
+          <pin name="NC" x="15.24" y="-38.1" visible="pad" length="middle" direction="nc" rot="R180"/>
           <pin name="STATUS" x="15.24" y="7.62" length="middle" rot="R180"/>
-          <pin name="XOUT" x="15.24" y="2.54" length="middle" rot="R180"/>
-          <pin name="YOUT" x="15.24" y="-2.54" length="middle" rot="R180"/>
-          <pin name="GND7" x="15.24" y="-7.62" length="middle" rot="R180"/>
-          <pin name="GND1" x="-15.24" y="-12.7" length="middle"/>
-          <pin name="GND2" x="-15.24" y="-17.78" length="middle"/>
-          <pin name="GND3" x="-15.24" y="-22.86" length="middle"/>
-          <pin name="GND4" x="-15.24" y="-27.94" length="middle"/>
-          <pin name="GND11" x="15.24" y="-27.94" length="middle" rot="R180"/>
-          <pin name="GND10" x="15.24" y="-22.86" length="middle" rot="R180"/>
-          <pin name="GND9" x="15.24" y="-17.78" length="middle" rot="R180"/>
-          <pin name="GND8" x="15.24" y="-12.7" length="middle" rot="R180"/>
-          <pin name="GND5" x="-15.24" y="-33.02" length="middle"/>
-          <pin name="GND6" x="-15.24" y="-38.1" length="middle"/>
-          <pin name="GND12" x="15.24" y="-33.02" length="middle" rot="R180"/>
-          <pin name="GND13" x="15.24" y="-38.1" length="middle" rot="R180"/>
+          <pin name="XOUT" x="15.24" y="2.54" length="middle" direction="out" rot="R180"/>
+          <pin name="YOUT" x="15.24" y="-2.54" length="middle" direction="out" rot="R180"/>
+          <pin name="GND7" x="15.24" y="-7.62" visible="pad" length="middle" direction="nc" rot="R180"/>
+          <pin name="VSS" x="-15.24" y="-12.7" length="middle"/>
+          <pin name="GND2" x="-15.24" y="-17.78" visible="pad" length="middle" direction="nc"/>
+          <pin name="GND3" x="-15.24" y="-22.86" visible="pad" length="middle" direction="nc"/>
+          <pin name="GND4" x="-15.24" y="-27.94" visible="pad" length="middle" direction="nc"/>
+          <pin name="GND11" x="15.24" y="-27.94" visible="pad" length="middle" direction="nc" rot="R180"/>
+          <pin name="GND10" x="15.24" y="-22.86" visible="pad" length="middle" direction="nc" rot="R180"/>
+          <pin name="GND9" x="15.24" y="-17.78" visible="pad" length="middle" direction="nc" rot="R180"/>
+          <pin name="GND8" x="15.24" y="-12.7" visible="pad" length="middle" direction="nc" rot="R180"/>
+          <pin name="GND5" x="-15.24" y="-33.02" visible="pad" length="middle"/>
+          <pin name="GND6" x="-15.24" y="-38.1" visible="pad" length="middle"/>
+          <pin name="GND12" x="15.24" y="-33.02" visible="pad" length="middle" direction="nc" rot="R180"/>
+          <pin name="GND" x="-15.24" y="-7.62" length="middle" direction="pwr"/>
         </symbol>
       </symbols>
       <devicesets>
@@ -127,12 +127,10 @@ http://cache.freescale.com/files/sensors/doc/data_sheet/MMA3202KEG.pdf</descript
             <device name="" package="SOIC20">
               <connects>
                 <connect gate="G$1" pin="AVCC" pad="P$10"/>
-                <connect gate="G$1" pin="GND" pad="P$8"/>
-                <connect gate="G$1" pin="GND1" pad="P$1"/>
+                <connect gate="G$1" pin="GND" pad="P$20"/>
                 <connect gate="G$1" pin="GND10" pad="P$17"/>
                 <connect gate="G$1" pin="GND11" pad="P$18"/>
                 <connect gate="G$1" pin="GND12" pad="P$19"/>
-                <connect gate="G$1" pin="GND13" pad="P$20"/>
                 <connect gate="G$1" pin="GND2" pad="P$2"/>
                 <connect gate="G$1" pin="GND3" pad="P$3"/>
                 <connect gate="G$1" pin="GND4" pad="P$4"/>
@@ -141,10 +139,12 @@ http://cache.freescale.com/files/sensors/doc/data_sheet/MMA3202KEG.pdf</descript
                 <connect gate="G$1" pin="GND7" pad="P$14"/>
                 <connect gate="G$1" pin="GND8" pad="P$15"/>
                 <connect gate="G$1" pin="GND9" pad="P$16"/>
+                <connect gate="G$1" pin="NC" pad="P$1"/>
                 <connect gate="G$1" pin="ST" pad="P$5"/>
                 <connect gate="G$1" pin="STATUS" pad="P$7"/>
                 <connect gate="G$1" pin="VCC" pad="P$9"/>
-                <connect gate="G$1" pin="XOUT" pad="P$6"/>
+                <connect gate="G$1" pin="VSS" pad="P$8"/>
+                <connect gate="G$1" pin="XOUT" pad="P$100"/>
                 <connect gate="G$1" pin="YOUT" pad="P$11"/>
               </connects>
               <technologies>
