@@ -6,6 +6,8 @@ An important value to look at in the datasheet is the **drop voltage** that indi
 what is the minimum difference between the Vin voltage and the Vout in order to maintain
 a stable voltage.
 
+![voltage regulator schematic](Images/voltage-regulator-scheme.png)
+
  - [Video](https://www.youtube.com/watch?v=GSzVs7_aW-Y) about voltage regulators
  - [Tutorial sparkfun](https://www.sparkfun.com/tutorials/103)
  - http://www.slideshare.net/niiraz/voltage-regulator-29002693
