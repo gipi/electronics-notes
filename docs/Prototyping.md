@@ -38,6 +38,15 @@ window for the pin and then select the correct indication in the ``direction`` s
 
 ![direction for pin](Images/pin-menu.png)
 
+### Placing elements
+
+Once an element is added to the schematics it's placed also on the board window and it's possible
+to move around.
+
+Probably the label and value of the element will be placed in a position that is not correct, to correct
+that is possible to use the ``smash`` action from the contextual menu: this will de-connect the label and the
+value that can be moved and edited separately.
+
 ### Tracing
 
 You can use a trick to hide the ``GND`` wires: select with the ``info`` tool the wire and
