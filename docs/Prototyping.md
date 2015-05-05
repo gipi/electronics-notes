@@ -16,6 +16,13 @@ In electronics are used commonly the imperial units, the normal spacing distance
 a [thousandth of an inch](http://en.wikipedia.org/wiki/Thousandth_of_an_inch) is named as **mil**, and is used all over
 the place.
 
+### Grid
+
+It's possible to configure a grid to use to snap elements to, it's also possible to move part in a finer way
+holding down the ``Alt`` button (this make the part snap to the alternative grid)
+
+![grid configuration](Images/grid.png)
+
 ### Text
 
 The text goes on the silkscreen, represented by the two layers ``tPlace`` and ``bPlace`` (respectively
