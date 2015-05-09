@@ -121,12 +121,12 @@ error code meaning are [here](http://kernel.org/pub/linux/kernel/people/marcelo/
 
 | channel | input | color |
 |---------|-------|-------|
-| 0 | CS | white|
-| 1 | MISO | black |
-| 2 | CLK  | violet |
-| 3     | MOSI | grey |
-| 4     | AUX  | blue |
-|  |GND  | brown |
+| 0 | CS | red|
+| 1 | MISO | brown |
+| 2 | CLK  | yellow |
+| 3     | MOSI | orange |
+| 4     | AUX  | green |
+|  |GND  | black |
 
 ## Oscilloscope
 
