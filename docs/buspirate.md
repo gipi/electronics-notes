@@ -12,8 +12,13 @@ included with the PySerial (``# pip install pyserial``)
 
 Follow the [cable pinout](http://dangerousprototypes.com/docs/Common_Bus_Pirate_cable_pinouts)
 
+In order to connect to the an UART port
+
 ```
-    UART>i
+$ python -m serial.tools.miniterm /dev/ttyUSB0 --baud=115200 --lf
+--- Miniterm on /dev/ttyUSB0: 115200,8,N,1 ---
+--- Quit: Ctrl+]  |  Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+    Hiz>i
     Bus Pirate v3a
     Firmware v5.10 (r559)  Bootloader v4.4
     DEVID:0x0447 REVID:0x3046 (24FJ64GA002 B8)
@@ -32,36 +37,13 @@ Follow the [cable pinout](http://dangerousprototypes.com/docs/Common_Bus_Pirate_
     *----------*
 ```
 
-In order to connect to the an UART port
+## Pinouts
 
-```
-$ python -m serial.tools.miniterm /dev/ttyUSB0 --baud=115200 --lf
---- Miniterm on /dev/ttyUSB0: 115200,8,N,1 ---
---- Quit: Ctrl+]  |  Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+Exist different versions of cable colors, in this text we use the [seeedstudio](http://www.seeedstudio.com/depot/Bus-Pirate-Cable-p-932.html) one
 
-HiZ>m
-1. HiZ
-2. 1-WIRE
-3. UART
-4. I2C
-5. SPI
-6. 2WIRE
-7. 3WIRE
-8. LCD
-9. DIO
-x. exit(without change)
-
-(1)>3
-```
+![PIN SCHEME](http://dangerousprototypes.com/docs/images/1/1b/Bp-pin-cable-color.png)
 
 
-
-## Links
-
- - http://dangerousprototypes.com/docs/Practical_guide_to_Bus_Pirate_pull-up_resistors
- - http://nada-labs.net/2010/using-the-buspirate-with-a-sd-card/
- - http://wiki.yobi.be/wiki/Bus_Pirate
- 
 ## Logic Analyzer
  
  - http://www.hobbytronics.co.uk/bus-pirate-logic-sniffer
@@ -81,3 +63,44 @@ x. exit(without change)
 ## Oscilloscope
 
  - https://github.com/tgvaughan/PirateScope
+
+## JTAG
+
+In order to use bus pirate with openocd you need to enable it
+
+```
+git clone git://git.code.sf.net/p/openocd/code
+cd code
+./bootstrap
+./configure --enable-maintainer-mode --disable-werror --enable-buspirate
+make
+sudo make install
+```
+
+Some informations can be found [here](http://dangerousprototypes.com/docs/Gonemad's_Bus_Pirate/OpenOCD_walk_through).
+
+The cable connection are documented [here](http://dangerousprototypes.com/docs/Bus_Pirate_JTAG_connections_for_OpenOCD)
+
+| BP | JTAG | color |
+|---------|-------|-------|
+| VPU  | VTRef(3v3) | blue |
+| GND  | GND | black |
+| MOSI | TDI | violet |
+| MISO | TDO | grey |
+| CLK  | TCK | yellow |
+| CS   | TMS  | red |
+| N/A  | TRST | |
+| N/A  | RTCK | |
+| AUX  | SRST | green |
+
+#### Links
+
+ - http://cybermashup.com/2014/05/01/jtag-debugging-made-easy-with-bus-pirate-and-openocd/
+
+## Links
+
+ - http://dangerousprototypes.com/docs/Practical_guide_to_Bus_Pirate_pull-up_resistors
+ - http://nada-labs.net/2010/using-the-buspirate-with-a-sd-card/
+ - http://wiki.yobi.be/wiki/Bus_Pirate
+ - https://code.google.com/p/the-bus-pirate/wiki/BusPirate102
+ 
