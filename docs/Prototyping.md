@@ -65,6 +65,16 @@ plane; below an image showing an example with an ``ATMEGA32U4`` chip
 
 ![example of routing using via](Images/route-ground-by-via.png)
 
+### Panelization
+
+The boards are not builded one at times, they are usually done in an unique sheet, the single
+board are separated lately;
+
+Exist some programs to merge gerber files together
+
+* [Gerbmerge](http://174.136.57.11/~ruggedci/gerbmerge/): A Gerber-file merging program,
+[here](http://www.instructables.com/id/Panelizing-PCBs-for-Seeed-Using-Eagle-Free-Light/?ALLSTEPS) a instructables that explains
+
 ### Links
 
 
