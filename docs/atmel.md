@@ -73,13 +73,24 @@ to reset the chip, a temporary switch is used
 
 ![temporary switch reset](Images/reset-schematics.png)
 
+## Programming
+
+You must put the code into the chip in order to do something and in this section will explained
+how this is possible.
+
+More info [here](http://www.avrfreaks.net/forum/tut-hard-avr-programming-methods?page=all)
+
+### In-system Programming
+
+It's possible to program the non-volatile memory directly on-board using the **in-system programming**[(reference)](http://www.atmel.com/images/doc0943.pdf):
+it's a 3-wire SPI interface.
+
 Links
 -----
 
  - [AVR Beginners](http://www.avrbeginners.net/)
  - http://www.build-electronic-circuits.com/microcontroller-tutorial-part1/
  - [AVR selector](http://www.atmel.com/v2pfresults.aspx)
- - In system Programming [reference](http://www.atmel.com/images/doc0943.pdf)
  - [Write bootloader for AVR](http://www.engineersgarage.com/embedded/avr-microcontroller-projects/How-To-Write-a-Simple-Bootloader-For-AVR-In-C-language)
  - http://blog.schicks.net/wp-content/uploads/2009/09/bootloader_faq.pdf
  - http://www.fischl.de/avrusbboot/
