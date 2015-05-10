@@ -72,18 +72,49 @@ to reset the chip, a temporary switch is used
 
 ![temporary switch reset](Images/reset-schematics.png)
 
+In parallel programming mode is possible to use 12V with this pin (it's the only one with which this is possible).
+
 ## Programming
 
 You must put the code into the chip in order to do something and in this section will explained
 how this is possible.
 
-More info [here](http://www.avrfreaks.net/forum/tut-hard-avr-programming-methods?page=all)
+More info [here](http://www.avrfreaks.net/forum/tut-hard-avr-programming-methods?page=all) and [here](http://en.wikibooks.org/wiki/Embedded_Systems/Atmel_AVR#Programming_Interfaces).
 
 ### In-system Programming
 
 It's possible to program the non-volatile memory directly on-board using the **in-system programming**[(reference)](http://www.atmel.com/images/doc0943.pdf):
 it's a 3-wire SPI interface.
 
+A client to use is ``avrdude``, capable of using several hardware interface in order to program
+the chip (in the example below is indicated with the ``-c`` option):
+
+```
+$ avrdude -c buspirate
+avrdude: No AVR part has been specified, use "-p Part"
+
+Valid parts are:
+  uc3a0512 = AT32UC3A0512
+  c128     = AT90CAN128
+  c32      = AT90CAN32
+  c64      = AT90CAN64
+  pwm2     = AT90PWM2
+  pwm2b    = AT90PWM2B
+  pwm3     = AT90PWM3
+...
+  m328     = ATmega328
+  m328p    = ATmega328P
+...
+  x64a4    = ATxmega64A4
+  x64a4u   = ATxmega64A4U
+  x64b1    = ATxmega64B1
+  x64b3    = ATxmega64B3
+  x64c3    = ATxmega64C3
+  x64d3    = ATxmega64D3
+  x64d4    = ATxmega64D4
+  x8e5     = ATxmega8E5
+  ucr2     = deprecated, use 'uc3a0512'
+```
 Links
 -----
 
@@ -132,128 +163,8 @@ Links
  - http://codeandlife.com/2012/01/22/avr-attiny-usb-tutorial-part-1/
  - [V-USB](http://www.obdev.at/products/vusb/index.html) simple library to implements USB devices with AVR chips
  - [USB PCB Business Card](http://www.instructables.com/id/USB-PCB-Business-Card/?ALLSTEPS)
-You can also program the core of Arduino directly by using the BusPirate and the ``avrdude`` program (package with the same name)
-
-```
-$ avrdude -c buspirate
-avrdude: No AVR part has been specified, use "-p Part"
-
-Valid parts are:
-  uc3a0512 = AT32UC3A0512
-  c128     = AT90CAN128
-  c32      = AT90CAN32
-  c64      = AT90CAN64
-  pwm2     = AT90PWM2
-  pwm2b    = AT90PWM2B
-  pwm3     = AT90PWM3
-...
-  m328     = ATmega328
-  m328p    = ATmega328P
-...
-  x64a4    = ATxmega64A4
-  x64a4u   = ATxmega64A4U
-  x64b1    = ATxmega64B1
-  x64b3    = ATxmega64B3
-  x64c3    = ATxmega64C3
-  x64d3    = ATxmega64D3
-  x64d4    = ATxmega64D4
-  x8e5     = ATxmega8E5
-  ucr2     = deprecated, use 'uc3a0512'
-$ avrdude -c arduino -p m328p -P /dev/ttyACM0 -v -b 19200
-```
-
-and after connect the proper I/O pins following the scheme (taken from here)[http://ilikepepper.wordpress.com/2011/09/15/buspirate-arduino/]
-
-| Bus Pirate | ATMEGA28P |
-|------------|-----------|
-| GND        | 8         |
-| VCC        | 7         |
-| CS         | 1         |
-| MOSI       | 17        |
-| MISO       | 18        |
-| CLK        | 19        |
 
 
-    $ avrdude -c buspirate -p m328p -v -P /dev/ttyUSB0
-    
-    avrdude: Version 5.10, compiled on Jun 27 2010 at 00:21:42
-    Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/.com/
-    Copyright (c) 2007-2009 Joerg Wunschunsch
-    
-    System wide configuration file is "/etc/avrdude.conf"conf"
-    User configuration file is "/home/gipi/.avrduderc"derc"
-    User configuration file does not exist or is not a regular file, skippingpping
-    
-    Using Port                    : /dev/ttyUSB0yUSB0
-    Using Programmer              : buspirateirate
-    AVR Part                      : ATMEGA328PA328P
-    Chip Erase delay              : 9000 us00 us
-    PAGEL                         : PD7: PD7
-    BS2                           : PC2: PC2
-    RESET disposition             : dedicatedcated
-    RETRY pulse                   : SCK: SCK
-    serial program mode           : yes: yes
-    parallel program mode         : yes: yes
-    Timeout                       : 200: 200
-    StabDelay                     : 100: 100
-    CmdexeDelay                   : 25 : 25
-    SyncLoops                     : 32 : 32
-    ByteDelay                     : 0  : 0
-    PollIndex                     : 3  : 3
-    PollValue                     : 0x53 0x53
-    Memory Detail                 :    :
-    
-    Block Poll               Page                       Pollede                       Polled
-    Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBackeadBack
-    ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ----------------
-    eeprom        65     5     4    0 no       1024    4      0  3600  3600 0xff 0xffff 0xff
-    flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xffff 0xff
-    lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x0000 0x00
-    hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x0000 0x00
-    efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x0000 0x00
-    lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x0000 0x00
-    calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x0000 0x00
-    signature      0     0     0    0 no          3    0      0     0     0 0x00 0x0000 0x00
-    
-    Programmer Type : BusPirateirate
-    Description     : The Bus Pirateirate
-    
-    Detecting BusPirate...
-    avrdude: buspirate_readline(): #
-    avrdude: buspirate_readline(): RESET
-    avrdude: buspirate_readline():
-    **
-    avrdude: buspirate_readline(): Bus Pirate v3a
-    **  Bus Pirate v3a
-    avrdude: buspirate_readline(): Firmware v5.10 (r559)  Bootloader v4.4
-    **  Firmware v5.10 (r559)  Bootloader v4.4
-    avrdude: buspirate_readline(): DEVID:0x0447 REVID:0x3046 (24FJ64GA002 B8)
-    **  DEVID:0x0447 REVID:0x3046 (24FJ64GA002 B8)
-    avrdude: buspirate_readline(): http://dangerousprototypes.com
-    **  http://dangerousprototypes.com
-    avrdude: buspirate_readline(): HiZ>
-    **
-    BusPirate: using BINARY mode
-    BusPirate binmode version: 1
-    BusPirate SPI version: 1
-    avrdude: AVR device initialized and ready to accept instructions0.02s
-    
-    Reading | ################################################## | 100% 0.02s
-    
-    avrdude: Device signature = 0x1e950f
-    avrdude: safemode: lfuse reads as 62
-    avrdude: safemode: hfuse reads as D9
-    avrdude: safemode: efuse reads as 7
-    
-    avrdude: safemode: lfuse reads as 62
-    avrdude: safemode: hfuse reads as D9
-    avrdude: safemode: efuse reads as 7
-    avrdude: safemode: Fuses OK
-    BusPirate is back in the text mode
-    
-    avrdude done.  Thank you.
-
-otherwise is possible to use a [FTDI cable](http://doswa.com/2010/08/24/avrdude-5-10-with-ftdi-bitbang.html) to program it con avrdude.
 ATTINY85
 --------
 
