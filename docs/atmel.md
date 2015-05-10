@@ -1,5 +1,5 @@
 
-**AVR** is a modified Harvard 8-bit RISC single chip microcontroller.
+**AVR** is a modified Harvard 8-bit RISC single chip microcontroller [(instruction set)](http://www.atmel.com/Images/doc0856.pdf).
 
 The advice is to read the datasheets that contain a lot of info and working examples, for example
 the [ATMEGA32U4](https://www.pjrc.com/teensy/atmega32u4.pdf) one.
@@ -103,7 +103,6 @@ Links
  - http://forums.trossenrobotics.com/tutorials/introduction-129/avr-basics-3261/
  - http://www.nongnu.org/avr-libc/
  - [SPI](http://maxembedded.com/2013/11/the-spi-of-the-avr/)
- - AVR [instruction set](http://www.atmel.com/Images/doc0856.pdf)
  - Some indication about [FUSE settings](http://coding.zencoffee.org/2011/08/aeroquad-251-code-upload-via-icsp.html): in particular
 
     What's notable is that the default fuse setup for an Arduino (here)
