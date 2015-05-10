@@ -184,12 +184,3 @@ PINOUTS
 
 ![Arduino to ATMega328 pinout](http://arduino.cc/en/uploads/Hacking/Atmega168PinMap2.png)
 ![PINOUT](http://circuits.datasheetdir.com/18/ATTINY25-pinout.jpg)
-
-![Basic ATMega328 wiring](http://www.gammon.com.au/images/Arduino/Minimal_Arduino1.jpg)
-
-![ATMega328 with FTDI](https://perhof.files.wordpress.com/2011/11/arduino_breadboard_ftdi_basic.jpg)
-
-ARDUINO
--------
-
- - [http://hlt.media.mit.edu/?p=1695](Programming an ATtiny w/ Arduino 1.0.1)
