@@ -12,6 +12,10 @@ This kind of microcontrollers have three types of (linear) memory
  - SRAM: contains the running data (registers, I/O, RAM)
  - EEPROM: contains the static data (not present in all the chips)
 
+The program flash memory space is divided in two sections, the **Boot Program** section and
+the **Application Program** section; each one has dedicated **lock** bits for write and read/write
+protection.
+
 ## Clocks
 
 Each subsystem of an AVR chip has its own clock that is possible to deactivate in order to reduce power consumption.
