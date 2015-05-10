@@ -22,6 +22,11 @@ Each subsystem of an AVR chip has its own clock that is possible to deactivate i
 
 ## Fuses
 
+The **fuses** are special memory spaces that can be modified only by a programmer and
+that decides certain configuration with which the chip will run.
+
+**Note:** some modification to these values can brick the chip, so use caution!
+
 ## Sleep modes
 
 ## Interrupts
