@@ -102,3 +102,4 @@ Exist some programs to merge gerber files together
  - http://diy.viktak.com/2013/02/tutorial-panelizing-pcbs-in-eagle.html
  - Add a Logo to Your PCB with eagle [video](https://www.youtube.com/watch?v=z1Ej3nJz43c)
  - Creating a part on Eagle: [tutorial](https://learn.sparkfun.com/tutorials/designing-pcbs-smd-footprints) by Sparkfun
+ - http://www.baconfatlabs.com/2011/11/oshw-eagle-symbols-for-schematic-and-silkscreen/
