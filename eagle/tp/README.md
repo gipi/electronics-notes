@@ -11,5 +11,4 @@ in the back side the header).
 
 ## TODO
 
- - Reset button
  - Decoupling capacitor
