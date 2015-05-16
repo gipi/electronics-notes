@@ -5,6 +5,10 @@ concept
 
 ![board image](board.png)
 
+It has a diode to protect programmer and power supply from each other current, has the
+pin naming displayed and the header spacing allows to use in a breadboard (mounting
+in the back side the header).
+
 ## TODO
 
  - Reset button
