@@ -12,3 +12,4 @@ in the back side the header).
 ## TODO
 
  - Decoupling capacitor
+ - power led indicator
