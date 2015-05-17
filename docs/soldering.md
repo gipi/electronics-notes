@@ -37,3 +37,6 @@ process reducing oxidation and, in some cases, reducing the surface tension of t
  - [SMD](http://www.enetsystems.com/~lorenzo/smd/)
  - Dead bug soldering [video](https://www.youtube.com/watch?v=q53uPn1mKc0)
  - Drag soldering [video](https://youtu.be/Ee3SsR97EKA)
+ - EEV Blog [video](https://youtu.be/b9FC9fAlfQE) about hand soldering SMD
+   component (1.27mm, 0.65mm and 0.5mm pitch)
+ - Soldering QFN reflow without hot air [video](https://www.youtube.com/watch?v=d-f-SBC0GrU): interesting tecnique that uses an opposite termal pad to melt solder
