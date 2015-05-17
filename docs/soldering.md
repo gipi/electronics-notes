@@ -1,5 +1,9 @@
 # Soldering
 
+Keep in mind that the ideal situation is that the soldering iron heats up the joint enough that the
+joint melts the solder - not the iron. So the iron is expected to be hotter than the melting point
+of the solder so that the entire joint comes up to the melting point of the solder quickly.
+
 ## Tips
 
 Exist
