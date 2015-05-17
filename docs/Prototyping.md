@@ -75,6 +75,13 @@ Exist some programs to merge gerber files together
 * [Gerbmerge](http://174.136.57.11/~ruggedci/gerbmerge/): A Gerber-file merging program,
 [here](http://www.instructables.com/id/Panelizing-PCBs-for-Seeed-Using-Eagle-Free-Light/?ALLSTEPS) a instructables that explains
 
+### BOM
+
+It's possible to generate the **Bill of material** tiping ``run bom.ulp`` in the
+console of eagle from the schematic view.
+
+ - http://www.cs.uml.edu/teams-academy/index.php/AT/Bom
+
 ### Links
 
 
