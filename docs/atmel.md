@@ -55,6 +55,10 @@ may cause excessive currents if the pin is accidentally configured as an output.
 
 ## ADC
 
+The ADC converts an analog input voltage to a 10-bit digital value through successive approximation. The minimum
+value represents GND and the maximum value represents the voltage on VCC, the voltage on the AREF pin
+or an internal 1.1V / 2.56V voltage reference.
+
  - http://nicecircuits.com/playing-with-analog-to-digital-converter-on-arduino-due/
  - [Tutorial](http://maxembedded.com/2011/06/the-adc-of-the-avr/) about the ``ADC``
 
@@ -115,6 +119,11 @@ Valid parts are:
   x8e5     = ATxmega8E5
   ucr2     = deprecated, use 'uc3a0512'
 ```
+
+```
+$ avrdude -c buspirate -p m328p -v -P /dev/ttyUSB0
+```
+
 ### Bootloader
 
 In some chips is possible to use a bootloader to update the firmware; the bootloader resides at a special
