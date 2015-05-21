@@ -115,6 +115,20 @@ Valid parts are:
   x8e5     = ATxmega8E5
   ucr2     = deprecated, use 'uc3a0512'
 ```
+### Bootloader
+
+In some chips is possible to use a bootloader to update the firmware; the bootloader resides at a special
+section of memory and using some serial protocol does its job.
+
+A particolar type is the **DFU bootloader**: the [documentation](http://www.atmel.com/Images/doc7618.pdf)
+describes it as
+
+    This USB bootloader allows to perform In-System Programming from an USB
+    host controller without removing the part from the system or without a
+    pre-programmed application, and without any external programming interface.
+
+It's possible to burn a firmware using the [dfu-programmer](https://dfu-programmer.github.io/).
+
 Links
 -----
 
