@@ -193,6 +193,8 @@ ATTINY85
 
  - [Datasheet](http://www.atmel.com/Images/Atmel-2586-AVR-8-bit-Microcontroller-ATtiny25-ATtiny45-ATtiny85_Datasheet.pdf)
 
+![PINOUT](http://circuits.datasheetdir.com/18/ATTINY25-pinout.jpg)
+
 |BusPirate    |ATtiny85  |
 |-------------|----------|
 |CS (white)   |RESET (1) |
@@ -202,8 +204,12 @@ ATTINY85
 |CLK (purple) |SCK (7)   |
 |+5V (orange) |Vcc (8)   |
 
-PINOUTS
--------
+## ATMega328p
+
+ - [Datasheet](http://www.atmel.com/images/doc8161.pdf)
 
 ![Arduino to ATMega328 pinout](http://arduino.cc/en/uploads/Hacking/Atmega168PinMap2.png)
-![PINOUT](http://circuits.datasheetdir.com/18/ATTINY25-pinout.jpg)
+
+## Arduino
+
+Pin 0 and 1 [are connected by 10k resistors to the serial hardware](http://forum.arduino.cc/index.php?topic=47654.0) so cannot be used.
