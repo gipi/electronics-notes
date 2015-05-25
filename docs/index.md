@@ -25,8 +25,18 @@ BASIC
  - http://wiki.openwrt.org/doc/hardware/port.serial
  - http://www.devttys0.com/2012/11/reverse-engineering-serial-ports/
 
-JTAG
-----
+## JTAG
+
+
+It's a protocol used to _debug hardware_ and uses the following pins that constitute the **TAP**,
+the Test Access Port:
+
+ - **TMS:** Test Mode Select. This pin is used to cycle through the TAP-state machine.
+ - **TCK:** Test Clock.
+ - **TDI:** Test Data In. Serial input data to be shifted in to the Instruction Register or Data Register.
+ - **TDO:** Test Data Out.  Serial output data from Instruction Register or Data Register.
+
+Usually on reference is indicated also the **VTRef** pin that indicates what is the voltage reference
 
  - https://hackingbtbusinesshub.wordpress.com/2012/01/26/discovering-jtag-pinouts/
  - http://sun.hasenbraten.de/~frank/docs/mpc824x_JTAG.html
