@@ -11,4 +11,5 @@ pages:
 - [Prototyping.md, Prototyping]
 - [Sensors.md, Sensors]
 - [buspirate.md, Bus Pirate]
+- [cookbook.md], Cookbook]
 theme: readthedocs
