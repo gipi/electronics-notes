@@ -83,7 +83,8 @@ In parallel programming mode is possible to use 12V with this pin (it's the only
 You must put the code into the chip in order to do something and in this section will explained
 how this is possible.
 
-More info [here](http://www.avrfreaks.net/forum/tut-hard-avr-programming-methods?page=all) and [here](http://en.wikibooks.org/wiki/Embedded_Systems/Atmel_AVR#Programming_Interfaces).
+More info [here](http://www.avrfreaks.net/forum/tut-hard-avr-programming-methods?page=all) and [here](http://en.wikibooks.org/wiki/Embedded_Systems/Atmel_AVR#Programming_Interfaces)
+and [here](http://www.avrfreaks.net/forum/tutsoft-recovering-locked-out-avr).
 
 ### In-system Programming
 
@@ -123,6 +124,12 @@ Valid parts are:
 ```
 $ avrdude -c buspirate -p m328p -v -P /dev/ttyUSB0
 ```
+
+### High Voltage Serial Programming
+
+AKA ``HVSP``
+
+ - http://www.simpleavr.com/avr/hvsp-fuse-resetter
 
 ### Bootloader
 
