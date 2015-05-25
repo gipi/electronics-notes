@@ -28,6 +28,19 @@ holding down the ``Alt`` button (this make the part snap to the alternative grid
 The text goes on the silkscreen, represented by the two layers ``tPlace`` and ``bPlace`` (respectively
 layer 21 and 22)
 
+### Images
+
+It's possible to import a ``BMP`` image file running ``run import-bmp.ulp`` from the console;
+the image should have only two colors (probably you are converting from a different format, so
+be aware of alpha channel, number of colors, etc...).
+
+Import it using the dialog into the correct layer.
+
+![import bmp dialog](Images/import-bmp-dialog.png)
+
+My advice is to create a new fake device with the image imported as package: in this way you can
+move and do actions on it more easily.
+
 ### Dimensions
 
 The PCB size is determined from the outline of the layer 20.
