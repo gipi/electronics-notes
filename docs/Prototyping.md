@@ -101,6 +101,8 @@ In order to export the files necessary to manifacture a PCB you need the ``CAM``
 the manifacturer, load it from the ``File`` menu and then click ``Process job``; when the
 processi has finished than you will found the created files in the folder.
 
+![cam dialog](Images/cam.png)
+
 ### Links
 
 
