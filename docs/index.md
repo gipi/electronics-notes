@@ -3,6 +3,7 @@
 BASIC
 -----
 
+ - http://www.allaboutcircuits.com/
  - Site with pinout, tools etc: http://www.pighixxx.com/
  - [Capacitor decoupling](http://www.vagrearg.org/content/decoupling): The act of (partially) separating the logic chip's power supply from the main power supply. In this [video](https://www.youtube.com/watch?v=jz1IHapsrdk) more explanation
  - http://www.slideshare.net/balgan/hardware-hacking-101
@@ -42,8 +43,6 @@ LCD
 
  - http://jormungand.net/projects/devices/avrlcd/
 
-
-
 VARIOUS
 -------
  - http://provideyourown.com/2011/analogwrite-convert-pwm-to-voltage/
@@ -51,6 +50,7 @@ VARIOUS
  - http://bildr.org/2012/03/rfp30n06le-arduino/
  - http://www.instructables.com/id/Attiny254585-PWM-generator-and-Servo-tester/
  - [Hardware Random Number Generator](http://iank.org/trng.html)
+ - [Copy Protection in Modern Microcontrollers](http://www.cl.cam.ac.uk/~sps32/mcu_lock.html)
 
 STORE&BLOGS
 -----------
