@@ -9,6 +9,7 @@ pages:
 - [transistor.md, Transistors]
 - [atmel.md, Atmel]
 - [Prototyping.md, Prototyping]
+- [protocols.md, Protocols]
 - [Sensors.md, Sensors]
 - [buspirate.md, Bus Pirate]
 - [cookbook.md, Cookbook]
