@@ -52,13 +52,6 @@ VARIOUS
  - http://www.instructables.com/id/Attiny254585-PWM-generator-and-Servo-tester/
  - [Hardware Random Number Generator](http://iank.org/trng.html)
 
-
-BUS PIRATE
-----------
-
- - [AVR programming](http://dangerousprototypes.com/docs/Bus_Pirate_AVR_Programming)
- - http://dangerousprototypes.com/docs/Bus_Pirate_I/O_Pin_Descriptions
-
 STORE&BLOGS
 -----------
 

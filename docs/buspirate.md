@@ -97,6 +97,10 @@ The cable connection are documented [here](http://dangerousprototypes.com/docs/B
 
  - http://cybermashup.com/2014/05/01/jtag-debugging-made-easy-with-bus-pirate-and-openocd/
 
+## AVR Programming
+
+ - [AVR programming](http://dangerousprototypes.com/docs/Bus_Pirate_AVR_Programming)
+
 ## Links
 
  - http://dangerousprototypes.com/docs/Practical_guide_to_Bus_Pirate_pull-up_resistors
