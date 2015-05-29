@@ -105,6 +105,8 @@ The cable connection are documented [here](http://dangerousprototypes.com/docs/B
 
  - http://dangerousprototypes.com/docs/Practical_guide_to_Bus_Pirate_pull-up_resistors
  - http://nada-labs.net/2010/using-the-buspirate-with-a-sd-card/
+ - Reading from SDHC card using the Bus Pirate [post](https://hackaday.io/project/3686/instructions) by hackaday
  - http://wiki.yobi.be/wiki/Bus_Pirate
  - https://code.google.com/p/the-bus-pirate/wiki/BusPirate102
+ - AVR Bus-Pirate-a-like [github](https://github.com/tobyjaffey/bus-ninja)
  
