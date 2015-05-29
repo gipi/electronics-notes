@@ -27,6 +27,21 @@ that decides certain configuration with which the chip will run.
 
 **Note:** some modification to these values can brick the chip, so use caution!
 
+ - Some indication about [FUSE settings](http://coding.zencoffee.org/2011/08/aeroquad-251-code-upload-via-icsp.html): in particular
+
+    What's notable is that the default fuse setup for an Arduino (here)
+    will set the high fuse to 0xD6.  This sets up the Arduino so on boot
+    it will boot the bootloader.  In other words, code execution will not
+    begin at address 0x0000.  This won't work if you have no bootloader.
+    The fuses need to be changed so that the BOOTRST flag is unprogrammed.
+    In AVR-speak, this means it's set to a value of 1 (0 means "programmed).
+    So, this means that the high fuse needs to be set to 0xD7.  No other
+    fuses need to be changed.
+
+### Links
+
+ - [Fuse calculator](http://www.frank-zhao.com/fusecalc/fusecalc.php?chip=atmega328p)
+
 ## Sleep modes
 
 ## Interrupts
@@ -162,19 +177,6 @@ Links
  - ATMega328 [datasheet](http://www.atmel.com/Images/doc8161.pdf)
  - http://forums.trossenrobotics.com/tutorials/introduction-129/avr-basics-3261/
  - http://www.nongnu.org/avr-libc/
- - [SPI](http://maxembedded.com/2013/11/the-spi-of-the-avr/)
- - Some indication about [FUSE settings](http://coding.zencoffee.org/2011/08/aeroquad-251-code-upload-via-icsp.html): in particular
-
-    What's notable is that the default fuse setup for an Arduino (here)
-    will set the high fuse to 0xD6.  This sets up the Arduino so on boot
-    it will boot the bootloader.  In other words, code execution will not
-    begin at address 0x0000.  This won't work if you have no bootloader.
-    The fuses need to be changed so that the BOOTRST flag is unprogrammed.
-    In AVR-speak, this means it's set to a value of 1 (0 means "programmed).
-    So, this means that the high fuse needs to be set to 0xD7.  No other
-    fuses need to be changed.
-
- - [Fuse calculator](http://www.frank-zhao.com/fusecalc/fusecalc.php?chip=atmega328p)
  - [RIFF-WAVE format files in LPCM player using attiny85](http://elm-chan.org/works/sd8p/report.html)
  - [Using Arduino as ISP programmer](http://hlt.media.mit.edu/?p=1706) (also from [arduino](http://arduino.cc/en/Tutorial/ArduinoISP) site)
  - AVR [fuse](http://www.ladyada.net/learn/avr/fuses.html) by ladyada
