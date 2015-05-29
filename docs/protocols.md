@@ -8,6 +8,28 @@ connect devices and devices connected need ways to communicate.
  - http://wiki.openwrt.org/doc/hardware/port.serial
  - http://www.devttys0.com/2012/11/reverse-engineering-serial-ports/
 
+## SPI
+
+It's a protocol with a clock line and a differentiation between devices that can be
+**master** (that provides clock) or **slave**. Although may there be only one master
+there is a signal (**SS**) that indicates which one of the (possible) multiple slaves
+must respond.
+
+It has the disadvantage that the communication must be well defined in advance since the
+master must know how many clock cycle need to listen from the slaves.
+
+### SD Card
+
+For example an SD Card use this protocol (see a link in the Bus Pirate page) how you can
+read [here](http://elm-chan.org/docs/mmc/mmc_e.html) and [here](http://www.dejazzer.com/ee379/lecture_notes/lec12_sd_card.pdf).
+
+The pin ``CD`` stand for **card detection**: when is low the card is inserted into its socket.
+
+### Links
+
+ - https://learn.sparkfun.com/tutorials/serial-peripheral-interface-spi
+ - [Reference](https://www.sdcard.org/downloads/pls/part1_410.pdf) for SD card protocol
+
 ## JTAG
 
 
