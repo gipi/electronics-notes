@@ -25,6 +25,8 @@ HACK
 ----
 
  - https://sites.google.com/site/seagatefix/
+ - https://trmm.net/SPI
+ - https://trmm.net/Thunderstrike_31c3
 
 SHIFT REGISTER
 --------------
