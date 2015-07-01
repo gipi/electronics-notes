@@ -4,6 +4,9 @@
 The advice is to read the datasheets that contain a lot of info and working examples, for example
 the [ATMEGA32U4](https://www.pjrc.com/teensy/atmega32u4.pdf) one.
 
+Some weird naming is going on, for example, ``ATMega32u4-AU`` means use external clock, instead
+``ATMega32u4-RC`` uses internal clock.
+
 ## Memory
 
 This kind of microcontrollers have three types of (linear) memory
