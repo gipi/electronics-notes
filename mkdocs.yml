@@ -8,6 +8,7 @@ pages:
 - [diode.md, Diodes]
 - [transistor.md, Transistors]
 - [atmel.md, Atmel]
+- [oscillator.md, Oscillators]
 - [Prototyping.md, Prototyping]
 - [protocols.md, Protocols]
 - [Sensors.md, Sensors]
