@@ -15,3 +15,4 @@ the crystal.
 
  - Crystal Oscillator Basics and Crystal Selection for rfPICTM and PICmicro® Devices ([PDF](http://ww1.microchip.com/downloads/en/appnotes/00826a.pdf))
  - Crystal Oscillator Circuit Design ([PDF](http://www.eetkorea.com/ARTICLES/2001SEP/2001SEP06_AMD_AN.PDF))
+ - Sparkfun [tutorial](https://www.sparkfun.com/tutorials/95)
