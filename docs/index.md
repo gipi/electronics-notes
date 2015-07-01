@@ -27,6 +27,7 @@ HACK
  - https://sites.google.com/site/seagatefix/
  - https://trmm.net/SPI
  - https://trmm.net/Thunderstrike_31c3
+ - [The Layman's Guide to IC Reverse Engineering](http://siliconzoo.org/tutorial.html)
 
 SHIFT REGISTER
 --------------
