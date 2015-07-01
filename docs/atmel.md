@@ -80,6 +80,18 @@ or an internal 1.1V / 2.56V voltage reference.
  - http://nicecircuits.com/playing-with-analog-to-digital-converter-on-arduino-due/
  - [Tutorial](http://maxembedded.com/2011/06/the-adc-of-the-avr/) about the ``ADC``
 
+## USI/SPI
+
+This is the way to do serial communication with an atmel chip, it allows to
+create three and two wire communication (SPI is a three wire with a slave select
+channel implemented via software).
+
+In the Attiny family there is the USI way, in the ATmega there is a SPI implementation.
+
+ - Using the USI module for SPI communication [PDF](http://www.atmel.com/images/doc2582.pdf)
+ - [SPI](http://maxembedded.com/2013/11/the-spi-of-the-avr/)
+ - Half duplex UART using the USI module [PDF](http://www.atmel.com/Images/doc4300.pdf)
+
 ## USB
 
 Some chips have USB builtin
