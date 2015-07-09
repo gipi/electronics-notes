@@ -99,6 +99,8 @@ In the Attiny family there is the USI way, in the ATmega there is a SPI implemen
 
 Some chips have USB builtin
 
+![usb scheme](Images/usb.png)
+
  - [LUFA](http://www.fourwalledcubicle.com/LUFA.php): open-source complete USB stack for the USB-enabled Atmel AVR8 and (some of the) AVR32 microcontroller series,
 
 ## Reset pin
