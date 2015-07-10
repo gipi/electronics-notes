@@ -49,6 +49,7 @@ that decides certain configuration with which the chip will run.
 ### Links
 
  - [Fuse calculator](http://www.frank-zhao.com/fusecalc/fusecalc.php?chip=atmega328p)
+ - [Engbedded Atmel AVR® Fuse Calculator](http://www.engbedded.com/fusecalc/)
 
 ## Sleep modes
 
