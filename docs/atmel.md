@@ -77,6 +77,10 @@ pull-up will be disabled during reset. If low power consumption during reset is 
 an external pull-up or pulldown. Connecting unused pins directly to VCC or GND is not recommended, since this
 may cause excessive currents if the pin is accidentally configured as an output.
 
+### Links
+
+ - How do I pass an IO port as a parameter to a function? [FAQ](http://www.nongnu.org/avr-libc/user-manual/FAQ.html#faq_port_pass)
+
 ## ADC
 
 The ADC converts an analog input voltage to a 10-bit digital value through successive approximation. The minimum
