@@ -18,8 +18,12 @@ BASIC
 ## Resistors
 
  - [Resistor Sizes and Packages](http://www.resistorguide.com/resistor-sizes-and-packages/)
- - http://www.resistorguide.com/pull-up-resistor_pull-down-resistor/
  - How to solder SMT 0805 resistors capacitors: [video](https://www.youtube.com/watch?v=PU7wLcuqc-I)
+
+### Pull Up
+
+ - [Pull-up Resistors](https://learn.sparkfun.com/tutorials/pull-up-resistors)
+ - http://www.resistorguide.com/pull-up-resistor_pull-down-resistor/
 
 HACK
 ----
