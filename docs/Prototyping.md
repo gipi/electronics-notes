@@ -132,3 +132,4 @@ processing has finished than you will found the created files in the folder.
  - Creating a part on Eagle: [tutorial](https://learn.sparkfun.com/tutorials/designing-pcbs-smd-footprints) by Sparkfun
  - http://www.baconfatlabs.com/2011/11/oshw-eagle-symbols-for-schematic-and-silkscreen/
  - https://learn.adafruit.com/eagle-tutorial-how-to-add-a-new-package-to-a-component/new-package
+ - http://electronics.stackexchange.com/questions/16398/find-short-location-on-pcb
