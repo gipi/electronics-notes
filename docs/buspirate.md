@@ -138,6 +138,18 @@ The cable connection are documented [here](http://dangerousprototypes.com/docs/B
 
 ## AVR Programming
 
+Can be used with avrdude as is with the following command
+
+```
+$ avrdude -c buspirate -p atmega32u4 -P /dev/ttyUSB0 -b 115200
+```
+
+or is possible to use an alternative firmware in order to emulate the ``STK500``
+
+```
+$ avrdude -c stk500v2 -P /dev/ttyUSB0 -b 115200
+```
+
  - [AVR programming](http://dangerousprototypes.com/docs/Bus_Pirate_AVR_Programming)
 
 ## Links
