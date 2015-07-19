@@ -1,5 +1,10 @@
 # BUS PIRATE
 
+A note about versioning: exist three different versions:
+
+ - the hardware
+ - the firmware
+ - the bootloader
 
 [Home](http://dangerousprototypes.com/docs/Bus_Pirate)
 
@@ -43,6 +48,40 @@ Exist different versions of cable colors, in this text we use the [seeedstudio](
 
 ![PIN SCHEME](http://dangerousprototypes.com/docs/images/1/1b/Bp-pin-cable-color.png)
 
+## Bootloader
+
+The BP has a bootloader, in hardware v3 can be accessed with the ``pirate-loader`` console
+program that you can found in this [repo](https://code.google.com/p/the-bus-pirate/source/checkout).
+
+To activate the bootloader you have to connect the pins ``PGC`` ``PGD`` like the
+image below:
+
+![jumper for bootloader activation](Images/Bpv3-upgrade-jumper.jpg)
+
+Otherwise is possible to activate it from the console itself
+
+```
+HiZ>$
+BOOTLOADER
+```
+
+**Remember to turn off your terminal to free the serial port before proceeding.** If the
+process fail for some reason, you can always reactivate it with the jumpers.
+
+```
+$ sudo ./pirate-loader_lnx --dev=/dev/ttyUSB0 --hello
++++++++++++++++++++++++++++++++++++++++++++
+  Pirate-Loader for BP with Bootloader v4+  
+  Loader version: 1.0.2  OS: Linux
++++++++++++++++++++++++++++++++++++++++++++
+
+Opening serial device /dev/ttyUSB0...OK
+Configuring serial port settings...OK
+Sending Hello to the Bootloader...OK
+
+Device ID: PIC24FJ64GA002 [d4]
+Bootloader version: 1,02
+```
 
 ## Logic Analyzer
  
