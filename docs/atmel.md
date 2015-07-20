@@ -187,6 +187,12 @@ describes it as
 
 It's possible to burn a firmware using the [dfu-programmer](https://dfu-programmer.github.io/).
 
+### File Format
+
+It's possible to converto an hex file to object using this line
+
+    $ avr-objdump -j .sec1 -d -m avr5 <hex file>
+
 Links
 -----
 
