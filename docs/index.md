@@ -25,6 +25,17 @@ BASIC
  - [Pull-up Resistors](https://learn.sparkfun.com/tutorials/pull-up-resistors)
  - http://www.resistorguide.com/pull-up-resistor_pull-down-resistor/
 
+## Switch
+
+There are several codes related to this passive element (see [wikipedia](https://en.wikipedia.org/wiki/Switch#Contact_terminology))
+
+ - N.O: normally open
+ - N.C: normally closed
+ - SPST: Single pole, single throw
+ - SPDT: Single pole, double throw
+
+ - [Contatti digitali](https://checco76.wordpress.com/2010/11/09/contatti-digitali-no-nc-spst-spdt-brief-tutorial/)
+
 HACK
 ----
 
