@@ -178,14 +178,19 @@ AKA ``HVSP``
 In some chips is possible to use a bootloader to update the firmware; the bootloader resides at a special
 section of memory and using some serial protocol does its job.
 
-A particolar type is the **DFU bootloader**: the [documentation](http://www.atmel.com/Images/doc7618.pdf)
-describes it as
+A particolar type is the **DFU bootloader** that you can found pre-flashed in some Atmel chips:
+the [documentation](http://www.atmel.com/Images/doc7618.pdf) describes it as
 
     This USB bootloader allows to perform In-System Programming from an USB
     host controller without removing the part from the system or without a
     pre-programmed application, and without any external programming interface.
 
 It's possible to burn a firmware using the [dfu-programmer](https://dfu-programmer.github.io/).
+
+The pin ``PE2/HWB`` is a special pin that has a special function: if the fuse ``HWBE`` is enabled, during reset
+this pin is sampled and the bootloader is started instead of the application code: from the atmel's documentation
+
+![HWB](Images/HWB.png)
 
 ### File Format
 
