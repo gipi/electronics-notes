@@ -20,6 +20,11 @@ It's the basic component of electronics and it's indicated by the $R$ letter.
 
 $$I = {V\over R}$$
 
+The unit is the **Ohm** and thanks to the previous formula we can link Ampere and
+Volt by the following relation
+
+$$[\Omega][I] = [V]$$
+
  - [Resistor Sizes and Packages](http://www.resistorguide.com/resistor-sizes-and-packages/)
  - How to solder SMT 0805 resistors capacitors: [video](https://www.youtube.com/watch?v=PU7wLcuqc-I)
  - Hand soldering 0603 components [video](https://www.youtube.com/watch?v=fqHleZjTaH8)
@@ -39,6 +44,10 @@ The main formula is
 $$
 I = C\cdot {dV\over dt}
 $$
+
+The unit of **capacitance** is called **Farad** and has the following relation with the other units
+
+$$[F] = {[I][T]\over [V]}$$
 
 ### Decoupling
 
