@@ -19,6 +19,7 @@ BASIC
 
  - [Resistor Sizes and Packages](http://www.resistorguide.com/resistor-sizes-and-packages/)
  - How to solder SMT 0805 resistors capacitors: [video](https://www.youtube.com/watch?v=PU7wLcuqc-I)
+ - Hand soldering 0603 components [video](https://www.youtube.com/watch?v=fqHleZjTaH8)
 
 ### Pull Up
 
