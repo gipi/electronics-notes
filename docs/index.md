@@ -16,6 +16,10 @@ BASIC
 
 ## Resistors
 
+It's the basic component of electronics and it's indicated by the $R$ letter.
+
+$$I = {V\over R}$$
+
  - [Resistor Sizes and Packages](http://www.resistorguide.com/resistor-sizes-and-packages/)
  - How to solder SMT 0805 resistors capacitors: [video](https://www.youtube.com/watch?v=PU7wLcuqc-I)
  - Hand soldering 0603 components [video](https://www.youtube.com/watch?v=fqHleZjTaH8)
@@ -29,6 +33,12 @@ BASIC
 
 This is another kind of component that is *ancient*: tipically consists of two plane
 near each other that ``accumulate`` electric charge.
+
+The main formula is
+
+$$
+I = C\cdot {dV\over dt}
+$$
 
 ### Decoupling
 
