@@ -5,7 +5,6 @@ BASIC
 
  - http://www.allaboutcircuits.com/
  - Site with pinout, tools etc: http://www.pighixxx.com/
- - [Capacitor decoupling](http://www.vagrearg.org/content/decoupling): The act of (partially) separating the logic chip's power supply from the main power supply. In this [video](https://www.youtube.com/watch?v=jz1IHapsrdk) more explanation
  - http://www.slideshare.net/balgan/hardware-hacking-101
  - https://circuithub.com/
  - http://blog.thelifeofkenneth.com/2013/02/diy-usb-power-strip.html
@@ -25,6 +24,19 @@ BASIC
 
  - [Pull-up Resistors](https://learn.sparkfun.com/tutorials/pull-up-resistors)
  - http://www.resistorguide.com/pull-up-resistor_pull-down-resistor/
+
+## Capacitors
+
+This is another kind of component that is *ancient*: tipically consists of two plane
+near each other that ``accumulate`` electric charge.
+
+### Decoupling
+
+A standard practice for electronic circuits is to add decoupling capacitors to reduce
+spikes and noise from power supplies and logic lines.
+
+ - [Capacitor decoupling](http://www.vagrearg.org/content/decoupling): The act of (partially) separating the logic chip's power supply from the main power supply. In this [video](https://www.youtube.com/watch?v=jz1IHapsrdk) more explanation
+ - Choosing and Using Bypass Capacitors ([PDF](https://www.intersil.com/content/dam/Intersil/documents/an13/an1325.pdf))
 
 ## Switch
 
