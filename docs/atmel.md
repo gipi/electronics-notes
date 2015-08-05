@@ -123,6 +123,16 @@ to reset the chip, a temporary switch is used
 
 In parallel programming mode is possible to use 12V with this pin (it's the only one with which this is possible).
 
+Take into account that there are more possibilities to reset the chip, read the section named **System Control and Reset**
+on the datasheet. A simple list is
+
+ - Power-on Reset. The MCU is reset when the supply voltage is below the Power-on Reset threshold (VPOT).
+ - External Reset. The MCU is reset when a low level is present on the RESET pin for longer than the minimum pulse length.
+ - Watchdog Reset. The MCU is reset when the Watchdog Timer period expires and the Watchdog is enabled
+ - Brown-out Reset. The MCU is reset when the supply voltage VCC is below the Brown-out Reset threshold (VBOT) and the Brown-out Detector is enabled.
+ - JTAG AVR Reset. The MCU is reset as long as there is a logic one in the Reset Register, one of the scan chains of the JTAG system.
+ - USB End of Reset. The MCU is reset (excluding the USB controller that remains enabled andattached) on the detection of a USB End of Reset condition on the bus, if this feature is
+enabled by the user.
 ## Programming
 
 You must put the code into the chip in order to do something and in this section will explained
