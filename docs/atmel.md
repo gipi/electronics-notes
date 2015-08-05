@@ -133,6 +133,11 @@ on the datasheet. A simple list is
  - JTAG AVR Reset. The MCU is reset as long as there is a logic one in the Reset Register, one of the scan chains of the JTAG system.
  - USB End of Reset. The MCU is reset (excluding the USB controller that remains enabled andattached) on the detection of a USB End of Reset condition on the bus, if this feature is
 enabled by the user.
+
+## Brown-out detection
+
+For monitoring the VCC level during operation by comparing it to a fixed trigger level. The trigger level for the
+BOD can be selected by the ``BODLEVEL`` Fuses.
 ## Programming
 
 You must put the code into the chip in order to do something and in this section will explained
