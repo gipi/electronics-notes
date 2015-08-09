@@ -49,6 +49,21 @@ The unit of **capacitance** is called **Farad** and has the following relation w
 
 $$[F] = {[I][T]\over [V]}$$
 
+### Codes
+
+The codes below are generally found on ceramic (little round discs) and mylar (chicklet) capacitors,
+which are not polarized, that is, there are no positive and negative leads.
+
+| Values | Code |
+|--------|------|
+| 100pF  | 101  |
+| 120pF  | 121  |
+| 130pF  | 131  |
+| 150pF  | 151  |
+| 180pF  | 181  |
+| 0.1uF  | 104  |
+| 0.33uF | 334  |
+
 ### Decoupling
 
 A standard practice for electronic circuits is to add decoupling capacitors to reduce
