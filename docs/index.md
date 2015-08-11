@@ -50,6 +50,14 @@ $$[\Omega][I] = [V]$$
  - [Pull-up Resistors](https://learn.sparkfun.com/tutorials/pull-up-resistors)
  - http://www.resistorguide.com/pull-up-resistor_pull-down-resistor/
 
+### Voltage divider
+
+$$V_{out} = V_{in}\cdot\left(R_2\over R_1 + R_2\right)$$
+
+$$P = {V^2_{in}\over R_1 + R_2}$$
+
+ - [Video](https://www.youtube.com/watch?v=XxLKfAZrhbM) from Afrotechmods
+
 ## Capacitors
 
 This is another kind of component that is *ancient*: tipically consists of two plane
