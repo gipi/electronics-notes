@@ -1,7 +1,18 @@
 
 
-BASIC
------
+## BASIC
+
+The building blocks of every circuit are **current** and **voltage**: the first
+measures the number of electrons passing a section of conductor in unit of time,
+the unit of measure is the **Ampere** and it's indicated with $I$;
+the voltage is the difference of potential between two pieces of conductor
+and should generate a flow of current; its unit of measure is the **Volt**
+indicated with $V$.
+
+The power consumption of a circuit is given by
+
+$$P=V\cdot I$$.
+
 
  - http://www.allaboutcircuits.com/
  - Site with pinout, tools etc: http://www.pighixxx.com/
