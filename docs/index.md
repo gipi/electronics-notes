@@ -68,7 +68,7 @@ $$[F] = {[I][T]\over [V]}$$
 ### Codes
 
 The codes below are generally found on ceramic (little round discs) and mylar (chicklet) capacitors,
-which are not polarized, that is, there are no positive and negative leads.
+which are not polarized, that is, there are no positive and negative leads ([source](http://beamdream.solarbotics.net/Tutorials/CapGuide.htm)).
 
 | Values | Code |
 |--------|------|
