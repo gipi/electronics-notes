@@ -114,6 +114,11 @@ There are several codes related to this passive element (see [wikipedia](https:/
  - QFN: Quad Flat No leads
  - QFP: Quad Flat Packages
  - LQFP: Low-profile quad flat packages
+ - TQFP: Thin quad flat packages
+
+### Links
+
+ - http://how-to.wikia.com/wiki/Guide_to_IC_packages
 
 HACK
 ----
