@@ -107,6 +107,14 @@ There are several codes related to this passive element (see [wikipedia](https:/
 
  - [Contatti digitali](https://checco76.wordpress.com/2010/11/09/contatti-digitali-no-nc-spst-spdt-brief-tutorial/)
 
+## Circuit Packages
+
+ - DIP/DIL: Dual In Line, through hole component
+ - SOIC: Small Outline IC, surface mount component
+ - QFN: Quad Flat No leads
+ - QFP: Quad Flat Packages
+ - LQFP: Low-profile quad flat packages
+
 HACK
 ----
 
