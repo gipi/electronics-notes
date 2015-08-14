@@ -78,6 +78,10 @@ plane; below an image showing an example with an ``ATMEGA32U4`` chip
 
 ![example of routing using via](Images/route-ground-by-via.png)
 
+In some cases you are not able to see where the missing airwires to route are, a [epic trick](https://blog.adafruit.com/2012/08/31/eagle-quicktip-finding-that-missing-airwire/)
+is to zoom out a lot and then click to the routing tool, at this point the missing piece
+will show magically.
+
 ### Panelization
 
 The boards are not builded one at times, they are usually done in an unique sheet, the single
