@@ -52,3 +52,20 @@ for the
  - http://www.sodnpoo.com/posts.xml/pace4000_jtag.xml
  - https://www.youtube.com/watch?v=TlWlLeC5BUs
  - http://electronics.stackexchange.com/questions/53311/why-jtag-connectors-are-available-in-10pins-14pins-20pins-when-jtag-is-of-5pins
+
+## USB
+
+This is a well known protocol, used everywhere in electronics devices, the acronym means **Universal Serial Bus**.
+
+This protocol can work at three defined speeds
+
+|Name | Speed |
+|-----|-----------|
+|Low  | 1.5Mbit/s |
+|Full | 12Mbit/s  |
+|High | 480Mbit/s |
+
+The architecture of this protocol is *tiered star topology*, there can be no communication directly between USB devices.
+
+ - [USB Central](http://janaxelson.com/usb.htm)
+ - http://www.usbmadesimple.co.uk/ums_2.htm
