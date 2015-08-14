@@ -14,6 +14,7 @@ a stable voltage.
  - [Tutorial sparkfun](https://www.sparkfun.com/tutorials/103)
  - http://www.slideshare.net/niiraz/voltage-regulator-29002693
  - http://datasheet.octopart.com/L7805CV-STMicroelectronics-datasheet-7264666.pdf
+ - Buck converter vs. linear voltage regulator - practical comparison [youtube](https://www.youtube.com/watch?v=giGRrODKJSE)
 
 ### Boost
 
