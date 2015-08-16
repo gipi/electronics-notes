@@ -3,6 +3,13 @@
 Electronics is about voltage and stuffs but as humans we use it for
 connect devices and devices connected need ways to communicate.
 
+## PWM
+
+The acronym means **Pulse Width Modulation** and it's the simplest
+way to digitally encode a signal using a single wire; it's defined
+by the **duty cycle**, i.e. the percentage of the cycle that the
+signal is on (0% is always off, 100% is always on) and its **switching frequency**,
+that identify how many seconds each raising edge appears.
 ## UART and Serial
 
  - http://wiki.openwrt.org/doc/hardware/port.serial
