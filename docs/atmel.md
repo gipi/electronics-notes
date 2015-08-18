@@ -215,6 +215,10 @@ this pin is sampled and the bootloader is started instead of the application cod
 
 ![HWB](Images/HWB.png)
 
+Others bootloaders are
+
+ - [Optiboot](https://github.com/Optiboot/optiboot/wiki)
+
 ### File Format
 
 It's possible to converto an hex file to object using this line
