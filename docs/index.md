@@ -111,6 +111,7 @@ There are several codes related to this passive element (see [wikipedia](https:/
 
  - DIP/DIL: Dual In Line, through hole component
  - SOIC: Small Outline IC, surface mount component
+ - SOT: Small-outline transistor
  - QFN: Quad Flat No leads
  - QFP: Quad Flat Packages
  - LQFP: Low-profile quad flat packages
