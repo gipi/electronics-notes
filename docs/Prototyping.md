@@ -82,6 +82,8 @@ In some cases you are not able to see where the missing airwires to route are, a
 is to zoom out a lot and then click to the routing tool, at this point the missing piece
 will show magically.
 
+There is also a zoomunrouted.ulp that zooms in on any place that is unconnected. It is a standard part of our PCB pre-flight.
+
 ### Panelization
 
 The boards are not builded one at times, they are usually done in an unique sheet, the single
@@ -137,3 +139,5 @@ processing has finished than you will found the created files in the folder.
  - http://www.baconfatlabs.com/2011/11/oshw-eagle-symbols-for-schematic-and-silkscreen/
  - https://learn.adafruit.com/eagle-tutorial-how-to-add-a-new-package-to-a-component/new-package
  - http://electronics.stackexchange.com/questions/16398/find-short-location-on-pcb
+ - http://electronics.stackexchange.com/questions/55710/how-do-i-change-the-properties-of-several-objects-at-once
+ - http://dangerous-prototypes-open-hardware.googlecode.com/svn/trunk/Eagle_Part_Library/helpful_scripts/
