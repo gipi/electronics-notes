@@ -7,6 +7,9 @@
 The advice is to read the datasheets that contain a lot of info and working examples, for example
 the [ATMEGA32U4](https://www.pjrc.com/teensy/atmega32u4.pdf) one.
 
+**The information below are intended to be generic, but it's possible
+that referrers to the ATMega32U4.**
+
 Some weird naming is going on, for example, ``ATMega32u4-AU`` means use external clock, instead
 ``ATMega32u4-RC`` uses internal clock or ``-AUR`` meaning [reel](https://www.avrfreaks.net/forum/difference-between-atmega32u4-au-and-atmega32u4-aur).
 
