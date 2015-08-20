@@ -141,3 +141,4 @@ processing has finished than you will found the created files in the folder.
  - http://electronics.stackexchange.com/questions/16398/find-short-location-on-pcb
  - http://electronics.stackexchange.com/questions/55710/how-do-i-change-the-properties-of-several-objects-at-once
  - http://dangerous-prototypes-open-hardware.googlecode.com/svn/trunk/Eagle_Part_Library/helpful_scripts/
+ - [Vias as test points](http://electronics.stackexchange.com/questions/48557/testpoints-vias-versus-pads)
