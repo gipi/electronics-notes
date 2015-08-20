@@ -62,7 +62,10 @@ that decides certain configuration with which the chip will run.
 The ``AVR`` chips have available a certain numbers of counter that can be used as clock
 in an application, and some of these are connectable with interrupts in some cases.
 
-Below a piece of code to execute an interrupts each 0.03s (i.e. 30Hz)
+First of all is needed to set the prescaler with the flags ``CSx[0:2]``, usually are
+in powers of two
+
+Below a piece of code to execute an interrupts each 0.03s (i.e. 30Hz) on an ATMega32U4
 
 ```C
 void init_timer() {
