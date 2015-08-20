@@ -70,8 +70,6 @@ Below a piece of code to execute an interrupts each 0.03s (i.e. 30Hz) on an ATMe
 ```C
 void init_timer() {
     TCCR0B |= _BV(CS00) | _BV(CS02); // clk/1024
-    //TCCR0A = 0;
-    //TIFR0  = _BV(TOV0);
     TIMSK0 |= _BV(TOIE0);            // enable Timer0 Overflow Interrupt
 }
 
