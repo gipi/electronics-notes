@@ -129,7 +129,7 @@ processing has finished than you will found the created files in the folder.
  - http://michaelhleonard.com/how-to-design-the-perfect-pcb-part2/
  - Getting Started with CadSoft EAGLE [video](https://www.youtube.com/watch?v=R4DYztYB6d4)
  - How To Easily Find PCB Tracks: [video](https://www.youtube.com/watch?v=oyedFq1VAjg)
- - http://www.robotroom.com/PCB-Layout-Tips.html
+ - [Neat tips](http://www.robotroom.com/PCB-Layout-Tips.html) about layouts allowing multiple kind of the same component, traces and soldermask
  - http://www.cadsoftusa.com/downloads/libraries
  - [Better PCBs in Eagle](https://www.sparkfun.com/tutorials/115)
  - [Guideline](http://support.seeedstudio.com/knowledgebase/articles/422482-fusion-pcb-order-submission-guidelines) to PCB submission for Seed Studio (DRU file).
