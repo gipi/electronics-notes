@@ -1,5 +1,12 @@
 # Prototyping
 
+Prototyping is the process of designing and building a device
+with trial and error to approximate the needed functionality
+and deal with real life issues.
+
+In this page mainly we are talking about PCB but it's also related
+to 3d printing and other way to prototype devices.
+
 ## Perfboard and stripboard
 
 ### Links
