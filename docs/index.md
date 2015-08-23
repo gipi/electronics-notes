@@ -24,11 +24,17 @@ $$P=V\cdot I$$.
  - [How do I read a datasheet?](http://www.youtube.com/watch?v=DZIFlV6wAZA)
  - [H Bridge Motor Speed Controller Tutorial](https://www.youtube.com/watch?v=iYafyPZ15g8)
 
-## AWG
+## Cable
+
+### AWG
 
 This is the standard wire gauge system, increasing gauge numbers denote decreasing wire
 diameters; here the [table](https://it.wikipedia.org/wiki/American_wire_gauge#Tabella_delle_dimensioni_dei_fili_AWG)
 from wikipedia.
+
+### Crimping
+
+ - [Video](https://www.youtube.com/watch?v=wEPdB-W3-Tc) where is shown how to crimp manually a female header
 
 ## Resistors
 
