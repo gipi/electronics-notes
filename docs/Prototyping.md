@@ -123,7 +123,7 @@ processing has finished than you will found the created files in the folder.
  - [Guide](http://www.alternatezone.com/electronics/files/PCBDesignTutorialRevA.pdf) PCB Design Tutorial
  - [Video](https://www.youtube.com/watch?v=NJKZZArjdg8) SparkFun According to Pete #34: PCB Layout
  - Eagle [Tips and Tricks](http://dangerousprototypes.com/docs/Cadsoft_Eagle_tips_and_tricks) by Dangerous Prototypes
- - http://www.learnemc.com/tutorials/PCB_Layout/PCB_Layout.html
+ - [Post](http://www.learnemc.com/tutorials/PCB_Layout/PCB_Layout.html) about designing PCB with high frequency problems in mind.
  - http://www.gerber-viewer.com/
  - http://fritzing.org
  - http://www.seeedstudio.com/depot/fusion-pcb-service-p-835.html
