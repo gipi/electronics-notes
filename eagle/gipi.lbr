@@ -4458,6 +4458,9 @@ http://cache.freescale.com/files/sensors/doc/data_sheet/MMA3202KEG.pdf</descript
           <rectangle x1="12.08531875" y1="15.8115" x2="12.1285" y2="15.85391875" layer="21"/>
           <rectangle x1="12.21231875" y1="15.8115" x2="12.2555" y2="15.85391875" layer="21"/>
         </package>
+        <package name="TP_SEMICIRCULAR">
+          <smd name="P$2" x="0" y="0" dx="1.27" dy="0.6604" layer="1"/>
+        </package>
       </packages>
       <symbols>
         <symbol name="MMA3202KEG">
@@ -5173,6 +5176,9 @@ http://cache.freescale.com/files/sensors/doc/data_sheet/MMA3202KEG.pdf</descript
           <pin name="CSN" x="12.7" y="25.4" visible="pin" length="short" rot="R270"/>
           <pin name="RX" x="17.78" y="25.4" visible="pin" length="short" rot="R270"/>
         </symbol>
+        <symbol name="TESTPAD">
+          <pin name="P$1" x="0" y="0" length="middle"/>
+        </symbol>
       </symbols>
       <devicesets>
         <deviceset name="MMA3202KEG" prefix="U">
@@ -5346,6 +5352,21 @@ Digikey part number: CKN9104CT-ND</description>
           </gates>
           <devices>
             <device name="">
+              <technologies>
+                <technology name=""/>
+              </technologies>
+            </device>
+          </devices>
+        </deviceset>
+        <deviceset name="TESTPAD">
+          <gates>
+            <gate name="G$1" symbol="TESTPAD" x="0" y="0"/>
+          </gates>
+          <devices>
+            <device name="" package="TP_SEMICIRCULAR">
+              <connects>
+                <connect gate="G$1" pin="P$1" pad="P$2"/>
+              </connects>
               <technologies>
                 <technology name=""/>
               </technologies>
