@@ -101,6 +101,15 @@ spikes and noise from power supplies and logic lines.
 
  - [Capacitor decoupling](http://www.vagrearg.org/content/decoupling): The act of (partially) separating the logic chip's power supply from the main power supply. In this [video](https://www.youtube.com/watch?v=jz1IHapsrdk) more explanation
  - Choosing and Using Bypass Capacitors ([PDF](https://www.intersil.com/content/dam/Intersil/documents/an13/an1325.pdf))
+## Inductors
+
+They are like capacitors, but for magnetic fields.
+
+The unit of measure is the **Henry** composed by
+
+$$
+H = {[V][T]\over [I]} = [R][T]
+$$
 
 ## Switch
 
