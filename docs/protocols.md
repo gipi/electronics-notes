@@ -10,6 +10,17 @@ way to digitally encode a signal using a single wire; it's defined
 by the **duty cycle**, i.e. the percentage of the cycle that the
 signal is on (0% is always off, 100% is always on) and its **switching frequency**,
 that identify how many seconds each raising edge appears.
+
+Its fourier transformed form is given by this coefficients ($p$ is the duty cycle
+$0\leq p\leq 1$)
+
+$$
+A_0 = K\cdot p
+$$
+$$
+A_n = K\cdot {1\over n\pi}\left(\sin(n\pi p) - \sin\left(2n\pi (1 - p/2)\right)\right)
+$$
+
 ## UART and Serial
 
  - http://wiki.openwrt.org/doc/hardware/port.serial
