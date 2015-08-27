@@ -99,8 +99,19 @@ which are not polarized, that is, there are no positive and negative leads ([sou
 A standard practice for electronic circuits is to add decoupling capacitors to reduce
 spikes and noise from power supplies and logic lines.
 
+The values of the capacitors depend on the frequencies of the AC components. Each capacitor
+has its own frequency response determined by its resistance and Equivalent Series Inductance (ESL)
+that is tuned to a range of frequencies. For example, to filter low frequencies you need a
+larger capacitor. As a rule, a capacitor of 0.1-1µF suffices for the mid-range frequencies,
+if you have slow fluctuations, you may choose around 1-10µF and for high-frequency noise you can
+use 0.001-0.1µF capacitors. You can also use any combination of bypass capacitors to remove a wider
+range of frequencies. For chips that drive a lot of current, you may put 10 µF - 100 µF capacitors
+to work as buffers. If the value of the capacitor allows, use monolithic ceramic capacitors because
+they are small and cheap.
+
  - [Capacitor decoupling](http://www.vagrearg.org/content/decoupling): The act of (partially) separating the logic chip's power supply from the main power supply. In this [video](https://www.youtube.com/watch?v=jz1IHapsrdk) more explanation
  - Choosing and Using Bypass Capacitors ([PDF](https://www.intersil.com/content/dam/Intersil/documents/an13/an1325.pdf))
+
 ## Inductors
 
 They are like capacitors, but for magnetic fields.
