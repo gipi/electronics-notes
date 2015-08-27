@@ -149,6 +149,7 @@ processing has finished than you will found the created files in the folder.
  - http://electronics.stackexchange.com/questions/55710/how-do-i-change-the-properties-of-several-objects-at-once
  - [Vias as test points](http://electronics.stackexchange.com/questions/48557/testpoints-vias-versus-pads)
  - [Instructables](http://www.instructables.com/id/Make-hobbyist-PCBs-with-professional-CAD-tools-by-/?ALLSTEPS) about modifing Design rules of Eagle for hobbystic design
+ - Tips on how to properly design/layout a Printed Circuit Board (PCB) [page](http://www.onmyphd.com/?p=pcb.design)
 
 ## SCRIPTS
 
