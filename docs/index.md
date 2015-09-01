@@ -23,6 +23,7 @@ $$P=V\cdot I$$.
  - http://123d.circuits.io/
  - [How do I read a datasheet?](http://www.youtube.com/watch?v=DZIFlV6wAZA)
  - [H Bridge Motor Speed Controller Tutorial](https://www.youtube.com/watch?v=iYafyPZ15g8)
+ - [Why 3.3v](http://www.societyofrobots.com/robotforum/index.php?topic=15573.0)
 
 ## Cable
 
