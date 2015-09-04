@@ -11,7 +11,9 @@ but has some problems
  - voltage drop
  - power consumption
 
-A more efficient way is to use P-FETs [(source here)](https://www.youtube.com/watch?v=IrB-FPcv1Dc).
+A more efficient way is to use P-FETs [(source here)](https://www.youtube.com/watch?v=IrB-FPcv1Dc) but also it has
+some voltage drop and has a larger footprint.
+
 See also this [link from instructables](http://www.instructables.com/id/Reverse-polarity-protection-for-your-circuit-with/).
 
 ## Inductive spike
