@@ -23,8 +23,14 @@ $$
 
 ## UART and Serial
 
+The simplest of protocols without needing a clock line
+
  - http://wiki.openwrt.org/doc/hardware/port.serial
  - http://www.devttys0.com/2012/11/reverse-engineering-serial-ports/
+
+## I2C
+
+It uses only two wires, and allows to connect up to 1008 slave devices.
 
 ## SPI
 
