@@ -68,3 +68,12 @@ ISR(TIMER0_COMPA_vect) {
 ```
 
 [Waveform Generation using an ATtiny85](http://www.technoblogy.com/show?QVN)
+
+## Transistor Schmitt Trigger
+
+The Schmitt Trigger is a logic input type that provides hysteresis or two
+different threshold voltage levels for rising and falling edge. This is
+useful because it can avoid the errors when we have noisy input signals
+from which we want to get square wave signals.
+
+ - http://howtomechatronics.com/how-it-works/electrical-engineering/transistor-schmitt-trigger/
