@@ -126,6 +126,7 @@ processing has finished than you will found the created files in the folder.
  - [Post](http://www.learnemc.com/tutorials/PCB_Layout/PCB_Layout.html) about designing PCB with high frequency problems in mind.
  - http://www.gerber-viewer.com/
  - http://fritzing.org
+ - http://mayhewlabs.com/webGerber/
  - http://www.seeedstudio.com/depot/fusion-pcb-service-p-835.html
  - http://be.eurocircuits.com/basic/try-pcb-visualizer.aspx#
  - https://www.olimex.com/PCB/
@@ -150,6 +151,9 @@ processing has finished than you will found the created files in the folder.
  - [Vias as test points](http://electronics.stackexchange.com/questions/48557/testpoints-vias-versus-pads)
  - [Instructables](http://www.instructables.com/id/Make-hobbyist-PCBs-with-professional-CAD-tools-by-/?ALLSTEPS) about modifing Design rules of Eagle for hobbystic design
  - Tips on how to properly design/layout a Printed Circuit Board (PCB) [page](http://www.onmyphd.com/?p=pcb.design)
+ - https://learn.adafruit.com/downloads/pdf/ktowns-ultimate-creating-parts-in-eagle-tutorial.pdf
+ - http://kb.gr8bit.ru/KB0015/GR8BIT-KB0015-Best-practices-creating-designs-with-EAGLE.html
+ - https://github.com/lachlanA/eagle-to-kicad
 
 ## SCRIPTS
 
