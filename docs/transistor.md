@@ -4,6 +4,10 @@ Have three pins named **gate**, **source** and **drain**
 
 MOSFET is voltage controlled. While BJT is current controlled,
 
+## BJT
+
+ - http://blog.oscarliang.net/bjt-bipolar-junction-transistor-beginner-tutorial/
+
 ## MOSFET
 
 Variable resistor controlled by voltage: you can vary the resistence between drain and source
