@@ -136,6 +136,9 @@ There are several codes related to this passive element (see [wikipedia](https:/
 
 ## Circuit Packages
 
+[Slide](http://security.cs.rpi.edu/courses/hwre-spring2014/Lecture2_Packaging.pdf) with some
+history and ratio about packages
+
  - DIP/DIL: Dual In Line, through hole component
  - SOIC: Small Outline IC, surface mount component
  - SOT: Small-outline transistor
