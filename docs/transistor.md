@@ -33,6 +33,10 @@ $$
 
 If $P\leq P_D$ then you don't need a dissipator.
 
+Here an example of usage
+
+![Example for N Channel MOSFET](Images/n-mosfet-example.png)
+
 ## Links
 
  - [Tutorial by Sparkfun](https://learn.sparkfun.com/tutorials/transistors)
