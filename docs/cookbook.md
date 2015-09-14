@@ -77,3 +77,15 @@ useful because it can avoid the errors when we have noisy input signals
 from which we want to get square wave signals.
 
  - http://howtomechatronics.com/how-it-works/electrical-engineering/transistor-schmitt-trigger/
+
+## Logic level converter
+
+There are parts of your circuit that work at different voltage levels, and connecting them
+together can cause damaging it; the correct way to handle this situation is to place a
+level shifter/converter between them.
+
+A simple implementation is using a N-Channel MOSFET in the following configuration
+
+![logic level shifter with N MOSFET](Images/n-channel-logic-level-converter.png)
+
+ - Adafruit's [product](http://www.adafruit.com/products/757) following this design
