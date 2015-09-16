@@ -89,3 +89,4 @@ A simple implementation is using a N-Channel MOSFET in the following configurati
 ![logic level shifter with N MOSFET](Images/n-channel-logic-level-converter.png)
 
  - Adafruit's [product](http://www.adafruit.com/products/757) following this design
+ - Sparkfun's [product](https://learn.sparkfun.com/tutorials/bi-directional-logic-level-converter-hookup-guide)
