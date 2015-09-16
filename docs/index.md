@@ -25,6 +25,24 @@ $$P=V\cdot I$$.
  - [H Bridge Motor Speed Controller Tutorial](https://www.youtube.com/watch?v=iYafyPZ15g8)
  - [Why 3.3v](http://www.societyofrobots.com/robotforum/index.php?topic=15573.0)
 
+## Logic levels
+
+In the digital world, where exist only 1 and 0 you have to decide which
+voltage is one or the other: these are the logic levels.
+
+During the years, with the improvements of technology, the actual value of the
+logic level assigned to the value ``HIGH`` is diminished from 5V to 3.3V, to
+2.5V to 1.8V and 1.5V.
+
+It's usually indicated as **TTL** that means Transistor-Transistor Logic.
+
+Connected system with different logic levels must use a logic level converter to
+avoid damaging the device al lower voltage (also to avoid missing ``HIGH``
+signal from ``LOW`` level device).
+
+ - [Sparkfun's page](https://learn.sparkfun.com/tutorials/logic-levels/ttl-logic-levels)
+ - [Cookbook](/cookbook/#logic-level-converter)
+
 ## Cable
 
 ### AWG
