@@ -76,6 +76,7 @@ for the
  - http://www.sodnpoo.com/posts.xml/pace4000_jtag.xml
  - https://www.youtube.com/watch?v=TlWlLeC5BUs
  - http://electronics.stackexchange.com/questions/53311/why-jtag-connectors-are-available-in-10pins-14pins-20pins-when-jtag-is-of-5pins
+ - https://github.com/syncsrc/jtagsploitation
 
 ## USB
 
