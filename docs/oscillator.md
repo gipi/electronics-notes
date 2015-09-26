@@ -18,3 +18,4 @@ the crystal.
  - Sparkfun [tutorial](https://www.sparkfun.com/tutorials/95)
  - Choosing the Right Crystal and Caps for your Design ([post](https://blog.adafruit.com/2012/01/24/choosing-the-right-crystal-and-caps-for-your-design/)
  - Microcontroller Oscillator Circuit Design Considerations ((PDF)[http://www.freescale.com/files/microcontrollers/doc/app_note/AN1706.pdf])
+ - [Tutorial](http://www.electronics-tutorials.ws/oscillator/crystal.html) about crystals with pratical example of circuit using them.
