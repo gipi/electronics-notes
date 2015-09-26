@@ -2,6 +2,9 @@
 
 Some recipes of common used circuits.
 
+## Add voltage
+
+ - [Answer](http://electronics.stackexchange.com/questions/103435/naively-mixing-two-or-perhaps-more-audio-signals) to *Naively mixing two (or perhaps more) audio signals*.
 
 ## Reverse polarity
 
