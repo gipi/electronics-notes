@@ -66,6 +66,9 @@ Volt by the following relation
 
 $$[\Omega][I] = [V]$$
 
+A particular type of resistence are the [polyfuse](http://www.littelfuse.com/~/media/electronics_technical/application_notes/resettable_ptcs/littelfuse_polyfuse_ptc_selection_guide_application_note.pdf)
+that changes its value based on the current traversing it (first usage is overcurrent protection).
+
  - [Resistor Sizes and Packages](http://www.resistorguide.com/resistor-sizes-and-packages/)
  - How to solder SMT 0805 resistors capacitors: [video](https://www.youtube.com/watch?v=PU7wLcuqc-I)
  - Hand soldering 0603 components [video](https://www.youtube.com/watch?v=fqHleZjTaH8)
