@@ -1,5 +1,6 @@
 site_name: electronics notes
-markdown_extensions: [math]
+markdown_extensions: 
+ - math
 extra_javascript: ['https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML','mathjaxhelper.js']
 pages:
 - [index.md, Home]
@@ -9,6 +10,7 @@ pages:
 - [diode.md, Diodes]
 - [filters.md, Filters]
 - [fivefivefive.md, The 555 chip]
+- [ic.md, Integrated circuit]
 - [led.md, Leds]
 - [motors.md, Motors]
 - [oscillator.md, Oscillators]

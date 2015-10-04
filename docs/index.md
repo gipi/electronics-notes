@@ -25,23 +25,6 @@ $$P=V\cdot I$$.
  - [H Bridge Motor Speed Controller Tutorial](https://www.youtube.com/watch?v=iYafyPZ15g8)
  - [Why 3.3v](http://www.societyofrobots.com/robotforum/index.php?topic=15573.0)
 
-## Logic levels
-
-In the digital world, where exist only 1 and 0 you have to decide which
-voltage is one or the other: these are the logic levels.
-
-During the years, with the improvements of technology, the actual value of the
-logic level assigned to the value ``HIGH`` is diminished from 5V to 3.3V, to
-2.5V to 1.8V and 1.5V.
-
-It's usually indicated as **TTL** that means Transistor-Transistor Logic.
-
-Connected system with different logic levels must use a logic level converter to
-avoid damaging the device al lower voltage (also to avoid missing ``HIGH``
-signal from ``LOW`` level device).
-
- - [Sparkfun's page](https://learn.sparkfun.com/tutorials/logic-levels/ttl-logic-levels)
- - [Cookbook](/cookbook/#logic-level-converter)
 
 ## Cable
 
@@ -116,6 +99,11 @@ which are not polarized, that is, there are no positive and negative leads ([sou
 | 0.1uF  | 104  |
 | 0.33uF | 334  |
 
+The general code is ``XXY``, where
+
+ - ``XX`` is the coefficient
+ - ``Y``  is the esponent indicator $10^{-(11 - x)}$
+
 ### Decoupling
 
 A standard practice for electronic circuits is to add decoupling capacitors to reduce
@@ -131,8 +119,12 @@ range of frequencies. For chips that drive a lot of current, you may put 10 µF 
 to work as buffers. If the value of the capacitor allows, use monolithic ceramic capacitors because
 they are small and cheap.
 
+
+
  - [Capacitor decoupling](http://www.vagrearg.org/content/decoupling): The act of (partially) separating the logic chip's power supply from the main power supply. In this [video](https://www.youtube.com/watch?v=jz1IHapsrdk) more explanation
  - Choosing and Using Bypass Capacitors ([PDF](https://www.intersil.com/content/dam/Intersil/documents/an13/an1325.pdf))
+ - http://www.thebox.myzen.co.uk/Tutorial/De-coupling.html
+ - http://sites.fas.harvard.edu/~phys123/analog_notes/noise_note_sept09.pdf
 
 ## Inductors
 
@@ -143,6 +135,14 @@ The unit of measure is the **Henry** composed by
 $$
 H = {[V][T]\over [I]} = [R][T]
 $$
+
+ - [Magnetic core](https://en.wikipedia.org/wiki/Magnetic_core#AL_value)
+ - http://computer.howstuffworks.com/question352.htm
+
+A radio-frequency choke (RFC) is used in the collector circuit to provide a high reactance (ideally open circuit)
+at the frequency of oscillation, ( ƒr ) and a low resistance at DC to help start the oscillations.
+
+ - https://e2e.ti.com/blogs_/b/analogwire/archive/2014/04/23/when-to-use-an-rf-choke-vs-an-inductor
 
 ## Switch
 
@@ -155,22 +155,6 @@ There are several codes related to this passive element (see [wikipedia](https:/
 
  - [Contatti digitali](https://checco76.wordpress.com/2010/11/09/contatti-digitali-no-nc-spst-spdt-brief-tutorial/)
 
-## Circuit Packages
-
-[Slide](http://security.cs.rpi.edu/courses/hwre-spring2014/Lecture2_Packaging.pdf) with some
-history and ratio about packages
-
- - DIP/DIL: Dual In Line, through hole component
- - SOIC: Small Outline IC, surface mount component
- - SOT: Small-outline transistor
- - QFN: Quad Flat No leads
- - QFP: Quad Flat Packages
- - LQFP: Low-profile quad flat packages
- - TQFP: Thin quad flat packages
-
-### Links
-
- - http://how-to.wikia.com/wiki/Guide_to_IC_packages
 
 HACK
 ----
