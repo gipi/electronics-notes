@@ -11,6 +11,7 @@ says that
  1. the loop gain exceeds unity at the resonant frequency
  2. the fase shift around the loop is $2\pi n$ (where $n\in N$)
 
+
 ## Crystal
 
 Quartz is a piezoelectric material. When an electric
@@ -18,6 +19,10 @@ field is placed upon it, a physical displacement occurs.
 Interestingly enough, we can write an equivalent electrical
 circuit to represent the mechanical properties of
 the crystal.
+
+## Colpitts oscillator
+
+![colpitts oscillator schematics](Images/colpitts-schematics.png)
 
 ### Links
 
