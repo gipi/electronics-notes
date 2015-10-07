@@ -50,3 +50,4 @@ history and ratio about packages
 ### Links
 
  - http://how-to.wikia.com/wiki/Guide_to_IC_packages
+ - Sparkfun's [tutorial](https://learn.sparkfun.com/tutorials/integrated-circuits)
