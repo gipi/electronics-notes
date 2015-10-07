@@ -3,6 +3,14 @@
 Sometimes we need a timed signal to use as a clock (but also
 for other things).
 
+## General theory
+
+The [Barkhausen stability criterion](https://en.wikipedia.org/wiki/Barkhausen_stability_criterion)
+says that
+
+ 1. the loop gain exceeds unity at the resonant frequency
+ 2. the fase shift around the loop is $2\pi n$ (where $n\in N$)
+
 ## Crystal
 
 Quartz is a piezoelectric material. When an electric
