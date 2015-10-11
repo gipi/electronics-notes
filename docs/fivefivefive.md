@@ -23,6 +23,20 @@ It's one of the most common IC available.
 
 ![astable](Images/555-astable.png)
 
+The time intervals are given by the following equations:
+
+$$
+\begin{aligned}
+t_1 &= 0.693(R_1 + R_2)\cdot C\cr
+t_2 &= 0.693\cdot R_2\cdot C\cr
+t_1 + t_2 &= 0.693 (R_1 + 2R_2)C
+\end{aligned}
+$$
+
+Following this equations, in order to have a frequency of the order of a second
+you need the orders of magnitude between resistors and capacitor to cancel out,
+like $10\mu F$ and $100 k\Omega$.
+
  - http://www.electronics-tutorials.ws/waveforms/555_timer.html
  - http://www.sparkfun.com/products/9273
  - http://tronixstuff.wordpress.com/2011/01/27/the-555-precision-timer-ic/
