@@ -6,7 +6,7 @@ A note about versioning: exist three different versions:
  - the firmware
  - the bootloader
 
-[Home](http://dangerousprototypes.com/docs/Bus_Pirate)
+[Home](http://dangerousprototypes.com/docs/Bus_Pirate) | [Code](https://github.com/DangerousPrototypes/Bus_Pirate)
 
 In order to use bus pirate you have to connect to it with a serial terminal; I will use the terminal
 included with the PySerial (``# pip install pyserial``)
@@ -51,7 +51,7 @@ Exist different versions of cable colors, in this text we use the [seeedstudio](
 ## Bootloader
 
 The BP has a bootloader, in hardware v3 can be accessed with the ``pirate-loader`` console
-program that you can found in this [repo](https://code.google.com/p/the-bus-pirate/source/checkout).
+program that you can found in this [repo](https://code.google.com/p/the-bus-pirate/source/checkout)**moved to github**.
 
 To activate the bootloader you have to connect the pins ``PGC`` ``PGD`` like the
 image below:
