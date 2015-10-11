@@ -37,6 +37,7 @@ Following this equations, in order to have a frequency of the order of a second
 you need the orders of magnitude between resistors and capacitor to cancel out,
 like $10\mu F$ and $100 k\Omega$.
 
+ - Really good [video](https://www.youtube.com/watch?v=WqGq9Yv1d_U) explaining 555 astable
  - http://www.electronics-tutorials.ws/waveforms/555_timer.html
  - http://www.sparkfun.com/products/9273
  - http://tronixstuff.wordpress.com/2011/01/27/the-555-precision-timer-ic/
