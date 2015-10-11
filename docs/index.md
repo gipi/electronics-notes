@@ -163,6 +163,7 @@ HACK
  - https://trmm.net/SPI
  - https://trmm.net/Thunderstrike_31c3
  - [The Layman's Guide to IC Reverse Engineering](http://siliconzoo.org/tutorial.html)
+ - [HEADPHONE JACK COMMUNICATIONS](http://www.espruino.com/Headphone)
 
 SHIFT REGISTER
 --------------
