@@ -136,6 +136,7 @@ The cable connection are documented [here](http://dangerousprototypes.com/docs/B
 
  - http://cybermashup.com/2014/05/01/jtag-debugging-made-easy-with-bus-pirate-and-openocd/
  - Recovering DGN3500 with the Bus Pirate [Post](http://www.earth.li/~noodles/blog/2015/07/recovering-dgn3500.html) pretty recent
+ - http://bgamari.github.io/posts/2012-03-28-jtag-over-buspirate.html
 
 ## AVR Programming
 
