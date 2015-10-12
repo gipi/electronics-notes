@@ -153,6 +153,11 @@ $ avrdude -c stk500v2 -P /dev/ttyUSB0 -b 115200
 
  - [AVR programming](http://dangerousprototypes.com/docs/Bus_Pirate_AVR_Programming)
 
+## PIC 24FJ64GA002 development board
+
+ - [Original documentation](http://dangerousprototypes.com/docs/Bus_Pirate_v3_PIC_24FJ_blinking_LED_programming_tutorial)
+ - [mplabx](http://www.microchip.com/pagehandler/en-us/family/mplabx/)
+
 ## Links
 
  - http://dangerousprototypes.com/docs/Practical_guide_to_Bus_Pirate_pull-up_resistors
