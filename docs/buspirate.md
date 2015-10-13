@@ -103,6 +103,77 @@ Bootloader version: 1,02
 
  - https://github.com/tgvaughan/PirateScope
 
+## I2C
+
+### Example with the ADXL345
+
+Following the [datasheet](http://www.analog.com/media/en/technical-documentation/data-sheets/ADXL345.pdf),
+this device has a frequency of 400KHz.
+
+We will try to read the device id that is at address ``0x00``, should return a value of ``0xE5``
+
+```
+I2C>W
+POWER SUPPLIES ON
+I2C>(1)
+Searching I2C address space. Found devices at:
+0xA6(0x53 W) 0xA7(0x53 R)
+I2C>[ 0xA6 0x00 [ 0xa7 r ]
+I2C START BIT
+WRITE: 0xA6 NACK
+WRITE: 0x00 NACK
+I2C START BIT
+WRITE: 0xA7 ACK
+READ: 0xE5
+NACK
+I2C STOP BIT
+```
+
+Register 0x2D—POWER_CTL (Read/Write) its reset value is ``0x00``, the
+important bit is the **measure** one that reflects the measurement state of the
+sensor. It's the third bit.
+
+```
+I2C>[ 0xa6 0x2d [ 0xa7 r ]
+I2C START BIT
+WRITE: 0xA6 ACK
+WRITE: 0x2D ACK
+I2C START BIT
+WRITE: 0xA7 ACK
+READ: 0x00
+NACK
+I2C STOP BIT
+```
+
+so, uin order to read something we set to 1 the measure bit
+
+```
+I2C>[ 0xa6 0x2d 0b00001000]
+I2C START BIT
+WRITE: 0xA6 ACK 
+WRITE: 0x2D ACK 
+WRITE: 0x08 ACK 
+I2C STOP BIT
+```
+
+But the most interesting part is the reading of the actual accelerometer values:
+from register ``0x32`` to ``0x37``: we put the accelerometer with the z-axes
+pointing upward
+
+```
+I2C>[ 0xa6 0x32 [ 0xa7 r:6]
+I2C START BIT
+WRITE: 0xA6 ACK 
+WRITE: 0x32 ACK 
+I2C START BIT
+WRITE: 0xA7 ACK 
+READ: 0x08  ACK 0x00  ACK 0x03  ACK 0x00  ACK 0x00  ACK 0x01 
+NACK
+I2C STOP BIT
+```
+
+ - http://www.starlino.com/bus_pirate_i2c_tutorial.html
+
 ## JTAG
 
 In order to use bus pirate with openocd you need to enable it
