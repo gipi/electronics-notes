@@ -5,7 +5,8 @@
  - [AVR042: AVR Hardware Design Considerations](http://www.atmel.com/images/atmel-2521-avr-hardware-design-considerations_applicationnote_avr042.pdf)
 
 The advice is to read the datasheets that contain a lot of info and working examples, for example
-the [ATMEGA32U4](https://www.pjrc.com/teensy/atmega32u4.pdf) one.
+the [ATMEGA32U4](https://www.pjrc.com/teensy/atmega32u4.pdf) one ([here](https://www.arduino.cc/en/Hacking/PinMapping32u4)
+the mapping with the Arduino's pins).
 
 **The information below are intended to be generic, but it's possible
 that referrers to the ATMega32U4.**
