@@ -6,7 +6,7 @@
 
 The advice is to read the datasheets that contain a lot of info and working examples, for example
 the [ATMEGA32U4](https://www.pjrc.com/teensy/atmega32u4.pdf) one ([here](https://www.arduino.cc/en/Hacking/PinMapping32u4)
-the mapping with the Arduino's pins).
+the mapping with the [Arduino Leonardo](https://www.arduino.cc/en/Main/ArduinoBoardLeonardo)'s pins).
 
 **The information below are intended to be generic, but it's possible
 that referrers to the ATMega32U4.**
