@@ -185,6 +185,11 @@ on the datasheet. A simple list is
  - USB End of Reset. The MCU is reset (excluding the USB controller that remains enabled andattached) on the detection of a USB End of Reset condition on the bus, if this feature is
 enabled by the user.
 
+You can read the source of the reset by the register ``MCUSR``.
+
+During reset, all I/O Registers are set to their initial values, and the program starts execution
+from the Reset Vector.
+
 ## Brown-out detection
 
 For monitoring the VCC level during operation by comparing it to a fixed trigger level. The trigger level for the
