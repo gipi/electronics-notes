@@ -72,7 +72,13 @@ in an application, and some of these are connectable with interrupts in some cas
 First of all is needed to set the prescaler with the flags ``CSx[0:2]``, usually are
 in powers of two
 
-Below a piece of code to execute an interrupts each 0.03s (i.e. 30Hz) on an ATMega32U4
+Below a piece of code that use the ``Timer0`` counter (that is a 8bits counter) to raise the interrupt
+(i.e. fire after 256 cycles); the counter has a prescaler of 1024 and is used with a 8MHz clock so we obtain
+$$
+f = {8000000\over1024\cdot 256}
+$$
+
+i.e. 30Hz.
 
 ```C
 void init_timer() {
