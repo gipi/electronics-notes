@@ -28,7 +28,11 @@ protection.
 
 ## Clocks
 
-Each subsystem of an AVR chip has its own clock that is possible to deactivate in order to reduce power consumption.
+Each subsystem of an AVR chip has its own clock that is possible to deactivate in order to reduce power consumption;
+so the maximum speed is achievable only with a lot of power consumption.
+
+![frequency and clock relation](Images/voltage-clock.png)
+
 
 If you use an external oscillator take in mind that you need a specific value
 of capacitor to associate with (read the related section, for an ``ATMega32U4`` is ``12-22pF``).
