@@ -14,6 +14,8 @@ that referrers to the ATMega32U4.**
 Some weird naming is going on, for example, ``ATMega32u4-AU`` means use external clock, instead
 ``ATMega32u4-RC`` uses internal clock or ``-AUR`` meaning [reel](https://www.avrfreaks.net/forum/difference-between-atmega32u4-au-and-atmega32u4-aur).
 
+The reference for the ``avr-libc`` is [here](http://www.nongnu.org/avr-libc/).
+
 ## Memory
 
 This kind of microcontrollers have three types of (linear) memory
