@@ -6,6 +6,11 @@ MOSFET is voltage controlled. While BJT is current controlled,
 
 ## BJT
 
+The common emitter amplifier configuration produces the highest current and power gain
+of all the three bipolar transistor configurations. This is mainly because the input
+impedance is LOW as it is connected to a forward biased PN-junction, while the output
+impedance is HIGH as it is taken from a reverse biased PN-junction.
+
  - http://blog.oscarliang.net/bjt-bipolar-junction-transistor-beginner-tutorial/
 
 ## MOSFET
