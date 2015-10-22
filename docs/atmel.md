@@ -105,7 +105,7 @@ int main() {
 
  - [AVR130: Setup and Use the AVR® Timers](http://www.atmel.com/Images/doc2505.pdf)
  - http://www.avrfreaks.net/forum/tut-c-newbies-guide-avr-timers?page=all
- - http://www.nongnu.org/avr-libc/user-manual/group__avr__interrupts.html
+ - [avr-libc page about interrupts](http://www.nongnu.org/avr-libc/user-manual/group__avr__interrupts.html)
 
 ## Sleep modes
 
