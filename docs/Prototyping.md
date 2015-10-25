@@ -7,6 +7,35 @@ and deal with real life issues.
 In this page mainly we are talking about PCB but it's also related
 to 3d printing and other way to prototype devices.
 
+## General notes
+
+There are several aspects of a board to take into account when is designed
+
+### Logic Levels
+
+Probably your board contains a chip that is going to accept only some values
+as voltage for communicating with the external world, since we want to be as
+safe as possible is advisable to use a [logic level shifter](cookbook.md#logic-level-converter)
+for each signal line that is accessible from the pinout.
+
+### Power supply
+
+Usually the logic levels are related to the voltage accepted from the main
+component of the board: in order to be more versatile when designing your
+device use a simple [voltage regulator](voltagereg#linear) (with the lowest possible dropout) to
+supply the board with the correct value.
+
+Indicate on the back of the board the acceptable value for the input voltage that
+is mainly conseguence of the electrical characteristic of the voltage regulator.
+
+### Pinout
+
+You need to made accessible all the input/output signals that are necessary in order
+to use correctly the device. For some boolean input is possible to use a switch
+with clear indication near it of their scope.
+
+Use testpad to expose signal lines.
+
 ## Perfboard and stripboard
 
 ### Links
