@@ -91,5 +91,19 @@ A simple implementation is using a N-Channel MOSFET in the following configurati
 
 ![logic level shifter with N MOSFET](Images/n-channel-logic-level-converter.png)
 
+For the resistors in this schematics there isn't a precise value, some use 4.7k
+but following this [page](http://delphys.net/d.holmes/hardware/levelshift.html)
+there are several different values that are correct. The original application
+note 97055 from Philips says
+
+> Values of pull-up resistors and series resistors are not given here, they depend on the worst case values of the
+> supply voltages and logic levels, length and load of the bus lines, and the requirements for rise and fall times.
+> These resistors have to be calculated for each bus system separately. A good approach for the calculation is to
+> keep the RC values for the different sections about the same, it gives the best timing tolerances for set-up and
+> hold times.
+
  - Adafruit's [product](http://www.adafruit.com/products/757) following this design
  - Sparkfun's [product](https://learn.sparkfun.com/tutorials/bi-directional-logic-level-converter-hookup-guide)
+ - [Application note 97055](https://www.adafruit.com/datasheets/an97055.pdf)
+ - [Application note 10441](http://www.nxp.com/documents/application_note/AN10441.pdf)
+
