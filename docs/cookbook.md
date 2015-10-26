@@ -19,6 +19,10 @@ some voltage drop and has a larger footprint.
 
 See also this [link from instructables](http://www.instructables.com/id/Reverse-polarity-protection-for-your-circuit-with/).
 
+## Voltage conflict management
+
+Expand using this [link](https://rheingoldheavy.com/arduino-from-scratch-part-4-voltage-conflict-management/) about implementation in Arduino.
+
 ## Inductive spike
 
 A flyback diode can be used to limit damage when an inductive load uses a
