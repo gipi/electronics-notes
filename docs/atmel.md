@@ -164,6 +164,9 @@ Some chips have USB builtin
 
  - [LUFA](http://www.fourwalledcubicle.com/LUFA.php): open-source complete USB stack for the USB-enabled Atmel AVR8 and (some of the) AVR32 microcontroller series,
 
+You can read [here](https://rheingoldheavy.com/arduino-from-scratch-part-7-arduino-usb-connection/) an explanation Arduino related of an implementation of
+the USB circuitery.
+
 ## Reset pin
 
 It's possible to reset the chip presenting a low level on the ``RESET`` pin for longer than the minimum pulse length.
