@@ -67,6 +67,9 @@ $$V_{out} = V_{in}\cdot\left(R_2\over R_1 + R_2\right)$$
 
 $$P = {V^2_{in}\over R_1 + R_2}$$
 
+Be aware that [this solution it's not ideal](https://en.wikipedia.org/wiki/Electrical_load), you should use an ``NPN``
+transistor in configuration **emitter follower**.
+
  - [Video](https://www.youtube.com/watch?v=XxLKfAZrhbM) from Afrotechmods
 
 ## Capacitors
