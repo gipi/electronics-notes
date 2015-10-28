@@ -165,12 +165,6 @@ HACK
  - [The Layman's Guide to IC Reverse Engineering](http://siliconzoo.org/tutorial.html)
  - [HEADPHONE JACK COMMUNICATIONS](http://www.espruino.com/Headphone)
 
-SHIFT REGISTER
---------------
-
- - http://arduino.cc/en/Tutorial/ShiftOut
- - http://bildr.org/2011/02/74hc595/
- - http://www.makeuseof.com/tag/arduino-programming-playing-shift-registers-aka-leds/
 
 CMOY
 ----

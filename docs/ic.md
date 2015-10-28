@@ -51,3 +51,24 @@ history and ratio about packages
 
  - http://how-to.wikia.com/wiki/Guide_to_IC_packages
  - Sparkfun's [tutorial](https://learn.sparkfun.com/tutorials/integrated-circuits)
+
+## SHIFT REGISTER
+
+It's an integrated circuit that allows to multiplex from one input, multiple outputs.
+
+The *shift* term in its name refers to the fact that data is entered serially from
+a unique pin and the existing data is shifted by one place at times.
+Tipically they work with a minimum of three input pins:
+
+ - ``SRCLK``: the serial clock that decides (by its raising edge) when shift the register
+ - ``SER``: serial pin that decides what value must be inserted in the new register
+ - ``RCLK``: register clock that decides (by its raising edge) what value store in the new register
+
+In practice you usually present the value with which you want to configure the output pins
+alternating a raising edge with ``SRCLK`` and using the ``SER`` pin for each value; during
+this operation the ``RCLK`` must be tied ``LOW`` to avoid the updating of the output pins,
+only when you are happy with the values ``RCLK`` must be tied ``HIGH``.
+
+ - http://arduino.cc/en/Tutorial/ShiftOut
+ - http://bildr.org/2011/02/74hc595/
+ - http://www.makeuseof.com/tag/arduino-programming-playing-shift-registers-aka-leds/
