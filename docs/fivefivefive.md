@@ -29,7 +29,9 @@ $$
 \begin{aligned}
 t_1 &= 0.693(R_1 + R_2)\cdot C\cr
 t_2 &= 0.693\cdot R_2\cdot C\cr
-t_1 + t_2 &= 0.693 (R_1 + 2R_2)C
+T = t_1 + t_2 &= 0.693 (R_1 + 2R_2)C\cr
+t_1/t_2   &= {R_1 + R_2\over R_2}\cr
+t_1/T     &= {R_1 + R_2\over R_1 + 2R_2}
 \end{aligned}
 $$
 
