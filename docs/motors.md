@@ -1,5 +1,9 @@
 # Motors
 
+## Stepper
+
+ - [Sparkfun guide](https://learn.sparkfun.com/tutorials/easy-driver-hook-up-guide) for the easy driver
+
 ## Links
 
  - [what back EMF is](https://www.youtube.com/watch?v=8iONzbOfmzc)
