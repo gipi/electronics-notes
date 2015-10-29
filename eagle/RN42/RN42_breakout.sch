@@ -7891,7 +7891,7 @@ Standard A4 size frame in Landscape</description>
 <parts>
 <part name="GND1" library="mbed-power" deviceset="GND" device=""/>
 <part name="U+1" library="mbed-power" deviceset="+3.3V" device=""/>
-<part name="R1" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="R1" library="rcl" deviceset="R-EU_" device="R0603" value="1k"/>
 <part name="U+2" library="mbed-power" deviceset="+3.3V" device=""/>
 <part name="C1" library="rcl" deviceset="C-EU" device="C0603"/>
 <part name="GND2" library="mbed-power" deviceset="GND" device=""/>
@@ -7900,17 +7900,17 @@ Standard A4 size frame in Landscape</description>
 <part name="FACTORY_RST" library="wirepad" deviceset="WIREPAD" device="SMD1,27-254" value="WIREPADSMD1,27-254"/>
 <part name="U$1" library="SparkFun" deviceset="BLUETOOTH-RN41" device="&quot;"/>
 <part name="L1" library="led" deviceset="LED" device="CHIPLED_0603"/>
-<part name="U$2" library="SparkFun-PowerIC" deviceset="LM3480IM4" device=""/>
+<part name="T3" library="SparkFun-PowerIC" deviceset="LM3480IM4" device=""/>
 <part name="C2" library="SparkFun-Passives" deviceset="CAP" device="0603-CAP"/>
 <part name="C3" library="SparkFun-Passives" deviceset="CAP" device="0603-CAP"/>
 <part name="GND4" library="mbed-power" deviceset="GND" device=""/>
 <part name="U+5" library="mbed-power" deviceset="+3.3V" device=""/>
-<part name="T2" library="GeekAmmo" deviceset="N-CHANNEL-MOSFET" device="-BSS138"/>
-<part name="R2" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R3" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="T2" library="GeekAmmo" deviceset="N-CHANNEL-MOSFET" device="-BSS138" value="N-MOSFET"/>
+<part name="R2" library="rcl" deviceset="R-EU_" device="R0603" value="4.7k"/>
+<part name="R3" library="rcl" deviceset="R-EU_" device="R0603" value="4.7k"/>
 <part name="T1" library="GeekAmmo" deviceset="N-CHANNEL-MOSFET" device="-BSS138" value="N-MOSFET"/>
-<part name="R4" library="rcl" deviceset="R-EU_" device="R0603"/>
-<part name="R5" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="R4" library="rcl" deviceset="R-EU_" device="R0603" value="4.7k"/>
+<part name="R5" library="rcl" deviceset="R-EU_" device="R0603" value="4.7k"/>
 <part name="FRAME1" library="SparkFun-Aesthetics" deviceset="FRAME-A4L" device="">
 <attribute name="CNAME" value="EEP"/>
 <attribute name="CREVISION" value="1.0"/>
@@ -7930,6 +7930,8 @@ Standard A4 size frame in Landscape</description>
 <part name="SJ3" library="jumper" deviceset="SJ" device=""/>
 <part name="3V1" library="mbed-power" deviceset="+3.3V" device=""/>
 <part name="SJ4" library="jumper" deviceset="SJ" device=""/>
+<part name="SJ5" library="jumper" deviceset="SJ" device=""/>
+<part name="3V2" library="mbed-power" deviceset="+3.3V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -7939,33 +7941,37 @@ Standard A4 size frame in Landscape</description>
 <text x="10.16" y="30.48" size="2.54" layer="97">Startup/Config Timer =&gt; 2times/sec</text>
 <text x="10.16" y="25.4" size="2.54" layer="97">Discoverable/Inquiring/Idle =&gt; 1times/sec</text>
 <text x="10.16" y="20.32" size="2.54" layer="97">Connected =&gt; Solid ON</text>
-<text x="111.76" y="170.18" size="3.81" layer="97">Power Status</text>
+<text x="124.46" y="185.42" size="3.81" layer="97">Power Status</text>
 <text x="17.78" y="185.42" size="3.81" layer="97">Reset (low power operation)</text>
 <text x="200.66" y="185.42" size="3.81" layer="97">VCC to 3V3</text>
+<text x="175.26" y="86.36" size="3.81" layer="97">Logic Levels Shifter</text>
 </plain>
 <instances>
-<instance part="GND1" gate="1" x="106.68" y="68.58"/>
-<instance part="U+1" gate="1" x="43.18" y="129.54"/>
-<instance part="R1" gate="G$1" x="111.76" y="106.68"/>
-<instance part="U+2" gate="1" x="139.7" y="106.68" smashed="yes" rot="R270">
-<attribute name="VALUE" x="143.764" y="106.426" size="1.778" layer="96"/>
+<instance part="GND1" gate="1" x="86.36" y="68.58"/>
+<instance part="U+1" gate="1" x="22.86" y="129.54"/>
+<instance part="R1" gate="G$1" x="91.44" y="106.68"/>
+<instance part="U+2" gate="1" x="121.92" y="106.68" smashed="yes" rot="R270">
+<attribute name="VALUE" x="125.984" y="106.426" size="1.778" layer="96"/>
 </instance>
-<instance part="C1" gate="G$1" x="167.64" y="170.18"/>
-<instance part="GND2" gate="1" x="167.64" y="162.56"/>
-<instance part="U+4" gate="1" x="167.64" y="175.26"/>
+<instance part="C1" gate="G$1" x="271.78" y="165.1"/>
+<instance part="GND2" gate="1" x="271.78" y="157.48"/>
+<instance part="U+4" gate="1" x="271.78" y="170.18"/>
 <instance part="J1" gate="G$1" x="261.62" y="132.08" rot="R180"/>
-<instance part="FACTORY_RST" gate="G$1" x="205.74" y="109.22" smashed="yes" rot="R180">
-<attribute name="NAME" x="206.883" y="107.3658" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="206.883" y="112.522" size="1.778" layer="96" rot="R180"/>
+<instance part="FACTORY_RST" gate="G$1" x="182.88" y="109.22" smashed="yes" rot="R180">
+<attribute name="NAME" x="184.023" y="107.3658" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="184.023" y="112.522" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="U$1" gate="G$1" x="76.2" y="101.6"/>
-<instance part="L1" gate="G$1" x="127" y="106.68" rot="R270"/>
-<instance part="U$2" gate="G$1" x="215.9" y="172.72"/>
+<instance part="U$1" gate="G$1" x="55.88" y="101.6"/>
+<instance part="L1" gate="G$1" x="109.22" y="106.68" rot="R270"/>
+<instance part="T3" gate="G$1" x="215.9" y="172.72"/>
 <instance part="C2" gate="G$1" x="193.04" y="162.56"/>
 <instance part="C3" gate="G$1" x="236.22" y="162.56"/>
 <instance part="GND4" gate="1" x="215.9" y="149.86"/>
 <instance part="U+5" gate="1" x="248.92" y="172.72" rot="R270"/>
-<instance part="T2" gate="G$1" x="241.3" y="45.72" rot="R270"/>
+<instance part="T2" gate="G$1" x="241.3" y="45.72" smashed="yes" rot="R270">
+<attribute name="VALUE" x="236.22" y="35.56" size="1.778" layer="96"/>
+<attribute name="NAME" x="246.38" y="40.64" size="1.778" layer="95"/>
+</instance>
 <instance part="R2" gate="G$1" x="213.36" y="55.88" rot="R90"/>
 <instance part="R3" gate="G$1" x="274.32" y="55.88" rot="R90"/>
 <instance part="T1" gate="G$1" x="165.1" y="45.72" smashed="yes" rot="R270">
@@ -7979,37 +7985,39 @@ Standard A4 size frame in Landscape</description>
 <attribute name="DESIGNER" x="7.62" y="12.7" size="1.778" layer="96"/>
 <attribute name="CREVISION" x="7.62" y="12.7" size="1.778" layer="96"/>
 </instance>
-<instance part="R6" gate="G$1" x="144.78" y="116.84"/>
-<instance part="L2" gate="G$1" x="160.02" y="116.84" rot="R90"/>
-<instance part="GND5" gate="1" x="172.72" y="114.3"/>
-<instance part="U+3" gate="1" x="111.76" y="162.56" rot="R90"/>
-<instance part="GND6" gate="1" x="157.48" y="157.48"/>
-<instance part="R7" gate="G$1" x="124.46" y="162.56" rot="R180"/>
-<instance part="L3" gate="G$1" x="139.7" y="162.56" rot="R90"/>
-<instance part="GND7" gate="1" x="91.44" y="160.02"/>
+<instance part="R6" gate="G$1" x="91.44" y="114.3"/>
+<instance part="L2" gate="G$1" x="116.84" y="114.3" rot="R90"/>
+<instance part="GND5" gate="1" x="152.4" y="114.3"/>
+<instance part="U+3" gate="1" x="124.46" y="172.72" rot="R90"/>
+<instance part="GND6" gate="1" x="170.18" y="167.64"/>
+<instance part="R7" gate="G$1" x="137.16" y="172.72" rot="R180"/>
+<instance part="L3" gate="G$1" x="152.4" y="172.72" rot="R90"/>
+<instance part="GND7" gate="1" x="86.36" y="170.18"/>
 <instance part="SJ1" gate="1" x="134.62" y="142.24"/>
 <instance part="3V3" gate="1" x="154.94" y="144.78"/>
-<instance part="SJ2" gate="1" x="66.04" y="162.56"/>
+<instance part="SJ2" gate="1" x="60.96" y="172.72"/>
 <instance part="SJ3" gate="1" x="134.62" y="129.54"/>
 <instance part="3V1" gate="1" x="154.94" y="132.08"/>
 <instance part="SJ4" gate="1" x="63.5" y="147.32"/>
+<instance part="SJ5" gate="1" x="256.54" y="104.14" rot="R90"/>
+<instance part="3V2" gate="1" x="83.82" y="149.86"/>
 </instances>
 <busses>
 </busses>
 <nets>
 <net name="GND" class="0">
 <segment>
-<wire x1="106.68" y1="81.28" x2="106.68" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="106.68" y1="78.74" x2="106.68" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="106.68" y1="76.2" x2="106.68" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="106.68" y1="73.66" x2="106.68" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="81.28" x2="106.68" y2="81.28" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="78.74" x2="106.68" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="76.2" x2="106.68" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="73.66" x2="106.68" y2="73.66" width="0.1524" layer="91"/>
-<junction x="106.68" y="78.74"/>
-<junction x="106.68" y="76.2"/>
-<junction x="106.68" y="73.66"/>
+<wire x1="86.36" y1="81.28" x2="86.36" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="78.74" x2="86.36" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="76.2" x2="86.36" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="73.66" x2="86.36" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="81.28" x2="86.36" y2="81.28" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="78.74" x2="86.36" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="76.2" x2="86.36" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="73.66" x2="86.36" y2="73.66" width="0.1524" layer="91"/>
+<junction x="86.36" y="78.74"/>
+<junction x="86.36" y="76.2"/>
+<junction x="86.36" y="73.66"/>
 <pinref part="GND1" gate="1" pin="GND"/>
 <pinref part="U$1" gate="G$1" pin="GND"/>
 <pinref part="U$1" gate="G$1" pin="GND1"/>
@@ -8017,14 +8025,14 @@ Standard A4 size frame in Landscape</description>
 <pinref part="U$1" gate="G$1" pin="GND5"/>
 </segment>
 <segment>
-<wire x1="167.64" y1="165.1" x2="167.64" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="271.78" y1="160.02" x2="271.78" y2="157.48" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="2"/>
 <pinref part="GND2" gate="1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="C2" gate="G$1" pin="2"/>
 <wire x1="193.04" y1="160.02" x2="193.04" y2="154.94" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="GND"/>
+<pinref part="T3" gate="G$1" pin="GND"/>
 <wire x1="215.9" y1="162.56" x2="215.9" y2="154.94" width="0.1524" layer="91"/>
 <wire x1="193.04" y1="154.94" x2="215.9" y2="154.94" width="0.1524" layer="91"/>
 <pinref part="C3" gate="G$1" pin="2"/>
@@ -8036,21 +8044,20 @@ Standard A4 size frame in Landscape</description>
 </segment>
 <segment>
 <pinref part="GND5" gate="1" pin="GND"/>
-<wire x1="172.72" y1="116.84" x2="172.72" y2="114.3" width="0.1524" layer="91"/>
 <pinref part="L2" gate="G$1" pin="C"/>
-<wire x1="165.1" y1="116.84" x2="172.72" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="114.3" x2="152.4" y2="114.3" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="L3" gate="G$1" pin="C"/>
 <pinref part="GND6" gate="1" pin="GND"/>
-<wire x1="144.78" y1="162.56" x2="157.48" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="157.48" y1="162.56" x2="157.48" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="172.72" x2="170.18" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="170.18" y1="172.72" x2="170.18" y2="167.64" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<wire x1="91.44" y1="162.56" x2="91.44" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="172.72" x2="86.36" y2="170.18" width="0.1524" layer="91"/>
 <pinref part="GND7" gate="1" pin="GND"/>
 <pinref part="SJ2" gate="1" pin="2"/>
-<wire x1="91.44" y1="162.56" x2="71.12" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="172.72" x2="66.04" y2="172.72" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="J1" gate="G$1" pin="1"/>
@@ -8061,7 +8068,7 @@ Standard A4 size frame in Landscape</description>
 <net name="RTS" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="UARTRTS"/>
-<wire x1="55.88" y1="101.6" x2="25.4" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="101.6" x2="25.4" y2="101.6" width="0.1524" layer="91"/>
 <label x="25.4" y="101.6" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
@@ -8069,10 +8076,17 @@ Standard A4 size frame in Landscape</description>
 <wire x1="256.54" y1="129.54" x2="241.3" y2="129.54" width="0.1524" layer="91"/>
 <label x="236.22" y="129.54" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="SJ5" gate="1" pin="1"/>
+<wire x1="243.84" y1="99.06" x2="256.54" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="256.54" y1="99.06" x2="269.24" y2="99.06" width="0.1524" layer="91"/>
+<junction x="256.54" y="99.06"/>
+<label x="238.76" y="99.06" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="TX" class="0">
 <segment>
-<wire x1="55.88" y1="104.14" x2="25.4" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="104.14" x2="25.4" y2="104.14" width="0.1524" layer="91"/>
 <label x="20.32" y="104.14" size="1.778" layer="95"/>
 <pinref part="U$1" gate="G$1" pin="UARTTX"/>
 </segment>
@@ -8085,7 +8099,7 @@ Standard A4 size frame in Landscape</description>
 </net>
 <net name="RX" class="0">
 <segment>
-<wire x1="55.88" y1="106.68" x2="25.4" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="106.68" x2="25.4" y2="106.68" width="0.1524" layer="91"/>
 <label x="20.32" y="106.68" size="1.778" layer="95"/>
 <pinref part="U$1" gate="G$1" pin="UARTRX"/>
 </segment>
@@ -8098,50 +8112,48 @@ Standard A4 size frame in Landscape</description>
 </net>
 <net name="RESET" class="0">
 <segment>
-<wire x1="55.88" y1="127" x2="25.4" y2="127" width="0.1524" layer="91"/>
-<label x="15.24" y="127" size="1.778" layer="95"/>
+<wire x1="35.56" y1="127" x2="22.86" y2="127" width="0.1524" layer="91"/>
+<label x="12.7" y="127" size="1.778" layer="95"/>
 <pinref part="U$1" gate="G$1" pin="RESET"/>
 </segment>
 <segment>
-<wire x1="60.96" y1="162.56" x2="40.64" y2="162.56" width="0.1524" layer="91"/>
-<label x="38.1" y="162.56" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="55.88" y1="172.72" x2="35.56" y2="172.72" width="0.1524" layer="91"/>
+<label x="33.02" y="172.72" size="1.778" layer="95" rot="R180" xref="yes"/>
 <pinref part="SJ2" gate="1" pin="1"/>
 </segment>
 </net>
 <net name="STATUS" class="0">
 <segment>
-<wire x1="96.52" y1="114.3" x2="109.22" y2="114.3" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="PIO2"/>
-<wire x1="139.7" y1="116.84" x2="129.54" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="114.3" x2="76.2" y2="114.3" width="0.1524" layer="91"/>
 <pinref part="R6" gate="G$1" pin="1"/>
-<wire x1="109.22" y1="114.3" x2="129.54" y2="116.84" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$1" class="0">
 <segment>
-<wire x1="121.92" y1="106.68" x2="116.84" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="106.68" x2="96.52" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="R1" gate="G$1" pin="2"/>
 <pinref part="L1" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$2" class="0">
 <segment>
-<wire x1="106.68" y1="106.68" x2="96.52" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="106.68" x2="76.2" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="R1" gate="G$1" pin="1"/>
 <pinref part="U$1" gate="G$1" pin="PIO5"/>
 </segment>
 </net>
 <net name="FACTORY_RST" class="0">
 <segment>
-<wire x1="96.52" y1="109.22" x2="203.2" y2="109.22" width="0.1524" layer="91"/>
-<label x="144.78" y="111.76" size="1.778" layer="95"/>
+<wire x1="76.2" y1="109.22" x2="180.34" y2="109.22" width="0.1524" layer="91"/>
+<label x="127" y="111.76" size="1.778" layer="95"/>
 <pinref part="FACTORY_RST" gate="G$1" pin="P"/>
 <pinref part="U$1" gate="G$1" pin="PIO4"/>
 </segment>
 </net>
 <net name="VCC" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="IN"/>
+<pinref part="T3" gate="G$1" pin="IN"/>
 <wire x1="203.2" y1="172.72" x2="193.04" y2="172.72" width="0.1524" layer="91"/>
 <pinref part="C2" gate="G$1" pin="1"/>
 <wire x1="193.04" y1="172.72" x2="190.5" y2="172.72" width="0.1524" layer="91"/>
@@ -8174,22 +8186,22 @@ Standard A4 size frame in Landscape</description>
 <label x="241.3" y="121.92" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<wire x1="55.88" y1="129.54" x2="43.18" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="129.54" x2="22.86" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="U+1" gate="1" pin="+3,3V"/>
 <pinref part="U$1" gate="G$1" pin="VDD"/>
 </segment>
 <segment>
-<wire x1="167.64" y1="175.26" x2="167.64" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="271.78" y1="170.18" x2="271.78" y2="167.64" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="1"/>
 <pinref part="U+4" gate="1" pin="+3,3V"/>
 </segment>
 <segment>
-<wire x1="139.7" y1="106.68" x2="129.54" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="106.68" x2="111.76" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="U+2" gate="1" pin="+3,3V"/>
 <pinref part="L1" gate="G$1" pin="A"/>
 </segment>
 <segment>
-<pinref part="U$2" gate="G$1" pin="OUT"/>
+<pinref part="T3" gate="G$1" pin="OUT"/>
 <wire x1="228.6" y1="172.72" x2="236.22" y2="172.72" width="0.1524" layer="91"/>
 <pinref part="C3" gate="G$1" pin="1"/>
 <wire x1="236.22" y1="172.72" x2="248.92" y2="172.72" width="0.1524" layer="91"/>
@@ -8216,7 +8228,7 @@ Standard A4 size frame in Landscape</description>
 <segment>
 <pinref part="U+3" gate="1" pin="+3,3V"/>
 <pinref part="R7" gate="G$1" pin="2"/>
-<wire x1="111.76" y1="162.56" x2="119.38" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="172.72" x2="132.08" y2="172.72" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="SJ1" gate="1" pin="2"/>
@@ -8235,6 +8247,7 @@ Standard A4 size frame in Landscape</description>
 <wire x1="68.58" y1="147.32" x2="83.82" y2="147.32" width="0.1524" layer="91"/>
 <wire x1="83.82" y1="147.32" x2="83.82" y2="149.86" width="0.1524" layer="91"/>
 <label x="86.36" y="149.86" size="1.778" layer="95"/>
+<pinref part="3V2" gate="1" pin="+3,3V"/>
 </segment>
 </net>
 <net name="TXH" class="0">
@@ -8269,32 +8282,32 @@ Standard A4 size frame in Landscape</description>
 <segment>
 <pinref part="R6" gate="G$1" pin="2"/>
 <pinref part="L2" gate="G$1" pin="A"/>
-<wire x1="149.86" y1="116.84" x2="157.48" y2="116.84" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="114.3" x2="114.3" y2="114.3" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$4" class="0">
 <segment>
 <pinref part="R7" gate="G$1" pin="1"/>
 <pinref part="L3" gate="G$1" pin="A"/>
-<wire x1="129.54" y1="162.56" x2="137.16" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="172.72" x2="149.86" y2="172.72" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="AUTODISCOVERY" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="PIO3"/>
-<wire x1="96.52" y1="111.76" x2="114.3" y2="111.76" width="0.1524" layer="91"/>
-<label x="114.3" y="111.76" size="1.778" layer="95" xref="yes"/>
+<wire x1="76.2" y1="111.76" x2="96.52" y2="111.76" width="0.1524" layer="91"/>
+<label x="96.52" y="111.76" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="SJ3" gate="1" pin="1"/>
 <wire x1="129.54" y1="129.54" x2="121.92" y2="129.54" width="0.1524" layer="91"/>
-<label x="111.76" y="129.54" size="1.778" layer="95"/>
+<label x="109.22" y="129.54" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="CTS" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="UARTCTS"/>
-<wire x1="55.88" y1="99.06" x2="25.4" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="99.06" x2="25.4" y2="99.06" width="0.1524" layer="91"/>
 <label x="25.4" y="99.06" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
@@ -8302,14 +8315,21 @@ Standard A4 size frame in Landscape</description>
 <wire x1="256.54" y1="132.08" x2="241.3" y2="132.08" width="0.1524" layer="91"/>
 <label x="236.22" y="132.08" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="SJ5" gate="1" pin="2"/>
+<wire x1="243.84" y1="109.22" x2="256.54" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="256.54" y1="109.22" x2="269.24" y2="109.22" width="0.1524" layer="91"/>
+<junction x="256.54" y="109.22"/>
+<label x="238.76" y="109.22" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="BT_MASTER" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="PIO6"/>
-<wire x1="96.52" y1="104.14" x2="111.76" y2="104.14" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="104.14" x2="111.76" y2="99.06" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="99.06" x2="121.92" y2="99.06" width="0.1524" layer="91"/>
-<label x="124.46" y="99.06" size="1.778" layer="95"/>
+<wire x1="76.2" y1="104.14" x2="91.44" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="104.14" x2="91.44" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="99.06" x2="104.14" y2="99.06" width="0.1524" layer="91"/>
+<label x="106.68" y="99.06" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="SJ1" gate="1" pin="1"/>
@@ -8319,11 +8339,11 @@ Standard A4 size frame in Landscape</description>
 </net>
 <net name="BD_RATE" class="0">
 <segment>
-<wire x1="96.52" y1="101.6" x2="106.68" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="101.6" x2="86.36" y2="101.6" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="PIO7"/>
-<wire x1="106.68" y1="101.6" x2="106.68" y2="91.44" width="0.1524" layer="91"/>
-<wire x1="106.68" y1="91.44" x2="121.92" y2="91.44" width="0.1524" layer="91"/>
-<label x="124.46" y="91.44" size="1.778" layer="95"/>
+<wire x1="86.36" y1="101.6" x2="86.36" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="91.44" x2="104.14" y2="91.44" width="0.1524" layer="91"/>
+<label x="106.68" y="91.44" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="SJ4" gate="1" pin="1"/>
