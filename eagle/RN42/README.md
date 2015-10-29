@@ -12,3 +12,8 @@ For more informations read the original [datasheet](0900766b811a8f51.pdf).
 
  - [wiki](https://eewiki.net/display/Wireless/Getting+Started+with+RN42+Bluetooth+Module)
 
+## TODO
+
+ - check layer for label
+ - add tolerance values on the back
+ - add jumper(?) for ``CTS`` and ``RTS``
