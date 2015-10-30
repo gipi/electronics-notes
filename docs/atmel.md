@@ -95,7 +95,7 @@ int main() {
     clock_prescale_set(clock_div_1);
 
     init_timer();
-    sei();
+    sei(); // needed in order to enable interrupts
 
     while(1); // needed in order to don't crash the code (?)
 
