@@ -45,11 +45,20 @@ My advice is to place the holes before starting placing components around.
 
 ### Paper prototyping
 
-Before sending in production the physical board, print it on paper in order
+It's easy to lose the real proportion of the various parts, so,
+before sending in production the physical board, print it on paper in order
 to test if the components fit into the layout, if all the text is visible,
-readable, and if it's all confortable to solder.
+readable, and if it's all confortable to solder. Check from the ``CAM`` what
+layer you export; in a SeeedStudio gerber file the following script we show
+all the needed for top and bottom of the board (remember to print the back
+with the ``mirror`` option enabled)
 
-It's easy to lose the real proportion of the various parts.
+```
+display none 20 31 21 25 1 17 18 29;
+display none 20 22 26 16 17 18;
+```
+(have been removed the solder mask and paste for better printability).
+
 
 ## Perfboard and stripboard
 
