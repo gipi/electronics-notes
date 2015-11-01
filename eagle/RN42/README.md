@@ -14,6 +14,5 @@ For more informations read the original [datasheet](0900766b811a8f51.pdf).
 
 ## TODO
 
- - check layer for label
  - add tolerance values on the back
- - add jumper(?) for ``CTS`` and ``RTS``
+ - add logic level shifter for ``CTS`` and ``RTS`` (**do not use them, the board is broken, you must solder the jumper SJ5**)
