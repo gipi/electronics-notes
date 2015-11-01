@@ -7899,7 +7899,7 @@ Standard A4 size frame in Landscape</description>
 <part name="J1" library="SparkFun-Connectors" deviceset="M07" device=""/>
 <part name="FACTORY_RST" library="wirepad" deviceset="WIREPAD" device="SMD1,27-254" value="WIREPADSMD1,27-254"/>
 <part name="U$1" library="SparkFun" deviceset="BLUETOOTH-RN41" device="&quot;"/>
-<part name="L1" library="led" deviceset="LED" device="CHIPLED_0603"/>
+<part name="STATUS" library="led" deviceset="LED" device="CHIPLED_0603"/>
 <part name="T3" library="SparkFun-PowerIC" deviceset="LM3480IM4" device=""/>
 <part name="C2" library="SparkFun-Passives" deviceset="CAP" device="0603-CAP"/>
 <part name="C3" library="SparkFun-Passives" deviceset="CAP" device="0603-CAP"/>
@@ -7917,19 +7917,19 @@ Standard A4 size frame in Landscape</description>
 <attribute name="DESIGNER" value="Gianluca Pacchiella"/>
 </part>
 <part name="R6" library="rcl" deviceset="R-EU_" device="R0603" value="1k"/>
-<part name="L2" library="led" deviceset="LED" device="CHIPLED_0603"/>
+<part name="CONN" library="led" deviceset="LED" device="CHIPLED_0603"/>
 <part name="GND5" library="mbed-power" deviceset="GND" device=""/>
 <part name="U+3" library="mbed-power" deviceset="+3.3V" device=""/>
 <part name="GND6" library="mbed-power" deviceset="GND" device=""/>
 <part name="R7" library="rcl" deviceset="R-EU_" device="R0603" value="1k"/>
 <part name="L3" library="led" deviceset="LED" device="CHIPLED_0603"/>
 <part name="GND7" library="mbed-power" deviceset="GND" device=""/>
-<part name="SJ1" library="jumper" deviceset="SJ" device=""/>
+<part name="MASTER" library="jumper" deviceset="SJ" device=""/>
 <part name="3V3" library="mbed-power" deviceset="+3.3V" device=""/>
-<part name="SJ2" library="jumper" deviceset="SJ" device=""/>
-<part name="SJ3" library="jumper" deviceset="SJ" device=""/>
+<part name="POWER" library="jumper" deviceset="SJ" device=""/>
+<part name="AUTODISCOVERY" library="jumper" deviceset="SJ" device=""/>
 <part name="3V1" library="mbed-power" deviceset="+3.3V" device=""/>
-<part name="SJ4" library="jumper" deviceset="SJ" device=""/>
+<part name="BAUD" library="jumper" deviceset="SJ" device=""/>
 <part name="SJ5" library="jumper" deviceset="SJ" device=""/>
 <part name="3V2" library="mbed-power" deviceset="+3.3V" device=""/>
 </parts>
@@ -7962,7 +7962,7 @@ Standard A4 size frame in Landscape</description>
 <attribute name="VALUE" x="184.023" y="112.522" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="U$1" gate="G$1" x="55.88" y="101.6"/>
-<instance part="L1" gate="G$1" x="109.22" y="106.68" rot="R270"/>
+<instance part="STATUS" gate="G$1" x="109.22" y="106.68" rot="R270"/>
 <instance part="T3" gate="G$1" x="215.9" y="172.72"/>
 <instance part="C2" gate="G$1" x="193.04" y="162.56"/>
 <instance part="C3" gate="G$1" x="236.22" y="162.56"/>
@@ -7986,19 +7986,19 @@ Standard A4 size frame in Landscape</description>
 <attribute name="CREVISION" x="7.62" y="12.7" size="1.778" layer="96"/>
 </instance>
 <instance part="R6" gate="G$1" x="91.44" y="114.3"/>
-<instance part="L2" gate="G$1" x="116.84" y="114.3" rot="R90"/>
+<instance part="CONN" gate="G$1" x="116.84" y="114.3" rot="R90"/>
 <instance part="GND5" gate="1" x="152.4" y="114.3"/>
 <instance part="U+3" gate="1" x="124.46" y="172.72" rot="R90"/>
 <instance part="GND6" gate="1" x="170.18" y="167.64"/>
 <instance part="R7" gate="G$1" x="137.16" y="172.72" rot="R180"/>
 <instance part="L3" gate="G$1" x="152.4" y="172.72" rot="R90"/>
 <instance part="GND7" gate="1" x="86.36" y="170.18"/>
-<instance part="SJ1" gate="1" x="134.62" y="142.24"/>
+<instance part="MASTER" gate="1" x="134.62" y="142.24"/>
 <instance part="3V3" gate="1" x="154.94" y="144.78"/>
-<instance part="SJ2" gate="1" x="60.96" y="172.72"/>
-<instance part="SJ3" gate="1" x="134.62" y="129.54"/>
+<instance part="POWER" gate="1" x="60.96" y="172.72"/>
+<instance part="AUTODISCOVERY" gate="1" x="134.62" y="129.54"/>
 <instance part="3V1" gate="1" x="154.94" y="132.08"/>
-<instance part="SJ4" gate="1" x="63.5" y="147.32"/>
+<instance part="BAUD" gate="1" x="63.5" y="147.32"/>
 <instance part="SJ5" gate="1" x="256.54" y="104.14" rot="R90"/>
 <instance part="3V2" gate="1" x="83.82" y="149.86"/>
 </instances>
@@ -8044,7 +8044,7 @@ Standard A4 size frame in Landscape</description>
 </segment>
 <segment>
 <pinref part="GND5" gate="1" pin="GND"/>
-<pinref part="L2" gate="G$1" pin="C"/>
+<pinref part="CONN" gate="G$1" pin="C"/>
 <wire x1="121.92" y1="114.3" x2="152.4" y2="114.3" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -8056,7 +8056,7 @@ Standard A4 size frame in Landscape</description>
 <segment>
 <wire x1="86.36" y1="172.72" x2="86.36" y2="170.18" width="0.1524" layer="91"/>
 <pinref part="GND7" gate="1" pin="GND"/>
-<pinref part="SJ2" gate="1" pin="2"/>
+<pinref part="POWER" gate="1" pin="2"/>
 <wire x1="86.36" y1="172.72" x2="66.04" y2="172.72" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -8119,7 +8119,7 @@ Standard A4 size frame in Landscape</description>
 <segment>
 <wire x1="55.88" y1="172.72" x2="35.56" y2="172.72" width="0.1524" layer="91"/>
 <label x="33.02" y="172.72" size="1.778" layer="95" rot="R180" xref="yes"/>
-<pinref part="SJ2" gate="1" pin="1"/>
+<pinref part="POWER" gate="1" pin="1"/>
 </segment>
 </net>
 <net name="STATUS" class="0">
@@ -8133,7 +8133,7 @@ Standard A4 size frame in Landscape</description>
 <segment>
 <wire x1="104.14" y1="106.68" x2="96.52" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="R1" gate="G$1" pin="2"/>
-<pinref part="L1" gate="G$1" pin="C"/>
+<pinref part="STATUS" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -8198,7 +8198,7 @@ Standard A4 size frame in Landscape</description>
 <segment>
 <wire x1="121.92" y1="106.68" x2="111.76" y2="106.68" width="0.1524" layer="91"/>
 <pinref part="U+2" gate="1" pin="+3,3V"/>
-<pinref part="L1" gate="G$1" pin="A"/>
+<pinref part="STATUS" gate="G$1" pin="A"/>
 </segment>
 <segment>
 <pinref part="T3" gate="G$1" pin="OUT"/>
@@ -8231,19 +8231,19 @@ Standard A4 size frame in Landscape</description>
 <wire x1="124.46" y1="172.72" x2="132.08" y2="172.72" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="SJ1" gate="1" pin="2"/>
+<pinref part="MASTER" gate="1" pin="2"/>
 <wire x1="139.7" y1="142.24" x2="154.94" y2="142.24" width="0.1524" layer="91"/>
 <wire x1="154.94" y1="142.24" x2="154.94" y2="144.78" width="0.1524" layer="91"/>
 <pinref part="3V3" gate="1" pin="+3,3V"/>
 </segment>
 <segment>
-<pinref part="SJ3" gate="1" pin="2"/>
+<pinref part="AUTODISCOVERY" gate="1" pin="2"/>
 <wire x1="139.7" y1="129.54" x2="154.94" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="154.94" y1="129.54" x2="154.94" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="3V1" gate="1" pin="+3,3V"/>
 </segment>
 <segment>
-<pinref part="SJ4" gate="1" pin="2"/>
+<pinref part="BAUD" gate="1" pin="2"/>
 <wire x1="68.58" y1="147.32" x2="83.82" y2="147.32" width="0.1524" layer="91"/>
 <wire x1="83.82" y1="147.32" x2="83.82" y2="149.86" width="0.1524" layer="91"/>
 <label x="86.36" y="149.86" size="1.778" layer="95"/>
@@ -8281,7 +8281,7 @@ Standard A4 size frame in Landscape</description>
 <net name="N$3" class="0">
 <segment>
 <pinref part="R6" gate="G$1" pin="2"/>
-<pinref part="L2" gate="G$1" pin="A"/>
+<pinref part="CONN" gate="G$1" pin="A"/>
 <wire x1="96.52" y1="114.3" x2="114.3" y2="114.3" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -8299,7 +8299,7 @@ Standard A4 size frame in Landscape</description>
 <label x="96.52" y="111.76" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="SJ3" gate="1" pin="1"/>
+<pinref part="AUTODISCOVERY" gate="1" pin="1"/>
 <wire x1="129.54" y1="129.54" x2="121.92" y2="129.54" width="0.1524" layer="91"/>
 <label x="109.22" y="129.54" size="1.778" layer="95"/>
 </segment>
@@ -8332,7 +8332,7 @@ Standard A4 size frame in Landscape</description>
 <label x="106.68" y="99.06" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="SJ1" gate="1" pin="1"/>
+<pinref part="MASTER" gate="1" pin="1"/>
 <wire x1="129.54" y1="142.24" x2="119.38" y2="142.24" width="0.1524" layer="91"/>
 <label x="114.3" y="142.24" size="1.778" layer="95"/>
 </segment>
@@ -8346,7 +8346,7 @@ Standard A4 size frame in Landscape</description>
 <label x="106.68" y="91.44" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="SJ4" gate="1" pin="1"/>
+<pinref part="BAUD" gate="1" pin="1"/>
 <wire x1="58.42" y1="147.32" x2="45.72" y2="147.32" width="0.1524" layer="91"/>
 <label x="33.02" y="147.32" size="1.778" layer="95"/>
 </segment>
