@@ -36,6 +36,21 @@ with clear indication near it of their scope.
 
 Use testpad to expose signal lines.
 
+### Mounting holes
+
+Probably the device will be mounted in a case or will be fixed to something,
+so it's necessary to place some hole (maybe grounded).
+
+My advice is to place the holes before starting placing components around.
+
+### Paper prototyping
+
+Before sending in production the physical board, print it on paper in order
+to test if the components fit into the layout, if all the text is visible,
+readable, and if it's all confortable to solder.
+
+It's easy to lose the real proportion of the various parts.
+
 ## Perfboard and stripboard
 
 ### Links
