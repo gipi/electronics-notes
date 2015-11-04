@@ -8060,8 +8060,8 @@ Standard A4 size frame in Landscape</description>
 <wire x1="86.36" y1="172.72" x2="66.04" y2="172.72" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="J1" gate="G$1" pin="1"/>
-<wire x1="256.54" y1="137.16" x2="241.3" y2="137.16" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="3"/>
+<wire x1="256.54" y1="132.08" x2="241.3" y2="137.16" width="0.1524" layer="91"/>
 <label x="236.22" y="137.16" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -8072,15 +8072,8 @@ Standard A4 size frame in Landscape</description>
 <label x="25.4" y="101.6" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<pinref part="J1" gate="G$1" pin="4"/>
-<wire x1="256.54" y1="129.54" x2="241.3" y2="129.54" width="0.1524" layer="91"/>
-<label x="236.22" y="129.54" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="SJ5" gate="1" pin="1"/>
 <wire x1="243.84" y1="99.06" x2="256.54" y2="99.06" width="0.1524" layer="91"/>
-<wire x1="256.54" y1="99.06" x2="269.24" y2="99.06" width="0.1524" layer="91"/>
-<junction x="256.54" y="99.06"/>
 <label x="238.76" y="99.06" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -8172,8 +8165,8 @@ Standard A4 size frame in Landscape</description>
 <label x="198.12" y="71.12" size="1.778" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="J1" gate="G$1" pin="2"/>
-<wire x1="256.54" y1="134.62" x2="241.3" y2="134.62" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="4"/>
+<wire x1="256.54" y1="129.54" x2="241.3" y2="134.62" width="0.1524" layer="91"/>
 <label x="236.22" y="134.62" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -8181,7 +8174,6 @@ Standard A4 size frame in Landscape</description>
 <segment>
 <pinref part="J1" gate="G$1" pin="7"/>
 <wire x1="256.54" y1="121.92" x2="243.84" y2="121.92" width="0.1524" layer="91"/>
-<wire x1="256.54" y1="121.92" x2="266.7" y2="121.92" width="0.1524" layer="91"/>
 <wire x1="256.54" y1="121.92" x2="241.3" y2="121.92" width="0.1524" layer="91"/>
 <label x="241.3" y="121.92" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
@@ -8265,10 +8257,8 @@ Standard A4 size frame in Landscape</description>
 </net>
 <net name="RXH" class="0">
 <segment>
-<wire x1="264.16" y1="124.46" x2="256.54" y2="124.46" width="0.1524" layer="91"/>
 <label x="236.22" y="124.46" size="1.778" layer="95"/>
 <pinref part="J1" gate="G$1" pin="6"/>
-<junction x="256.54" y="124.46"/>
 <wire x1="256.54" y1="124.46" x2="241.3" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -8311,15 +8301,8 @@ Standard A4 size frame in Landscape</description>
 <label x="25.4" y="99.06" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<pinref part="J1" gate="G$1" pin="3"/>
-<wire x1="256.54" y1="132.08" x2="241.3" y2="132.08" width="0.1524" layer="91"/>
-<label x="236.22" y="132.08" size="1.778" layer="95"/>
-</segment>
-<segment>
 <pinref part="SJ5" gate="1" pin="2"/>
 <wire x1="243.84" y1="109.22" x2="256.54" y2="109.22" width="0.1524" layer="91"/>
-<wire x1="256.54" y1="109.22" x2="269.24" y2="109.22" width="0.1524" layer="91"/>
-<junction x="256.54" y="109.22"/>
 <label x="238.76" y="109.22" size="1.778" layer="95"/>
 </segment>
 </net>
