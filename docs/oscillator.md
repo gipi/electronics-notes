@@ -24,6 +24,8 @@ the crystal.
 
 ![colpitts oscillator schematics](Images/colpitts-schematics.png)
 
+ - [Video](https://www.youtube.com/watch?v=I4bAfDu6F1k) Colpitts Crystal Oscillator Fundamentals
+
 ### Links
 
  - Crystal Oscillator Basics and Crystal Selection for rfPICTM and PICmicro® Devices ([PDF](http://ww1.microchip.com/downloads/en/appnotes/00826a.pdf))
