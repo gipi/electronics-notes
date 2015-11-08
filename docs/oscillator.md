@@ -26,6 +26,14 @@ the crystal.
 
  - [Video](https://www.youtube.com/watch?v=I4bAfDu6F1k) Colpitts Crystal Oscillator Fundamentals
 
+## Negative resistance oscillator
+
+Some active devices (like diode and transistor) have *zone* of **negative resistance** that can
+be used to amplify the feedback loop of an oscillating circuit.
+
+ - [Video](https://www.youtube.com/watch?v=rpGOKGrcpAk) World's Simplest Single Transistor Oscillator - BJT with Negative Resistance
+ - [Page](https://www.st-andrews.ac.uk/~www_pa/Scots_Guide/RadCom/part5/page1.html) with a more elaborated explanation of NR.
+
 ### Links
 
  - Crystal Oscillator Basics and Crystal Selection for rfPICTM and PICmicro® Devices ([PDF](http://ww1.microchip.com/downloads/en/appnotes/00826a.pdf))
