@@ -40,6 +40,7 @@ you need the orders of magnitude between resistors and capacitor to cancel out,
 like $10\mu F$ and $100 k\Omega$.
 
  - Really good [video](https://www.youtube.com/watch?v=WqGq9Yv1d_U) explaining 555 astable
+ - Another good [video](https://www.youtube.com/watch?v=8Z7kTCSZG5E) How to Control the Duty Cycle of a 555 Timer
  - http://www.electronics-tutorials.ws/waveforms/555_timer.html
  - http://www.sparkfun.com/products/9273
  - http://tronixstuff.wordpress.com/2011/01/27/the-555-precision-timer-ic/
