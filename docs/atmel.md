@@ -1,6 +1,9 @@
 
 **AVR** is a modified Harvard 8-bit RISC single chip microcontroller [(instruction set)](http://www.atmel.com/Images/doc0856.pdf).
 
+The [ATmel site](http://www.atmel.com/products/microcontrollers/avr/default.aspx?tab=documents) has some
+interesting application notes related to some not trivial aspect:
+
  - [AVR040: EMC Design Considerations](http://www.atmel.com/images/doc1619.pdf)
  - [AVR042: AVR Hardware Design Considerations](http://www.atmel.com/images/atmel-2521-avr-hardware-design-considerations_applicationnote_avr042.pdf)
 
