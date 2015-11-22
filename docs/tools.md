@@ -5,4 +5,7 @@ The main parameter is the bandwidth: as explainded by [Adafruit](https://blog.ad
 the measured amplitude on an amplitude/frequency chart has decreased by
 -3dB (or 70.7%) of the original value*
 
+## Heat gun
 
+ - https://electronics.stackexchange.com/questions/15913/want-to-get-a-heat-gun-for-smt-what-should-i-get
+ - Sparkfun's [tutorial](https://www.sparkfun.com/tutorials/391) *How to use Hot-air a Rework Station*
