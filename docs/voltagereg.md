@@ -27,3 +27,4 @@ Steps up the voltage
 Step down the voltage
 
  - [Video](https://www.youtube.com/watch?v=CEhBN5_fO5o&index=5&list=PL36AB5C6DA12CF293) from Afrotechmods
+ - [Iphone charger teardown](http://www.righto.com/2012/05/apple-iphone-charger-teardown-quality.html)
