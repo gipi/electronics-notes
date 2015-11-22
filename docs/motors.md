@@ -3,6 +3,7 @@
 ## Stepper
 
  - [Sparkfun guide](https://learn.sparkfun.com/tutorials/easy-driver-hook-up-guide) for the easy driver
+ - [AVR360: Step Motor Controller](http://www.atmel.com/Images/doc1181.pdf)
 
 ## Links
 
