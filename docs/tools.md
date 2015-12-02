@@ -9,3 +9,4 @@ the measured amplitude on an amplitude/frequency chart has decreased by
 
  - https://electronics.stackexchange.com/questions/15913/want-to-get-a-heat-gun-for-smt-what-should-i-get
  - Sparkfun's [tutorial](https://www.sparkfun.com/tutorials/391) *How to use Hot-air a Rework Station*
+ - Adafruit's [post](https://learn.adafruit.com/smt-manufacturing/hot-air-tools) with an interesting video inside
