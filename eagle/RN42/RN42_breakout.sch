@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -7893,7 +7893,7 @@ Standard A4 size frame in Landscape</description>
 <part name="U+1" library="mbed-power" deviceset="+3.3V" device=""/>
 <part name="R1" library="rcl" deviceset="R-EU_" device="R0603" value="1k"/>
 <part name="U+2" library="mbed-power" deviceset="+3.3V" device=""/>
-<part name="C1" library="rcl" deviceset="C-EU" device="C0603"/>
+<part name="C1" library="rcl" deviceset="C-EU" device="C0603" value="1uF"/>
 <part name="GND2" library="mbed-power" deviceset="GND" device=""/>
 <part name="U+4" library="mbed-power" deviceset="+3.3V" device=""/>
 <part name="J1" library="SparkFun-Connectors" deviceset="M07" device=""/>
@@ -7901,8 +7901,8 @@ Standard A4 size frame in Landscape</description>
 <part name="U$1" library="SparkFun" deviceset="BLUETOOTH-RN41" device="&quot;"/>
 <part name="STATUS" library="led" deviceset="LED" device="CHIPLED_0603"/>
 <part name="T3" library="SparkFun-PowerIC" deviceset="LM3480IM4" device=""/>
-<part name="C2" library="SparkFun-Passives" deviceset="CAP" device="0603-CAP"/>
-<part name="C3" library="SparkFun-Passives" deviceset="CAP" device="0603-CAP"/>
+<part name="C2" library="SparkFun-Passives" deviceset="CAP" device="0603-CAP" value="0.1uF"/>
+<part name="C3" library="SparkFun-Passives" deviceset="CAP" device="0603-CAP" value="0.1uF"/>
 <part name="GND4" library="mbed-power" deviceset="GND" device=""/>
 <part name="U+5" library="mbed-power" deviceset="+3.3V" device=""/>
 <part name="T2" library="GeekAmmo" deviceset="N-CHANNEL-MOSFET" device="-BSS138" value="N-MOSFET"/>
