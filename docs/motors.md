@@ -1,5 +1,9 @@
 # Motors
 
+## Brushless
+
+ - [Controlling CD/DVD BLDC motor video](https://www.youtube.com/watch?v=WdKf6aiiVY0)
+
 ## Stepper
 
  - [Sparkfun guide](https://learn.sparkfun.com/tutorials/easy-driver-hook-up-guide) for the easy driver
