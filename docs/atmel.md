@@ -106,6 +106,18 @@ int main() {
 }
 ```
 
+### Low Level
+
+When an interrupt happens
+
+ 1. the ``CPU`` finishes any pending instructions and then ceases fetching further instructions
+ 2. Global Interrupt Enable (``GIE``) bit is cleared
+ 3. The ``CPU`` fetches the instruction from the interrupt vector table that corresponds to the interrupt
+
+It's important to note that the symbol's name (``__vector_X`` where ``X`` is the entry's number
+into the interrupts vector table) into the executable has the number shifted by one because
+it starts omitting the ``RESET`` entry.
+
 ### Links
 
  - [AVR130: Setup and Use the AVR® Timers](http://www.atmel.com/Images/doc2505.pdf)
