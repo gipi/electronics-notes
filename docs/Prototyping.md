@@ -169,6 +169,14 @@ processing has finished than you will found the created files in the folder.
 
 ![cam dialog](Images/cam.png)
 
+### Stencil
+
+If your PCB has SMD components, it's a good idea to produce a stencil in order to help to place the
+solder paste correctly.
+
+ - https://www.sparkfun.com/tutorials/383
+ - http://blinkinlabs.com/blog/2014/08/tutorial-solder-stencil/
+
 ### Links
 
 
