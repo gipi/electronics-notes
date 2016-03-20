@@ -176,6 +176,7 @@ solder paste correctly.
 
  - https://www.sparkfun.com/tutorials/383
  - http://blinkinlabs.com/blog/2014/08/tutorial-solder-stencil/
+ - [OSHStencils.com](https://www.oshstencils.com)
 
 ### Links
 
