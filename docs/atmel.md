@@ -303,6 +303,14 @@ It's possible to converto an hex file to object using this line
 
     $ avr-objdump -j .sec1 -d -m avr5 <hex file>
 
+or more usual, the ``ELF``
+
+    $ avr-objdump -d <elf file>
+
+to dump from ``EEPROM``
+
+    $ avrdude -c buspirate -p atmega32u4 -P /dev/ttyUSB0 -F -U eeprom:r:firmware/pov_dumped.eep:r
+
 Links
 -----
 
