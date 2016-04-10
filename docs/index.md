@@ -126,6 +126,8 @@ they are small and cheap.
 
  - [Capacitor decoupling](http://www.vagrearg.org/content/decoupling): The act of (partially) separating the logic chip's power supply from the main power supply. In this [video](https://www.youtube.com/watch?v=jz1IHapsrdk) more explanation
  - Choosing and Using Bypass Capacitors ([PDF](https://www.intersil.com/content/dam/Intersil/documents/an13/an1325.pdf))
+ - [Video](https://www.youtube.com/watch?v=VfCu-siq0-Y): Decoupling capacitors and the 555 timer IC
+ - [Video](https://www.youtube.com/watch?v=jz1IHapsrdk) (and another [video](https://www.youtube.com/watch?v=M2tJpEMIkWM)) with pretty good explanations of principle of decoupling.
  - http://www.thebox.myzen.co.uk/Tutorial/De-coupling.html
  - http://sites.fas.harvard.edu/~phys123/analog_notes/noise_note_sept09.pdf
 
