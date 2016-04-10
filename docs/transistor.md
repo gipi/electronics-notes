@@ -49,4 +49,5 @@ Here an example of usage
  - http://blog.oscarliang.net/how-to-use-mosfet-beginner-tutorial/
  - [AO #10 BJTs as Transistor Switches](https://www.youtube.com/watch?v=sRVvUkK0U80)
  - [AO #11 MOSFETs and How to Use Them](https://www.youtube.com/watch?v=GrvvkYTW_0k)
+ - [Transistor biasing](http://www.electronics-tutorials.ws/amplifier/transistor-biasing.html)
  - https://rheingoldheavy.com/building-things-npn-transistors/
