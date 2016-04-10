@@ -30,8 +30,14 @@ is mainly conseguence of the electrical characteristic of the voltage regulator.
 
 ### Pinout
 
-You need to made accessible all the input/output signals that are necessary in order
-to use correctly the device. For some boolean input is possible to use a switch
+Expose the power lines (``GND``, ``VIN`` and ``VOUT`` if there is a voltage
+regulator) and to made accessible all the input/output signals that are necessary in order
+to use correctly the device.
+
+Group them based on type (``SPI``, ``I2C``, etc...) along with the
+their own power line for their logic level.
+
+For some boolean input is possible to use a switch
 with clear indication near it of their scope.
 
 Use testpad to expose signal lines.
