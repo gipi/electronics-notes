@@ -18,6 +18,10 @@ After that you (maybe) should update your library
  - CvPcb
  - Pvbnew: read netlist (from toolbar)
 
+## Board outline
+
+It's used the layer named **Edge cutes**
+
 ## Fill
 
 Select **Add filled zones**, draw a poligon and then right click and select **fill**
