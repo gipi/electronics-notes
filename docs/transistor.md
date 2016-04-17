@@ -45,6 +45,7 @@ Here an example of usage
 
 ## Links
 
+ - [EE 320/320L Electronics I](http://whites.sdsmt.edu/classes/ee320/)
  - [Tutorial by Sparkfun](https://learn.sparkfun.com/tutorials/transistors)
  - http://electronics.stackexchange.com/questions/19233/when-to-use-what-transistor
  - http://blog.oscarliang.net/how-to-use-mosfet-beginner-tutorial/
