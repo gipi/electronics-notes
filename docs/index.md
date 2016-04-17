@@ -149,6 +149,18 @@ at the frequency of oscillation, ( ƒr ) and a low resistance at DC to help star
 
  - https://e2e.ti.com/blogs_/b/analogwire/archive/2014/04/23/when-to-use-an-rf-choke-vs-an-inductor
 
+## Impedance
+
+Electrical impedance is the measure of the opposition that a circuit presents to a current when a voltage is applied.
+
+For a DC circuit it coincides with the resistance, for an AC circuit is a complex number that takes into account
+the inductance and capacitance effects.
+
+The analytical form for each type of components is the following:
+$$
+Z_R = R\quad Z_C = j{1\over \omega C}\quad Z_L = j\omega L
+$$
+
 ## Switch
 
 There are several codes related to this passive element (see [wikipedia](https://en.wikipedia.org/wiki/Switch#Contact_terminology))
