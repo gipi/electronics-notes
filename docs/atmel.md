@@ -373,3 +373,5 @@ ATTINY85
 ## Arduino
 
 Pin 0 and 1 [are connected by 10k resistors to the serial hardware](http://forum.arduino.cc/index.php?topic=47654.0) so cannot be used.
+
+ - [The Untold History of Arduino](https://arduinohistory.github.io/)
