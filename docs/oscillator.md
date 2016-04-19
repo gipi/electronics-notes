@@ -13,6 +13,10 @@ says that
 
 bad enough seems that [the  Barkhausen Stability Criterion is simple, intuitive, and wrong](http://web.mit.edu/klund/www/weblatex/node4.html).
 
+## RC
+
+ - [Tutorial](http://www.electronics-tutorials.ws/oscillator/rc_oscillator.html)
+
 ## Crystal
 
 Quartz is a piezoelectric material. When an electric

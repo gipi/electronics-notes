@@ -15,3 +15,6 @@ $$f = {1\over 2\pi RC}$$
 
 $${V_O(s)\over V_I(s)} = {1\over RC\cdot s + 1}$$
 
+## High pass filter
+
+ - [tutorial](http://www.electronics-tutorials.ws/filter/filter_3.html)
