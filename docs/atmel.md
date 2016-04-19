@@ -374,5 +374,9 @@ ATTINY85
 
 Pin 0 and 1 [are connected by 10k resistors to the serial hardware](http://forum.arduino.cc/index.php?topic=47654.0) so cannot be used.
 
+### Links
+
+ - [https://rheingoldheavy.com/category/education/fundamentals/arduino-from-scratch-series/
  - [The Untold History of Arduino](https://arduinohistory.github.io/)
  - [Play melody](https://www.arduino.cc/en/Tutorial/PlayMelody)
+
