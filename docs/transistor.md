@@ -4,6 +4,13 @@ Have three pins named **gate**, **source** and **drain**
 
 MOSFET is voltage controlled. While BJT is current controlled,
 
+ - The collector must be more positive than the emitter
+ - the base-emitter and base-collector circuits behave like diodes
+ - \(I_C=h_{FE}I_B=\beta I_B\) where \(\beta\) is tipically about 100
+
+the \(\beta\) parameter is highly dependent on temperature, current, etc..
+so **a circuit dependents on it is a bad circuit**.
+
 ## BJT
 
 The common emitter amplifier configuration produces the highest current and power gain
