@@ -1,4 +1,5 @@
 
+ - [Circuit theory Wikibooks](https://en.wikibooks.org/wiki/Circuit_Theory)
 
 ## BASIC
 
