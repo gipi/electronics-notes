@@ -21,6 +21,20 @@ impedance is HIGH as it is taken from a reverse biased PN-junction.
  - [Bipolar Transistor](http://www.electronics-tutorials.ws/transistor/tran_1.html)
  - [Tutorial](http://blog.oscarliang.net/bjt-bipolar-junction-transistor-beginner-tutorial/)
 
+### Configuration
+
+Transistors comprise of three terminals i.e. Base, emitter and collector but
+when we connected it in a circuit, we require four terminals; two for the input
+and two for the output. To overcome this problem we make one terminal of the
+transistor common to both input and output terminals. The input is fed between
+the common terminal and one of the other two terminals while the output is
+obtained between the common terminal and the remaining terminal. Based on this,
+transistor is configured in the circuit in the following three ways:
+
+ - Common emitter
+ - Common base
+ - Common collector
+
 ## MOSFET
 
 Variable resistor controlled by voltage: you can vary the resistence between drain and source
