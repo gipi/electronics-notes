@@ -113,6 +113,11 @@ The general code is ``XXY``, where
 A standard practice for electronic circuits is to add decoupling capacitors to reduce
 spikes and noise from power supplies and logic lines.
 
+They have two main aims:
+
+ - charge supply
+ - filtering
+
 The values of the capacitors depend on the frequencies of the AC components. Each capacitor
 has its own frequency response determined by its resistance and Equivalent Series Inductance (ESL)
 that is tuned to a range of frequencies. For example, to filter low frequencies you need a
