@@ -216,6 +216,22 @@ You can read the source of the reset by the register ``MCUSR``.
 During reset, all I/O Registers are set to their initial values, and the program starts execution
 from the Reset Vector.
 
+## Boot
+
+It's a little tricky the boot process: there are two fuse that you have to check in your
+hardware to understand how boot: ``HWBE`` and ``BOOTRST``
+
+The pin ``PE2/HWB`` is a special pin that has a special function: if the fuse ``HWBE`` is enabled, during reset
+this pin is sampled and the reset vector will be set as the **boot loader reset vector**;
+the following is a diagram from the atmel's documentation
+
+![HWB](Images/HWB.png)
+
+The **Boot Reset Fuse** (``BOOTRST``) can be programmed so that the Reset Vector is pointing to
+the Boot Flash start address after a reset. In this case, the Boot Loader is started after a reset.
+After the application code is loaded, the program can start executing the application code. Note
+that the fuses cannot be changed by the MCU itself.
+
 ## Brown-out detection
 
 For monitoring the VCC level during operation by comparing it to a fixed trigger level. The trigger level for the
