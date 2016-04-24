@@ -175,6 +175,10 @@ In the Attiny family there is the USI way, in the ATmega there is a SPI implemen
  - [SPI](http://maxembedded.com/2013/11/the-spi-of-the-avr/)
  - Half duplex UART using the USI module [PDF](http://www.atmel.com/Images/doc4300.pdf)
 
+## TWI
+
+ - http://www.nongnu.org/avr-libc/user-manual/group__twi__demo.html
+
 ## USB
 
 Some chips have USB builtin
