@@ -19,8 +19,22 @@ impedance is LOW as it is connected to a forward biased PN-junction, while the o
 impedance is HIGH as it is taken from a reverse biased PN-junction.
 
  - [Bipolar Transistor](http://www.electronics-tutorials.ws/transistor/tran_1.html)
+ - [NPN](http://www.electronics-tutorials.ws/transistor/tran_2.html)
  - [Tutorial](http://blog.oscarliang.net/bjt-bipolar-junction-transistor-beginner-tutorial/)
 
+### Q-point
+
+The Q stands for quiescent which means still, quiet or stable. The Q-point is
+on the DC load line and represents the current flowing in output circuit and
+voltage across it. In our case, they are IC and VCE. The value of current and
+voltage at Q-point are written as (VCEQ, ICQ).
+
+The position of Q-point is selected according to the application of transistor.
+
+ - If transistor is to be used as switch, Q-point is in cut-off region for open switch and in saturation region for closed switch.
+ - If transistor is to be operated as amplifier, Q-point is placed exactly in
+   the middle of the DC load line. It is preferred at midpoint of DC load line
+so that it does not enter in other regions due change in temperature, Î²dc etc.
 ### Configuration
 
 Transistors comprise of three terminals i.e. Base, emitter and collector but
