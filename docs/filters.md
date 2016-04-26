@@ -15,6 +15,11 @@ $$f = {1\over 2\pi RC}$$
 
 $${V_O(s)\over V_I(s)} = {1\over RC\cdot s + 1}$$
 
+### Links
+
+ - [tutorial](http://www.electronics-tutorials.ws/filter/filter_2.html)
+ - [lowpass filter in scipy](http://stackoverflow.com/questions/25191620/creating-lowpass-filter-in-scipy-understanding-methods-and-units)
+
 ## High pass filter/RC Differentiator
 
  - [tutorial](http://www.electronics-tutorials.ws/filter/filter_3.html)
