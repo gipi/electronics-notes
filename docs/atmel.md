@@ -71,6 +71,10 @@ that decides certain configuration with which the chip will run.
 
 The ``AVR`` chips have available a certain numbers of counter that can be used as clock
 in an application, and some of these are connectable with interrupts in some cases.
+They are used also to generate accurate PWM signals via I/O pins.
+
+Can exist more than one counters/timers with difference number of bits (usually 8
+or 16).
 
 First of all is needed to set the prescaler with the flags ``CSx[0:2]``, usually are
 in powers of two
@@ -125,6 +129,7 @@ it starts omitting the ``RESET`` entry.
  - [avr-libc page about interrupts](http://www.nongnu.org/avr-libc/user-manual/group__avr__interrupts.html)
  - [Post](http://www.avrbeginners.net/architecture/timers/timers.html) from ``avrbeginners`` with clear diagrams.
  - [TimerOne library](http://www.pjrc.com/teensy/td_libs_TimerOne.html)
+ - [Quick and Dirty D to A on the AVR: A timer tutorial](http://www.evilmadscientist.com/2007/quick-and-dirty-d-to-a-on-the-avr-a-timer-tutorial/)
 
 ## Sleep modes
 
