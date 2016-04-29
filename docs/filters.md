@@ -11,6 +11,8 @@ A way to study the response is by the **Bode plot** that shows
 
 Are composed of a resistor with a capacitor
 
+![low pass filter](Images/low-pass-filter.png)
+
 $$f = {1\over 2\pi RC}$$
 
 $${V_O(s)\over V_I(s)} = {1\over RC\cdot s + 1}$$
