@@ -1,6 +1,7 @@
 
  - [Circuit theory Wikibooks](https://en.wikibooks.org/wiki/Circuit_Theory)
  - [EE Courses](http://cc.ee.ntu.edu.tw/~lhlu/eecourses.html)
+ - [The Laplace Transform in Circuit Analysis](http://www.ee.nthu.edu.tw/~sdyang/Courses/Circuits/Ch13_Std.pdf)
 
 ## BASIC
 
