@@ -37,6 +37,9 @@ The position of Q-point is selected according to the application of transistor.
  - If transistor is to be operated as amplifier, Q-point is placed exactly in
    the middle of the DC load line. It is preferred at midpoint of DC load line
 so that it does not enter in other regions due change in temperature, Î²dc etc.
+
+ - [Biasing calculation](http://www.allaboutcircuits.com/textbook/semiconductors/chpt-4/biasing-calculations/)
+
 ### Configuration
 
 Transistors comprise of three terminals i.e. Base, emitter and collector but
