@@ -22,6 +22,7 @@ impedance is HIGH as it is taken from a reverse biased PN-junction.
  - [NPN](http://www.electronics-tutorials.ws/transistor/tran_2.html)
  - [Tutorial](http://blog.oscarliang.net/bjt-bipolar-junction-transistor-beginner-tutorial/)
  - [Slides with transfer function calculations](http://aries.ucsd.edu/NAJMABADI/CLASS/ECE65/12-W/Slides/ECE65_W12-BJT.pdf)
+ - [Slides from a course](http://cc.ee.ntu.edu.tw/~lhlu/eecourses/Electronics1/Electronics_Ch4.pdf)
 
 ### Q-point
 

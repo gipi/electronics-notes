@@ -1,5 +1,6 @@
 
  - [Circuit theory Wikibooks](https://en.wikibooks.org/wiki/Circuit_Theory)
+ - [EE Courses](http://cc.ee.ntu.edu.tw/~lhlu/eecourses.html)
 
 ## BASIC
 
