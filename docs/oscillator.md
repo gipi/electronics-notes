@@ -48,3 +48,4 @@ be used to amplify the feedback loop of an oscillating circuit.
  - Microcontroller Oscillator Circuit Design Considerations ((PDF)[http://www.freescale.com/files/microcontrollers/doc/app_note/AN1706.pdf])
  - [Tutorial](http://www.electronics-tutorials.ws/oscillator/crystal.html) about crystals with pratical example of circuit using them.
  - [Video](https://www.youtube.com/watch?v=eYVOdlK15Og) with simple example of oscillators (with a little bit of oscilloscope)
+ - [Slides](http://cc.ee.ntu.edu.tw/~lhlu/eecourses/Electronics3/Electronics_Ch12.pdf) SIGNAL GENERATORS AND WAVEFORM-SHAPING CIRCUITS
