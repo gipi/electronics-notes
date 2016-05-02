@@ -89,6 +89,11 @@ The unit of **capacitance** is called **Farad** and has the following relation w
 
 $$[F] = {[I][T]\over [V]}$$
 
+There are different kind of capacitors, **ceramic** and **electrolytic**, each with pros and cons.
+
+For example [ceramic capacitors depends on voltage](https://www.youtube.com/watch?v=2MQyQUkwmMk), but
+[Electrolytics are 'bulk' capacitors, used for high values to hold up DC buses. Their parasistics make them unsuitable for filtering high frequencies](https://www.reddit.com/r/AskElectronics/comments/34eccb/when_do_you_use_electrolytic_versus_ceramic/cqu80j9).
+
 ### Codes
 
 The codes below are generally found on ceramic (little round discs) and mylar (chicklet) capacitors,
