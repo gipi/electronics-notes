@@ -185,6 +185,35 @@ There are several codes related to this passive element (see [wikipedia](https:/
 
  - [Contatti digitali](https://checco76.wordpress.com/2010/11/09/contatti-digitali-no-nc-spst-spdt-brief-tutorial/)
 
+## Buzzer
+
+They are sound devices, activated by electromagnetic effects; [they have some frequencies that
+are more loud than other](http://www.instructables.com/id/How-to-make-an-Arduino-driven-Piezo-LOUD/), you have to see their **response curve** like this one
+
+![CEM-1203 response curve](Images/buzzer-frequency-response-curve.png)
+
+A code sample in an Arduino is
+
+```C
+#define ALARM 8
+#define SOUND_PARAMETER 300
+
+void sound() {
+  for (int i = 0 ; i < SOUND_PARAMETER; i++) {
+    analogWrite(ALARM, 255);
+    delayMicroseconds(200);
+  
+    analogWrite(ALARM, 0);
+    delayMicroseconds(200);
+  }
+
+  delay(SOUND_PARAMETER);
+}
+```
+
+## Rotatory encoder
+
+ - http://www.hobbytronics.co.uk/tutorials-code/arduino-tutorials/arduino-tutorial6-rotary-encoder
 
 HACK
 ----
