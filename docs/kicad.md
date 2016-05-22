@@ -30,3 +30,5 @@ Select **Add filled zones**, draw a poligon and then right click and select **fi
 
  - [Creating a Project From KiCAD Files](https://factory.macrofab.com/help/kpdink)
  - [Tutorial for kicad](http://store.curiousinventor.com/guides/kicad)
+ - [Importing Libraries into KiCad](http://www.accelerated-designs.com/help/KiCad_Library.html)
+ - [Several useful libraries of components](http://smisioto.no-ip.org/elettronica/kicad/kicad-en.htm)
