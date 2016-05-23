@@ -1,6 +1,6 @@
 # KiCad
 
-[Home](http://kicad-pcb.org/) | [Doc](http://kicad-pcb.org/help/documentation/)
+[Home](http://kicad-pcb.org/) | [Doc](http://kicad-pcb.org/help/documentation/) | [Kicadlib.org](http://kicadlib.org)
 
 It's a CAD design software for electronic circuits.
 
