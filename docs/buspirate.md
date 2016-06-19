@@ -48,6 +48,11 @@ Exist different versions of cable colors, in this text we use the [seeedstudio](
 
 ![PIN SCHEME](http://dangerousprototypes.com/docs/images/1/1b/Bp-pin-cable-color.png)
 
+### Mode
+
+There is a tricky behaviour with pullup resistor and **open collector mode** and **normal pin mode**,
+read more [here](https://hackaday.com/2009/07/01/mixed-voltage-interfacing-with-the-bus-pirate/).
+
 ## Bootloader
 
 The BP has a bootloader, in hardware v3 can be accessed with the ``pirate-loader`` console
