@@ -1,5 +1,9 @@
 # BUS PIRATE
 
+It's a multi-purpose tool to interface with a lot of protocols. It's built on top
+a PIC24FJ64GA002 microcontroller. It's all open source ([github repo](https://github.com/DangerousPrototypes/Bus_Pirate))
+and the ``PIC`` can be programmed following this [post](https://hackaday.com/2010/11/03/how-to-program-pics-using-linux/).
+
 A note about versioning: exist three different versions:
 
  - the hardware
