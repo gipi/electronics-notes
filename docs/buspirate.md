@@ -92,6 +92,11 @@ Device ID: PIC24FJ64GA002 [d4]
 Bootloader version: 1,02
 ```
 
+## UART
+
+It's also possible to set [custom baud rates](http://unwind.se/buspirate-baudrate/) entering the appropriate
+raw UXBRG register value.
+
 ## Logic Analyzer
  
  - http://www.hobbytronics.co.uk/bus-pirate-logic-sniffer
