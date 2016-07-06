@@ -28,7 +28,10 @@ Select **Add filled zones**, draw a poligon and then right click and select **fi
 
 ## Links
 
+ - [Pcbnew](https://wiki.xtronics.com/index.php/Pcbnew)
  - [Creating a Project From KiCAD Files](https://factory.macrofab.com/help/kpdink)
  - [Tutorial for kicad](http://store.curiousinventor.com/guides/kicad)
  - [Importing Libraries into KiCad](http://www.accelerated-designs.com/help/KiCad_Library.html)
  - [Several useful libraries of components](http://smisioto.no-ip.org/elettronica/kicad/kicad-en.htm)
+ - [Preparing PCB for SeeedStudio](http://www.sl-alex.com.ua/en/page/kicad-preparing-pcb-for-seeedstudio)
+ - [OSH Park design rules for Kicad](http://docs.oshpark.com/design-tools/kicad/kicad-design-rules/)
