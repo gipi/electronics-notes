@@ -26,4 +26,5 @@ pages:
 - [tools.md, Tools]
 - [transistor.md, Transistors]
 - [voltagereg.md, Voltage regulator]
+- [fpga.md, FPGA]
 theme: readthedocs
