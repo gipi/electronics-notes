@@ -293,6 +293,70 @@ Valid parts are:
 $ avrdude -c buspirate -p m328p -v -P /dev/ttyUSB0
 ```
 
+The option used to indicate the action to do on a microcontroller is ``-U``: from the
+documentation
+
+```
+-U memtype:op:filename[:format]
+
+    Perform a memory operation, equivalent to specifing the ‘-m’, ‘-i’ or ‘-o’, and
+    ‘-f’ options, except that multiple ‘-U’ optins can be specified in order to operate
+    on mulitple memories on the same command-line invocation. The memtype field
+    specifies the memory type to operate on. Use the ‘-v’ option on the command
+    line or the part command from terminal mode to display all the memory types
+    supported by a particular device. Typically, a device’s memory configuration at
+    least contains the memory types flash and eeprom. All memory types currently
+    known are:
+
+    calibration
+        One or more bytes of RC oscillator calibration data.
+
+    eeprom The EEPROM of the device.
+
+    efuse The extended fuse byte.
+
+    flash The flash ROM of the device.
+
+    fuse The fuse byte in devices that have only a single fuse byte.
+
+    hfuse The high fuse byte.
+
+    lfuse The low fuse byte.
+
+    lock The lock byte.
+
+    signature
+        The three device signature bytes (device ID).
+
+    The op field specifies what operation to perform:
+
+    r read the specified device memory and write to the specified file
+    w read the specified file and write it to the specified device memory
+    v read the specified device memory and the specified file and perform
+    a verify operation
+
+    The filename field indicates the name of the file to read or write. The format
+    field is optional and contains the format of the file to read or write. Possible
+    values are:
+
+    i Intel Hex
+
+    s Motorola S-record
+
+    r raw binary; little-endian byte order, in the case of the flash ROM
+    data
+
+    m immediate mode; actual byte values specified on the command line,
+      seperated by commas or spaces in place of the filename field of the
+      ‘-i’, ‘-o’, or ‘-U’ options. This is useful for programming fuse bytes
+      without having to create a single-byte file or enter terminal mode.
+      If the number specified begins with 0x, it is treated as a hex value.
+      If the number otherwise begins with a leading zero (0) it is treated
+      as octal. Otherwise, the value is treated as decimal.
+      a auto detect; valid for input only, and only if the input is not provided
+      at stdin.
+```
+
 ### High Voltage Serial Programming
 
 AKA ``HVSP``
