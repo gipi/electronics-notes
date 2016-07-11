@@ -57,6 +57,32 @@ Exist different versions of cable colors, in this text we use the [seeedstudio](
 There is a tricky behaviour with pullup resistor and **open collector mode** and **normal pin mode**,
 read more [here](https://hackaday.com/2009/07/01/mixed-voltage-interfacing-with-the-bus-pirate/).
 
+## Bus modes
+
+### HiZ
+
+In this mode all the pins are set as **high impedence**.
+
+### 1-Wire
+
+## Utilities
+
+### Power supply
+
+With the ``w/W`` it's possible to de/activate the power supply (it's not possible
+in ``HiZ`` mode).
+
+### ADC reading
+
+The ``ADC`` pin can read voltage using the ``d`` or ``D`` command.
+
+```
+1-WIRE>D
+VOLTMETER MODE
+Any key to exit
+VOLTAGE PROBE: 2.10V
+```
+
 ## Bootloader
 
 The BP has a bootloader, in hardware v3 can be accessed with the ``pirate-loader`` console
