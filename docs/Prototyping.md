@@ -49,6 +49,8 @@ so it's necessary to place some hole (maybe grounded).
 
 My advice is to place the holes before starting placing components around.
 
+Some more info in this [link](https://blogs.mentor.com/tom-hausherr/blog/tag/pcb-mounting-holes/).
+
 ### Paper prototyping
 
 It's easy to lose the real proportion of the various parts, so,
