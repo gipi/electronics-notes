@@ -23,7 +23,10 @@ $$
 
 ## UART and Serial
 
-The simplest of protocols without needing a clock line
+The simplest of protocols without needing a clock line, usually it's exposed
+as a 4 pins header but it's also possible to be exposed via already used IO
+port (like [headphone socket](http://www.pabr.org/consolejack/consolejack.en.html) or
+USB port via [https://www.fairchildsemi.com/datasheets/FS/FSA9280A.pdf](https://www.fairchildsemi.com/datasheets/FS/FSA9280A.pdf)).
 
  - http://wiki.openwrt.org/doc/hardware/port.serial
  - http://www.devttys0.com/2012/11/reverse-engineering-serial-ports/
