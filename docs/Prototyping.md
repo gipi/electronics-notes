@@ -42,6 +42,8 @@ with clear indication near it of their scope.
 
 Use testpad to expose signal lines.
 
+Make them with an appropriate spacing so that can be used with a breadboard.
+
 ### Mounting holes
 
 Probably the device will be mounted in a case or will be fixed to something,
