@@ -3,6 +3,8 @@
  - [EE Courses](http://cc.ee.ntu.edu.tw/~lhlu/eecourses.html)
  - [The Laplace Transform in Circuit Analysis](http://www.ee.nthu.edu.tw/~sdyang/Courses/Circuits/Ch13_Std.pdf)
 
+![technology table](Images/tech-table.png)
+
 ## BASIC
 
 The building blocks of every circuit are **current** and **voltage**: the first
