@@ -180,3 +180,7 @@ display none 16 17 18 19 22 24 26 30;
 display none 1 17 18 19 20 21 23 25 51;
 run find.ulp
 ```
+
+## Enclosure box
+
+ - [How To Make Nice Looking DIY Front Panel](http://jumperone.com/2013/01/how-to-make-diy-front-panel/)
