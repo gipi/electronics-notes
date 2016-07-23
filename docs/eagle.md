@@ -69,3 +69,17 @@ is to zoom out a lot and then click to the routing tool, at this point the missi
 will show magically.
 
 There is also a zoomunrouted.ulp that zooms in on any place that is unconnected. It is a standard part of our PCB pre-flight.
+
+## SCRIPTS
+
+Some usefull command to quick show/hide layers ([source](http://dangerous-prototypes-open-hardware.googlecode.com/svn/trunk/Eagle_Part_Library/helpful_scripts/))
+
+```
+#default visible layers
+DISPLAY NONE 1 16 17 18 19 20 21 22 23 24 25 26 39 40 41 42 48 49 50 51 52 56 101 102 104 116 121 122 151 254;
+display none 16 17 18 19 22 24 26 30;
+display none 1 17 18 19 20 21 23 25 51;
+run find.ulp
+```
+
+

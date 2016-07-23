@@ -169,18 +169,6 @@ Exist several different services that offer PCB production
  - http://kb.gr8bit.ru/KB0015/GR8BIT-KB0015-Best-practices-creating-designs-with-EAGLE.html
  - https://github.com/lachlanA/eagle-to-kicad
 
-## SCRIPTS
-
-Some usefull command to quick show/hide layers ([source](http://dangerous-prototypes-open-hardware.googlecode.com/svn/trunk/Eagle_Part_Library/helpful_scripts/))
-
-```
-#default visible layers
-DISPLAY NONE 1 16 17 18 19 20 21 22 23 24 25 26 39 40 41 42 48 49 50 51 52 56 101 102 104 116 121 122 151 254;
-display none 16 17 18 19 22 24 26 30;
-display none 1 17 18 19 20 21 23 25 51;
-run find.ulp
-```
-
 ## Enclosure box
 
  - [How To Make Nice Looking DIY Front Panel](http://jumperone.com/2013/01/how-to-make-diy-front-panel/)
