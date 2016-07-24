@@ -41,7 +41,7 @@ history and ratio about packages
 
  - DIP/DIL: Dual In Line, through hole component
  - SOIC: Small Outline IC, surface mount component
- - SOT: Small-outline transistor
+ - SOT: Small-outline transistor ([wikipedia page](https://en.wikipedia.org/wiki/Small-outline_transistor))
  - QFN: Quad Flat No leads
  - QFP: Quad Flat Packages
  - LQFP: Low-profile quad flat packages
