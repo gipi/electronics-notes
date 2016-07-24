@@ -25,6 +25,6 @@ pages:
 - [soldering.md, Soldering]
 - [tools.md, Tools]
 - [transistor.md, Transistors]
-- [voltagereg.md, Voltage regulator]
+- [voltagereg.md, Power management]
 - [fpga.md, FPGA]
 theme: readthedocs

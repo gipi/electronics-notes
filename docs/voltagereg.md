@@ -1,3 +1,5 @@
+# Power management
+
 ## Voltage regulators
 
 ### Linear
@@ -21,6 +23,8 @@ a stable voltage.
 Steps up the voltage
 
  - [Video](https://www.youtube.com/watch?v=wJU7AJgERG8&index=5&list=PL36AB5C6DA12CF293) from Afrotechmods
+ - [TPS61040](http://mkpochtoi.narod.ru/TPS61040_TPS61041_dcdc_boost_ds.pdf) datasheet
+ - [TPS61093](http://www.ti.com/lit/ds/symlink/tps61093.pdf) datasheet
 
 ### Buck
 
@@ -28,3 +32,12 @@ Step down the voltage
 
  - [Video](https://www.youtube.com/watch?v=CEhBN5_fO5o&index=5&list=PL36AB5C6DA12CF293) from Afrotechmods
  - [Iphone charger teardown](http://www.righto.com/2012/05/apple-iphone-charger-teardown-quality.html)
+
+## Battery charger
+
+ - [MCP73831/2](https://www.sparkfun.com/datasheets/Prototyping/Batteries/MCP73831T.pdf) datasheet
+ - [LTC4054](https://cds.linear.com/docs/en/datasheet/405442xf.pdf) datasheet
+ - [A Lithium Battery Charger with Load Sharing](http://blog.zakkemble.co.uk/a-lithium-battery-charger-with-load-sharing/)
+ - [AN1149](http://ww1.microchip.com/downloads/en/AppNotes/01149c.pdf) Designing A Li-Ion Battery Charger and Load Sharing System With
+Microchip’s Stand-Alone Li-Ion Battery Charge Management Controller
+
