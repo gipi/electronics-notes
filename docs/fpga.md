@@ -8,3 +8,4 @@
  - [Opencore](http://opencores.org/): open source hardware IP-cores
  - [FPGA arcade](http://www.fpgaarcade.com/) site that recreates gaming and computing hardware from the past using FPGAs
  - [The Logic Space](https://eewiki.net/display/LOGIC/Home) This space contains logic examples and material for both programmable (FPGA and CPLD) as well as discrete logic designs.
+ - [Video](https://www.youtube.com/watch?v=pDE2qenDXKQ) Lesson 1: Concept Guide and Step by Step Tutorial to Flash LEDs
