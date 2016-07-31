@@ -34,6 +34,21 @@ capability.
 
  - http://www.electronics-tutorials.ws/logic/logic_9.html
 
+## Open collector mode
+
+In this mode a pin has two possible state: connected to ``GND`` (probably via a transistor)
+or open circuit.
+
+An advantage is that more than one open-collector output can connect to a
+single line. If all outputs attached to the line are in the high-impedance
+state, the pull-up resistor will hold the wire in a high voltage (logic 1)
+state. If one or more device outputs are in the logic 0 (ground) state, they
+will sink current and pull the line voltage toward ground.
+
+ - [Open Collector Outputs](http://www.evilmadscientist.com/2012/basics-open-collector-outputs/)
+ - [Page of wikipedia](https://en.wikipedia.org/wiki/Open_collector)
+ - [Introduction to Wired-OR Outputs and Open-Collector Circuits](http://www.ni.com/white-paper/3544/en/)
+
 ## Circuit Packages
 
 [Slide](http://security.cs.rpi.edu/courses/hwre-spring2014/Lecture2_Packaging.pdf) with some
