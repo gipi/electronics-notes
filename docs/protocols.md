@@ -3,6 +3,8 @@
 Electronics is about voltage and stuffs but as humans we use it for
 connect devices and devices connected need ways to communicate.
 
+![](Images/connectors.jpg)
+
 ## PWM
 
 The acronym means **Pulse Width Modulation** and it's the simplest
