@@ -17,3 +17,5 @@
     - [Your First CPU - Chapter 2 - Branching](http://colinmackenzie.net/index.php?view=article&catid=12%3Ayfcpu&id=17%3Ayour-first-cpu-chapter-2-branching&tmpl=component&print=1&layout=default&page=&option=com_content&Itemid=6)
     - [Your First CPU - Chapter 3 - Your First Assembler](http://colinmackenzie.net/index.php?view=article&catid=12%3Ayfcpu&id=18%3Ayfcpu-ch3&tmpl=component&print=1&layout=default&page=&option=com_content&Itemid=6)
     - [Your First CPU - Chapter 4 - Pipelining](http://colinmackenzie.net/index.php?view=article&catid=12%3Ayfcpu&id=29%3Ayfcpupipelining&tmpl=component&print=1&layout=default&page=&option=com_content&Itemid=6)
+ - [REAL-TIME FACE DETECTION AND TRACKING](https://people.ece.cornell.edu/land/courses/eceprojectsland/STUDENTPROJ/2012to2013/tnn7/index.html)
+ - [FPGA NES](http://mil.ufl.edu/4924/projects/s12/final/King.pdf)
