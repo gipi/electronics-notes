@@ -39,6 +39,11 @@ This is the standard wire gauge system, increasing gauge numbers denote decreasi
 diameters; here the [table](https://it.wikipedia.org/wiki/American_wire_gauge#Tabella_delle_dimensioni_dei_fili_AWG)
 from wikipedia.
 
+ - [Wire Gauges](http://datagenetics.com/blog/september12016/index.html) The
+   origin for the specification of the 'Gauge' of a wire is the number of dies
+   that it has been pulled through - the higher the gauge, the more times it has
+   been drawn.
+
 ### Crimping
 
  - [Video](https://www.youtube.com/watch?v=wEPdB-W3-Tc) where is shown how to crimp manually a female header
