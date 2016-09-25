@@ -14,6 +14,9 @@ Exist
  - I series
  - K series
 
+ - [900M Series Soldering Tips](https://www.hakko.com/english/tip_selection/series_900m.html)
+ - [How to identify the HAKKO 900 series tip size](https://www.hakko.com/english/maintenance/topic_936_937_928_kote.html)
+
 ## Flux
 
 The [flux](http://en.wikipedia.org/wiki/Soldering#Flux) is a tool useful to facilitate the soldering
