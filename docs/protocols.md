@@ -77,6 +77,7 @@ the Test Access Port:
 Usually on reference is indicated also the **VTRef** pin that indicates what is the voltage reference
 for the 
 
+ - [JTAG explained](http://blog.senr.io/blog/jtag-explained)
  - [How JTAG works](http://www.fpga4fun.com/JTAG2.html)
  - https://hackingbtbusinesshub.wordpress.com/2012/01/26/discovering-jtag-pinouts/
  - http://sun.hasenbraten.de/~frank/docs/mpc824x_JTAG.html
