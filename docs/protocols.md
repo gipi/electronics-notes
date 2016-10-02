@@ -88,6 +88,7 @@ for the
  - https://www.youtube.com/watch?v=TlWlLeC5BUs
  - http://electronics.stackexchange.com/questions/53311/why-jtag-connectors-are-available-in-10pins-14pins-20pins-when-jtag-is-of-5pins
  - https://github.com/syncsrc/jtagsploitation
+ - [Video](https://www.youtube.com/watch?v=Up0697E5DGc) Blackbox JTAG Reverse Engineering [26C3]
 
 ## USB
 
