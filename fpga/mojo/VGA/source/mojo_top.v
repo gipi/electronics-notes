@@ -25,17 +25,23 @@ module mojo_top(
     output vsync_out
     );
 
-wire inDisplayArea;
-wire [9:0] CounterX;
-wire [8:0] CounterY;
+wire clk_25;
+wire rst = ~rst_n; // make reset active high
 
-hvsync_generator hvsync(
-  .clk(clk),
-  .vga_h_sync(hsync_out),
-  .vga_v_sync(vsync_out)
+clk_25MHz clk_video(
+  .CLK_IN1(clk),
+  .CLK_OUT1(clk_25),
+  .RESET(rst)
 );
 
-wire rst = ~rst_n; // make reset active high
+hvsync_generator hvsync(
+  .clk(clk_25),
+  .vga_h_sync(hsync_out),
+  .vga_v_sync(vsync_out),
+  .CounterX(CounterX),
+  .CounterY(CounterY)
+);
+
 
 // these signals should be high-z when not used
 assign spi_miso = 1'bz;

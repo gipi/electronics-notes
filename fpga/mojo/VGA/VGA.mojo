@@ -4,5 +4,8 @@
     <src top="true">mojo_top.v</src>
     <src>hvsync_generator.v</src>
     <ucf>mojo.ucf</ucf>
+    <core name="clk_25MHz">
+      <src>clk_25MHz.v</src>
+    </core>
   </files>
 </project>
