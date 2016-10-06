@@ -20,13 +20,14 @@ module mojo_top(
     input avr_rx_busy, // AVR Rx buffer full
 
     // VGA connections
-    output [2:0] pixel,
+    output reg [2:0] pixel,
     output hsync_out,
     output vsync_out
     );
 
 wire clk_25;
 wire rst = ~rst_n; // make reset active high
+wire inDisplayArea;
 
 clk_25MHz clk_video(
   .CLK_IN1(clk),
@@ -39,7 +40,8 @@ hvsync_generator hvsync(
   .vga_h_sync(hsync_out),
   .vga_v_sync(vsync_out),
   .CounterX(CounterX),
-  .CounterY(CounterY)
+  .CounterY(CounterY),
+  .inDisplayArea(inDisplayArea)
 );
 
 
@@ -50,6 +52,12 @@ assign spi_channel = 4'bzzzz;
 
 assign led = 8'b0;
 
-assign pixel = 3'b1;
+
+always @(posedge clk_25)
+begin
+  pixel[0] <= 1'b1 & inDisplayArea;
+  pixel[1] <= 1'b0 & inDisplayArea;
+  pixel[2] <= 1'b0 & inDisplayArea;
+end
 
 endmodule
