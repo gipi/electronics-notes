@@ -106,3 +106,9 @@ The architecture of this protocol is *tiered star topology*, there can be no com
 
  - [USB Central](http://janaxelson.com/usb.htm)
  - http://www.usbmadesimple.co.uk/ums_2.htm
+
+## VGA
+
+ - [VGA On The Arduino With No External Parts Or CPU!](http://dpeckett.com/vga-on-the-arduino-with-no-external-parts)
+ - [VGA (Video Graphics Array) Interface and video signal documents](http://martin.hinner.info/vga/)
+ - [VGA Controller (VHDL)](https://eewiki.net/pages/viewpage.action?pageId=15925278)
