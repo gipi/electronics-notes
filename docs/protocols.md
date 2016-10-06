@@ -112,3 +112,4 @@ The architecture of this protocol is *tiered star topology*, there can be no com
  - [VGA On The Arduino With No External Parts Or CPU!](http://dpeckett.com/vga-on-the-arduino-with-no-external-parts)
  - [VGA (Video Graphics Array) Interface and video signal documents](http://martin.hinner.info/vga/)
  - [VGA Controller (VHDL)](https://eewiki.net/pages/viewpage.action?pageId=15925278)
+ - [CS/EE 3710 - Computer Design Lab - Lab 3 – VGA](http://www.eng.utah.edu/~cs3710/labs/VGA.pdf)
