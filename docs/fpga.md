@@ -19,3 +19,5 @@
     - [Your First CPU - Chapter 4 - Pipelining](http://colinmackenzie.net/index.php?view=article&catid=12%3Ayfcpu&id=29%3Ayfcpupipelining&tmpl=component&print=1&layout=default&page=&option=com_content&Itemid=6)
  - [REAL-TIME FACE DETECTION AND TRACKING](https://people.ece.cornell.edu/land/courses/eceprojectsland/STUDENTPROJ/2012to2013/tnn7/index.html)
  - [FPGA NES](http://mil.ufl.edu/4924/projects/s12/final/King.pdf)
+ - [VGA Character Generator on an FPGA](http://blog.andyselle.com/2014/12/04/vga-character-generator-on-an-fpga/)
+ - [Makefile](http://www.excamera.com/sphinx/fpga-makefile.html) for building FPGA code
