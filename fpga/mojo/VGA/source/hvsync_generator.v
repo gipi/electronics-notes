@@ -1,46 +1,59 @@
+/*
+ VGA
+ ---
+ 
+ The VGA 640x480@60Hz is really a canvas of 800x525 clocks
+ 
+ HSYNC                       VSYNC
+ -----                       -----
+ 
+ front porch: 16pc           10pc
+ sync pulse:  96pc           2pc
+ back porch:  48pc           33pc
+*/
 module hvsync_generator(
     input clk,
     output vga_h_sync,
     output vga_v_sync,
-    output inDisplayArea,
-    output CounterX,
-    output CounterY
+    output reg inDisplayArea,
+    output reg [9:0] CounterX,
+    output reg [8:0] CounterY
   );
-reg [9:0] CounterX;
-reg [8:0] CounterY;
-wire CounterXmaxed = (CounterX==767);
+reg vga_HS, vga_VS;
+
+wire CounterXmaxed = (CounterX == 800); // 16 + 48 + 96 = 160 + 
+wire CounterYmaxed = (CounterY == 525);
 
   // Module get from <http://www.fpga4fun.com/PongGame.html>
 always @(posedge clk)
-if(CounterXmaxed)
+if (CounterXmaxed)
   CounterX <= 0;
 else
   CounterX <= CounterX + 1;
 
 always @(posedge clk)
-if(CounterXmaxed)
-    CounterY <= CounterY + 1;
-   
-
-reg vga_HS, vga_VS;
-always @(posedge clk)
 begin
-  vga_HS <= (CounterX[9:4]==0);   // active for 16 clocks
-  vga_VS <= (CounterY==0);   // active for 768 clocks
+  if (CounterXmaxed)
+  begin
+    if(CounterYmaxed)
+      CounterY <= 0;
+    else
+      CounterY <= CounterY + 1;
+  end
 end
 
-reg inDisplayArea;
 always @(posedge clk)
-if(inDisplayArea==0)
-	inDisplayArea <= (CounterXmaxed) && (CounterY<480);
-else
-	inDisplayArea <= !(CounterX==639);
+begin
+  vga_HS <= (CounterX > (640 + 16) && (CounterX < (640 + 16 + 96)));   // active for 96 clocks
+  vga_VS <= (CounterY > (480 + 10) && (CounterY < (480 + 10 + 2)));   // active for 2 clocks
+end
+
+always @(posedge clk)
+begin
+	inDisplayArea <= (CounterX < 640) && (CounterY < 480);
+end
 
 assign vga_h_sync = ~vga_HS;
 assign vga_v_sync = ~vga_VS;
-
-assign R = CounterY[3] | (CounterX==256);
-assign G = (CounterX[5] ^ CounterX[6]) | (CounterX==256);
-assign B = CounterX[4] | (CounterX==256);
 
 endmodule

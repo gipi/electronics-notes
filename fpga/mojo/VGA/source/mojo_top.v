@@ -28,6 +28,8 @@ module mojo_top(
 wire clk_25;
 wire rst = ~rst_n; // make reset active high
 wire inDisplayArea;
+wire [9:0] CounterX;
+
 
 clk_25MHz clk_video(
   .CLK_IN1(clk),
@@ -53,11 +55,19 @@ assign spi_channel = 4'bzzzz;
 assign led = 8'b0;
 
 
+/*
+ * We want a rainbow pattern with the 8 colors available to us:
+ * to avoid to write explicit conditions for each colour, we use
+ * the most significant bits of CounterX, using from the 6th bit
+ * upwards we divide by 64 obtaining 10 strips.
+ *
+ */
 always @(posedge clk_25)
 begin
-  pixel[0] <= 1'b1 & inDisplayArea;
-  pixel[1] <= 1'b0 & inDisplayArea;
-  pixel[2] <= 1'b0 & inDisplayArea;
+  if (inDisplayArea)
+    pixel <= CounterX[9:6];
+  else // if it's not to display, go dark
+    pixel <= 3'b000;
 end
 
 endmodule
