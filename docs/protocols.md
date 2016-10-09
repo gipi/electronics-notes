@@ -113,3 +113,5 @@ The architecture of this protocol is *tiered star topology*, there can be no com
  - [VGA (Video Graphics Array) Interface and video signal documents](http://martin.hinner.info/vga/)
  - [VGA Controller (VHDL)](https://eewiki.net/pages/viewpage.action?pageId=15925278)
  - [CS/EE 3710 - Computer Design Lab - Lab 3 – VGA](http://www.eng.utah.edu/~cs3710/labs/VGA.pdf)
+ - [VGA Text-mode](http://www.flingos.co.uk/docs/reference/VGA-Text-Mode/)
+ - [Hardware Level VGA and SVGA Video Programming Information Page](http://www.osdever.net/FreeVGA/vga/vgatext.htm)
