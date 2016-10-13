@@ -21,3 +21,4 @@
  - [FPGA NES](http://mil.ufl.edu/4924/projects/s12/final/King.pdf)
  - [VGA Character Generator on an FPGA](http://blog.andyselle.com/2014/12/04/vga-character-generator-on-an-fpga/)
  - [Makefile](http://www.excamera.com/sphinx/fpga-makefile.html) for building FPGA code
+ - [Creating a Mojo project with Xilinx's ISE](http://www.glennsweeney.com/tutorials/mojo-fpga-tutorials/creating-a-mojo-project)
