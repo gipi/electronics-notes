@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/opt/3043096/fpga/mojo/VGAGlyph/test_hvsync_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="test_hvsync" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="6" />
+   <wvobject fp_name="/test_hvsync/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_hvsync/vga_h_sync" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">vga_h_sync</obj_property>
+      <obj_property name="ObjectShortName">vga_h_sync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_hvsync/vga_v_sync" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">vga_v_sync</obj_property>
+      <obj_property name="ObjectShortName">vga_v_sync</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_hvsync/inDisplayArea" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">inDisplayArea</obj_property>
+      <obj_property name="ObjectShortName">inDisplayArea</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_hvsync/CounterX" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">CounterX[9:0]</obj_property>
+      <obj_property name="ObjectShortName">CounterX[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_hvsync/CounterY" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">CounterY[8:0]</obj_property>
+      <obj_property name="ObjectShortName">CounterY[8:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>
