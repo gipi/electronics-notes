@@ -53,6 +53,12 @@ module test_rom;
 		#100;
         
 		// Add stimulus here
+		addra = 4;
+		
+		#10;
+		
+		addra = 8;
+		#10;
 
 	end
 	
