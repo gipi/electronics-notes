@@ -5,6 +5,8 @@ The main parameter is the bandwidth: as explainded by [Adafruit](https://blog.ad
 the measured amplitude on an amplitude/frequency chart has decreased by
 -3dB (or 70.7%) of the original value*
 
+Also this [SO answer](http://electronics.stackexchange.com/questions/8565/oscilloscope-bandwidth-whats-it-all-about) explain it pretty well.
+
 [Here](Datasheets/Tektronix12_things_to_consider1.pdf) a guide from [Mouser](http://www.mouser.com/pdfdocs/Tektronix12_things_to_consider1.pdf)
 
 ## Logic analyzer

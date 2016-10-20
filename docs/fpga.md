@@ -1,5 +1,9 @@
 # FPGA
 
+## Mojo
+
+![Mojo pinout](https://www.nova-labs.org/wiki/_media/groups/fpga/mojo-v2-pinout-diagram.svg)
+
 ## Links
 
  - [FPGA center](http://www.fpgacenter.com/)
@@ -22,3 +26,12 @@
  - [VGA Character Generator on an FPGA](http://blog.andyselle.com/2014/12/04/vga-character-generator-on-an-fpga/)
  - [Makefile](http://www.excamera.com/sphinx/fpga-makefile.html) for building FPGA code
  - [Creating a Mojo project with Xilinx's ISE](http://www.glennsweeney.com/tutorials/mojo-fpga-tutorials/creating-a-mojo-project)
+ - [Learning FPGA And Verilog A Beginner’s Guide Part 1](https://docs.numato.com/kb/learning-fpga-verilog-beginners-guide-part-1-introduction/)
+ - [FPGA getting started](https://www.kosagi.com/w/index.php?title=FPGA_getting_started)
+ - [Spartan-6 Libraries Guide for HDL Designs](http://www.xilinx.com/support/documentation/sw_manuals/xilinx12_4/spartan6_hdl.pdf)
+ - [Spartan-6 FPGA SelectIO Resources](http://www.xilinx.com/support/documentation/user_guides/ug381.pdf)
+ - [Spartan 6 1080p](http://hamsterworks.co.nz/mediawiki/index.php/Spartan_6_1080p)
+ - [Clocking wizard and clock buffer](https://embeddedmicro.com/forum/viewtopic.php?t=3031)
+ - [Generate a 100 Hz Clock from a 50 MHz Clock in Verilog](http://electronics.stackexchange.com/questions/137114/generate-a-100-hz-clock-from-a-50-mhz-clock-in-verilog)
+ - RAMs – FIFOs - Coregen [slide](https://agenda.infn.it/getFile.py/access?resId=4&materialId=slides&confId=6549)
+
