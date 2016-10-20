@@ -129,12 +129,14 @@ module clk_300
   // Output buffering
   //-----------------------------------
 
-  assign CLK_OUT1 = clkout0;
-
-
   BUFG clkout2_buf
    (.O   (CLK_OUT2),
     .I   (clkout1));
+
+
+  BUFG clkout1_buf
+   (.O   (CLK_OUT1),
+    .I   (clkout0));
 
 
 

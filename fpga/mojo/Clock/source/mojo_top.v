@@ -43,7 +43,7 @@ clk_300 clk_quick(
   .CLK_OUT2(clk_300_out2)
 );
 
-ODDR2  boh_inst (
+ODDR2  out_inst (
   .Q(clk_out2), // 1-bit DDR output
   .C0(clk_300_out2), // 1-bit clock input
   .C1(~clk_300_out2), // 1-bit clock input
@@ -54,6 +54,15 @@ ODDR2  boh_inst (
   .S(0) // 1-bit set
 );
 
-assign clk_out = 1'b1;
+ODDR2  out2_inst (
+  .Q(clk_out), // 1-bit DDR output
+  .C0(clk_300_out), // 1-bit clock input
+  .C1(~clk_300_out), // 1-bit clock input
+  .CE(1), // 1-bit clock enable input
+  .D1(0), // 1-bit data input (positive edge)
+  .D0(1), // 1-bit data input (negative edge)
+  .R(0), // 1-bit reset
+  .S(0) // 1-bit set
+);
 
 endmodule
