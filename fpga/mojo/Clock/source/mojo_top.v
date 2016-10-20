@@ -21,7 +21,7 @@ module mojo_top(
 
     /* output clock */
     output wire clk_out,
-    output wire boh
+    output wire clk_out2
     );
 
 wire rst = ~rst_n; // make reset active high
@@ -33,26 +33,27 @@ assign spi_channel = 4'bzzzz;
 
 assign led = 8'b0;
 
-/*clk_wiz_v3_6 clk_quick(
-  .CLK_IN1(clk),
-  .CLK_OUT1(clk_out),
-  .RESET(rst)
-);*/
+wire clk_300_out;
+wire clk_300_out2;
 
-/*BUFG clk_bufg_inst(
-  .I(clk),
-  .O(boh)
-);*/
+
+clk_300 clk_quick(
+  .CLK_IN1(clk),
+  .CLK_OUT1(clk_300_out),
+  .CLK_OUT2(clk_300_out2)
+);
+
 ODDR2  boh_inst (
-  .Q(boh), // 1-bit DDR output
-  .C0(clk), // 1-bit clock input
-  .C1(~clk), // 1-bit clock input
+  .Q(clk_out2), // 1-bit DDR output
+  .C0(clk_300_out2), // 1-bit clock input
+  .C1(~clk_300_out2), // 1-bit clock input
   .CE(1), // 1-bit clock enable input
   .D1(0), // 1-bit data input (positive edge)
   .D0(1), // 1-bit data input (negative edge)
   .R(0), // 1-bit reset
   .S(0) // 1-bit set
 );
-//assign clk_out = 1'b1;
+
+assign clk_out = 1'b1;
 
 endmodule

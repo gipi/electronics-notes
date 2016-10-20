@@ -3,5 +3,8 @@
   <files>
     <src top="true">mojo_top.v</src>
     <ucf>mojo.ucf</ucf>
+    <core name="clk_300">
+      <src>clk_300.v</src>
+    </core>
   </files>
 </project>

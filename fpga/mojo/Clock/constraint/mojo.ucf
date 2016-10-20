@@ -28,5 +28,5 @@ NET "avr_tx" LOC = P55 | IOSTANDARD = LVTTL;
 NET "avr_rx" LOC = P59 | IOSTANDARD = LVTTL;
 NET "avr_rx_busy" LOC = P39 | IOSTANDARD = LVTTL;
 
-NET "boh" LOC = P50 | IOSTANDARD = LVTTL;
-//NET "clk_out" LOC = P51 | IOSTANDARD = LVTTL;
+NET "clk_out"  LOC = P50 | IOSTANDARD = LVTTL;
+NET "clk_out2" LOC = P51 | IOSTANDARD = LVTTL;
