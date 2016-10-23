@@ -2,6 +2,7 @@
 
 ## Mojo
 
+ - [Mojo - An FPGA Beginner's Guide](https://embeddedmicro.com/tutorials/mojo-fpga-beginners-guide)
 ![Mojo pinout](https://www.nova-labs.org/wiki/_media/groups/fpga/mojo-v2-pinout-diagram.svg)
 
 ## Links
