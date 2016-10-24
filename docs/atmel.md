@@ -412,6 +412,77 @@ to dump from ``EEPROM``
 
     $ avrdude -c buspirate -p atmega32u4 -P /dev/ttyUSB0 -F -U eeprom:r:firmware/pov_dumped.eep:r
 
+### Makefile
+
+This is a minimal ``Makefile`` using the arduino's build system
+
+```
+MCU          = atmega328p
+F_CPU        = 16000000UL
+ARDUINO_PORT = /dev/ttyACM0
+
+AVRDUDE_ARD_PROGRAMMER = arduino
+AVRDUDE_ARD_BAUDRATE   = 115200
+
+
+include /usr/share/arduino/Arduino.mk
+```
+
+obviously you can modify the ``MCU`` to match your microcontroller.
+
+### Assembler
+
+See [this](http://www.nongnu.org/avr-libc/user-manual/assembler.html)
+
+```asm
+#include <avr/io.h>
+
+// these below are symbolic name for registers
+value = 0x10
+dly1 = 0x11
+dly2 = 0x12
+dly3 = 0x13
+
+.global main
+/*
+ * Here we blink a led <http://electronics.stackexchange.com/questions/195100/simple-avr-led-blink-in-assembly-why-does-this-code-not-work>
+ */
+main:
+init:
+    ldi value, 0b00000001
+    out DDRB, value
+    out PORTB, value
+loop:
+    ldi value, 0b00000001
+    out PORTB, value
+    call Delay_1sec
+    ldi value, 0b00000000
+    out PORTB, value
+    call Delay_1sec
+    jmp loop
+
+/*
+ * Delay routine get from <http://stackoverflow.com/questions/24097526/how-to-make-a-delay-in-assembly-for-avr-microcontrollers>
+ */
+Delay_1sec:                 ; For CLK(CPU) = 1 MHz
+    ldi     dly1,   8       ; One clock cycle;
+Delay1:
+    ldi     dly2,   125     ; One clock cycle
+Delay2:
+    ldi     dly3,   250     ; One clock cycle
+Delay3:
+    dec     dly3            ; One clock cycle
+    nop                     ; One clock cycle
+    brne    Delay3          ; Two clock cycles when jumping to Delay3, 1 clock when continuing to DEC
+
+    dec     dly2            ; One clock cycle
+    brne    Delay2          ; Two clock cycles when jumping to Delay2, 1 clock when continuing to DEC
+
+    dec     dly1            ; One clock Cycle
+    brne    Delay1          ; Two clock cycles when jumping to Delay1, 1 clock when continuing to RET
+ret
+```
+
 Links
 -----
 
