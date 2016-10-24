@@ -38,6 +38,18 @@ so the maximum speed is achievable only with a lot of power consumption.
 
 ![frequency and clock relation](Images/voltage-clock.png)
 
+there are come common choices for the clock source:
+
+ - external crystal/resonator (low power or full swing)
+ - external clock (by the ``XTAL1`` pin)
+ - internal (calibrated) RC oscillator
+
+each one is selected by the ``CKSEL`` register.
+
+Probably all the modern ATmel microcontrollers are described with **fully static operation**,
+that seems to indicate that can be clocked with arbitrary frequencies
+(look at this [stack overflow question](http://electronics.stackexchange.com/questions/1069/can-microcontrollers-be-run-at-arbitrarily-low-clock-frequencies)
+or this [post on AVRFreaks](http://www.avrfreaks.net/forum/what-does-fully-static-operation-really-mean)).
 
 If you use an external oscillator take in mind that you need a specific value
 of capacitor to associate with (read the related section, for an ``ATMega32U4`` is ``12-22pF``).
