@@ -168,6 +168,28 @@ pull-up will be disabled during reset. If low power consumption during reset is 
 an external pull-up or pulldown. Connecting unused pins directly to VCC or GND is not recommended, since this
 may cause excessive currents if the pin is accidentally configured as an output.
 
+Below an example of ``C`` code that blinks a led:
+
+```c
+#include <avr/io.h>
+#include <util/delay.h>
+ 
+int main(void) {
+    DDRC  = (1 << PC7);       //Sets the direction of the PC7 to output
+    PORTC = (1 << PC7);       //Sets PC7 high
+ 
+    while(1) {
+        _delay_ms(500);     //Wait 500 milliseconds
+        PORTC &= ~(1 << PC7); //Turn LED off
+ 
+        _delay_ms(500);     //Wait 500 milliseconds
+        PORTC |= (1 << PC7);  //Turn LED on
+    }
+ 
+    return 0;
+}
+```
+
 ### Links
 
  - How do I pass an IO port as a parameter to a function? [FAQ](http://www.nongnu.org/avr-libc/user-manual/FAQ.html#faq_port_pass)
