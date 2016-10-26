@@ -19,8 +19,9 @@ module mojo_top(
     output avr_rx, // AVR Rx => FPGA Tx
     input avr_rx_busy, // AVR Rx buffer full
     output signal,
-    output signal2
-    );
+    output signal2,
+    input button
+);
 
 
 wire rst = ~rst_n; // make reset active high
@@ -30,7 +31,27 @@ assign spi_miso = 1'bz;
 assign avr_rx = 1'bz;
 assign spi_channel = 4'bzzzz;
 
-assign led = 8'b0;
+wire btn_out;
+reg [7:0] led_r;
+
+reg btn_r;
+reg btn_prev_r;
+
+assign led = led_r;
+
+button_conditioner btn(
+  .clk(clk),
+  .btn(button),
+  .out(btn_out)
+);
+
+
+always @(posedge rst or posedge btn_out) begin
+  if (rst)
+    led_r <= 0;
+  else if (!btn_out) // Y U NEED !?
+    led_r <= led_r + 1;  
+end
 
 wire sig2;
 
