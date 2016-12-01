@@ -89,6 +89,8 @@ for the
  - http://electronics.stackexchange.com/questions/53311/why-jtag-connectors-are-available-in-10pins-14pins-20pins-when-jtag-is-of-5pins
  - https://github.com/syncsrc/jtagsploitation
  - [Video](https://www.youtube.com/watch?v=Up0697E5DGc) Blackbox JTAG Reverse Engineering [26C3]
+ - [Preparing Raspberry PI for JTAG Debugging](http://sysprogs.com/VisualKernel/tutorials/raspberry/jtagsetup/)
+ - [Black Magic Probe V2](http://1bitsquared.de/products/black-magic-probe) is a JTAG and SWD Adapter used for programming and debugging ARM Cortex MCUs.
 
 ## USB
 
