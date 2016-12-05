@@ -10,6 +10,7 @@ interesting application notes related to some not trivial aspect:
  - [AVR040: EMC Design Considerations](http://www.atmel.com/images/doc1619.pdf)
  - [AVR042: AVR Hardware Design Considerations](http://www.atmel.com/images/atmel-2521-avr-hardware-design-considerations_applicationnote_avr042.pdf)
  - [AVR Looping](http://web.csulb.edu/~hill/ee346/Lectures/06%20AVR%20Looping.pdf)
+ - [ATmega48A/PA/88A/PA/168A/PA/328/P](http://www.atmel.com/Images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf)
 
 The advice is to read the datasheets that contain a lot of info and working examples, for example
 the [ATMEGA32U4](https://www.pjrc.com/teensy/atmega32u4.pdf) one ([here](https://www.arduino.cc/en/Hacking/PinMapping32u4)
