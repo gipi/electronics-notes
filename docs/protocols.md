@@ -32,6 +32,7 @@ USB port via [USB port multimedia switch](https://www.fairchildsemi.com/datashee
 
  - http://wiki.openwrt.org/doc/hardware/port.serial
  - http://www.devttys0.com/2012/11/reverse-engineering-serial-ports/
+ - [Chapter](http://users.ece.utexas.edu/~valvano/Volume1/E-Book/C11_SerialInterface.htm) about design of a USART interface
 
 ## I2C
 
