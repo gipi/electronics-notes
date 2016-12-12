@@ -197,6 +197,7 @@ int main(void) {
 ### Links
 
  - How do I pass an IO port as a parameter to a function? [FAQ](http://www.nongnu.org/avr-libc/user-manual/FAQ.html#faq_port_pass)
+ - [Slides](http://web.csulb.edu/~hill/ee346/Lectures/08%20ATmega%20GPIO.pdf) about ATMega's GPIO
 
 ## ADC
 
