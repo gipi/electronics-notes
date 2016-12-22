@@ -36,4 +36,5 @@
  - [Generate a 100 Hz Clock from a 50 MHz Clock in Verilog](http://electronics.stackexchange.com/questions/137114/generate-a-100-hz-clock-from-a-50-mhz-clock-in-verilog)
  - RAMs – FIFOs - Coregen [slide](https://agenda.infn.it/getFile.py/access?resId=4&materialId=slides&confId=6549)
  - [FPGA clocking schemes](http://ue.pwr.wroc.pl/pld/pld_10.pdf)
+ - [SD card](https://fpga4fun.com/SD.html)
 
