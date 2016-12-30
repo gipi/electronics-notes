@@ -18,6 +18,8 @@ After that you (maybe) should update your library
  - CvPcb
  - Pvbnew: read netlist (from toolbar)
 
+![](http://docs.kicad-pcb.org/stable/en/images/kicad_flowchart.png)
+
 ## Board outline
 
 It's used the layer named **Edge cutes**
@@ -26,8 +28,14 @@ It's used the layer named **Edge cutes**
 
 Select **Add filled zones**, draw a poligon and then right click and select **fill**
 
+## Graphics
+
+ - [Sizing logo](http://www.deferredprocrastination.co.uk/blog/2016/kicad-logo-size/)
+ - [PCB artwork in kicad](http://blog.komar.be/making-pcb-artwork-in-kicad/) a little outdated
+
 ## Links
 
+ - [Wikibooks's FAQ](https://en.wikibooks.org/wiki/Kicad/FAQ)
  - [Pcbnew](https://wiki.xtronics.com/index.php/Pcbnew)
  - [Creating a Project From KiCAD Files](https://factory.macrofab.com/help/kpdink)
  - [Tutorial for kicad](http://store.curiousinventor.com/guides/kicad)
