@@ -75,11 +75,17 @@ the Test Access Port:
  - **TDI:** Test Data In. Serial input data to be shifted in to the Instruction Register or Data Register.
  - **TDO:** Test Data Out.  Serial output data from Instruction Register or Data Register.
 
+There are also some optional pins:
+
+ - ``TRST``: ``TAP`` reset, optional because is always possible to out the state machine to a start state
+ - ``SRST``: system reset, allows to reset the system
+
 Usually on reference is indicated also the **VTRef** pin that indicates what is the voltage reference
 for the 
 
  - [JTAG explained](http://blog.senr.io/blog/jtag-explained)
  - [How JTAG works](http://www.fpga4fun.com/JTAG2.html)
+ - [Debugging with JTAG](http://elinux.org/images/5/56/DebuggingWithJtagCelf2009.pdf)
  - https://hackingbtbusinesshub.wordpress.com/2012/01/26/discovering-jtag-pinouts/
  - http://sun.hasenbraten.de/~frank/docs/mpc824x_JTAG.html
  - Header per SOC da [farnell](http://uk.farnell.com/fci/20021121-00010c4lf/connector-header-smt-r-a-1-27mm/dp/1865279?ost=609-3695-1-ND)
@@ -92,6 +98,10 @@ for the
  - [Video](https://www.youtube.com/watch?v=Up0697E5DGc) Blackbox JTAG Reverse Engineering [26C3]
  - [Preparing Raspberry PI for JTAG Debugging](http://sysprogs.com/VisualKernel/tutorials/raspberry/jtagsetup/)
  - [Black Magic Probe V2](http://1bitsquared.de/products/black-magic-probe) is a JTAG and SWD Adapter used for programming and debugging ARM Cortex MCUs.
+
+### OpenOCD
+
+ - [OpenOCD Configuration for Ethernut 5](http://www.ethernut.de/en/hardware/enut5/openocd.html)
 
 ## USB
 
