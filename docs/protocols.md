@@ -98,6 +98,8 @@ for the
  - [Video](https://www.youtube.com/watch?v=Up0697E5DGc) Blackbox JTAG Reverse Engineering [26C3]
  - [Preparing Raspberry PI for JTAG Debugging](http://sysprogs.com/VisualKernel/tutorials/raspberry/jtagsetup/)
  - [Black Magic Probe V2](http://1bitsquared.de/products/black-magic-probe) is a JTAG and SWD Adapter used for programming and debugging ARM Cortex MCUs.
+ - [Using a JTAG in Linux Driver Debugging](http://elinux.org/images/f/ff/JTAG_In_Linux_Driver_Debug_Anderson.pdf)
+ - [Can I use JTAG to debug my program on top of embedded Linux?](https://stackoverflow.com/questions/8755594/can-i-use-jtag-to-debug-my-program-on-top-of-embedded-linux)
 
 ### OpenOCD
 
