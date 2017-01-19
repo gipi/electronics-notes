@@ -100,6 +100,7 @@ for the
  - [Black Magic Probe V2](http://1bitsquared.de/products/black-magic-probe) is a JTAG and SWD Adapter used for programming and debugging ARM Cortex MCUs.
  - [Using a JTAG in Linux Driver Debugging](http://elinux.org/images/f/ff/JTAG_In_Linux_Driver_Debug_Anderson.pdf)
  - [Can I use JTAG to debug my program on top of embedded Linux?](https://stackoverflow.com/questions/8755594/can-i-use-jtag-to-debug-my-program-on-top-of-embedded-linux)
+ - [The JTAG Interface: AN ATTACKER’S PERSPECTIVE](https://optivstorage.blob.core.windows.net/web/file/55e86eae3f04450d9bafcbb3a94559ca/JTAG.Whitepaper.pdf)
 
 ### OpenOCD
 
