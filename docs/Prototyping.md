@@ -78,6 +78,8 @@ display none 20 22 26 16 17 18;
 
 ## PCB
 
+Printed circuit boards are de-facto standard for electronic circuit production.
+
 A good rule-of-thumb for a two-layer board is to route only horizontally on one layer and only vertically on the other
 
 ### Units of measure
@@ -86,6 +88,14 @@ In electronics are used commonly the imperial units, the normal spacing distance
 a [thousandth of an inch](http://en.wikipedia.org/wiki/Thousandth_of_an_inch) is named as **mil**, and is used all over
 the place.
 
+### Layers
+
+A PCB is made of a series of different layers
+
+ - Copper: defines the traces and the same voltage stuffs; it's where you place the solder
+ - Soldermask: gives to the PCB its green color, it avoids contacts between traces and between external
+   stuffs and the copper layers
+ - Silkscreen: contains the drawings with components labelling and artwork
 
 ### Panelization
 
@@ -128,6 +138,8 @@ Exist several different services that offer PCB production
  - [https://macrofab.com](MacroFab)
  - [Seeed Studio](http://www.seeedstudio.com/service/index.php?r=pcb)
  - [Elecfreaks](http://www.elecfreaks.com/estore/pcb-service)
+
+but it's possible also to DIY one with chemicals as described [here](https://ultrakeet.com.au/write-ups/makepcbs).
 
 ### Links
 
