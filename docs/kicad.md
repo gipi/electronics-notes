@@ -24,6 +24,19 @@ After that you (maybe) should update your library
 
 It's used the layer named **Edge cutes**
 
+## Layers
+
+ - *.Cu: is the copper
+ - *.Adhes
+ - *.Silk
+ - *.Mask
+ - *.CrtYd keepout regions
+ - *.Fab and Margin are for fab indications
+ - Edge.Cuts indicates the board layout
+ - Cmts.User comments and indications
+ - Dwgs.User stuffs not to go to the silkscreen
+ - Eco1.User and Eco2.User 
+
 ## Fill
 
 Select **Add filled zones**, draw a poligon and then right click and select **fill**
@@ -32,6 +45,10 @@ Select **Add filled zones**, draw a poligon and then right click and select **fi
 
  - [Sizing logo](http://www.deferredprocrastination.co.uk/blog/2016/kicad-logo-size/)
  - [PCB artwork in kicad](http://blog.komar.be/making-pcb-artwork-in-kicad/) a little outdated
+
+## Libraries
+
+ - https://github.com/open-project/kicadlibrary
 
 ## Links
 
