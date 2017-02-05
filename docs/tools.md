@@ -46,3 +46,10 @@ It's also possible to use directly the ``saleae`` software downloadable from [he
  - Sparkfun's [tutorial](https://www.sparkfun.com/tutorials/391) *How to use Hot-air a Rework Station*
  - Adafruit's [post](https://learn.adafruit.com/smt-manufacturing/hot-air-tools) with an interesting video inside
  - Basic [video](https://www.youtube.com/watch?v=1z0IiuQ35HU) about using solder paste and hot air for SMD soldering
+
+## CNC
+
+ - [linuxCNC](http://linuxcnc.org/)
+ - [GRBL](https://github.com/gnea/grbl) An open source, embedded, high performance g-code-parser and 
+   CNC milling controller written in optimized C that will run on a straight Arduino. It's possible to
+   use it with ``EasyDriver`` (see [wiki](https://github.com/grbl/grbl/wiki/Connecting-Grbl))
