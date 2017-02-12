@@ -16,6 +16,7 @@ pages:
 - [laws.md, Laws]
 - [led.md, Leds]
 - [motors.md, Motors]
+- [opamp.md, OpAmp]
 - [oscillator.md, Oscillators]
 - [protocols.md, Protocols]
 - [Prototyping.md, Prototyping]
