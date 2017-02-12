@@ -111,3 +111,8 @@ note 97055 from Philips says
  - [Application note 97055](https://www.adafruit.com/datasheets/an97055.pdf)
  - [Application note 10441](http://www.nxp.com/documents/application_note/AN10441.pdf)
 
+
+## Single supply microphone amplifier
+
+**TODO:** from page 261 of ``AoE``.
+
