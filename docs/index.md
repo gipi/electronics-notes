@@ -260,15 +260,14 @@ VARIOUS
 STORE&BLOGS
 -----------
 
- - http://www.radioshack.com
- - http://www.digikey.com
- - http://www.sparkfun.com
- - http://littlebirdelectronics.com
- - http://www.seeedstudio.com
+ - [Radioshack](http://www.radioshack.com)
+ - [Digikey](http://www.digikey.com)
+ - [Sparkfun](http://www.sparkfun.com)
+ - [Littlebirdelectronics](http://littlebirdelectronics.com)
+ - [Seeed studio](http://www.seeedstudio.com)
  - http://shop.moderndevice.com/
  - http://www.beavisaudio.com/techpages/
- - http://dx.com
  - http://bildr.org/
- - http://it.rs-online.com
- - http://aliexpress.com
- - http://www.dx.com/
+ - [RS online](http://it.rs-online.com)
+ - [aliexpress](http://aliexpress.com)
+ - [Deal extreme](http://www.dx.com/)
