@@ -48,6 +48,12 @@ from wikipedia.
 
  - [Video](https://www.youtube.com/watch?v=wEPdB-W3-Tc) where is shown how to crimp manually a female header
 
+## Tape
+
+### Kapton
+
+ - [Kapton masking](https://ultrakeet.com.au/write-ups/kaptonMasking)
+
 ## Resistors
 
 It's the basic component of electronics and it's indicated by the $R$ letter.
