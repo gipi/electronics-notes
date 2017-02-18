@@ -31,7 +31,7 @@ $$P=V\cdot I$$.
  - [Why 3.3v](http://www.societyofrobots.com/robotforum/index.php?topic=15573.0)
 
 
-## Cable
+## Cable&Wire
 
 ### AWG
 
@@ -47,6 +47,13 @@ from wikipedia.
 ### Crimping
 
  - [Video](https://www.youtube.com/watch?v=wEPdB-W3-Tc) where is shown how to crimp manually a female header
+
+### Magnetic (enameled) wire
+
+It's the kind of wire used also for inductor coils.
+
+ - [Wikipedia entry](https://en.wikipedia.org/wiki/Magnet_wire)
+ - [Video](https://www.youtube.com/watch?v=Mjjryf2aqaY) about soldering with it
 
 ## Tape
 
