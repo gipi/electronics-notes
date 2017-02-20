@@ -181,6 +181,12 @@ but it's possible also to DIY one with chemicals as described [here](https://ult
  - http://kb.gr8bit.ru/KB0015/GR8BIT-KB0015-Best-practices-creating-designs-with-EAGLE.html
  - https://github.com/lachlanA/eagle-to-kicad
 
+## 3D
+
+### Freecad
+
+[Home Page](http://freecadweb.org)
+
 ## Enclosure box
 
  - [How To Make Nice Looking DIY Front Panel](http://jumperone.com/2013/01/how-to-make-diy-front-panel/)
