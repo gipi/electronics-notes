@@ -188,6 +188,7 @@ but it's possible also to DIY one with chemicals as described [here](https://ult
 The /poor man/ 3d printer uses the technology called **FDM**, i.e. **Fused deposition modeling**
 
  - [FDM on wikipedia](https://en.wikipedia.org/wiki/Fused_deposition_modeling)
+ - [Rafts, skirts and brims](https://www.simplify3d.com/support/articles/rafts-skirts-and-brims/)
 
 ### Freecad
 
