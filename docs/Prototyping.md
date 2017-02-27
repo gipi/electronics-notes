@@ -183,6 +183,12 @@ but it's possible also to DIY one with chemicals as described [here](https://ult
 
 ## 3D
 
+### Printer
+
+The /poor man/ 3d printer uses the technology called **FDM**, i.e. **Fused deposition modeling**
+
+ - [FDM on wikipedia](https://en.wikipedia.org/wiki/Fused_deposition_modeling)
+
 ### Freecad
 
 [Home Page](http://freecadweb.org)
