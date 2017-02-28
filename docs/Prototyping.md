@@ -189,6 +189,7 @@ The /poor man/ 3d printer uses the technology called **FDM**, i.e. **Fused depos
 
  - [FDM on wikipedia](https://en.wikipedia.org/wiki/Fused_deposition_modeling)
  - [Rafts, skirts and brims](https://www.simplify3d.com/support/articles/rafts-skirts-and-brims/)
+ - [Troubleshooting Guide to 22 Common 3D Printing Problems](https://all3dp.com/common-3d-printing-problems-3d-printer-troubleshooting-guide/)
 
 ### Freecad
 
