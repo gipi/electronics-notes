@@ -518,6 +518,7 @@ Links
  - http://www.build-electronic-circuits.com/microcontroller-tutorial-part1/
  - [AVR selector](http://www.atmel.com/v2pfresults.aspx)
  - [Write bootloader for AVR](http://www.engineersgarage.com/embedded/avr-microcontroller-projects/How-To-Write-a-Simple-Bootloader-For-AVR-In-C-language)
+ - [Post](http://www.avrfreaks.net/forum/tutsoft-recovering-locked-out-avr) about Recovering from a "locked out" AVR
  - http://blog.schicks.net/wp-content/uploads/2009/09/bootloader_faq.pdf
  - http://www.fischl.de/avrusbboot/
  - [Atmel AVR Dragon (ATAVRDRAGON)](http://store.atmel.com/PartDetail.aspx?q=p:10500053#tc:description) and how [use](http://www.larsen-b.com/Article/315.html) it on linux
