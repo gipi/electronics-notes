@@ -2,6 +2,7 @@
  - [Circuit theory Wikibooks](https://en.wikibooks.org/wiki/Circuit_Theory)
  - [EE Courses](http://cc.ee.ntu.edu.tw/~lhlu/eecourses.html)
  - [The Laplace Transform in Circuit Analysis](http://www.ee.nthu.edu.tw/~sdyang/Courses/Circuits/Ch13_Std.pdf)
+ - Building an 8-bit breadboard computer! [playlist](https://www.youtube.com/playlist?list=PLowKtXNTBypGqImE405J2565dvjafglHU)
 
 ![technology table](Images/tech-table.png)
 
