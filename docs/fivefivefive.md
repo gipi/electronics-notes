@@ -47,4 +47,4 @@ like $10\mu F$ and $100 k\Omega$.
  - http://lateblt.tripod.com/proj2.htm
  - http://www.robotroom.com/Infrared555.html
  - [PWM](http://www.dprg.org/tutorials/2005-11a/index.html) with 555
-
+ - [Astable 555 timer - 8-bit computer clock - part 1](https://youtu.be/kRlSFm519Bo)
