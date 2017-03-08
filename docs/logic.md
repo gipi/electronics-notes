@@ -17,3 +17,7 @@ With technology improvement the voltage ranges used to represent logic level has
 ## Sequential logic
 
  - [Sequential Logic Circuits](http://www.electronics-tutorials.ws/sequential/seq_1.html)
+
+## Tri-state logic
+
+ - Tri-state logic: Connecting multiple outputs together - 8 bit register - Part 2 [video](https://youtu.be/faAjse109Q8)
