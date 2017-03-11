@@ -21,3 +21,7 @@ With technology improvement the voltage ranges used to represent logic level has
 ## Tri-state logic
 
  - Tri-state logic: Connecting multiple outputs together - 8 bit register - Part 2 [video](https://youtu.be/faAjse109Q8)
+
+## Links
+
+ - Making logic gates from transistors [video](https://www.youtube.com/watch?v=sTu3LwpF6XI)
