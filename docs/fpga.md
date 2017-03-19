@@ -37,4 +37,5 @@
  - RAMs – FIFOs - Coregen [slide](https://agenda.infn.it/getFile.py/access?resId=4&materialId=slides&confId=6549)
  - [FPGA clocking schemes](http://ue.pwr.wroc.pl/pld/pld_10.pdf)
  - [SD card](https://fpga4fun.com/SD.html)
+ - [Verilator](https://www.veripool.org/wiki/verilator) is the fastest free Verilog HDL simulator
 
