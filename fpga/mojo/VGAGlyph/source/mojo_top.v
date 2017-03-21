@@ -59,13 +59,13 @@ assign led = 8'b10101010;
 
 assign column = CounterX[9:3];
 assign row = CounterY[8:3];
-assign idx = column + (row*81);
+assign idx = column + (row * 80);
 
 /*
- * We want a rainbow pattern with the 8 colors available to us:
- * to avoid to write explicit conditions for each colour, we use
- * the most significant bits of CounterX, using from the 6th bit
- * upwards we divide by 64 obtaining 10 strips.
+ * We want to write some text using glyph stored into some ROM.
+ *
+ * Each glyph is a matrix of 8x8, we want to cover at least the
+ * first 127 ASCII character, so we need 128*64 = 8192 bits.
  *
  */
 always @(posedge clk_25)
