@@ -192,6 +192,8 @@ The /poor man/ 3d printer uses the technology called **FDM**, i.e. **Fused depos
  - [Troubleshooting Guide to 22 Common 3D Printing Problems](https://all3dp.com/common-3d-printing-problems-3d-printer-troubleshooting-guide/)
  - [Print Quality Troubleshooting Guide](https://www.simplify3d.com/support/print-quality-troubleshooting/)
  - [A visual Ultimaker troubleshooting guide](http://support.3dverkstan.se/article/23-a-visual-ultimaker-troubleshooting-guide)
+ - [changing filament](https://www.thingiverse.com/groups/prusa-i3/topic:6734)
+ - [changing filament midprint](https://www.thingiverse.com/groups/i3/topic:5963)
 
 ### Freecad
 
