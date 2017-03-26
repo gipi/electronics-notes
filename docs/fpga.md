@@ -41,4 +41,5 @@
  - [FPGA clocking schemes](http://ue.pwr.wroc.pl/pld/pld_10.pdf)
  - [SD card](https://fpga4fun.com/SD.html)
  - [Verilator](https://www.veripool.org/wiki/verilator) is the fastest free Verilog HDL simulator
+ - [Verilog tutorials and examples](https://www.nandland.com/verilog/tutorials/index.html)
 
