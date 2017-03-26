@@ -49,3 +49,4 @@ be used to amplify the feedback loop of an oscillating circuit.
  - [Tutorial](http://www.electronics-tutorials.ws/oscillator/crystal.html) about crystals with pratical example of circuit using them.
  - [Video](https://www.youtube.com/watch?v=eYVOdlK15Og) with simple example of oscillators (with a little bit of oscilloscope)
  - [Slides](http://cc.ee.ntu.edu.tw/~lhlu/eecourses/Electronics3/Electronics_Ch12.pdf) SIGNAL GENERATORS AND WAVEFORM-SHAPING CIRCUITS
+ - [Crystal tester circuit](http://www.electroschematics.com/942/crystal-tester/)
