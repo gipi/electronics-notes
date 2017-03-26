@@ -36,6 +36,7 @@ reg [7:0] led_r;
 
 reg btn_r;
 reg btn_prev_r;
+reg btn_out_delayed;
 
 assign led = led_r;
 
@@ -46,11 +47,23 @@ button_conditioner btn(
 );
 
 
-always @(posedge rst or posedge btn_out) begin
+
+// http://electronics.stackexchange.com/a/266127/66517
+always @(posedge rst or posedge clk) begin
   if (rst)
     led_r <= 0;
-  else if (!btn_out) // Y U NEED !?
-    led_r <= led_r + 1;  
+  else begin
+  /*
+   * if we don't put the rest of the code under else we will have an error
+   * like "Assignment under multiple single edges is not supported for synthesis"
+   * since we are trying to drive led_r contemporary from the rst "if" block than
+   * from the last line of this "else".
+   */
+    if (btn_out & ~btn_out_delayed)
+      led_r <= led_r + 1;
+
+    btn_out_delayed <= btn_out;
+  end
 end
 
 wire sig2;
