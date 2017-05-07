@@ -61,3 +61,4 @@ Select **Add filled zones**, draw a poligon and then right click and select **fi
  - [Preparing PCB for SeeedStudio](http://www.sl-alex.com.ua/en/page/kicad-preparing-pcb-for-seeedstudio)
  - [OSH Park design rules for Kicad](http://docs.oshpark.com/design-tools/kicad/kicad-design-rules/)
  - [TECHNIQUES, TIPS AND WORK-AROUNDS](https://flyingcarsandstuff.com/2016/10/kicad-techniques-tips-and-work-arounds/)
+ - [Via Stitching In KiCad (without traces)](https://www.youtube.com/watch?v=Hp5ngKtl7S4)
