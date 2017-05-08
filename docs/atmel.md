@@ -26,6 +26,15 @@ The reference for the ``avr-libc`` is [here](http://www.nongnu.org/avr-libc/).
 
 ## Datasheets
 
+Use the datasheet of a chip to understand the working and the functionality of it.
+
+There are little things to know in order to order the right incarnation of a chip,
+for example in the section named **ordering information**.
+
+Be aware of some discrepancies inside the datasheet: for example for the [atmega16u2
+is indicated the default clock as internal but if you read the default fuse is set
+as external](http://www.avrfreaks.net/forum/atmega16u2-minimal-connections-test-isp)
+
  - [ATMega8/16/32U2](http://www.atmel.com/images/doc7799.pdf)
 
 ## Memory
