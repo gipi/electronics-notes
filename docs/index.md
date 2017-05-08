@@ -136,7 +136,7 @@ The general code is ``XXY``, where
  - ``XX`` is the coefficient
  - ``Y``  is the esponent indicator $10^{-(11 - x)}$
 
-[http://grathio.com/assets/capacitor_tags.pdf](Here a complete PDF) with all the codes.
+[Here a complete PDF](http://grathio.com/assets/capacitor_tags.pdf) with all the codes.
 
 ### Decoupling
 
