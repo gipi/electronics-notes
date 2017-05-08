@@ -24,6 +24,10 @@ Some weird naming is going on, for example, ``ATMega32u4-AU`` means use external
 
 The reference for the ``avr-libc`` is [here](http://www.nongnu.org/avr-libc/).
 
+## Datasheets
+
+ - [ATMega8/16/32U2](http://www.atmel.com/images/doc7799.pdf)
+
 ## Memory
 
 This kind of microcontrollers have three types of (linear) memory
