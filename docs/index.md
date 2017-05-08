@@ -136,6 +136,8 @@ The general code is ``XXY``, where
  - ``XX`` is the coefficient
  - ``Y``  is the esponent indicator $10^{-(11 - x)}$
 
+[http://grathio.com/assets/capacitor_tags.pdf](Here a complete PDF) with all the codes.
+
 ### Decoupling
 
 A standard practice for electronic circuits is to add decoupling capacitors to reduce
