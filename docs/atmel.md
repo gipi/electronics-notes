@@ -410,6 +410,12 @@ documentation
       at stdin.
 ```
 
+For example, to set to ``FF`` the low fuse the invocation is
+
+```
+$ avrdude  -c buspirate -p atmega328p -P /dev/ttyUSB0 -b115200 -U lfuse:w:0xff:m
+```
+
 ### High Voltage Serial Programming
 
 AKA ``HVSP``
