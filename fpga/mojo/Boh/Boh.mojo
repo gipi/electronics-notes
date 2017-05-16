@@ -4,6 +4,7 @@
     <src top="true">mojo_top.v</src>
     <src>debounce.v</src>
     <src>pwm.v</src>
+    <src>pwm_glitch.v</src>
     <ucf>mojo.ucf</ucf>
   </files>
 </project>

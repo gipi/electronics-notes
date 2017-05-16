@@ -20,6 +20,7 @@ module mojo_top(
     input avr_rx_busy, // AVR Rx buffer full
     output signal,
     output signal2,
+    output btn_out,
     input button
 );
 
@@ -31,7 +32,7 @@ assign spi_miso = 1'bz;
 assign avr_rx = 1'bz;
 assign spi_channel = 4'bzzzz;
 
-wire btn_out;
+//wire btn_out;
 reg [7:0] led_r;
 
 reg btn_r;
@@ -68,11 +69,11 @@ end
 
 wire sig2;
 
-pwm pwm_1(
+/*pwm pwm_1(
   .clk(clk),
   .rst(rst),
   .out(signal)
-);
+);*/
 
 pwm #(.OFFSET(5),.COUNTER(10 -1)) pwm_2(
   .clk(clk),
@@ -80,6 +81,14 @@ pwm #(.OFFSET(5),.COUNTER(10 -1)) pwm_2(
   .out(sig2)
 );
 
-assign signal2 = sig2 & signal;
+assign signal2 = sig2;
+
+// 1 MHz base frequency with 
+pwm_glitch #(.TICK_MASTER(25), .TICK_GLITCH(5)) gl(
+  .clk(clk),
+  .rst(rst),
+  .glitch(btn_out),
+  .out(signal)
+);
 
 endmodule
