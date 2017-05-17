@@ -6,5 +6,8 @@
     <src>pwm.v</src>
     <src>pwm_glitch.v</src>
     <ucf>mojo.ucf</ucf>
+    <core name="clk_wiz_v3_6">
+      <src>clk_wiz_v3_6.v</src>
+    </core>
   </files>
 </project>

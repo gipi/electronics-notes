@@ -20,7 +20,7 @@ module mojo_top(
     input avr_rx_busy, // AVR Rx buffer full
     output signal,
     output signal2,
-    output btn_out,
+    output pcEn,
     input button
 );
 
@@ -41,8 +41,17 @@ reg btn_out_delayed;
 
 assign led = led_r;
 
+wire clk_;
+
+
+clk_wiz_v3_6 clk_quick(
+  .CLK_IN1(clk),
+  .CLK_OUT1(clk_),
+  .RESET(rst)
+);
+
 button_conditioner btn(
-  .clk(clk),
+  .clk(clk_),
   .btn(button),
   .out(btn_out)
 );
@@ -50,7 +59,7 @@ button_conditioner btn(
 
 
 // http://electronics.stackexchange.com/a/266127/66517
-always @(posedge rst or posedge clk) begin
+always @(posedge rst or posedge clk_) begin
   if (rst)
     led_r <= 0;
   else begin
@@ -67,6 +76,18 @@ always @(posedge rst or posedge clk) begin
   end
 end
 
+// https://electronics.stackexchange.com/questions/102646/how-to-efficiently-implement-a-single-output-pulse-from-a-long-input-on-altera
+  
+  reg r1, r2, r3;
+  //wire pcEn;
+
+  always @(posedge signal) begin
+    r1 <= btn_out;    // first stage of 2-stage synchronizer
+    r2 <= r1;       // second stage of 2-stage synchronizer
+    r3 <= r2;       // edge detector memory
+  end
+
+  assign pcEn = r2 && !r3;   // pulse on rising edge
 wire sig2;
 
 /*pwm pwm_1(
@@ -76,7 +97,7 @@ wire sig2;
 );*/
 
 pwm #(.OFFSET(5),.COUNTER(10 -1)) pwm_2(
-  .clk(clk),
+  .clk(clk_),
   .rst(rst),
   .out(sig2)
 );
@@ -84,10 +105,10 @@ pwm #(.OFFSET(5),.COUNTER(10 -1)) pwm_2(
 assign signal2 = sig2;
 
 // 1 MHz base frequency with 
-pwm_glitch #(.TICK_MASTER(25), .TICK_GLITCH(5)) gl(
-  .clk(clk),
+pwm_glitch #(.TICK_MASTER(150), .TICK_GLITCH(10)) gl(
+  .clk(clk_),
   .rst(rst),
-  .glitch(btn_out),
+  .glitch(pcEn),
   .out(signal)
 );
 
