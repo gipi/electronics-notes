@@ -104,6 +104,8 @@ pwm #(.OFFSET(5),.COUNTER(10 -1)) pwm_2(
 
 assign signal2 = sig2;
 
+wire dummy;
+
 // 1 MHz base frequency with 
 pwm_glitch #(.TICK_MASTER(150), .TICK_GLITCH(10)) gl(
   .clk(clk_),
@@ -111,5 +113,8 @@ pwm_glitch #(.TICK_MASTER(150), .TICK_GLITCH(10)) gl(
   .glitch(pcEn),
   .out(signal)
 );
+
+
+
 
 endmodule

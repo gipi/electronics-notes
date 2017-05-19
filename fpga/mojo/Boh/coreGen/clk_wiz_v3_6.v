@@ -64,12 +64,14 @@
 
 `timescale 1ps/1ps
 
-(* CORE_GENERATION_INFO = "clk_wiz_v3_6,clk_wiz_v3_6,{component_name=clk_wiz_v3_6,use_phase_alignment=true,use_min_o_jitter=false,use_max_i_jitter=false,use_dyn_phase_shift=false,use_inclk_switchover=false,use_dyn_reconfig=false,feedback_source=FDBK_AUTO,primtype_sel=DCM_SP,num_out_clk=1,clkin1_period=20.0,clkin2_period=20.0,use_power_down=false,use_reset=true,use_locked=true,use_inclk_stopped=false,use_status=false,use_freeze=false,use_clk_valid=false,feedback_type=SINGLE,clock_mgr_type=AUTO,manual_override=false}" *)
+(* CORE_GENERATION_INFO = "clk_wiz_v3_6,clk_wiz_v3_6,{component_name=clk_wiz_v3_6,use_phase_alignment=true,use_min_o_jitter=false,use_max_i_jitter=false,use_dyn_phase_shift=false,use_inclk_switchover=false,use_dyn_reconfig=false,feedback_source=FDBK_ONCHIP,primtype_sel=DCM_SP,num_out_clk=1,clkin1_period=20.0,clkin2_period=20.0,use_power_down=false,use_reset=true,use_locked=true,use_inclk_stopped=false,use_status=false,use_freeze=false,use_clk_valid=false,feedback_type=SINGLE,clock_mgr_type=AUTO,manual_override=false}" *)
 module clk_wiz_v3_6
  (// Clock in ports
   input         CLK_IN1,
+  input         CLKFB_IN,
   // Clock out ports
   output        CLK_OUT1,
+  output        CLKFB_OUT,
   // Status and control signals
   input         RESET,
   output        LOCKED
@@ -91,7 +93,6 @@ module clk_wiz_v3_6
   wire        psdone_unused;
   wire        locked_int;
   wire [7:0]  status_int;
-  wire clkfb;
   wire clk0;
   wire clkfx;
 
@@ -109,7 +110,7 @@ module clk_wiz_v3_6
   dcm_sp_inst
     // Input clock
    (.CLKIN                 (clkin1),
-    .CLKFB                 (clkfb),
+    .CLKFB                 (CLKFB_IN),
     // Output clocks
     .CLK0                  (clk0),
     .CLK90                 (),
@@ -137,13 +138,9 @@ module clk_wiz_v3_6
 
   // Output buffering
   //-----------------------------------
-  BUFG clkf_buf
-   (.O (clkfb),
-    .I (clk0));
+  assign CLKFB_OUT = clk0;
 
-  BUFG clkout1_buf
-   (.O   (CLK_OUT1),
-    .I   (clkfx));
+  assign CLK_OUT1 = clkfx;
 
 
 
