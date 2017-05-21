@@ -17,6 +17,7 @@ pre-determined and can be used as a voltage regulator. In other words, it allows
 in both directions, it's like having two diodes in parallel with different voltage drops.
 
  - What is a zener diode? [Video](https://www.youtube.com/watch?v=xSQHfsHTS88)
+ - [Video](https://www.youtube.com/watch?v=F9w5r5l0J8Y) about using it with OpAmp
 
 ## Schottky
 
