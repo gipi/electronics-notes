@@ -102,6 +102,7 @@ for the
  - [Can I use JTAG to debug my program on top of embedded Linux?](https://stackoverflow.com/questions/8755594/can-i-use-jtag-to-debug-my-program-on-top-of-embedded-linux)
  - [The JTAG Interface: AN ATTACKER’S PERSPECTIVE](https://optivstorage.blob.core.windows.net/web/file/55e86eae3f04450d9bafcbb3a94559ca/JTAG.Whitepaper.pdf)
  - [Re-enabling JTAG and Debugging the WRT120N](http://www.devttys0.com/2014/02/re-enabling-jtag-and-debugging-the-wrt120n/)
+ - [Locating JTAG pins automatically](http://elinux.org/images/d/d6/Jtag.pdf)
 
 ### OpenOCD
 
