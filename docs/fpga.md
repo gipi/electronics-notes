@@ -12,9 +12,7 @@
  - [Wikipedia page for Verilog](https://en.wikipedia.org/wiki/Verilog)
  - [Verilog design examples slides](http://csg.csail.mit.edu/6.375/6_375_2006_www/handouts/lectures/L03-Verilog-Design-Examples.pdf)
  - [Verilog fundamentals](https://cseweb.ucsd.edu/classes/sp11/cse141L/pdf/01/SV_Part_1.pdf)
- - [Difference among always_ff, always_comb, always_latch and always
-
-](https://stackoverflow.com/questions/23101717/difference-among-always-ff-always-comb-always-latch-and-always)
+ - [Difference among always_ff, always_comb, always_latch and always](https://stackoverflow.com/questions/23101717/difference-among-always-ff-always-comb-always-latch-and-always)
  - [Opencore](http://opencores.org/): open source hardware IP-cores
  - [FPGA arcade](http://www.fpgaarcade.com/) site that recreates gaming and computing hardware from the past using FPGAs
  - [The Logic Space](https://eewiki.net/display/LOGIC/Home) This space contains logic examples and material for both programmable (FPGA and CPLD) as well as discrete logic designs.
