@@ -8,6 +8,23 @@ for you from one logic level to another.
 
 For more informations read the original [datasheet](0900766b811a8f51.pdf).
 
+## Connect to
+
+```
+$ hcitool scan
+Scanning ...
+        00:06:66:7B:8B:4A       n/a
+$ sudo rfcomm connect rfcomm0 00:06:66:7B:8B:4A
+Connected /dev/rfcomm0 to 00:06:66:7B:8B:4A on channel 1
+Press CTRL-C for hangup
+```
+
+From another terminal
+
+```
+$ sudo screen /dev/rfcomm0 115200 8N1
+```
+
 ## Links
 
  - [wiki](https://eewiki.net/display/Wireless/Getting+Started+with+RN42+Bluetooth+Module)
