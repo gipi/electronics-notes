@@ -9,3 +9,4 @@ These devices follow some rules
 ## Links
 
  - [Op Amps for everyone](https://focus.ti.com/lit/an/slod006b/slod006b.pdf)
+ - [Using Op Amps as Comparators](http://www.analog.com/media/en/technical-documentation/application-notes/AN-849.pdf)
