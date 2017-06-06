@@ -10,6 +10,17 @@ For more informations read the original [datasheet](0900766b811a8f51.pdf).
 
 ## Connect to
 
+After a factory reset you need to enter (via ``UART``) the following
+
+```
+SA,0
+R,1
+```
+
+otherwise it doesn't allow connection to it.
+
+In order to find the address you can use ``hcitool`` and then connect
+
 ```
 $ hcitool scan
 Scanning ...
@@ -19,7 +30,7 @@ Connected /dev/rfcomm0 to 00:06:66:7B:8B:4A on channel 1
 Press CTRL-C for hangup
 ```
 
-From another terminal
+From another terminal finally you can access the wireless ``UART``
 
 ```
 $ sudo screen /dev/rfcomm0 115200 8N1
