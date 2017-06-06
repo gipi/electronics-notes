@@ -43,4 +43,5 @@ $ sudo screen /dev/rfcomm0 115200 8N1
 ## TODO
 
  - add tolerance values on the back
+ - add pin for ``FACTORY_RESET`` or a button
  - add logic level shifter for ``CTS`` and ``RTS`` (**do not use them, the board is broken, you must solder the jumper SJ5**)
