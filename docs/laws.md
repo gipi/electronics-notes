@@ -1,5 +1,10 @@
 # Laws
 
+## Kirchhoff's laws
+
+ - **Point law:** all the current that flows into a node must come out of the node
+ - **Loop law:** the sum of the voltage across any closed loop is zero
+
 ## Thevenin's Theorem
 
 Any **linear** circuit can be simplified with a single voltage source
