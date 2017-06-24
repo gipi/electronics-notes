@@ -568,6 +568,7 @@ Links
  - http://codeandlife.com/2012/01/22/avr-attiny-usb-tutorial-part-1/
  - [V-USB](http://www.obdev.at/products/vusb/index.html) simple library to implements USB devices with AVR chips
  - [USB PCB Business Card](http://www.instructables.com/id/USB-PCB-Business-Card/?ALLSTEPS)
+ - [DebugWire](http://www.ruemohr.org/docs/debugwire.html)
 
 
 ATTINY85
