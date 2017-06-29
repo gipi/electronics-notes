@@ -163,6 +163,8 @@ it starts omitting the ``RESET`` entry.
 
 ## Sleep modes
 
+ - [Sleep Mode in AVR](https://www.electronify.org/learn-microcontrolleravr/sleep-mode-in-avr)
+
 ## I/O
 
 Three I/O memory address locations are allocated for each port
