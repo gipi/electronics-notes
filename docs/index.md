@@ -56,6 +56,13 @@ It's the kind of wire used also for inductor coils.
  - [Wikipedia entry](https://en.wikipedia.org/wiki/Magnet_wire)
  - [Video](https://www.youtube.com/watch?v=Mjjryf2aqaY) about soldering with it
 
+### SMA connectors
+
+![](https://i.stack.imgur.com/7uc1o.png)
+
+ - [Wikipedia](https://en.wikipedia.org/wiki/SMA_connector)
+ - [SMA dimensions](http://blog.showmecables.com/sma-dimensions/)
+
 ## Tape
 
 ### Kapton
