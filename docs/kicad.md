@@ -50,6 +50,11 @@ Select **Add filled zones**, draw a poligon and then right click and select **fi
 
  - https://github.com/open-project/kicadlibrary
 
+## BOM
+
+There isn't a predefined utilities for ``BOM`` generation: use [this](https://github.com/SchrodingersGat/KiBoM), in the
+README there are the installation instruction.
+
 ## Links
 
  - [Wikibooks's FAQ](https://en.wikibooks.org/wiki/Kicad/FAQ)
