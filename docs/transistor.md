@@ -54,6 +54,10 @@ transistor is configured in the circuit in the following three ways:
  - Common base
  - Common collector
 
+### Junction capacitance
+
+ - [slide](http://transport.ece.illinois.edu/ece340f12-lectures/ece340lecture27-junccap.pdf)
+
 ## MOSFET
 
 Variable resistor controlled by voltage: you can vary the resistence between drain and source
