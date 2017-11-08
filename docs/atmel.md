@@ -1,3 +1,4 @@
+[Post with microcontroller comparison](https://jaycarlson.net/microcontrollers/)
 
 **AVR** is a modified Harvard 8-bit RISC single chip microcontroller
 
