@@ -118,3 +118,7 @@ note 97055 from Philips says
 
  - [LM358 microphone amplifier](https://lowvoltage.wordpress.com/2011/05/21/lm358-mic-amp/)
  - [powering microphone](http://www.epanorama.net/circuits/microphone_powering.html)
+
+## Virtual ground
+
+ - [Virtual Ground Circuits](https://tangentsoft.net/elec/vgrounds.html)
