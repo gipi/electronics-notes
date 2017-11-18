@@ -1,6 +1,6 @@
 # Transistors
 
-Have three pins named **gate**, **source** and **drain**
+Have three pins named **base/gate**, **collector/source** and **emitter/drain**
 
 MOSFET is voltage controlled. While BJT is current controlled,
 
@@ -50,7 +50,7 @@ the common terminal and one of the other two terminals while the output is
 obtained between the common terminal and the remaining terminal. Based on this,
 transistor is configured in the circuit in the following three ways:
 
- - Common emitter
+ - Common emitter (with emitter degeneracy when a resistor is used between emitter and ground)
  - Common base
  - Common collector
 
