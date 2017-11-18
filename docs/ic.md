@@ -33,6 +33,7 @@ of a digital signal as they have what is called a high “fan-out”
 capability.
 
  - http://www.electronics-tutorials.ws/logic/logic_9.html
+ - [How to Build a Buffer Circuit with a Transistor](http://www.learningaboutelectronics.com/Articles/Transistor-buffer-circuit.php) a little overlong explanation
 
 ## Open collector mode
 
