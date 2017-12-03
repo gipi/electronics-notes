@@ -35,6 +35,7 @@ $$P=V\cdot I$$.
 ## Cable&Wire
 
  - [Video](https://www.youtube.com/watch?v=IXvEDM-m9CE) about wire wrapping
+ - [Post](https://www.jameco.com/Jameco/workshop/techtip/wirewrap.html) about wire wrapping
 
 ### AWG
 
