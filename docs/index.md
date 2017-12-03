@@ -34,6 +34,8 @@ $$P=V\cdot I$$.
 
 ## Cable&Wire
 
+ - [Video](https://www.youtube.com/watch?v=IXvEDM-m9CE) about wire wrapping
+
 ### AWG
 
 This is the standard wire gauge system, increasing gauge numbers denote decreasing wire
