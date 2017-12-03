@@ -122,3 +122,10 @@ note 97055 from Philips says
 ## Virtual ground
 
  - [Virtual Ground Circuits](https://tangentsoft.net/elec/vgrounds.html)
+
+## Octopus tester
+
+This is a circuit to draw with an oscilloscope in ``X-Y`` mode the voltage/current graph of
+a component.
+
+ - Analog Signature Analysis Using a Curve Tracer [PDF](http://www.qsl.net/kd7rem/pdf/octopus.pdf)
