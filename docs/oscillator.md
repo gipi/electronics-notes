@@ -13,9 +13,10 @@ says that
 
 bad enough seems that [the  Barkhausen Stability Criterion is simple, intuitive, and wrong](http://web.mit.edu/klund/www/weblatex/node4.html).
 
-## RC
+## RC&Phase Shift Oscillator
 
  - [Tutorial](http://www.electronics-tutorials.ws/oscillator/rc_oscillator.html)
+ - [PDF](http://www.inictel-uni.edu.pe/sites/default/files/archivos/2014/publicaciones/12/rc_phase_shift_oscillators.pdf) with derivation of equation
 
 ## Crystal
 
