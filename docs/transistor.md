@@ -57,6 +57,7 @@ transistor is configured in the circuit in the following three ways:
 ### Junction capacitance
 
  - [slide](http://transport.ece.illinois.edu/ece340f12-lectures/ece340lecture27-junccap.pdf)
+ - [slide](http://www.ittc.ku.edu/~jstiles/412/handouts/5.8%20BJT%20Internal%20Capacitances%20and%20high%20frequency%20model/section%205_8%20BJT%20Internal%20Capacitances%20lecture.pdf) about modelling BJT Internal Capacitances
 
 ## MOSFET
 
