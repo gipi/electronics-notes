@@ -29,6 +29,7 @@ the crystal.
 
 ![colpitts oscillator schematics](Images/colpitts-schematics.png)
 
+ - [slide](https://www.seas.upenn.edu/~ese319/Lecture_Notes/Lec_19_Colpitts_Osc_09.pdf) with derivation formulas for the colpitts oscillator
  - [Video](https://www.youtube.com/watch?v=I4bAfDu6F1k) Colpitts Crystal Oscillator Fundamentals
 
 ## Negative resistance oscillator
