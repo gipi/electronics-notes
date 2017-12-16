@@ -34,6 +34,7 @@ the crystal.
  - [Video](https://www.youtube.com/watch?v=I4bAfDu6F1k) Colpitts Crystal Oscillator Fundamentals
  - http://www.electronics-tutorials.ws/oscillator/colpitts.html
  - http://www.electronics-tutorials.ws/oscillator/crystal.html
+ - https://makerf.com/posts/experimenting_with_colpitts_oscillators
 
 ## Negative resistance oscillator
 
