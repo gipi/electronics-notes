@@ -43,6 +43,16 @@ be used to amplify the feedback loop of an oscillating circuit.
  - [Video](https://www.youtube.com/watch?v=rpGOKGrcpAk) World's Simplest Single Transistor Oscillator - BJT with Negative Resistance
  - [Page](https://www.st-andrews.ac.uk/~www_pa/Scots_Guide/RadCom/part5/page1.html) with a more elaborated explanation of NR.
 
+## Voltage controlled oscillator (VCO)
+
+ - https://www.electronicshub.org/voltage-controlled-oscillators-vco/
+ - https://electronics.stackexchange.com/questions/233607/sawtooth-vco-and-current-source-for-modular-synthesizer
+ - Posts ([1](http://xonik.no/theory/vco/expo_converter_1.html) [2](http://xonik.no/theory/vco/expo_converter_2.html) e [3](http://xonik.no/theory/vco/reference_current.html)) about
+   building a VCO creating a current source
+ - https://electronics.stackexchange.com/questions/207668/how-do-i-make-a-vco-with-a-lm-358
+ - https://www.allaboutcircuits.com/projects/diy-synth-series-vco/
+
+
 ### Links
 
  - Crystal Oscillator Basics and Crystal Selection for rfPICTM and PICmicro® Devices ([PDF](http://ww1.microchip.com/downloads/en/appnotes/00826a.pdf))

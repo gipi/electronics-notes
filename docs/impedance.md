@@ -7,3 +7,4 @@
  - [Input Impedance of an Amplifier](http://www.electronics-tutorials.ws/amplifier/input-impedance-of-an-amplifier.html)
  - [INPUT and OUTPUT IMPEDANCE](https://www.pdx.edu/nanogroup/sites/www.pdx.edu.nanogroup/files/2013_Input_output_impedance_9.pdf)
  - [Measuring Impedance](http://www.learnabout-electronics.org/ac_theory/impedance73.php)
+ - http://www.electronicdesign.com/communications/back-basics-impedance-matching-part-1

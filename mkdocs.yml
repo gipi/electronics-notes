@@ -24,6 +24,7 @@ pages:
 - [kicad.md, KiCad]
 - [sampling.md, Sampling]
 - [Sensors.md, Sensors]
+- [signal.md, Signal]
 - [soldering.md, Soldering]
 - [simulation.md, Simulation]
 - [tools.md, Tools]
