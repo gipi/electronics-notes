@@ -1,5 +1,7 @@
 # Transistors
 
+ - [directory](http://www.ittc.ku.edu/~jstiles/412/handouts/) with a lot of slides about transistors
+
 Have three pins named **base/gate**, **collector/source** and **emitter/drain**
 
 MOSFET is voltage controlled. While BJT is current controlled,
