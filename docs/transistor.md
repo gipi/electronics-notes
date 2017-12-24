@@ -1,6 +1,7 @@
 # Transistors
 
  - [directory](http://www.ittc.ku.edu/~jstiles/412/handouts/) with a lot of slides about transistors
+ - [notes](http://aries.ucsd.edu/najmabadi/CLASS/ECE60L/02-S/NOTES/) about transistors
 
 Have three pins named **base/gate**, **collector/source** and **emitter/drain**
 
