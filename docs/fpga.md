@@ -41,3 +41,4 @@
  - [Verilator](https://www.veripool.org/wiki/verilator) is the fastest free Verilog HDL simulator
  - [Verilog tutorials and examples](https://www.nandland.com/verilog/tutorials/index.html)
  - [Some FPGA projects](http://hamsterworks.co.nz/mediawiki/index.php/FPGA_Projects)
+ - [The Fastest, Easiest FPGA Blinker, Ever!](http://www.xess.com/static/media/pages/pygmyhdl/examples/1_blinker/fastest_easiest_FPGA_blinker_ever.html)
