@@ -9,6 +9,7 @@
  - [AM/FM Transmitter schematics](http://darkliferadio.proboards.com/thread/15)
  - http://www.diy-electronic-projects.com/p121-4W-FM-Transmitter
  - https://www.allaboutcircuits.com/textbook/radio-frequency-analysis-design/radio-frequency-demodulation/how-to-demodulate-an-fm-waveform/
+ - https://www.elttam.com.au/blog/intro-sdr-and-rf-analysis/ 
 
 ## Antenna
 
