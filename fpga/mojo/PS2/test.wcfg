@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/opt/3043096/fpga/mojo/PS2/test_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="test" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="8" />
+   <wvobject fp_name="/test/rx_done_tick" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rx_done_tick</obj_property>
+      <obj_property name="ObjectShortName">rx_done_tick</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/dout" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dout[7:0]</obj_property>
+      <obj_property name="ObjectShortName">dout[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/ps2c" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ps2c</obj_property>
+      <obj_property name="ObjectShortName">ps2c</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/ps2d" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ps2d</obj_property>
+      <obj_property name="ObjectShortName">ps2d</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/rx_en" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rx_en</obj_property>
+      <obj_property name="ObjectShortName">rx_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/uut/state_reg" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">state_reg[1:0]</obj_property>
+      <obj_property name="ObjectShortName">state_reg[1:0]</obj_property>
+   </wvobject>
+</wave_config>
