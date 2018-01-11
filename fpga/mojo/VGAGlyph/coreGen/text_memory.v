@@ -25,8 +25,8 @@
 *     (c) Copyright 1995-2018 Xilinx, Inc.                                     *
 *     All rights reserved.                                                     *
 *******************************************************************************/
-// You must compile the wrapper file blk_mem_gen_v7_3.v when simulating
-// the core, blk_mem_gen_v7_3. When compiling the wrapper file, be sure to
+// You must compile the wrapper file text_memory.v when simulating
+// the core, text_memory. When compiling the wrapper file, be sure to
 // reference the XilinxCoreLib Verilog simulation library. For detailed
 // instructions, please refer to the "CORE Generator Help".
 
@@ -36,28 +36,36 @@
 
 `timescale 1ns/1ps
 
-module blk_mem_gen_v7_3(
+module text_memory(
   clka,
+  wea,
   addra,
-  douta
+  dina,
+  clkb,
+  addrb,
+  doutb
 );
 
 input clka;
-input [13 : 0] addra;
-output [0 : 0] douta;
+input [0 : 0] wea;
+input [11 : 0] addra;
+input [7 : 0] dina;
+input clkb;
+input [11 : 0] addrb;
+output [7 : 0] doutb;
 
 // synthesis translate_off
 
   BLK_MEM_GEN_V7_3 #(
-    .C_ADDRA_WIDTH(14),
-    .C_ADDRB_WIDTH(14),
+    .C_ADDRA_WIDTH(12),
+    .C_ADDRB_WIDTH(12),
     .C_ALGORITHM(1),
     .C_AXI_ID_WIDTH(4),
     .C_AXI_SLAVE_TYPE(0),
     .C_AXI_TYPE(1),
     .C_BYTE_SIZE(9),
     .C_COMMON_CLK(0),
-    .C_DEFAULT_DATA("0"),
+    .C_DEFAULT_DATA("41"),
     .C_DISABLE_WARN_BHV_COLL(0),
     .C_DISABLE_WARN_BHV_RANGE(0),
     .C_ENABLE_32BIT_ADDRESS(0),
@@ -77,18 +85,18 @@ output [0 : 0] douta;
     .C_HAS_SOFTECC_INPUT_REGS_A(0),
     .C_HAS_SOFTECC_OUTPUT_REGS_B(0),
     .C_INIT_FILE("BlankString"),
-    .C_INIT_FILE_NAME("blk_mem_gen_v7_3.mif"),
+    .C_INIT_FILE_NAME("no_coe_file_loaded"),
     .C_INITA_VAL("0"),
     .C_INITB_VAL("0"),
     .C_INTERFACE_TYPE(0),
-    .C_LOAD_INIT_FILE(1),
-    .C_MEM_TYPE(3),
+    .C_LOAD_INIT_FILE(0),
+    .C_MEM_TYPE(1),
     .C_MUX_PIPELINE_STAGES(0),
     .C_PRIM_TYPE(1),
-    .C_READ_DEPTH_A(16384),
-    .C_READ_DEPTH_B(16384),
-    .C_READ_WIDTH_A(1),
-    .C_READ_WIDTH_B(1),
+    .C_READ_DEPTH_A(2400),
+    .C_READ_DEPTH_B(2400),
+    .C_READ_WIDTH_A(8),
+    .C_READ_WIDTH_B(8),
     .C_RST_PRIORITY_A("CE"),
     .C_RST_PRIORITY_B("CE"),
     .C_RST_TYPE("SYNC"),
@@ -103,31 +111,31 @@ output [0 : 0] douta;
     .C_USE_SOFTECC(0),
     .C_WEA_WIDTH(1),
     .C_WEB_WIDTH(1),
-    .C_WRITE_DEPTH_A(16384),
-    .C_WRITE_DEPTH_B(16384),
+    .C_WRITE_DEPTH_A(2400),
+    .C_WRITE_DEPTH_B(2400),
     .C_WRITE_MODE_A("WRITE_FIRST"),
     .C_WRITE_MODE_B("WRITE_FIRST"),
-    .C_WRITE_WIDTH_A(1),
-    .C_WRITE_WIDTH_B(1),
+    .C_WRITE_WIDTH_A(8),
+    .C_WRITE_WIDTH_B(8),
     .C_XDEVICEFAMILY("spartan6")
   )
   inst (
     .CLKA(clka),
+    .WEA(wea),
     .ADDRA(addra),
-    .DOUTA(douta),
+    .DINA(dina),
+    .CLKB(clkb),
+    .ADDRB(addrb),
+    .DOUTB(doutb),
     .RSTA(),
     .ENA(),
     .REGCEA(),
-    .WEA(),
-    .DINA(),
-    .CLKB(),
+    .DOUTA(),
     .RSTB(),
     .ENB(),
     .REGCEB(),
     .WEB(),
-    .ADDRB(),
     .DINB(),
-    .DOUTB(),
     .INJECTSBITERR(),
     .INJECTDBITERR(),
     .SBITERR(),

@@ -19,6 +19,12 @@ module hvsync_generator(
     output reg [9:0] CounterX,
     output reg [8:0] CounterY
   );
+  
+initial begin
+	CounterX = 0;
+	CounterY = 0;
+end
+
 reg vga_HS, vga_VS;
 
 wire CounterXmaxed = (CounterX == 800); // 16 + 48 + 96 = 160 + 
