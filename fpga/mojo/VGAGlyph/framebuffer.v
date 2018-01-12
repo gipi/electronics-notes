@@ -33,7 +33,7 @@ module framebuffer(
 );
 
 wire  [6:0] column;        // 80 columns
-wire  [5:0] row;           // 30 rows
+wire  [4:0] row;           // 30 rows
 wire [11:0] text_address;
 wire  [7:0] text_value;    // character to display
 
@@ -59,12 +59,16 @@ text_memory tm(
 // here we get the remainder
 assign glyph_x = x[2:0];
 assign glyph_y = y[3:0];
-                        // text_value * 128 + glyph_x + (glyph_y * 16)
-assign glyph_address = (text_value << 7) + glyph_x + (glyph_y << 4);
+                     // text_value * 128 + glyph_x + (glyph_y * 8)
+assign glyph_address = (text_value << 7) + glyph_x + (glyph_y << 3);
 
 blk_mem_gen_v7_3 glyph_rom(
   .clka(clk), // input clka
   .addra(glyph_address), // input [13 : 0] addra
   .douta(pixel[0]) // output [0 : 0] douta
 );
+
+assign pixel[1] = pixel[0];
+assign pixel[2] = pixel[0];
+
 endmodule

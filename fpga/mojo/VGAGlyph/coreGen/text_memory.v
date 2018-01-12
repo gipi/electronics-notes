@@ -65,7 +65,7 @@ output [7 : 0] doutb;
     .C_AXI_TYPE(1),
     .C_BYTE_SIZE(9),
     .C_COMMON_CLK(0),
-    .C_DEFAULT_DATA("30"),
+    .C_DEFAULT_DATA("00"),
     .C_DISABLE_WARN_BHV_COLL(0),
     .C_DISABLE_WARN_BHV_RANGE(0),
     .C_ENABLE_32BIT_ADDRESS(0),
