@@ -27,7 +27,7 @@ end
 
 reg vga_HS, vga_VS;
 
-wire CounterXmaxed = (CounterX == 800); // 16 + 48 + 96 = 160 + 
+wire CounterXmaxed = (CounterX == 800);
 wire CounterYmaxed = (CounterY == 525);
 
   // Module get from <http://www.fpga4fun.com/PongGame.html>
@@ -35,7 +35,7 @@ always @(posedge clk)
 if (CounterXmaxed)
   CounterX <= 0;
 else
-  CounterX <= CounterX + 1;
+  CounterX <= CounterX + 1'b1;
 
 always @(posedge clk)
 begin
@@ -44,7 +44,7 @@ begin
     if(CounterYmaxed)
       CounterY <= 0;
     else
-      CounterY <= CounterY + 1;
+      CounterY <= CounterY + 1'b1;
   end
 end
 

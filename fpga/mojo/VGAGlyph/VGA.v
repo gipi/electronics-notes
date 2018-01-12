@@ -13,7 +13,7 @@ wire [6:0] column;
 wire [5:0] row;
 wire [2:0] idx;
 reg  [2:0] r_pixel;
-wire glyph_pixel;
+wire [2:0] framebuffer_pixel;
 wire clk_25;
 
 
@@ -36,13 +36,13 @@ framebuffer fb(
 	.clk(clk_25),
 	.x(CounterX),
 	.y(CounterY),
-	.pixel(glyph_pixel)
+	.pixel(framebuffer_pixel)
 );
 
 always @(posedge clk_25)
 begin
   if (inDisplayArea)
-    r_pixel[0] <= glyph_pixel;
+    r_pixel <= framebuffer_pixel;
   else // if it's not to display, go dark
     r_pixel <= 3'b000;
 end

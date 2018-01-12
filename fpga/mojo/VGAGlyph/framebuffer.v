@@ -1,11 +1,27 @@
 `timescale 1ns / 1ps
 /*
+ * This modules returns the value of the pixel to be displayied
+ * at coordinate (x, y) allowing to select when get as source
+ * the text or the raster buffer.
+ *
+ * RASTER MODE
+ * -----------
+ *
+ * We use a Dual RAM of 640x480*3 = 921600 bits = 115200 bytes; this
+ * will contain the raw RGB values to display.
+ *
+ *
+ * TEXT MODE
+ * ---------
+ *
  * We want to write some text using glyph stored into some ROM.
  *
- * Each glyph is a matrix of 8x16, we want to cover at least the
- * first 127 ASCII character, so we need 128*128 = 16384 bits.
+ * Each glyph is a matrix of 8x16 pixels, we want to cover at least the
+ * first 127 ASCII character, so we need at least 128*128 = 16384 bits
+ * (so an address space of 14 bits).
  *
- * 640x480 will give us 80x30 characters.
+ * 640x480 will give us 80x30 characters, so the TEXT buffer needs 2400 bytes
+ * (so an address space of 12 bits).
  *
  */
 module framebuffer(
@@ -16,13 +32,14 @@ module framebuffer(
 	output wire [2:0] pixel
 );
 
-wire  [6:0] column;
-wire  [5:0] row;
+wire  [6:0] column;        // 80 columns
+wire  [5:0] row;           // 30 rows
 wire [11:0] text_address;
-wire  [7:0] text_value;
-wire [13:0] glyph_address;
-wire  [2:0] glyph_x;
-wire  [3:0] glyph_y;
+wire  [7:0] text_value;    // character to display
+
+wire  [2:0] glyph_x;       // coordinates
+wire  [3:0] glyph_y;       // in the grid of the glyph
+wire [13:0] glyph_address; 
  
 // (column, row) = (x / 8, y / 16)
 assign column = x[9:3];
@@ -40,9 +57,10 @@ text_memory tm(
 );
 
 // here we get the remainder
-assign glyph_x = x[3:0];
-assign glyph_y = y[4:0];
-assign glyph_address = (text_value * 128) + glyph_x + (glyph_y * 16);
+assign glyph_x = x[2:0];
+assign glyph_y = y[3:0];
+                        // text_value * 128 + glyph_x + (glyph_y * 16)
+assign glyph_address = (text_value << 7) + glyph_x + (glyph_y << 4);
 
 blk_mem_gen_v7_3 glyph_rom(
   .clka(clk), // input clka
