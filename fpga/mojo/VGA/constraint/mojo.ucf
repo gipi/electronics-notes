@@ -29,8 +29,8 @@ NET "avr_rx" LOC = P59 | IOSTANDARD = LVTTL;
 NET "avr_rx_busy" LOC = P39 | IOSTANDARD = LVTTL;
 
 // HSYNC, VSYNC and RGB
-NET "hsync_out" LOC = P50 | IOSTANDARD = LVTTL;
 NET "vsync_out" LOC = P51 | IOSTANDARD = LVTTL;
-NET "pixel<0>"  LOC = P57 | IOSTANDARD = LVTTL;
-NET "pixel<1>"  LOC = P58 | IOSTANDARD = LVTTL;
-NET "pixel<2>"  LOC = P66 | IOSTANDARD = LVTTL;
+NET "hsync_out" LOC = P41 | IOSTANDARD = LVTTL;
+NET "pixel<0>"  LOC = P30 | IOSTANDARD = LVTTL;
+NET "pixel<1>"  LOC = P33 | IOSTANDARD = LVTTL;
+NET "pixel<2>"  LOC = P35 | IOSTANDARD = LVTTL;
