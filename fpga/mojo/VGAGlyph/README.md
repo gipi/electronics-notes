@@ -10,7 +10,10 @@ This is like the SVGA text mode (I guess).
 
 ![vga glyph](monitor-glyph.png)
 
-**Note:** this is a work in progress, it's not tested yet on real FPGA.
-**Note bis:** since ``ISE`` is shit (or I don't know better) it's not possible
+**Note:** since ``ISE`` is shit (or I don't know better) it's not possible
 to indicate a relative path for the glyph's ``ROM`` contents, so use the ``COREgen``
 and select the right ``coe`` file.
+
+## TODO
+
+ - implement raster mode
