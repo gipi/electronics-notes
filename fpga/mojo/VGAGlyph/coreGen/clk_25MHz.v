@@ -75,12 +75,6 @@ module clk_25MHz
   output        LOCKED
  );
 
-  // Input buffering
-  //------------------------------------
-  IBUFG clkin1_buf
-   (.O (clkin1),
-    .I (CLK_IN1));
-
 
   // Clocking primitive
   //------------------------------------
@@ -108,7 +102,7 @@ module clk_25MHz
     .STARTUP_WAIT          ("FALSE"))
   dcm_sp_inst
     // Input clock
-   (.CLKIN                 (clkin1),
+   (.CLKIN                 (CLK_IN1),
     .CLKFB                 (clkfb),
     // Output clocks
     .CLK0                  (clk0),

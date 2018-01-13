@@ -16,9 +16,14 @@ reg  [2:0] r_pixel;
 wire [2:0] framebuffer_pixel;
 wire clk_25;
 
+  // Input buffering
+  //------------------------------------
+  IBUFG clkin1_buf
+   (.O (clkin1),
+    .I (clk));
 
 clk_25MHz clk_video(
-  .CLK_IN1(clk),
+  .CLK_IN1(clkin1),
   .CLK_OUT1(clk_25),
   .RESET(rst)
 );
@@ -33,18 +38,36 @@ hvsync_generator hvsync(
 );
 
 framebuffer fb(
-	.clk(clk_25),
+	.clk(clkin1),
 	.x(CounterX),
 	.y(CounterY),
 	.pixel(framebuffer_pixel)
 );
 
-always @(posedge clk_25)
+/*
+ * The "draw" register is used to be sure that the memories
+ * had enough time to read the memory and output the pixel
+ * values for the glyphs.
+ *
+ * For this reason this piece of hardware uses a clock with
+ * a frequency that is twice the pixel clock.
+ */
+reg draw;
+
+initial begin
+	draw = 0;
+end
+
+always @(posedge clkin1)
 begin
-  if (inDisplayArea)
-    r_pixel <= framebuffer_pixel;
-  else // if it's not to display, go dark
-    r_pixel <= 3'b000;
+	draw <= ~draw;
+	if (draw)
+	begin
+	  if (inDisplayArea)
+		 r_pixel <= framebuffer_pixel;
+	  else // if it's not to display, go dark
+		 r_pixel <= 3'b000;
+	end
 end
 
 assign pixel = r_pixel;
