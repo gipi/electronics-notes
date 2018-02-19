@@ -1,4 +1,5 @@
 # encoding: utf-8
+# See document "Programming Guide" at <https://www.siglentamerica.com/wp-content/uploads/dlm_uploads/2017/10/ProgrammingGuide_forSDS-1-1.pdf>
 import sys
 import logging
 import argparse
