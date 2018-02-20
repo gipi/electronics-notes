@@ -34,6 +34,16 @@ def waveform(device):
 
     logger.info(repr(response))
 
+def dumpscreen(device, fileout):
+    logger.info('DUMPING SCREEN')
+
+    device.write('SCDP')
+    response = device.read_raw()
+
+    fileout.write(response)
+    fileout.close()
+
+    logger.info('END')
 
 def configure_opts():
     parser = argparse.ArgumentParser(description='Use oscilloscope via VISA')
@@ -41,12 +51,14 @@ def configure_opts():
     subparsers = parser.add_subparsers(dest='cmd', help='sub-command help')
 
     parser_a = subparsers.add_parser('list', help='list help')
-
     parser_b = subparsers.add_parser('wave')
+    parser_c = subparsers.add_parser('shell', help='VISA shell')
+    parser_c = subparsers.add_parser('dumpscreen', help='dump screen')
 
     parser_b.add_argument('--device', required=True)
+    parser_c.add_argument('--device', required=True)
+    parser_c.add_argument('--out', type=argparse.FileType('w'), required=True)
 
-    parser_c = subparsers.add_parser('shell', help='VISA shell')
 
     return parser
 
@@ -72,6 +84,8 @@ if __name__ == '__main__':
 
     if args.cmd == 'wave':
         waveform(device)
+    elif args.cmd == 'dumpscreen':
+        dumpscreen(device, args.out)
 
     device.close()
 
