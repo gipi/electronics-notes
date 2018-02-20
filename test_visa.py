@@ -3,8 +3,9 @@
 import sys
 import logging
 import argparse
+import wave # https://docs.python.org/2/library/wave.html
 
-import visa
+import visa # https://pyvisa.readthedocs.io
 
 
 logging.basicConfig()
@@ -24,15 +25,46 @@ def list(r):
         print '[%03d] %s' % (idx, result)
 
 
-def waveform(device):
+def waveform(device, outfile, channel):
+
+    sample_rate = device.query('SANU C%d?' % channel)
+
+    sample_rate = int(sample_rate[len('SANU '):-2])
+    logger.info('detected sample rate of %d' % sample_rate)
+
+    #desc = device.write('C%d: WF? DESC' % channel)
+    #logger.info(repr(device.read_raw()))
 
     # the response to this is binary data so we need to write() and then read_raw()
     # to avoid encode() call and relative UnicodeError
-    logger.info(device.write('C1: WF? DAT2')) 
+    logger.info(device.write('C%d: WF? DAT2' % (channel,))) 
 
     response = device.read_raw()
 
-    logger.info(repr(response))
+    if not response.startswith('C%d:WF ALL' % channel):
+        raise ValueError('error: bad waveform detected -> \'%s\'' % repr(response[:80]))
+
+    index = response.index('#9')
+    index_start_data = index + 2 + 9
+    data_size = int(response[index + 2:index_start_data])
+    # the reponse terminates with the sequence '\n\n\x00' so
+    # is a bit longer that the header + data
+    data = response[index_start_data:index_start_data + data_size]
+    logger.info('data size: %d' % data_size)
+
+    fd = wave.open(outfile, "w")
+    fd.setparams((
+        1,               # nchannels
+        1,               # sampwidth
+        sample_rate,     # framerate
+        data_size,       # nframes
+        "NONE",          # comptype
+        "not compresse", # compname
+    ))
+    fd.writeframes(data)
+    fd.close()
+
+    logger.info('saved wave file')
 
 def dumpscreen(device, fileout):
     logger.info('DUMPING SCREEN')
@@ -56,12 +88,15 @@ def configure_opts():
     subparsers = parser.add_subparsers(dest='cmd', help='sub-command help')
 
     parser_a = subparsers.add_parser('list', help='list help')
-    parser_b = subparsers.add_parser('wave')
+    parser_wave = subparsers.add_parser('wave')
     parser_c = subparsers.add_parser('shell', help='VISA shell')
     parser_c = subparsers.add_parser('dumpscreen', help='dump screen')
     parser_template = subparsers.add_parser('template', help='dump the template for the waveform descriptor')
 
-    parser_b.add_argument('--device', required=True)
+    parser_wave.add_argument('--device', required=True)
+    parser_wave.add_argument('--out', type=argparse.FileType('w'), required=True)
+    parser_wave.add_argument('--channel', type=int, required=True)
+
     parser_c.add_argument('--device', required=True)
     parser_c.add_argument('--out', type=argparse.FileType('w'), required=True)
 
@@ -90,7 +125,7 @@ if __name__ == '__main__':
     logger.info('Connected to device \'%s\'' % idn)
 
     if args.cmd == 'wave':
-        waveform(device)
+        waveform(device, args.out, args.channel)
     elif args.cmd == 'dumpscreen':
         dumpscreen(device, args.out)
     elif args.cmd == 'template':
