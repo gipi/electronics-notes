@@ -37,7 +37,6 @@ def waveform(device):
 
     logger.info(repr(response))
 
-    device.close()
 
 def configure_opts():
     parser = argparse.ArgumentParser(description='Use oscilloscope via VISA')
@@ -74,4 +73,5 @@ if __name__ == '__main__':
     if args.cmd == 'wave':
         waveform(device)
 
+    device.close()
 
