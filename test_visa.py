@@ -45,6 +45,11 @@ def dumpscreen(device, fileout):
 
     logger.info('END')
 
+def template(device):
+    response = device.query('TEMPLATE ?')
+
+    print response
+
 def configure_opts():
     parser = argparse.ArgumentParser(description='Use oscilloscope via VISA')
 
@@ -54,11 +59,13 @@ def configure_opts():
     parser_b = subparsers.add_parser('wave')
     parser_c = subparsers.add_parser('shell', help='VISA shell')
     parser_c = subparsers.add_parser('dumpscreen', help='dump screen')
+    parser_template = subparsers.add_parser('template', help='dump the template for the waveform descriptor')
 
     parser_b.add_argument('--device', required=True)
     parser_c.add_argument('--device', required=True)
     parser_c.add_argument('--out', type=argparse.FileType('w'), required=True)
 
+    parser_template.add_argument('--device', required=True)
 
     return parser
 
@@ -86,6 +93,8 @@ if __name__ == '__main__':
         waveform(device)
     elif args.cmd == 'dumpscreen':
         dumpscreen(device, args.out)
+    elif args.cmd == 'template':
+        template(device)
 
     device.close()
 
