@@ -25,9 +25,6 @@ def list(r):
 
 
 def waveform(device):
-    idn = device.query('*IDN?')
-
-    logger.info(idn)
 
     # the response to this is binary data so we need to write() and then read_raw()
     # to avoid encode() call and relative UnicodeError
@@ -69,6 +66,9 @@ if __name__ == '__main__':
         sys.exit(0)
 
     device = resources.open_resource(args.device, write_termination='\n', query_delay=0.25)
+    idn = device.query('*IDN?')
+
+    logger.info('Connected to device \'%s\'' % idn)
 
     if args.cmd == 'wave':
         waveform(device)
