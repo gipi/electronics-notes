@@ -7,6 +7,10 @@ and deal with real life issues.
 In this page mainly we are talking about PCB but it's also related
 to 3d printing and other way to prototype devices.
 
+## Examples
+
+ - [Building a retro split-flap display](https://imgur.com/a/0VAMZ)
+
 ## General notes
 
 There are several aspects of a board to take into account when is designed
