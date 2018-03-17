@@ -57,3 +57,4 @@
  - [The Fastest, Easiest FPGA Blinker, Ever!](http://www.xess.com/static/media/pages/pygmyhdl/examples/1_blinker/fastest_easiest_FPGA_blinker_ever.html)
  - [Keep it synchronous stupid](https://www.doulos.com/knowhow/fpga/synchronisation/)
  - [Blog](http://svenand.blogdrives.com) with posts about FPGA design from scratch
+ - [My first experience with Formal Methods](http://zipcpu.com/blog/2017/10/19/formal-intro.html)
