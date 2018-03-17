@@ -135,3 +135,8 @@ The architecture of this protocol is *tiered star topology*, there can be no com
  - [CS/EE 3710 - Computer Design Lab - Lab 3 – VGA](http://www.eng.utah.edu/~cs3710/labs/VGA.pdf)
  - [VGA Text-mode](http://www.flingos.co.uk/docs/reference/VGA-Text-Mode/)
  - [Hardware Level VGA and SVGA Video Programming Information Page](http://www.osdever.net/FreeVGA/vga/vgatext.htm)
+
+## GPS
+
+ - [Homemade GPS Receiver](http://www.aholme.co.uk/GPS/Main.htm)
+ 
