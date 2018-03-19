@@ -12,7 +12,7 @@ wire clk_16c_internal;
 
 clk_base clk_target(
 	.CLK_IN1(clk),
-	.CLK_OUT1(clk_16a_internal),
+	.CLK_OUT1(clk_16a),
 	.CLK_OUT1pi(clk_16api_internal),
 	.RESET(rst)
 );
@@ -25,7 +25,7 @@ clk_B clk_target_B(
 );
 
 // https://forums.xilinx.com/t5/Spartan-Family-FPGAs/Clock-issue-about-spartan-6/td-p/67284/page/2
-ODDR2 #(
+/*ODDR2 #(
       .DDR_ALIGNMENT("NONE"),
       .INIT(1'b0),
       .SRTYPE("SYNC")
@@ -39,6 +39,7 @@ ODDR2 #(
       .R   (1'b0),   // 1-bit reset input
       .S   (1'b0)    // 1-bit set input
    );
+	*/
 ODDR2 #(
       .DDR_ALIGNMENT("NONE"),
       .INIT(1'b0),

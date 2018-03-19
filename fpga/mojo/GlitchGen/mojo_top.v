@@ -18,7 +18,8 @@ module mojo_top(
     input avr_tx, // AVR Tx => FPGA Rx
     output avr_rx, // AVR Rx => FPGA Tx
     input avr_rx_busy, // AVR Rx buffer full
-    output clk_16a,
+	 input  btn,
+    output clk_target,
     output clk_16b,
     output clk_16c
 );
@@ -31,11 +32,13 @@ assign spi_miso = 1'bz;
 assign avr_rx = 1'bz;
 assign spi_channel = 4'bzzzz;
 
-//wire btn_out;
 reg [7:0] led_r;
 
 assign led = led_r;
 
+/*
+ * Generates the clocks used for glitching
+ */
 clk_core clk(
 	.clk(clk_mojo),
 	.clk_16a(clk_16a),
@@ -43,4 +46,33 @@ clk_core clk(
 	.clk_16c(clk_16c)
 );
 
+/*
+ * When click the button we toggle the active clock
+ */
+btn_toggle clk_selection(
+	.clk(clk_16a),
+	.btn(btn),
+	.out(enable_clk)
+);
+
+BUFGMUX clk_mux(
+	.I0(clk_16a),
+	.I1(1'b0),
+	.S(enable_clk),
+	.O(clk_target_internal)
+);
+ODDR2 #(
+      .DDR_ALIGNMENT("NONE"),
+      .INIT(1'b0),
+      .SRTYPE("SYNC")
+   ) ODDR2_a (
+      .Q   (clk_target), // 1-bit DDR output data
+      .C0  (clk_target_internal),     // 1-bit clock input
+      .C1  (~clk_target_internal),    // 1-bit clock input
+      .CE  (1'b1),         // 1-bit clock enable input
+      .D0  (1'b1),
+      .D1  (1'b0),
+      .R   (1'b0),   // 1-bit reset input
+      .S   (1'b0)    // 1-bit set input
+   );
 endmodule
