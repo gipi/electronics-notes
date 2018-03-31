@@ -9,6 +9,8 @@ Also this [SO answer](http://electronics.stackexchange.com/questions/8565/oscill
 
 [Here](Datasheets/Tektronix12_things_to_consider1.pdf) a guide from [Mouser](http://www.mouser.com/pdfdocs/Tektronix12_things_to_consider1.pdf)
 
+ - [Basics of using FFT on an oscilloscope](https://www.youtube.com/watch?v=oRf-IpG6XAw)
+
 ## Logic analyzer
 
 For example exists one device named ``Saleae logic`` that has 8 channels and 24MHz sampling.
