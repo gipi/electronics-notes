@@ -592,7 +592,7 @@ ATTINY85
 
 ## ATMega328p
 
- - [Datasheet](http://www.atmel.com/images/doc8161.pdf)
+ - [Datasheet](http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega328_P%20AVR%20MCU%20with%20picoPower%20Technology%20Data%20Sheet%2040001984A.pdf)
 
 ![Arduino to ATMega328 pinout](http://arduino.cc/en/uploads/Hacking/Atmega168PinMap2.png)
 
