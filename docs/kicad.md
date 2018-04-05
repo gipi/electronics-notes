@@ -46,6 +46,11 @@ Select **Add filled zones**, draw a poligon and then right click and select **fi
  - [Sizing logo](http://www.deferredprocrastination.co.uk/blog/2016/kicad-logo-size/)
  - [PCB artwork in kicad](http://blog.komar.be/making-pcb-artwork-in-kicad/) a little outdated
 
+# Part&footprint
+
+ - [Make components in KiCAD](http://docs.kicad-pcb.org/4.0.7/en/getting_started_in_kicad.html#make-schematic-components-in-kicad)
+ - [quicklib](http://kicad.rohrbacher.net/quicklib.php)
+
 ## Libraries
 
  - https://github.com/open-project/kicadlibrary
