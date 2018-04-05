@@ -1,6 +1,8 @@
 # Signal
 
  - [Getting started with HackRF and GNU Radio](https://github.com/mossmann/hackrf/wiki/Getting-Started-with-HackRF-and-GNU-Radio)
+ - [Sniffing nRF24 with GNU Radio and HackRF](https://wiki.bitcraze.io/misc:hacks:hackrf)
+ - [RFSec-ToolKit V 2.0](https://github.com/cn0xroot/RFSec-ToolKit) repo with a lot of info
 
 ## Modulation
 
