@@ -29,7 +29,8 @@ NET "avr_rx" LOC = P59 | IOSTANDARD = LVTTL;
 NET "avr_rx_busy" LOC = P39 | IOSTANDARD = LVTTL;
 
 // https://www.xilinx.com/itp/xilinx10/help/platform_studio/ps_c_hdw_specifying_timing_constraints_in_ucf_file.htm
-NET "clk_target" LOC = P50 | IOSTANDARD = LVTTL;
+NET "clk_target" LOC = P51 | IOSTANDARD = LVTTL;
 NET "clk_16b" LOC = P40 | IOSTANDARD = LVTTL;
 NET "clk_16c" LOC = P34 | IOSTANDARD = LVTTL;
-NET "btn" LOC = P32 | IOSTANDARD = LVTTL;
+NET "btn_select_clk" LOC = P58 | IOSTANDARD = LVTTL;
+NET "btn_manual_clk" LOC = P57 | IOSTANDARD = LVTTL;

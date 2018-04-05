@@ -7,6 +7,10 @@ module btn_toggle(
 reg signal;
 reg btn_debounced_delayed;
 
+initial begin
+	signal = 1'b0;
+end
+
 button_conditioner clk_btn(
 	.clk(clk),
 	.btn(btn),

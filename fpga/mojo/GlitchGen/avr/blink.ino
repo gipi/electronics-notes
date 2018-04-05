@@ -1,24 +1,20 @@
+/*
+ * A simple sketch that blink a led on pin A5 (port PC5)
+ */
+#include <avr/io.h>
 #include <util/delay.h>
 
-void setup() {
-    //Serial.begin(9600);
+int main() {
+    DDRC  = (1 << PC5);       //Sets the direction of the PC7 to output
 
-    pinMode(A5, OUTPUT);
-    digitalWrite(A5, HIGH);
-    _delay_ms(100);
-    digitalWrite(A5, LOW);
-    _delay_ms(100);
-    digitalWrite(A5, HIGH);
-    _delay_ms(100);
-    digitalWrite(A5, LOW);
-
-    //Serial.println("Plis visit our country!!1!");
-    //Serial.println("voulez vous inserire le PIN?");
-}
-
-void loop() {
-    digitalWrite(A5, HIGH);
+    PORTC |= (1 << PC5);       //Sets PC7 high
+    _delay_ms(5000);
+    PORTC &= ~(1 << PC5);       //Sets PC7 low
     _delay_ms(1000);
-    digitalWrite(A5, LOW);
-    _delay_ms(1000);
+
+    while (1) {
+        PORTC |= (1 << PC5);
+        PORTC &= ~(1 << PC5);
+    }
+
 }

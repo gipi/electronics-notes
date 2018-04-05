@@ -18,7 +18,8 @@ module mojo_top(
     input avr_tx, // AVR Tx => FPGA Rx
     output avr_rx, // AVR Rx => FPGA Tx
     input avr_rx_busy, // AVR Rx buffer full
-	 input  btn,
+	 input  btn_select_clk,
+	 input btn_manual_clk,
     output clk_target,
     output clk_16b,
     output clk_16c
@@ -51,13 +52,21 @@ clk_core clk(
  */
 btn_toggle clk_selection(
 	.clk(clk_16a),
-	.btn(btn),
+	.btn(btn_select_clk),
 	.out(enable_clk)
+);
+/*
+ * Here we have the single step clock
+ */
+btn_clk clk_manual_module(
+	.clk(clk_16a),
+	.btn(btn_manual_clk),
+	.pulse(clk_manual)
 );
 
 BUFGMUX clk_mux(
 	.I0(clk_16a),
-	.I1(1'b0),
+	.I1(clk_manual),
 	.S(enable_clk),
 	.O(clk_target_internal)
 );
