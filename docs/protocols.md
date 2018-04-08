@@ -104,6 +104,7 @@ for the
  - [Re-enabling JTAG and Debugging the WRT120N](http://www.devttys0.com/2014/02/re-enabling-jtag-and-debugging-the-wrt120n/)
  - [Locating JTAG pins automatically](http://elinux.org/images/d/d6/Jtag.pdf)
  - The [jrev](http://nsa.unaligned.org/jrev.php) tool tries to automate the process of reverse-engineering the board connectivity. It probes all pairs of JTAG-scannable pins on the board.
+ - [Practical JTAG: From 0 to 1](https://cansecwest.com/slides/2018/Practical%20JTAGfrom%200%20to%201%20-%20hyperchem,%20Tencent's%20XuanwulLab.pdf)
 
 ### OpenOCD
 
