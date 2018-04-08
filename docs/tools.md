@@ -10,6 +10,9 @@ Also this [SO answer](http://electronics.stackexchange.com/questions/8565/oscill
 [Here](Datasheets/Tektronix12_things_to_consider1.pdf) a guide from [Mouser](http://www.mouser.com/pdfdocs/Tektronix12_things_to_consider1.pdf)
 
  - [Basics of using FFT on an oscilloscope](https://www.youtube.com/watch?v=oRf-IpG6XAw)
+ - [Why is 30MHz Clock signal distorted on oscilloscope?](https://electronics.stackexchange.com/questions/334082/why-is-30mhz-clock-signal-distorted-on-oscilloscope)
+ - [What can reduce overshoot and ringing on a simple square wave pulse generator?](https://electronics.stackexchange.com/questions/79717/what-can-reduce-overshoot-and-ringing-on-a-simple-square-wave-pulse-generator/)
+ - [Understanding Oscilloscope Bandwidth, Rise Time and Signal Fidelity](https://www.ece.ubc.ca/~robertor/Links_files/Files/TEK-Understanding-Scope-BW-tr-Fidelity.pdf)
 
 ## Logic analyzer
 
