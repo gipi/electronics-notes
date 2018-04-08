@@ -36,6 +36,7 @@ $$P=V\cdot I$$.
 
  - [Video](https://www.youtube.com/watch?v=IXvEDM-m9CE) about wire wrapping
  - [Post](https://www.jameco.com/Jameco/workshop/techtip/wirewrap.html) about wire wrapping
+ - [Understanding shielded cable](https://www.mouser.com/pdfdocs/alphawire-Understanding-Shielded-Cable.pdf)
 
 ### AWG
 
