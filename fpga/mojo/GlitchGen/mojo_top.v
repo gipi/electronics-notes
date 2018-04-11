@@ -30,7 +30,6 @@ IBUFG clkin1_buf
  (.O (clk_main),
   .I (clk_mojo));
 
-
 wire rst = ~rst_n; // make reset active high
 
 // these signals should be high-z when not used
@@ -41,6 +40,16 @@ assign spi_channel = 4'bzzzz;
 reg [7:0] led_r;
 
 assign led = led_r;
+
+initial begin
+	led_r[7:0] <= 8'b0;
+end
+
+// give visual clue of what is happening
+always @(posedge clk_main) begin
+	led_r[0] <= enable_manual_clk;
+	led_r[1] <= btn_manual_clk;
+end
 
 /*
  * Generates the clocks used for glitching
@@ -59,7 +68,7 @@ clk_core clk(
 btn_toggle clk_selection(
 	.clk(clk_16a),
 	.btn(btn_select_clk),
-	.out(enable_clk)
+	.out(enable_manual_clk)
 );
 /*
  * Here we have the single step clock
@@ -73,7 +82,7 @@ btn_clk clk_manual_module(
 BUFGMUX clk_mux(
 	.I0(clk_16a),
 	.I1(clk_manual),
-	.S(enable_clk),
+	.S(enable_manual_clk),
 	.O(clk_target_internal)
 );
 ODDR2 #(
