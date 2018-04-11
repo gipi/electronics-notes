@@ -1,6 +1,7 @@
 `timescale 1ns / 1ps
 module clk_core(
 	input clk,
+	input rst,
 	output clk_16a,
 	output clk_16b,
 	output clk_16c

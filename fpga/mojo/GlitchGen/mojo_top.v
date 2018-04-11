@@ -49,7 +49,8 @@ clk_core clk(
 	.clk(clk_main),
 	.clk_16a(clk_16a),
 	.clk_16b(clk_16b),
-	.clk_16c(clk_16c)
+	.clk_16c(clk_16c),
+	.rst(rst)
 );
 
 /*
