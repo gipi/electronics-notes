@@ -24,6 +24,11 @@ module mojo_top(
     output clk_16b,
     output clk_16c
 );
+// Input buffering
+//------------------------------------
+IBUFG clkin1_buf
+ (.O (clk_main),
+  .I (clk_mojo));
 
 
 wire rst = ~rst_n; // make reset active high
@@ -41,7 +46,7 @@ assign led = led_r;
  * Generates the clocks used for glitching
  */
 clk_core clk(
-	.clk(clk_mojo),
+	.clk(clk_main),
 	.clk_16a(clk_16a),
 	.clk_16b(clk_16b),
 	.clk_16c(clk_16c)
