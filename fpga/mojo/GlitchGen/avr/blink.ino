@@ -1,5 +1,5 @@
 /*
- * A simple sketch that blink a led on pin A5 (port PC5)
+ * A simple sketch that blinks a led on pin A5 (port PC5)
  */
 #include <avr/io.h>
 #include <util/delay.h>
