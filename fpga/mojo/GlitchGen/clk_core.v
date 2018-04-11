@@ -7,7 +7,6 @@ module clk_core(
 	output clk_16c
 );
 
-wire clk_16a_internal;
 wire clk_16b_internal;
 wire clk_16c_internal;
 
@@ -20,7 +19,7 @@ clk_base clk_target(
 
 
 clk_B clk_target_B(
-	.CLK_IN1(clk_16a_internal),
+	.CLK_IN1(clk_16a),
 	.CLK_OUT1(clk_16b_internal),
 	.RESET(rst)
 );
@@ -56,7 +55,7 @@ ODDR2 #(
       .S   (1'b0)    // 1-bit set input
    );
 clk_C clk_target_C(
-	.CLK_IN1(clk_16a_internal),
+	.CLK_IN1(clk_16a),
 	.CLK_OUT1(clk_16c_internal),
 	.RESET(rst)
 );
