@@ -13,6 +13,7 @@ Also this [SO answer](http://electronics.stackexchange.com/questions/8565/oscill
  - [Why is 30MHz Clock signal distorted on oscilloscope?](https://electronics.stackexchange.com/questions/334082/why-is-30mhz-clock-signal-distorted-on-oscilloscope)
  - [What can reduce overshoot and ringing on a simple square wave pulse generator?](https://electronics.stackexchange.com/questions/79717/what-can-reduce-overshoot-and-ringing-on-a-simple-square-wave-pulse-generator/)
  - [Understanding Oscilloscope Bandwidth, Rise Time and Signal Fidelity](https://www.ece.ubc.ca/~robertor/Links_files/Files/TEK-Understanding-Scope-BW-tr-Fidelity.pdf)
+ - [ABCs of Probes](http://web.mit.edu/6.101/www/reference/ABCprobes_s.pdf)
 
 ## Logic analyzer
 
