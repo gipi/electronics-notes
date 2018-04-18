@@ -101,3 +101,4 @@ Here an example of usage
  - [AO #11 MOSFETs and How to Use Them](https://www.youtube.com/watch?v=GrvvkYTW_0k)
  - [Transistor biasing](http://www.electronics-tutorials.ws/amplifier/transistor-biasing.html)
  - https://rheingoldheavy.com/building-things-npn-transistors/
+ - #281: Bipolar Transistor Switching Time Measurement [video](https://www.youtube.com/watch?v=XgSKLsWAWGs)
