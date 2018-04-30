@@ -8,6 +8,7 @@
 ## Transmission lines
 
  - [Proper Termination for High-Speed Digital I/O Applications](http://www.ni.com/white-paper/3854/en/)
+ - Transmission lines and reflections, tested [video](https://www.youtube.com/watch?v=y8GMH7vMAsQ)
 
 ## Modulation
 
