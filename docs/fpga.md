@@ -58,3 +58,5 @@
  - [Keep it synchronous stupid](https://www.doulos.com/knowhow/fpga/synchronisation/)
  - [Blog](http://svenand.blogdrives.com) with posts about FPGA design from scratch
  - [My first experience with Formal Methods](http://zipcpu.com/blog/2017/10/19/formal-intro.html)
+ - [The Hobbyists Guide to FPGAs](https://hackaday.io/project/27550-the-hobbyists-guide-to-fpgas)
+ - [https://github.com/m-labs/migen](migen): [Hello World for FPGA (in Migen)](https://reconfig.io/2018/05/hello_world_migen)
