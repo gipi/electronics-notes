@@ -21,6 +21,7 @@
 
  - [A Verilog HDL Test Bench Primer](https://people.ece.cornell.edu/land/courses/ece5760/Verilog/LatticeTestbenchPrimer.pdf)
  - [VUnit](https://vunit.github.io) unit testing framework for VHDL/SystemVerilog
+ - [Using Verilog for Testbenches](http://www.syssec.ethz.ch/content/dam/ethz/special-interest/infk/inst-infsec/system-security-group-dam/education/Digitaltechnik_14/14_Verilog_Testbenches.pdf)
 
 ## CPU
 
