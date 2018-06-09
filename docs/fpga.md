@@ -40,6 +40,7 @@
  - [Opencore](http://opencores.org/): open source hardware IP-cores
  - [FPGA arcade](http://www.fpgaarcade.com/) site that recreates gaming and computing hardware from the past using FPGAs
  - [The Logic Space](https://eewiki.net/display/LOGIC/Home) This space contains logic examples and material for both programmable (FPGA and CPLD) as well as discrete logic designs.
+ - [Parallel Programming for FPGAs](http://kastner.ucsd.edu/hlsbook/) is an open-source book aimed at teaching hardware and software developers how to efficiently program FPGAs using high-level synthesis (HLS)
  - [Video](https://www.youtube.com/watch?v=pDE2qenDXKQ) Lesson 1: Concept Guide and Step by Step Tutorial to Flash LEDs
  - [REAL-TIME FACE DETECTION AND TRACKING](https://people.ece.cornell.edu/land/courses/eceprojectsland/STUDENTPROJ/2012to2013/tnn7/index.html)
  - [FPGA NES](http://mil.ufl.edu/4924/projects/s12/final/King.pdf)
