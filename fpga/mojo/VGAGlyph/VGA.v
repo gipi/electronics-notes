@@ -1,6 +1,7 @@
 `timescale 1ns / 1ps
 module VGA(
 	input wire clk,
+	input wire rst,
 	output wire[2:0] pixel,
 	output hsync_out,
    output vsync_out
