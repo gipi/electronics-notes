@@ -2,7 +2,7 @@
  VGA
  ---
  
- The VGA 640x480@60Hz is really a canvas of 800x525 clocks
+ The VGA 640x480@60Hz is really a canvas of 800x525 pixels clocks (pc)
  
  HSYNC                       VSYNC
  -----                       -----
@@ -21,8 +21,8 @@ module hvsync_generator(
   );
 reg vga_HS, vga_VS;
 
-wire CounterXmaxed = (CounterX == 800); // 16 + 48 + 96 = 160 + 
-wire CounterYmaxed = (CounterY == 525);
+wire CounterXmaxed = (CounterX == 800); // 16 + 48 + 96 + 640
+wire CounterYmaxed = (CounterY == 525); // 10 + 2 + 33 + 480
 
   // Module get from <http://www.fpga4fun.com/PongGame.html>
 always @(posedge clk)
