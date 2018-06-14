@@ -23,6 +23,9 @@
  * 640x480 will give us 80x30 characters, so the TEXT buffer needs 2400 bytes
  * (so an address space of 12 bits).
  *
+ * NB: since there are two memories involved, there are two clock cycles
+ *     of delay before the right pixel values come out.
+ *
  */
 module framebuffer(
 	input wire clk,
@@ -37,8 +40,8 @@ wire  [4:0] row;           // 30 rows
 wire [11:0] text_address;
 wire  [7:0] text_value;    // character to display
 
-wire  [2:0] glyph_x;       // coordinates
-wire  [3:0] glyph_y;       // in the grid of the glyph
+reg  [2:0] glyph_x;       // coordinates
+reg  [3:0] glyph_y;       // in the grid of the glyph
 wire [13:0] glyph_address; 
  
 // (column, row) = (x / 8, y / 16)
@@ -57,9 +60,15 @@ text_memory tm(
 );
 
 // here we get the remainder
-assign glyph_x = x[2:0];
-assign glyph_y = y[3:0];
-                     // text_value * 128 + glyph_x + (glyph_y * 8)
+// it's delayed of the one clock cycle needed
+// to sync with the value from the text memory
+always @(posedge clk) begin
+	glyph_x <= x[2:0];
+	glyph_y <= y[3:0];
+end
+
+
+                     // text_value * (8*16) + glyph_x + (glyph_y * 8)
 assign glyph_address = (text_value << 7) + glyph_x + (glyph_y << 3);
 
 blk_mem_gen_v7_3 glyph_rom(
