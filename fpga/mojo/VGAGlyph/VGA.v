@@ -17,20 +17,10 @@ reg  [2:0] r_pixel;
 wire [2:0] framebuffer_pixel;
 wire clk_25;
 
-  // Input buffering
-  //------------------------------------
-  IBUFG clkin1_buf
-   (.O (clkin1),
-    .I (clk));
 
-clk_25MHz clk_video(
-  .CLK_IN1(clkin1),
-  .CLK_OUT1(clk_25),
-  .RESET(rst)
-);
 
 hvsync_generator hvsync(
-  .clk(clk_25),
+  .clk(clk),
   .vga_h_sync(hsync_out),
   .vga_v_sync(vsync_out),
   .CounterX(CounterX),
@@ -39,7 +29,7 @@ hvsync_generator hvsync(
 );
 
 framebuffer fb(
-	.clk(clkin1),
+	.clk(clk),
 	.x(CounterX),
 	.y(CounterY),
 	.pixel(framebuffer_pixel)
@@ -59,7 +49,7 @@ initial begin
 	draw = 0;
 end
 
-always @(posedge clkin1)
+always @(posedge clk)
 begin
 	draw <= ~draw;
 	if (draw)

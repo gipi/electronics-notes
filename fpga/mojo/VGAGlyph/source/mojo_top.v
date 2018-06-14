@@ -35,9 +35,21 @@ assign avr_rx = 1'bz;
 assign spi_channel = 4'bzzzz;
 
 assign led = 8'b10101010;
+// Input buffering
+//------------------------------------
+IBUFG clkin1_buf
+ (.O (clkin1),
+  .I (clk));
+
+clk_25MHz clk_video(
+  .CLK_IN1(clkin1),
+  .CLK_OUT1(clk_25),
+  .RESET(rst)
+);
 
 VGA vga(
-	.clk(clk),
+	.clk(clk_25),
+	.rst(rst),
 	.pixel(pixel),
 	.hsync_out(hsync_out),
 	.vsync_out(vsync_out)
