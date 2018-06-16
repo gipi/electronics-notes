@@ -32,7 +32,9 @@ reg inDisplayAreaDelayed1;
 reg inDisplayAreaDelayed2;
 
 // Here we delay the hsync and vsync to align with the
-// value of the pixels
+// value of the pixels. There are three clock cycles since
+// we have two clock cycles from the framebuffer module
+// and one from the last flip flop exiting block.
 always@(posedge clk) begin
 	hsync_delayed1 <= hsync_out_original;
 	hsync_delayed2 <= hsync_delayed1;
