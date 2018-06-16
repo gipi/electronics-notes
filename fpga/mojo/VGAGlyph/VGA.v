@@ -28,6 +28,9 @@ reg vsync_delayed1;
 reg vsync_delayed2;
 reg vsync_delayed3;
 
+reg inDisplayAreaDelayed1;
+reg inDisplayAreaDelayed2;
+
 // Here we delay the hsync and vsync to align with the
 // value of the pixels
 always@(posedge clk) begin
@@ -38,6 +41,9 @@ always@(posedge clk) begin
 	vsync_delayed1 <= vsync_out_original;
 	vsync_delayed2 <= vsync_delayed1;
 	vsync_delayed3 <= vsync_delayed2;
+
+	inDisplayAreaDelayed1 <= inDisplayArea;
+	inDisplayAreaDelayed2 <= inDisplayAreaDelayed1;
 end
 
 wire hsync_out_original;
@@ -62,10 +68,13 @@ framebuffer fb(
 	.pixel(framebuffer_pixel)
 );
 
-
+/*
+ * Use the delayed inDisplayArea to be in sync with the correct
+ * pixel values.
+ */
 always @(posedge clk)
 begin
-	  if (inDisplayArea)
+	  if (inDisplayAreaDelayed2)
 		 r_pixel <= framebuffer_pixel;
 	  else // if it's not to display, go dark
 		 r_pixel <= 3'b000;
