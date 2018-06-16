@@ -50,7 +50,7 @@ wire [13:0] glyph_address;
  
 // (column, row) = (x / 8, y / 16)
 assign column = x[9:3];
-assign row = y[8:4]; // FIXME
+assign row = y[8:4];
 assign text_address = column + (row * 80);
 
 text_memory tm(
