@@ -51,8 +51,9 @@ end
 wire hsync_out_original;
 wire vsync_out_original;
 
-assign hsync_out = hsync_delayed2;
-assign vsync_out = vsync_delayed2;
+assign hsync_out = hsync_delayed3;
+assign vsync_out = vsync_delayed3;
+
 
 hvsync_generator hvsync(
   .clk(clk),
