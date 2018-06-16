@@ -16,7 +16,7 @@ module hvsync_generator(
     input wire clk,
     output wire vga_h_sync,
     output wire vga_v_sync,
-    output reg inDisplayArea,
+    output wire inDisplayArea,
     output reg [9:0] CounterX,
     output reg [8:0] CounterY
   );
@@ -55,10 +55,8 @@ begin
   vga_VS <= (CounterY > (480 + 10) && (CounterY < (480 + 10 + 2)));   // active for 2 clocks
 end
 
-always @(posedge clk)
-begin
-	inDisplayArea <= (CounterX < 640) && (CounterY < 480);
-end
+assign inDisplayArea = (CounterX < 640) && (CounterY < 480);
+
 
 assign vga_h_sync = ~vga_HS;
 assign vga_v_sync = ~vga_VS;
