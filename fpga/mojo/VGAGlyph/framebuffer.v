@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`default_nettype none
 /*
  * This modules returns the value of the pixel to be displayied
  * at coordinate (x, y) allowing to select when get as source
@@ -39,6 +40,9 @@ wire  [6:0] column;        // 80 columns
 wire  [4:0] row;           // 30 rows
 wire [11:0] text_address;
 wire  [7:0] text_value;    // character to display
+
+wire wea;
+wire dina;
 
 reg  [2:0] glyph_x;       // coordinates
 reg  [3:0] glyph_y;       // in the grid of the glyph

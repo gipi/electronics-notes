@@ -1,15 +1,18 @@
 `timescale 1ns / 1ps
+`default_nettype none
+
 module VGA(
 	input wire clk,
 	input wire rst,
 	output wire[2:0] pixel,
-	output hsync_out,
-   output vsync_out
+	output wire hsync_out,
+   output wire vsync_out
 );
 
 wire inDisplayArea;
 wire [9:0] CounterX;
 wire [8:0] CounterY;
+
 wire [6:0] column;
 wire [5:0] row;
 wire [2:0] idx;
@@ -36,6 +39,9 @@ always@(posedge clk) begin
 	vsync_delayed2 <= vsync_delayed1;
 	vsync_delayed3 <= vsync_delayed2;
 end
+
+wire hsync_out_original;
+wire vsync_out_original;
 
 assign hsync_out = hsync_delayed2;
 assign vsync_out = vsync_delayed2;

@@ -1,31 +1,32 @@
 module mojo_top(
     // 50MHz clock input
-    input clk,
+    input wire clk,
     // Input from reset button (active low)
-    input rst_n,
+    input wire rst_n,
     // cclk input from AVR, high when AVR is ready
-    input cclk,
+    input wire cclk,
     // Outputs to the 8 onboard LEDs
-    output[7:0]led,
+    output wire [7:0]led,
     // AVR SPI connections
-    output spi_miso,
-    input spi_ss,
-    input spi_mosi,
-    input spi_sck,
+    output wire spi_miso,
+    input wire spi_ss,
+    input wire spi_mosi,
+    input wire spi_sck,
     // AVR ADC channel select
-    output [3:0] spi_channel,
+    output wire [3:0] spi_channel,
     // Serial connections
-    input avr_tx, // AVR Tx => FPGA Rx
-    output avr_rx, // AVR Rx => FPGA Tx
-    input avr_rx_busy, // AVR Rx buffer full
+    input  wire avr_tx, // AVR Tx => FPGA Rx
+    output wire avr_rx, // AVR Rx => FPGA Tx
+    input  wire avr_rx_busy, // AVR Rx buffer full
 
     // VGA connections
     output wire[2:0] pixel,
-    output hsync_out,
-    output vsync_out
+    output wire hsync_out,
+    output wire vsync_out
     );
 
-
+wire clk_25;
+wire clkin1;
 wire rst = ~rst_n; // make reset active high
 
 

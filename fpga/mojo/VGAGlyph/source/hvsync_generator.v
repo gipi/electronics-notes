@@ -1,3 +1,4 @@
+`default_nettype none
 /*
  VGA
  ---
@@ -12,9 +13,9 @@
  back porch:  48pc           33pc
 */
 module hvsync_generator(
-    input clk,
-    output vga_h_sync,
-    output vga_v_sync,
+    input wire clk,
+    output wire vga_h_sync,
+    output wire vga_v_sync,
     output reg inDisplayArea,
     output reg [9:0] CounterX,
     output reg [8:0] CounterY
