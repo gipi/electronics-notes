@@ -59,6 +59,7 @@ The pin ``CD`` stand for **card detection**: when is low the card is inserted in
 
  - https://learn.sparkfun.com/tutorials/serial-peripheral-interface-spi
  - [Reference](https://www.sdcard.org/downloads/pls/part1_410.pdf) for SD card protocol
+ - [SD Card Protocol](http://wiki.seabright.co.nz/wiki/SdCardProtocol.html)
 
 ## PS/2
 
