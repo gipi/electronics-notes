@@ -142,3 +142,9 @@ The architecture of this protocol is *tiered star topology*, there can be no com
 
  - [Homemade GPS Receiver](http://www.aholme.co.uk/GPS/Main.htm)
  
+## Dialup
+
+Below the image of the handshake, for more explanation, refer to this [post](https://www.windytan.com/2012/11/the-sound-of-dialup-pictured.html)
+
+![](https://oona.windytan.com/posters/dialup-final.png)
+
