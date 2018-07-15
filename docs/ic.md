@@ -17,6 +17,7 @@ signal from ``LOW`` level device).
 
  - [Sparkfun's page](https://learn.sparkfun.com/tutorials/logic-levels/ttl-logic-levels)
  - [Cookbook](/cookbook/#logic-level-converter)
+ - [Designing With Logic](http://www.ti.com/lit/an/sdya009c/sdya009c.pdf)
 
 ## Buffer
 
