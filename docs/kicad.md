@@ -68,7 +68,7 @@ README there are the installation instruction.
  - [Tutorial for kicad](http://store.curiousinventor.com/guides/kicad)
  - [Importing Libraries into KiCad](http://www.accelerated-designs.com/help/KiCad_Library.html)
  - [Several useful libraries of components](http://smisioto.no-ip.org/elettronica/kicad/kicad-en.htm)
- - [Preparing PCB for SeeedStudio](http://www.sl-alex.com.ua/en/page/kicad-preparing-pcb-for-seeedstudio)
+ - [Preparing PCB for SeeedStudio](http://support.seeedstudio.com/knowledgebase/articles/1824574-how-to-generate-gerber-and-drill-files-from-kicad)
  - [OSH Park design rules for Kicad](http://docs.oshpark.com/design-tools/kicad/kicad-design-rules/)
  - [TECHNIQUES, TIPS AND WORK-AROUNDS](https://flyingcarsandstuff.com/2016/10/kicad-techniques-tips-and-work-arounds/)
  - [Via Stitching In KiCad (without traces)](https://www.youtube.com/watch?v=Hp5ngKtl7S4)
