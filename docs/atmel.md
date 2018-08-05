@@ -37,6 +37,7 @@ is indicated the default clock as internal but if you read the default fuse is s
 as external](http://www.avrfreaks.net/forum/atmega16u2-minimal-connections-test-isp)
 
  - [ATMega8/16/32U2](http://www.atmel.com/images/doc7799.pdf)
+ - [ATMega2560](http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-2549-8-bit-AVR-Microcontroller-ATmega640-1280-1281-2560-2561_datasheet.pdf)
 
 ## Memory
 
