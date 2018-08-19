@@ -37,7 +37,7 @@ F 3 "http://www.ti.com/lit/ds/symlink/lm3480.pdf" H 8400 4750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8700 4750 9050 4750
+	8700 4750 8800 4750
 Text GLabel 9050 4750 2    50   Input ~ 0
 3V3
 $Comp
@@ -886,13 +886,6 @@ Wire Wire Line
 	7650 5550 7650 5650
 Wire Wire Line
 	7650 5950 7650 6050
-Wire Wire Line
-	8700 4650 8750 4650
-Wire Wire Line
-	8750 4650 8750 5050
-Wire Wire Line
-	8750 5050 8400 5050
-Connection ~ 8400 5050
 $Comp
 L Device:R R22
 U 1 1 5B559BA0
@@ -906,8 +899,15 @@ F 3 "~" H 10350 4050 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	10350 3900 10350 3750
+Wire Wire Line
+	8700 4650 8800 4650
+Wire Wire Line
+	8800 4650 8800 4750
 Wire Bus Line
 	6350 4550 6350 5550
 Wire Bus Line
 	1250 4700 1250 5700
+Connection ~ 8800 4750
+Wire Wire Line
+	8800 4750 9050 4750
 $EndSCHEMATC

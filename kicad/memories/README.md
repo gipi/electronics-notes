@@ -35,3 +35,8 @@ It's a VGA with 3 bits for color channel using a resistor ladder.
  - LCD controller
 
 probably are needed only as explicit routed pinout.
+
+## Design errors
+
+ - The pad of the ``AMS1117`` is the ``vout`` not ground (Fixed)
+ - enlarge the pad so to make it more hand-solderable
