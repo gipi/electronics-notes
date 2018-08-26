@@ -18,6 +18,10 @@ With technology improvement the voltage ranges used to represent logic level has
 
  - [Sequential Logic Circuits](http://www.electronics-tutorials.ws/sequential/seq_1.html)
 
+## TTL
+
+ - [1988 TTL Logic Standard Data Book](https://ia801901.us.archive.org/4/items/bitsavers_tidataBookrdTTLSLSDataBook_39061488/1988_TTL_Logic_Standard_TTL_S_LS_Data_Book.pdf)
+
 ## Tri-state logic
 
  - Tri-state logic: Connecting multiple outputs together - 8 bit register - Part 2 [video](https://youtu.be/faAjse109Q8)
