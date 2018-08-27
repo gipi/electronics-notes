@@ -22,6 +22,13 @@ The schematics element is the following
 with the arrow indicating the flow of current; usually there is a drop
 of 0.6V between anode and catode.
 
+A diode in a circuit can be used as
+
+ - signal rectifier
+ - gates
+ - clamps and limiter
+ - non-linear element
+
 ## Zener
 
 A Zener diode behaves differently from a normal diode: has a reverse-breakdown current
