@@ -3,32 +3,32 @@ markdown_extensions:
  - math
 extra_javascript: ['https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML','mathjaxhelper.js']
 pages:
-- [index.md, Home]
-- [atmel.md, Atmel]
-- [buspirate.md, Bus Pirate]
-- [cookbook.md, Cookbook]
-- [diode.md, Diodes]
-- [filters.md, Filters]
-- [fivefivefive.md, The 555 chip]
-- [ic.md, Integrated circuit]
-- [logic.md, Logic circuits]
-- [impedance.md, Impedance]
-- [laws.md, Laws]
-- [led.md, Leds]
-- [motors.md, Motors]
-- [opamp.md, OpAmp]
-- [oscillator.md, Oscillators]
-- [protocols.md, Protocols]
-- [Prototyping.md, Prototyping]
-- [eagle.md, Eagle]
-- [kicad.md, KiCad]
-- [sampling.md, Sampling]
-- [Sensors.md, Sensors]
-- [signal.md, Signal]
-- [soldering.md, Soldering]
-- [simulation.md, Simulation]
-- [tools.md, Tools]
-- [transistor.md, Transistors]
-- [voltagereg.md, Power management]
-- [fpga.md, FPGA]
+- Home: index.md
+- Atmel: atmel.md
+- Bus Pirate: buspirate.md
+- Cookbook: cookbook.md
+- Diodes: diode.md
+- Filters: filters.md
+- The 555 chip: fivefivefive.md
+- Integrated circuit: ic.md
+- Logic circuits: logic.md
+- Impedance: impedance.md
+- Laws: laws.md
+- Leds: led.md
+- Motors: motors.md
+- OpAmp: opamp.md
+- Oscillators: oscillator.md
+- Protocols: protocols.md
+- Prototyping: Prototyping.md
+- Eagle: eagle.md
+- KiCad: kicad.md
+- Sampling: sampling.md
+- Sensors: Sensors.md
+- Signal: signal.md
+- Soldering: soldering.md
+- Simulation: simulation.md
+- Tools: tools.md
+- Transistors: transistor.md
+- Power management: voltagereg.md
+- FPGA: fpga.md
 theme: readthedocs
