@@ -1,14 +1,26 @@
 # Diodes
 
-This is semiconductor device that allows (usually) the flowing of current
-only in one direction (this is called a **rectifier**).
+This is **passive** semiconductor device that allows (usually) the flowing of current
+only in one direction (this is called a **rectifier**). It doesn't obey Ohm law
+(i.e. it's **not linear**) and if you put it in a circuit, it won't have a Thevenin equivalent.
 
 The main parameters for a diode are
 
  - the forward voltage drop
  - the leaking current
 
+but you can consider also
+
+ - maximum forward current
+ - capacitance
+ - reverse recovery time
+
+The schematics element is the following
+
 ![diode](Images/diode.png)
+
+with the arrow indicating the flow of current; usually there is a drop
+of 0.6V between anode and catode.
 
 ## Zener
 
