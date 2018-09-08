@@ -1,14 +1,14 @@
 # Memories
 
 Here I'm trying to create a header for the Mojo development board that allows
-to have the basic minimal peripheral for a running system:
+to have the basic minimal peripherals for a running system:
 
  - Flash
  - SDRAM
  - VGA
  - PS2
 
-In this directory there are the KiCAD files (for now untested).
+In this directory there are the KiCAD files and this is the hand soldered version 1.0
 
 ![](boardv1.0.jpg)
 
@@ -43,8 +43,8 @@ probably are needed only as explicit routed pinout.
 
  - The pad of the ``AMS1117`` is the ``vout`` not ground (Fixed)
  - enlarge the pad so to make it more hand-solderable
- - remove mask from the Open Hardware logo
+ - add mask from the Open Hardware logo (fixed)
  - reverse voltage protection
  - overvoltage protection
  - enlarge holes for VGA and PS/2
- - fixare R-2R ladder
+ - fix R-2R ladder
