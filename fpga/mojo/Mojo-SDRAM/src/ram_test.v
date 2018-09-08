@@ -19,14 +19,15 @@ module ram_test (
 
     reg [STATE_SIZE-1:0] state_d, state_q = WRITE;
 
-    reg [4:0] led_d, led_q;
+    reg tick_d, tick_q;
+    reg [3:0] led_d, led_q;
 
     reg [22:0] addr_d, addr_q;
 
     reg [6:0] error_d, error_q;
     reg [31:0] seed_d, seed_q;
 
-    assign leds = {led_q[4], error_q};
+    assign leds = {tick_q, error_q};
 
     reg pn_rst, pn_next;
     wire [31:0] pn;
@@ -41,6 +42,7 @@ module ram_test (
 
     always @* begin
         addr_d = addr_q;
+        tick_d = tick_q;
         led_d = led_q;
         state_d = state_q;
         error_d = error_q;
@@ -56,7 +58,7 @@ module ram_test (
 
         case (state_q)
             WRITE: begin
-                led_d[4] = 1'b0;
+                tick_d = 1'b0;
                 if (!busy) begin
                     pn_next = 1'b1;
                     addr_d = addr_q + 1'b1;
@@ -72,7 +74,7 @@ module ram_test (
                 end
             end
             READ: begin
-                led_d[4] = 1'b1;
+                tick_d = 1'b1;
                 if (!busy) begin
                     addr_d = addr_q + 1'b1;
                     addr = addr_q;
@@ -97,7 +99,7 @@ module ram_test (
                 end
             end
             IDLE: begin
-                led_d[4] = 1'b0;
+                tick_d = 1'b0;
             end
             default: state_d = WRITE;
         endcase
@@ -110,12 +112,14 @@ module ram_test (
             error_q <= 1'b0;
             seed_q <= 32'd0;
             led_q <= 5'b0;
+            tick_q <= 1'b0;
         end else begin
             state_q <= state_d;
             addr_q <= addr_d;
             error_q <= error_d;
             seed_q <= seed_d;
             led_q <= led_d;
+            tick_q <= tick_d;
         end
     end
 endmodule
