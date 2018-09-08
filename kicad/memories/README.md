@@ -10,6 +10,8 @@ to have the basic minimal peripheral for a running system:
 
 In this directory there are the KiCAD files (for now untested).
 
+![](boardv1.0.jpg)
+
 ## Flash
 
 The flash memory under experimentation is the NAND512W3A2C, with 512 Mbit and x8 of bus width.
@@ -33,6 +35,7 @@ It's a VGA with 3 bits for color channel using a resistor ladder.
  - SPI
  - I2C
  - LCD controller
+ - SDCard
 
 probably are needed only as explicit routed pinout.
 
@@ -40,3 +43,8 @@ probably are needed only as explicit routed pinout.
 
  - The pad of the ``AMS1117`` is the ``vout`` not ground (Fixed)
  - enlarge the pad so to make it more hand-solderable
+ - remove mask from the Open Hardware logo
+ - reverse voltage protection
+ - overvoltage protection
+ - enlarge holes for VGA and PS/2
+ - fixare R-2R ladder
