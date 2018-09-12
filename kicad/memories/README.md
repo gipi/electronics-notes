@@ -43,8 +43,8 @@ probably are needed only as explicit routed pinout.
 
  - The pad of the ``AMS1117`` is the ``vout`` not ground (Fixed)
  - enlarge the pad so to make it more hand-solderable
- - add mask from the Open Hardware logo (fixed)
+ - add mask to the Open Hardware logo (fixed)
  - reverse voltage protection
  - overvoltage protection
- - enlarge holes for VGA and PS/2
+ - enlarge holes for VGA and PS/2 (fixed)
  - fix R-2R ladder
