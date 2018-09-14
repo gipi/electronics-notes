@@ -18,6 +18,10 @@ a stable voltage.
  - http://datasheet.octopart.com/L7805CV-STMicroelectronics-datasheet-7264666.pdf
  - Buck converter vs. linear voltage regulator - practical comparison [youtube](https://www.youtube.com/watch?v=giGRrODKJSE)
 
+### Switching
+
+ - http://web.eecs.utk.edu/~dcostine/ECE481/fall2013/lectures/L2_out.pdf
+
 ### Boost
 
 Steps up the voltage
