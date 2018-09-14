@@ -21,6 +21,7 @@ a stable voltage.
 ### Switching
 
  - http://web.eecs.utk.edu/~dcostine/ECE481/fall2013/lectures/L2_out.pdf
+ - [DC-DC Power Converters](http://www.eng.auburn.edu/~agrawvd/COURSE/READING/LOWP/Erikson_DC_2_DC.pdf)
 
 ### Boost
 
