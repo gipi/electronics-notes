@@ -15,6 +15,7 @@
  - [Learning FPGA And Verilog A Beginner’s Guide Part 1](https://docs.numato.com/kb/learning-fpga-verilog-beginners-guide-part-1-introduction/)
  - [Verilator](https://www.veripool.org/wiki/verilator) is the fastest free Verilog HDL simulator
  - [Verilog tutorials and examples](https://www.nandland.com/verilog/tutorials/index.html)
+ - [Fixed point numbers](https://timetoexplore.net/blog/fixed-point-numbers-in-verilog)
 
 
 ## Tests&Testbenches
