@@ -903,11 +903,11 @@ Wire Wire Line
 	8700 4650 8800 4650
 Wire Wire Line
 	8800 4650 8800 4750
+Connection ~ 8800 4750
+Wire Wire Line
+	8800 4750 9050 4750
 Wire Bus Line
 	6350 4550 6350 5550
 Wire Bus Line
 	1250 4700 1250 5700
-Connection ~ 8800 4750
-Wire Wire Line
-	8800 4750 9050 4750
 $EndSCHEMATC
