@@ -20,7 +20,9 @@ module mojo_top(
     input avr_rx_busy, // AVR Rx buffer full
 
     // VGA connections
-    output reg [2:0] pixel,
+    output reg [2:0] pixelR,
+    output reg [2:0] pixelG,
+    output reg [2:0] pixelB,
     output hsync_out,
     output vsync_out
     );
@@ -29,7 +31,8 @@ wire clk_25;
 wire rst = ~rst_n; // make reset active high
 wire inDisplayArea;
 wire [9:0] CounterX;
-
+wire [8:0] CounterY;
+wire [3:0] selector;
 
 clk_25MHz clk_video(
   .CLK_IN1(clk),
@@ -52,22 +55,36 @@ assign spi_miso = 1'bz;
 assign avr_rx = 1'bz;
 assign spi_channel = 4'bzzzz;
 
-assign led = 8'b0;
+assign led = 8'b10101010;
 
+// use this bits from CounterX to divide the
+// horizontal screen in strips 64 bytes wide
+assign selector = CounterX[9:6];
 
-/*
- * We want a rainbow pattern with the 8 colors available to us:
- * to avoid to write explicit conditions for each colour, we use
- * the most significant bits of CounterX, using from the 6th bit
- * upwards we divide by 64 obtaining 10 strips.
- *
- */
 always @(posedge clk_25)
 begin
-  if (inDisplayArea)
-    pixel <= CounterX[9:6];
-  else // if it's not to display, go dark
-    pixel <= 3'b000;
+  if (inDisplayArea) begin
+      /*
+       * I don't know if there is a smarter way to assign
+       * only one color for strip.
+       *
+       * Maybe using the selector signal as index?
+       */
+      pixelR[2] <= selector == 4'b0000;
+      pixelR[1] <= selector == 4'b0001;
+      pixelR[0] <= selector == 4'b0010;
+      pixelG[2] <= selector == 4'b0011;
+      pixelG[1] <= selector == 4'b0100;
+      pixelG[0] <= selector == 4'b0101;
+      pixelB[2] <= selector == 4'b0110;
+      pixelB[1] <= selector == 4'b0111;
+      pixelB[0] <= selector == 4'b1000;
+  end
+  else begin// if it's not to display, go dark
+      pixelR <= 3'b000;
+      pixelG <= 3'b000;
+      pixelB <= 3'b000;
+  end
 end
 
 endmodule
