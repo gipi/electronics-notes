@@ -148,3 +148,6 @@ Below the image of the handshake, for more explanation, refer to this [post](htt
 
 ![](https://oona.windytan.com/posters/dialup-final.png)
 
+## TLS
+
+ - [The Illustrated TLS Connection](https://tls.ulfheim.net/)
