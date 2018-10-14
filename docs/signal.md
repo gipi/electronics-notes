@@ -5,6 +5,8 @@
  - [Getting started with HackRF and GNU Radio](https://github.com/mossmann/hackrf/wiki/Getting-Started-with-HackRF-and-GNU-Radio)
  - [Sniffing nRF24 with GNU Radio and HackRF](https://wiki.bitcraze.io/misc:hacks:hackrf)
  - [RFSec-ToolKit V 2.0](https://github.com/cn0xroot/RFSec-ToolKit) repo with a lot of info
+ - [Signal identification guide](https://www.sigidwiki.com/wiki/Signal_Identification_Guide)
+
 ## Transmission lines
 
  - [Proper Termination for High-Speed Digital I/O Applications](http://www.ni.com/white-paper/3854/en/)
