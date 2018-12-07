@@ -24,6 +24,13 @@ unsigned int pins[] {
 };
 
 
+struct _signals {
+  unsigned int lines[2];
+  bool was_activated;
+  bool activated;
+} signals;
+
+
 /*
  * Here we setup only the serial.
  */
@@ -51,16 +58,13 @@ void set_outputs(unsigned int pinInputIndex) {
 
 void look_for_signal(unsigned int inputPinIndex) {
   unsigned int cycle;
-  for (cycle = 0 ; cycle < N_PINS(pins) ; cycle++) {
-    if (cycle == inputPinIndex) {
-      continue;
-    }
+  for (cycle = inputPinIndex + 1 ; cycle < N_PINS(pins) ; cycle++) {
+
     unsigned value = digitalRead(pins[cycle]);
     if (value == LOW) {// since we are using pull ups from the input side we need to look for LOW level
-      Serial.print(" [!] found signal at ");
-      Serial.print(pins[inputPinIndex]);
-      Serial.print(" - ");
-      Serial.println(pins[cycle]);
+      signals.lines[0]= inputPinIndex;
+      signals.lines[1] = cycle;
+      signals.activated = true;
     }
   }
 }
@@ -73,14 +77,32 @@ void try_combination(unsigned int inputPinIndex) {
   look_for_signal(inputPinIndex);  
 }
 
+/*
+ * We simply communicate the key pressed using a raw packet
+ * having the format
+ * 
+ *    [KEY][unsigned int][unsigned int]
+ */
+void communicate_signal() {
+  if (!signals.activated || signals.was_activated)
+    return;
+  Serial.print("KEY");
+  Serial.write(signals.lines[0]);
+  Serial.write(signals.lines[1]);
+}
 
 /*
  * Here we are looping over all the combination of input/output pairs to
  * find possibly connections.
  */
 void loop() {
+  signals.activated = false;
   unsigned int inputPinIndex;
   for (inputPinIndex = 0 ; inputPinIndex < N_PINS(pins) ; inputPinIndex++) {
     try_combination(inputPinIndex);
   }
+
+  communicate_signal();
+
+  signals.was_activated = signals.activated;
 }

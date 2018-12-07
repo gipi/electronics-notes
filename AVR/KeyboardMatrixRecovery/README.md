@@ -11,7 +11,7 @@ that you have enough pins available (in my original setup I needed like
 ## TODO
 
  - [x] POC of key matrix recovery
- - [ ] binary protocol
+ - [x] binary protocol
  - [ ] PC side application that speaks with this sketch and generate a configuration file of the matrix
    - [ ] parse binary input
    - [ ] build matrix asking the user to press one key a time
