@@ -84,7 +84,8 @@ void try_combination(unsigned int inputPinIndex) {
  *    [KEY][unsigned int][unsigned int]
  */
 void communicate_signal() {
-  if (!signals.activated || signals.was_activated)
+  // output a key only if the signal is activated now but not the previous time
+  if (!(signals.activated && !signals.was_activated))
     return;
   Serial.print("KEY");
   Serial.write(signals.lines[0]);
