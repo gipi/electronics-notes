@@ -700,7 +700,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="28.067" y="19.177" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="T1" library="GeekAmmo" package="SOT23-3" value="N-MOSFET" x="26.924" y="16.002" smashed="yes" rot="R270">
-<attribute name="DATASHEET" value="http://www.fairchildsemi.com/ds/BS/BSS138.pdf" x="26.924" y="16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DATASHEET" value="http://www.onsemi.com/pub/Collateral/NTR4501N-D.PDF" x="26.924" y="16.002" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="URL" value="http://au.element14.com/fairchild-semiconductor/bss138/mosfet-n-ch-50v-220ma-sot-23/dp/2323154" x="26.924" y="16.002" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="ELEMENT14" value="2323154" x="26.924" y="16.002" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="OTHER" value="" x="26.924" y="16.002" size="1.778" layer="27" rot="R270" display="off"/>

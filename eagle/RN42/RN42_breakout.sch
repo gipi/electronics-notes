@@ -7908,7 +7908,9 @@ Standard A4 size frame in Landscape</description>
 <part name="T2" library="GeekAmmo" deviceset="N-CHANNEL-MOSFET" device="-BSS138" value="N-MOSFET"/>
 <part name="R2" library="rcl" deviceset="R-EU_" device="R0603" value="4.7k"/>
 <part name="R3" library="rcl" deviceset="R-EU_" device="R0603" value="4.7k"/>
-<part name="T1" library="GeekAmmo" deviceset="N-CHANNEL-MOSFET" device="-BSS138" value="N-MOSFET"/>
+<part name="T1" library="GeekAmmo" deviceset="N-CHANNEL-MOSFET" device="-BSS138" value="N-MOSFET">
+<attribute name="DATASHEET" value="http://www.onsemi.com/pub/Collateral/NTR4501N-D.PDF"/>
+</part>
 <part name="R4" library="rcl" deviceset="R-EU_" device="R0603" value="4.7k"/>
 <part name="R5" library="rcl" deviceset="R-EU_" device="R0603" value="4.7k"/>
 <part name="FRAME1" library="SparkFun-Aesthetics" deviceset="FRAME-A4L" device="">
@@ -7977,6 +7979,7 @@ Standard A4 size frame in Landscape</description>
 <instance part="T1" gate="G$1" x="165.1" y="45.72" smashed="yes" rot="R270">
 <attribute name="VALUE" x="160.02" y="35.56" size="1.778" layer="96"/>
 <attribute name="NAME" x="170.18" y="40.64" size="1.778" layer="95"/>
+<attribute name="URL" x="165.1" y="45.72" size="1.778" layer="96" rot="R270" display="off"/>
 </instance>
 <instance part="R4" gate="G$1" x="137.16" y="55.88" rot="R90"/>
 <instance part="R5" gate="G$1" x="198.12" y="55.88" rot="R90"/>
