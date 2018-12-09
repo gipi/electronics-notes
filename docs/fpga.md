@@ -17,6 +17,7 @@
  - [Verilog tutorials and examples](https://www.nandland.com/verilog/tutorials/index.html)
  - [Fixed point numbers](https://timetoexplore.net/blog/fixed-point-numbers-in-verilog)
  - [HDLBits — Verilog Practice](https://hdlbits.01xz.net)
+ - [Tutorial by Zipcpu](http://zipcpu.com/tutorial/)
 
 
 ## Tests&Testbenches
