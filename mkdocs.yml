@@ -1,6 +1,6 @@
 site_name: electronics notes
 markdown_extensions: 
- - math
+ - mdx_math
 extra_javascript: ['https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML','mathjaxhelper.js']
 pages:
 - Home: index.md
