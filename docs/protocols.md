@@ -153,6 +153,10 @@ Below the image of the handshake, for more explanation, refer to this [post](htt
  - [Driving E-ink display](http://essentialscrap.com/eink/index.html)
  - [Wifi E-ink display](http://spritesmods.com/?art=einkdisplay)
 
+## Floppy driver
+
+ - [Preserving a floppy disk with a logic analyzer and a serial cable](https://www.chzsoft.de/site/hardware/preserving-a-floppy-disk-with-a-logic-analyzer/)
+
 ## TLS
 
  - [The Illustrated TLS Connection](https://tls.ulfheim.net/)
