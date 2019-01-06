@@ -148,6 +148,11 @@ Below the image of the handshake, for more explanation, refer to this [post](htt
 
 ![](https://oona.windytan.com/posters/dialup-final.png)
 
+## Eink display
+
+ - [Driving E-ink display](http://essentialscrap.com/eink/index.html)
+ - [Wifi E-ink display](http://spritesmods.com/?art=einkdisplay)
+
 ## TLS
 
  - [The Illustrated TLS Connection](https://tls.ulfheim.net/)
