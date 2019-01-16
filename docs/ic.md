@@ -50,6 +50,7 @@ will sink current and pull the line voltage toward ground.
  - [Open Collector Outputs](http://www.evilmadscientist.com/2012/basics-open-collector-outputs/)
  - [Page of wikipedia](https://en.wikipedia.org/wiki/Open_collector)
  - [Introduction to Wired-OR Outputs and Open-Collector Circuits](http://www.ni.com/white-paper/3544/en/)
+ - [Choosing an Appropriate Pull-up/Pull-down Resistor for Open Drain Outputs](http://www.ti.com/lit/an/slva485/slva485.pdf)
 
 ## Circuit Packages
 
