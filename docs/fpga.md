@@ -34,6 +34,8 @@
     - [Your First CPU - Chapter 3 - Your First Assembler](http://colinmackenzie.net/index.php?view=article&catid=12%3Ayfcpu&id=18%3Ayfcpu-ch3&tmpl=component&print=1&layout=default&page=&option=com_content&Itemid=6)
     - [Your First CPU - Chapter 4 - Pipelining](http://colinmackenzie.net/index.php?view=article&catid=12%3Ayfcpu&id=29%3Ayfcpupipelining&tmpl=component&print=1&layout=default&page=&option=com_content&Itemid=6)
   - [FPGA NES logs](https://hackaday.io/project/21496/logs) implementing NES CPU (the Ricoh 2A03)
+  - [Microprocessor design](https://en.wikibooks.org/wiki/Microprocessor_Design)
+  - [Simple CPU](https://www-users.cs.york.ac.uk/~mjf/simple_cpu/index.html)
 
 
 ## Links
