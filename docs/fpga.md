@@ -19,7 +19,6 @@
  - [HDLBits — Verilog Practice](https://hdlbits.01xz.net)
  - [Tutorial by Zipcpu](http://zipcpu.com/tutorial/)
 
-
 ## Tests&Testbenches
 
  - [A Verilog HDL Test Bench Primer](https://people.ece.cornell.edu/land/courses/ece5760/Verilog/LatticeTestbenchPrimer.pdf)
@@ -36,6 +35,10 @@
   - [FPGA NES logs](https://hackaday.io/project/21496/logs) implementing NES CPU (the Ricoh 2A03)
   - [Microprocessor design](https://en.wikibooks.org/wiki/Microprocessor_Design)
   - [Simple CPU](https://www-users.cs.york.ac.uk/~mjf/simple_cpu/index.html)
+
+# Clock domain
+
+ - Crossing Clock Domains in an FPGA [video](https://www.youtube.com/watch?v=eyNU6mn_-7g)
 
 
 ## Links
