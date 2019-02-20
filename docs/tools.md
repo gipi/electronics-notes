@@ -52,6 +52,7 @@ It's also possible to use directly the ``saleae`` software downloadable from [he
  - Sparkfun's [tutorial](https://www.sparkfun.com/tutorials/391) *How to use Hot-air a Rework Station*
  - Adafruit's [post](https://learn.adafruit.com/smt-manufacturing/hot-air-tools) with an interesting video inside
  - Basic [video](https://www.youtube.com/watch?v=1z0IiuQ35HU) about using solder paste and hot air for SMD soldering
+ - Video about reballing a BGA chip with solder paste+hot air+stencil: [BGA soldering P_05 chip reball](https://www.youtube.com/watch?v=aYUf27m3Sbo)
 
 ## CNC
 
