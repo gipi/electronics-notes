@@ -46,7 +46,7 @@ Select **Add filled zones**, draw a poligon and then right click and select **fi
  - [Sizing logo](http://www.deferredprocrastination.co.uk/blog/2016/kicad-logo-size/)
  - [PCB artwork in kicad](http://blog.komar.be/making-pcb-artwork-in-kicad/) a little outdated
 
-# Part&footprint
+## Part&footprint
 
  - [Make components in KiCAD](http://docs.kicad-pcb.org/4.0.7/en/getting_started_in_kicad.html#make-schematic-components-in-kicad)
  - [quicklib](http://kicad.rohrbacher.net/quicklib.php)
@@ -59,6 +59,10 @@ Select **Add filled zones**, draw a poligon and then right click and select **fi
 
 There isn't a predefined utilities for ``BOM`` generation: use [this](https://github.com/SchrodingersGat/KiBoM), in the
 README there are the installation instruction.
+
+## Differential pairs and length matching
+
+ - https://olimex.wordpress.com/2015/03/03/kicad-now-with-differential-pair-routing-and-trace-length-matching/
 
 ## Links
 
