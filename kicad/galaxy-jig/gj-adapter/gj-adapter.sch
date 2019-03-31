@@ -131,7 +131,7 @@ U 1 1 5CA069E4
 P 2400 3950
 F 0 "J3" H 2455 4417 50  0000 C CNN
 F 1 "USB_B_Micro" H 2455 4326 50  0000 C CNN
-F 2 "Connector_USB:USB_Micro-B_Wuerth_629105150521" H 2550 3900 50  0001 C CNN
+F 2 "Hirose:ZX62D-B-5PA8" H 2550 3900 50  0001 C CNN
 F 3 "~" H 2550 3900 50  0001 C CNN
 	1    2400 3950
 	1    0    0    -1  
@@ -351,4 +351,23 @@ Wire Wire Line
 	5050 3700 5000 3700
 Text Notes 2100 3150 2    79   ~ 16
 PC side
+Text Notes 600  6550 0    50   ~ 0
+TODO:\n 1. add test point for VCC (just in case micro connector doesn't work)\n 2. jumper for connecting directly D+, D-, ID without STSP switch
+$Comp
+L Connector:Test_Point TP1
+U 1 1 5CA14A5C
+P 3900 4700
+F 0 "TP1" H 3958 4820 50  0000 L CNN
+F 1 "Test_Point" H 3958 4729 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_1.0x1.0mm" H 4100 4700 50  0001 C CNN
+F 3 "~" H 4100 4700 50  0001 C CNN
+	1    3900 4700
+	1    0    0    -1  
+$EndComp
+Text GLabel 3600 4800 0    39   Input ~ 0
+VCC
+Wire Wire Line
+	3600 4800 3900 4800
+Wire Wire Line
+	3900 4800 3900 4700
 $EndSCHEMATC
