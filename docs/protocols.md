@@ -82,7 +82,9 @@ There are also some optional pins:
  - ``SRST``: system reset, allows to reset the system
 
 Usually on reference is indicated also the **VTRef** pin that indicates what is the voltage reference
-for the 
+for the signals.
+
+![](Images/jtag-stack.png)
 
  - [JTAG explained](http://blog.senr.io/blog/jtag-explained)
  - [How JTAG works](http://www.fpga4fun.com/JTAG2.html)
