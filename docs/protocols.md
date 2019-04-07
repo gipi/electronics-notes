@@ -93,7 +93,7 @@ for the signals.
  - http://sun.hasenbraten.de/~frank/docs/mpc824x_JTAG.html
  - Header per SOC da [farnell](http://uk.farnell.com/fci/20021121-00010c4lf/connector-header-smt-r-a-1-27mm/dp/1865279?ost=609-3695-1-ND)
  - [Slide](http://elinux.org/images/d/d6/Jtag.pdf) of a talk about finding JTAG's pinout
- - [JTAGEnum](https://github.com/cyphunk/JTAGenum/] Given an Arduino compatible microcontroller JTAGenum scans pins for basic JTAG functionality.
+ - [JTAGEnum](https://github.com/cyphunk/JTAGenum/) Given an Arduino compatible microcontroller JTAGenum scans pins for basic JTAG functionality.
  - http://www.sodnpoo.com/posts.xml/pace4000_jtag.xml
  - https://www.youtube.com/watch?v=TlWlLeC5BUs
  - http://electronics.stackexchange.com/questions/53311/why-jtag-connectors-are-available-in-10pins-14pins-20pins-when-jtag-is-of-5pins
