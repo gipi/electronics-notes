@@ -23,6 +23,8 @@ $$
 A_n = K\cdot {1\over n\pi}\left(\sin(n\pi p) - \sin\left(2n\pi (1 - p/2)\right)\right)
 $$
 
+ - [PWM Distortion Analysis](http://www.openmusiclabs.com/learning/digital/pwm-dac/pwm-distortion-analysis/index.html)
+
 ## UART and Serial
 
 The simplest of protocols without needing a clock line, usually it's exposed
