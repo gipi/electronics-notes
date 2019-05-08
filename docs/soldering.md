@@ -28,6 +28,7 @@ process reducing oxidation and, in some cases, reducing the surface tension of t
 
 ## Links
 
+ - [INTRODUCTION TO SOLDERING](https://sites.google.com/stanford.edu/soldering-internal/learning)
  - http://www.instructables.com/id/How-to-solder/
  - http://www.instructables.com/id/Uses-of-Different-Soldering-Iron-Tips/
  - [Basic instruments](https://www.youtube.com/watch?v=Kv7Y8nAOoFE)
