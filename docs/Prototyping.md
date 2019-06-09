@@ -205,6 +205,10 @@ The /poor man/ 3d printer uses the technology called **FDM**, i.e. **Fused depos
 
 [Home Page](http://freecadweb.org)
 
+#### Links
+
+- [BOLTS](https://boltsparts.github.io/en/index.html) is an Open Library of Technical Specifications.
+
 ## Enclosure box
 
  - [How To Make Nice Looking DIY Front Panel](http://jumperone.com/2013/01/how-to-make-diy-front-panel/)
