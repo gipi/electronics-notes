@@ -71,3 +71,8 @@
  - [My first experience with Formal Methods](http://zipcpu.com/blog/2017/10/19/formal-intro.html)
  - [The Hobbyists Guide to FPGAs](https://hackaday.io/project/27550-the-hobbyists-guide-to-fpgas)
  - [https://github.com/m-labs/migen](migen): [Hello World for FPGA (in Migen)](https://reconfig.io/2018/05/hello_world_migen)
+
+## Controllers
+
+ - [sdram_ctrl](https://github.com/skristiansson/wb_sdram_ctrl/blob/master/rtl/verilog/sdram_ctrl.v)
+ - [CSI ctrl](https://github.com/daveshah1/CSI2Rx/blob/master/verilog_cores/csi/rx_packet_handler.v)
