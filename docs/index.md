@@ -65,7 +65,8 @@ It's the kind of wire used also for inductor coils.
 ![](https://i.stack.imgur.com/7uc1o.png)
 
  - [Wikipedia](https://en.wikipedia.org/wiki/SMA_connector)
- - [SMA dimensions](http://blog.showmecables.com/sma-dimensions/)
+ - [SMA dimensions](https://web.archive.org/web/20160322125755/http://blog.showmecables.com/sma-dimensions/)
+ - [RF Connector Buying Guide](https://www.sparkfun.com/pages/RF_Conn_Guide)
 
 ## Tape
 
