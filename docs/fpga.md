@@ -27,6 +27,7 @@
 
 ## CPU
 
+ - [Compiling a CPU, in a cheap FPGA board](https://www.thanassis.space/myowncpu.html)
  - Interesting step to step implementation of a very simple CPU
     - [Your First CPU - Chapter 1 - Basic CPU](http://colinmackenzie.net/index.php?view=article&catid=12%3Ayfcpu&id=16%3Ayour-first-cpu-chapter-1-basic-cpu&tmpl=component&print=1&layout=default&page=&option=com_content&Itemid=6)
     - [Your First CPU - Chapter 2 - Branching](http://colinmackenzie.net/index.php?view=article&catid=12%3Ayfcpu&id=17%3Ayour-first-cpu-chapter-2-branching&tmpl=component&print=1&layout=default&page=&option=com_content&Itemid=6)
