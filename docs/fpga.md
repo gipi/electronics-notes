@@ -45,6 +45,7 @@
 ## Links
 
  - [FPGA center](http://www.fpgacenter.com/)
+ - [FPGA Design Elements](http://fpgacpu.ca/fpga/)
  - [FPGA4FUN](http://www.fpga4fun.com/)
  - [Opencore](http://opencores.org/): open source hardware IP-cores
  - [FPGA arcade](http://www.fpgaarcade.com/) site that recreates gaming and computing hardware from the past using FPGAs
