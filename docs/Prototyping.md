@@ -186,6 +186,7 @@ but it's possible also to DIY one with chemicals as described [here](https://ult
  - https://learn.adafruit.com/downloads/pdf/ktowns-ultimate-creating-parts-in-eagle-tutorial.pdf
  - http://kb.gr8bit.ru/KB0015/GR8BIT-KB0015-Best-practices-creating-designs-with-EAGLE.html
  - https://github.com/lachlanA/eagle-to-kicad
+ - https://github.com/electroniceel/protoboard
 
 ## 3D
 
