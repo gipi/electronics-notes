@@ -79,3 +79,4 @@
  - [sdram_ctrl](https://github.com/skristiansson/wb_sdram_ctrl/blob/master/rtl/verilog/sdram_ctrl.v)
  - [SDRAM controller](https://www.joshbassett.info/sdram-controller/)
  - [CSI ctrl](https://github.com/daveshah1/CSI2Rx/blob/master/verilog_cores/csi/rx_packet_handler.v)
+ - [Is AXI too complicated?](https://www.reddit.com/r/FPGA/comments/egkrce/is_axi_too_complicated/)
