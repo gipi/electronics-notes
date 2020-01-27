@@ -40,6 +40,8 @@ USB port via [USB port multimedia switch](https://www.fairchildsemi.com/datashee
 
 It uses only two wires, and allows to connect up to 1008 slave devices.
 
+ - [I2C in a Nutshell](https://interrupt.memfault.com/blog/i2c-in-a-nutshell)
+
 ## SPI
 
 It's a protocol with a clock line and a differentiation between devices that can be
