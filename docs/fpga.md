@@ -80,3 +80,5 @@
  - [SDRAM controller](https://www.joshbassett.info/sdram-controller/)
  - [CSI ctrl](https://github.com/daveshah1/CSI2Rx/blob/master/verilog_cores/csi/rx_packet_handler.v)
  - [Is AXI too complicated?](https://www.reddit.com/r/FPGA/comments/egkrce/is_axi_too_complicated/)
+ - [hdl-util/hdmi](https://github.com/hdl-util/hdmi/) Send video/audio over HDMI on an FPGA
+ - [avakar/usbcorev](https://github.com/avakar/usbcorev) A full-speed device-side USB peripheral core written in Verilog.
