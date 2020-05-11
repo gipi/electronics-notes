@@ -14,6 +14,7 @@
 */
 module hvsync_generator(
     input wire clk,
+    input wire rst,
     output wire vga_h_sync,
     output wire vga_v_sync,
     output wire inDisplayArea,
@@ -33,16 +34,16 @@ wire CounterYmaxed = (CounterY == 525);
 
   // Module get from <http://www.fpga4fun.com/PongGame.html>
 always @(posedge clk)
-if (CounterXmaxed)
+if (~rst || CounterXmaxed)
   CounterX <= 0;
 else
   CounterX <= CounterX + 1'b1;
 
 always @(posedge clk)
 begin
-  if (CounterXmaxed)
+  if (~rst || CounterXmaxed)
   begin
-    if(CounterYmaxed)
+    if(~rst || CounterYmaxed)
       CounterY <= 0;
     else
       CounterY <= CounterY + 1'b1;
