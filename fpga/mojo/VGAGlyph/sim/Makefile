@@ -1,7 +1,7 @@
 ROOT_DIR:=$(strip $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST)))))
 
 PATH_DESIGN = $(ROOT_DIR)/../source/
-SOURCE = hvsync_generator.v glyph_rom.v
+SOURCE = hvsync_generator.v glyph_rom.v text_ram.v
 SOURCE_MAIN = vgasim.cpp
 MODULE_NAME = hvsync_generator
 
@@ -12,3 +12,8 @@ verilator:
 glyph_rom: $(PATH_DESIGN)glyph_rom.v
 	verilator -I$(PATH_DESIGN)  -Wall --trace -cc $^ --exe $@.cpp
 	make -C obj_dir -j 8 -f V$@.mk V$@
+
+text_ram: $(PATH_DESIGN)text_ram.v
+	verilator -I$(PATH_DESIGN)  -Wall --trace -cc $^ --exe $@.cpp
+	make -C obj_dir -j 8 -f V$@.mk V$@
+
