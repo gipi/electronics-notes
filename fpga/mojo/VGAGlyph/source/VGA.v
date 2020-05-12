@@ -1,24 +1,31 @@
+/*
+ * VGA controller.
+ *
+ * It has a raster/text memory as interface RW.
+ */
 `timescale 1ns / 1ps
 `default_nettype none
 
 module VGA(
-	input wire clk,
-	input wire rst,
-	output wire[2:0] pixel,
-	output wire hsync_out,
-   output wire vsync_out
+    input wire clk,
+    input wire rst,
+    input wire we,
+    input wire [11:0] addr,
+    input wire [7:0] i_data,
+    output reg [7:0] o_data,
+    output wire [2:0] pixel,
+    output wire hsync_out,
+    output wire vsync_out,
+    output o_inDisplayArea
 );
 
 wire inDisplayArea;
 wire [9:0] CounterX;
-wire [8:0] CounterY;
+wire [9:0] CounterY;
 
-wire [6:0] column;
-wire [5:0] row;
-wire [2:0] idx;
 reg  [2:0] r_pixel;
+/* verilator lint_off UNOPTFLAT */
 wire [2:0] framebuffer_pixel;
-wire clk_25;
 
 reg hsync_delayed1;
 reg hsync_delayed2;
@@ -57,6 +64,7 @@ assign vsync_out = vsync_delayed3;
 
 hvsync_generator hvsync(
   .clk(clk),
+  .rst(rst),
   .vga_h_sync(hsync_out_original),
   .vga_v_sync(vsync_out_original),
   .CounterX(CounterX),
@@ -66,9 +74,14 @@ hvsync_generator hvsync(
 
 framebuffer fb(
 	.clk(clk),
+    .we(we),
+    .addr(addr),
+    .i_data(i_data),
+    .o_data(o_data),
 	.x(CounterX),
 	.y(CounterY),
-	.pixel(framebuffer_pixel)
+	.o_pixel(framebuffer_pixel),
+    .text_mode(0)
 );
 
 /*
@@ -84,5 +97,7 @@ begin
 end
 
 assign pixel = r_pixel;
+
+assign o_inDisplayArea = inDisplayAreaDelayed2;
 
 endmodule

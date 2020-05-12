@@ -19,7 +19,7 @@ module hvsync_generator(
     output wire vga_v_sync,
     output wire inDisplayArea,
     output reg [9:0] CounterX,
-    output reg [8:0] CounterY
+    output reg [9:0] CounterY
   );
   
 initial begin

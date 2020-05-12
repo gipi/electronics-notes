@@ -30,19 +30,22 @@
  */
 module framebuffer(
 	input wire clk,
+    input wire we,
+    /* verilator lint_off UNUSED */
+    input wire [11:0] addr,
+    input wire [7:0] i_data,
+    /* verilator lint_off UNDRIVEN */
+    output reg [7:0] o_data,
 	input wire [9:0] x,
-	input wire [8:0] y,
+	input wire [9:0] y,
 	input wire text_mode,
-	output wire [2:0] pixel
+	output wire [2:0] o_pixel
 );
 
 wire  [6:0] column;        // 80 columns
 wire  [4:0] row;           // 30 rows
 wire [11:0] text_address;
 wire  [7:0] text_value;    // character to display
-
-wire wea;
-wire dina;
 
 reg  [2:0] glyph_x;       // coordinates
 reg  [3:0] glyph_y;       // in the grid of the glyph
@@ -51,16 +54,15 @@ wire [13:0] glyph_address;
 // (column, row) = (x / 8, y / 16)
 assign column = x[9:3];
 assign row = y[8:4];
+/* verilator lint_off WIDTH */
 assign text_address = column + (row * 80);
 
-text_memory tm(
-  .clka(clk), // input clka
-  .wea(wea), // input [0 : 0] wea
-  .addra(text_address), // input [11 : 0] addra
-  .dina(dina), // input [7 : 0] dina
-  .clkb(clk), // input clkb
-  .addrb(text_address), // input [11 : 0] addrb
-  .doutb(text_value) // output [7 : 0] doutb
+text_ram tr(
+  .clk(clk), // input clka
+  .we(we), // input [0 : 0] wea
+  .addr(text_address), // input [11 : 0] addra
+  .i_data(i_data), // input [7 : 0] dina
+  .o_data(text_value) // output [7 : 0] doutb
 );
 
 // here we get the remainder
@@ -72,16 +74,18 @@ always @(posedge clk) begin
 end
 
 
+/* verilator lint_off WIDTH */
                      // text_value * (8*16) + glyph_x + (glyph_y * 8)
 assign glyph_address = (text_value << 7) + glyph_x + (glyph_y << 3);
 
-blk_mem_gen_v7_3 glyph_rom(
-  .clka(clk), // input clka
-  .addra(glyph_address), // input [13 : 0] addra
-  .douta(pixel[0]) // output [0 : 0] douta
+glyph_rom glyph(
+  .clk(clk),
+  .addr(glyph_address),
+  .data(o_pixel[0])
 );
 
-assign pixel[1] = pixel[0];
-assign pixel[2] = pixel[0];
+/* we are using setting white as output */
+assign o_pixel[1] = o_pixel[0];
+assign o_pixel[2] = o_pixel[0];
 
 endmodule
