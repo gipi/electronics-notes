@@ -11,9 +11,7 @@ the ``ROM``, ``RAM`` and ``Flash``; we can divide them chunk having size of 1GiB
 | Name           | Size   |Address range | Description |
 |------          |--------|--------------|-------------|
 | Boot ROM       |   1MiB | 0x00000000 - 0x000fffff | after reset procedures |
-| Glyph ROM      |   2KiB | | internal representation of 128 ASCII 8x16 pixels characters used in text mode |
-| VRAM           | 300KiB | 0x20000000 - 0x2fffffff | |
-| Text RAM       | ~19KiB | 0x30000000 - 0x3fffffff | |
+| VGA controller |        |              | a wishbone slave with a memory interface containing the glyph ROM |
 | External RAM   |  32MiB | 0x40000000 - 0x7fffffff | |
 | External Flash | 512MiB | 0x80000000 - 0xffffffff | |
 
