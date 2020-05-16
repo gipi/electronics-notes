@@ -6,5 +6,9 @@ cpu:
 	verilator -I$(PATH_MODULES) -Wall --trace -cc cpu/cpu.v --exe cpusim.cpp
 	make -C obj_dir -j 8 -f V$@.mk V$@
 
+glyph_rom:
+	verilator -I$(PATH_MODULES) -Wall --trace -cc blockrams/glyph_rom.v --exe glyph_rom.cpp
+	make -C obj_dir -j 8 -f V$@.mk V$@
+
 clean:
 	rm -vfr obj_dir
