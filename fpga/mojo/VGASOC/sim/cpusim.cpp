@@ -18,7 +18,7 @@ const char* STATES[] = {
         if (__index && (__index % 4) == 0) {  \
             LOG("\n");                       \
         }                                    \
-        LOG("\tr%-2d 0x%08x", __index, (c)->cpu__DOT__registers[__index]); \
+        LOG("\tr%-2lu 0x%08x", __index, (c)->cpu__DOT__registers[__index]); \
     }                                        \
     LOG("\n");                               \
 } while(0)
