@@ -29,6 +29,8 @@ A diode in a circuit can be used as
  - clamps and limiter
  - non-linear element
 
+see [this video](https://www.youtube.com/watch?v=zhrt1y0NP8M) with a couple of examples.
+
 ## Zener
 
 A Zener diode behaves differently from a normal diode: has a reverse-breakdown current

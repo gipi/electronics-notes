@@ -11,7 +11,7 @@ interesting application notes related to some not trivial aspect:
  - [AVR040: EMC Design Considerations](http://www.atmel.com/images/doc1619.pdf)
  - [AVR042: AVR Hardware Design Considerations](http://www.atmel.com/images/atmel-2521-avr-hardware-design-considerations_applicationnote_avr042.pdf)
  - [AVR Looping](http://web.csulb.edu/~hill/ee346/Lectures/06%20AVR%20Looping.pdf)
- - [ATmega48A/PA/88A/PA/168A/PA/328/P](http://www.atmel.com/Images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf)
+ - [ATmega48A/PA/88A/PA/168A/PA/328/P](http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf)
 
 The advice is to read the datasheets that contain a lot of info and working examples, for example
 the [ATMEGA32U4](https://www.pjrc.com/teensy/atmega32u4.pdf) one ([here](https://www.arduino.cc/en/Hacking/PinMapping32u4)
@@ -142,6 +142,42 @@ int main() {
 }
 ```
 
+or you can set an external interrupt
+
+```c
+#include <avr/io.h>
+#include <avr/interrupt.h>
+
+
+int main(void)
+{
+    DDRD &= ~(1 << DDD2);     // Clear the PD2 pin
+    // PD2 (PCINT0 pin) is now an input
+
+    PORTD |= (1 << PORTD2);    // turn On the Pull-up
+    // PD2 is now an input with pull-up enabled
+
+
+
+    EICRA |= (1 << ISC00);    // set INT0 to trigger on ANY logic change
+    EIMSK |= (1 << INT0);     // Turns on INT0
+
+    sei();                    // turn on interrupts
+
+    while(1)
+    {
+        /*main program loop here */
+    }
+}
+
+
+
+ISR (INT0_vect)
+{
+    /* interrupt code here */
+}
+```
+
 ### Low Level
 
 When an interrupt happens
@@ -162,6 +198,7 @@ it starts omitting the ``RESET`` entry.
  - [Post](http://www.avrbeginners.net/architecture/timers/timers.html) from ``avrbeginners`` with clear diagrams.
  - [TimerOne library](http://www.pjrc.com/teensy/td_libs_TimerOne.html)
  - [Quick and Dirty D to A on the AVR: A timer tutorial](http://www.evilmadscientist.com/2007/quick-and-dirty-d-to-a-on-the-avr-a-timer-tutorial/)
+ - [EXTERNAL INTERRUPTS ON THE ATmega168/328](https://sites.google.com/site/qeewiki/books/avr-guide/external-interrupts-on-the-atmega328)
 
 ## Sleep modes
 
@@ -483,6 +520,32 @@ include /usr/share/arduino/Arduino.mk
 
 obviously you can modify the ``MCU`` to match your microcontroller.
 
+You can use the following to avoid the Arduino mess
+
+```
+BIN=fuzz
+OBJS=fuzz.o
+
+MCU=atmega328p
+
+CC=avr-gcc
+OBJCOPY=avr-objcopy
+CFLAGS=-Os -DF_CPU=16000000UL -mmcu=$(MCU)
+PORT=/dev/ttyACM0
+
+${BIN}.hex: ${BIN}.elf
+	${OBJCOPY} -O ihex -R .eeprom $< $@
+
+${BIN}.elf: ${OBJS}
+	${CC} -o $@ $^
+
+install: ${BIN}.hex
+	avrdude -F -V -c arduino -p $(MCU) -P ${PORT} -b 115200 -U flash:w:$<
+
+clean:
+	rm -f ${BIN}.elf ${BIN}.hex ${OBJS}
+```
+
 ### Assembler
 
 See [this](http://www.nongnu.org/avr-libc/user-manual/assembler.html)
@@ -536,6 +599,11 @@ Delay3:
 ret
 ```
 
+## Debugging
+
+ - https://snowfox-project.org/blog/2020/03/21/graphical-debugging-of-atmega328p-on-linux/
+ - https://technostuff.blogspot.com/2014/10/cheap-atmel-avr-isp-ice-from-qinheng.html
+
 Links
 -----
 
@@ -551,7 +619,7 @@ Links
  - Getting [started](http://www.evilmadscientist.com/2007/resources-for-getting-started-with-avrs/) with AVR.
  - Simple [AVR guide](https://sites.google.com/site/qeewiki/books/avr-guide)
  - Some indications on [AVR programming](http://hlt.media.mit.edu/wiki/pmwiki.php?n=Main.AVRProgrammingAdvanced)
- - ATMega328 [datasheet](http://www.atmel.com/Images/doc8161.pdf)
+ - ATMega328 [datasheet](http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf)
  - http://forums.trossenrobotics.com/tutorials/introduction-129/avr-basics-3261/
  - http://www.nongnu.org/avr-libc/
  - [RIFF-WAVE format files in LPCM player using attiny85](http://elm-chan.org/works/sd8p/report.html)
@@ -599,7 +667,8 @@ ATTINY85
 
 ## Arduino
 
-Pin 0 and 1 [are connected by 10k resistors to the serial hardware](http://forum.arduino.cc/index.php?topic=47654.0) so cannot be used.
+Pin 0 and 1 [are connected by 10k resistors to the serial hardware](http://forum.arduino.cc/index.php?topic=47654.0) so cannot be used,
+pin13 instead is used for a led.
 
 ### Links
 

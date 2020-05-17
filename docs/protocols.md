@@ -135,6 +135,9 @@ The architecture of this protocol is *tiered star topology*, there can be no com
 
  - [USB Central](http://janaxelson.com/usb.htm)
  - http://www.usbmadesimple.co.uk/ums_2.htm
+ - [USB cables: shielding matters as well...](https://www.yoctopuce.com/EN/article/usb-cables-shielding-matters-as-well)
+ - [High-Speed Interface Layout Guidelines](https://www.ti.com/lit/an/spraar7h/spraar7h.pdf)
+ - [TS3USB211 datasheet](https://www.ti.com/lit/ds/symlink/ts3usb221.pdf)
 
 ## VGA
 

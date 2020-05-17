@@ -108,6 +108,10 @@ transistor in configuration **emitter follower**.
 
  - [Video](https://www.youtube.com/watch?v=XxLKfAZrhbM) from Afrotechmods
 
+### Links
+
+ - [Resistor calculator (series and parallel)](https://www.qsl.net/in3otd/parallr.html)
+
 ## Capacitors
 
 This is another kind of component that is *ancient*: tipically consists of two plane
