@@ -17,3 +17,5 @@ text_ram: $(PATH_DESIGN)text_ram.v
 	verilator -I$(PATH_DESIGN)  -Wall --trace -cc $^ --exe $@.cpp
 	make -C obj_dir -j 8 -f V$@.mk V$@
 
+clean:
+	rm -vfr obj_dir
