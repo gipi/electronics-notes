@@ -38,12 +38,19 @@ reg [width_flags_reg - 1:0] flags;
  *
  * > Loads
  *
- *  we use 1bit of the opcode to store if immediate or deference memory, or
- *  a register; obviously we cannot load directly 32bit as immediate so we can
- *  adopt some strategies like ARM with barrel shifter.
- *  Also, use a couple of bits to select the width of the loading (byte,
- *  short, word).
- *  Also load with relative addressing.
+ *  - 4bits: opcode
+ *  - 1bit:  direct/memory
+ *  - 1bit:  immediate/register [ldi/ldr]
+ *  - 2bits: width of the operation (byte, short, word).
+ *  - 4bits: destination register idx
+ *  - 4bits: if immediate: msb indicate lower/upper else source register idx
+ *  - 16bits: value (when reg as source use msb to indicate relative addressing)
+ *
+ *  ldrw  r8, r9              r8 = r9
+ *  ldis  r8, #0x100          r8 = 0x....0100
+ *  ldius r8, #0x100          r8 = 0x01000000
+ *  ldimw  r8, [0xcafababe]   r8 = *0xcafababe
+ *  ldrmw  r8, [r10 + 0x1d34] r8 = *(r10 + 0x1d34)
  *
  * > Jumps
  *

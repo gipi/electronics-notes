@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "Vcpu.h"
 #include "verilated.h"
+#include "assembly.h"
 
 #define LOG(...) fprintf(stderr, __VA_ARGS__)
 
@@ -63,7 +64,13 @@ int main(int argc, char* argv[]) {
 
     LOG(" [+] out of reset\n");
 
-    cpu->i_data = 0x10feb007;
+    std::string mnemonic = "ldids r7, 1af";
+
+    ISA::Instruction instructionA(mnemonic);
+
+    LOG(" [#] instruction \'%s\': %08x\n", mnemonic.c_str(), instructionA.getEncoding());
+
+    cpu->i_data = instructionA.getEncoding();
     // fetch
     tick(cpu);
     LOGCPU(cpu);
