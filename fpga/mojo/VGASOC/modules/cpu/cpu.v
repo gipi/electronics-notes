@@ -28,6 +28,14 @@ parameter width_reg   = 32;       // width in bits of the registers
 parameter width_flags_reg = 16;
 
 reg [width_reg - 1:0] registers[n_reg - 1:0]; // here our registers
+/*
+ * FLAGS
+ *
+ *  - carry
+ *  - sign
+ *  - zero
+ *  - overflow
+ */
 /* verilator lint_off UNUSED */
 reg [width_flags_reg - 1:0] flags;
 /*
