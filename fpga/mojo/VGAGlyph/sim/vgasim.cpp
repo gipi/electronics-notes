@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
         vga->clk = 1;
         vga->eval();
 
-        /* we need to dump when both vsync and hsync transition from low to high */
+        /* we need to dump when vsync transitions from low to high */
         needDump = (!old_vsync && vga->vsync_out);
 
         if (needDump) {
