@@ -72,7 +72,6 @@ reg [width_flags_reg - 1:0] flags;
 
 parameter HALT = 4'b0000; /* 0 */
 parameter LOAD = 4'b0001; /* 1 */
-parameter MOVE = 4'b0010; /* 2 */
 parameter JUMP = 4'b0011; /* 3 */
 parameter ADD  = 4'b0100; /* 4 */
 parameter SUB  = 4'b0101; /* 5 */
@@ -162,9 +161,6 @@ if (reset) begin
             s_execute:
             begin
                 case (q_opcode)
-                    MOVE:
-                    begin
-                    end
                     HALT:
                     begin
                     end
