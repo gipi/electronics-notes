@@ -23,15 +23,12 @@ const char* STATES[] = {
     LOG("\n");                               \
 } while(0)
 
-#define LOGCPU(c) LOG("state: %s\to_addr: %08x i_data: %08x instruction: %08x opcode: %02x q_operand1: %03x q_operand2: %02x q_operand3: %02x next_state: %02x\n",\
+#define LOGCPU(c) LOG("state: %s\to_addr: %08x i_data: %08x instruction: %08x opcode: %02x %02x next_state: %02x\n",\
     STATES[(c)->cpu__DOT__current_state], \
     (c)->o_addr,                  \
     (c)->i_data,                  \
     (c)->cpu__DOT__q_instruction, \
     (c)->cpu__DOT__q_opcode,      \
-    (c)->cpu__DOT__q_operand1,    \
-    (c)->cpu__DOT__q_operand2,    \
-    (c)->cpu__DOT__q_operand3,    \
     (c)->cpu__DOT__next_state     \
 );LOGREGISTERS(c)
 

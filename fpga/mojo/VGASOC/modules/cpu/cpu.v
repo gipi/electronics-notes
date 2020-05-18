@@ -110,9 +110,6 @@ begin
         registers[0] <= next_pc;
         q_instruction <= i_data; /* we are reading the instruction from the*/
         q_opcode <= d_opcode;
-        q_operand1 <= d_operand1;
-        q_operand2 <= d_operand2;
-        q_operand3 <= d_operand3;
 
         /*
          * TODO: factorize in a sub-module and use load_value as src_idx
@@ -137,9 +134,6 @@ reg [31:0] q_instruction, d_instruction;
 reg [31:0] q_addr, _addr;
 reg [31:0] next_pc;
 reg [3:0]  q_opcode, d_opcode;
-reg [11:0] q_operand1, d_operand1;
-reg [7:0]  q_operand2, d_operand2;
-reg [7:0]  q_operand3, d_operand3;
 
 /* load related signals */
 reg  [3:0] dst_idx; /* for LOAD operation */
@@ -162,9 +156,6 @@ if (reset) begin
             s_decode:
             begin
                 d_opcode = q_instruction[31:28];
-                d_operand1 = q_instruction[27:16];
-                d_operand2 = q_instruction[15:8];
-                d_operand3 = q_instruction[7:0];
 
                 next_state = s_execute;
             end
@@ -179,8 +170,12 @@ if (reset) begin
                     end
                     LOAD:
                     begin
-                        dst_idx = q_operand3[3:0];
-                        load_value = {q_operand1, 20'b0};
+                        // isImmediate = q_instruction[27:27];
+                        // isDirect = q_instruction[26:26];
+                        // width = q_instruction[25:25]
+                        dst_idx = q_instruction[23:20];
+                        // FIXME: use 'u' to load upper part
+                        load_value = {16'b0, q_instruction[15:0]};
                         load_type = 1;
                     end
                     JUMP:
@@ -188,7 +183,7 @@ if (reset) begin
                      * We simply want to perform a move into the PC
                      */
                     begin
-                        next_pc = registers[q_operand3[3:0]]; /* FIXME: width for jump */
+                        next_pc = registers[q_instruction[3:0]]; /* FIXME: width for jump */
                     end
                     ADD:
                     begin
