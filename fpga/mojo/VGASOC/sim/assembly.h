@@ -43,7 +43,6 @@ public:
 
 class LoadInstructionImpl : public InstructionImpl {
     friend class Instruction;
-    using InstructionImpl::InstructionImpl; // allows to use the constructor from the super class
     /*
      * FIXME: is there a way to make the base class call the parse() method for the right type of class?
      */
@@ -90,7 +89,7 @@ public:
 
     private:
         InstructionType mType;
-        InstructionImpl* mInstruction;
+        InstructionImpl* mInstruction = nullptr;
         const std::string mMnemonic;
 
         void parse();
