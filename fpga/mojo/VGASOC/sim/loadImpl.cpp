@@ -10,10 +10,7 @@
 
 namespace ISA {
 
-static short opcodes [] {
-    [Instruction::LOAD] = 0x1,
-};
-
+extern short opcodes [];
 
 size_t LoadInstructionImpl::parseFlags() {
 
@@ -72,15 +69,15 @@ size_t LoadInstructionImpl::parseFlags() {
         off++;
     }
 
-    mEncoded  = opcodes[Instruction::LOAD] << (32 - 4);
-    mEncoded |= isImmediate << (32 - 5);
-    mEncoded |= isDirect << (32 - 6);
-    mEncoded |= width << (32 - 7);
+    mEncoded |= isImmediate << 27;
+    mEncoded |= isDirect << 26;
+    mEncoded |= width << 24;
 
     return off;
 }
 
 void LoadInstructionImpl::parseOpcode() {
+    mEncoded  = opcodes[Instruction::LOAD] << 28;
     parseFlags();
 }
 
@@ -91,7 +88,7 @@ void LoadInstructionImpl::validate() {
 }
 
 void LoadInstructionImpl::encode() {
-    mEncoded |= mLOperand.reg << (32 - 9);
+    mEncoded |= mLOperand.reg << 20;
     mEncoded |= mROperand.immediate;
 }
 
