@@ -34,6 +34,7 @@ void Instruction::parse() {
 
     if (indexSpace != std::string::npos) {
         opcode = mMnemonic.substr(0, indexSpace);
+        operand1 = mMnemonic.substr(indexSpace + 1);
     }
 
     if (indexComma != std::string::npos) {
