@@ -56,11 +56,26 @@ class LoadInstructionImpl : public InstructionImpl {
     void encode();
 };
 
+class JumpInstructionImpl : public InstructionImpl {
+    friend class Instruction;
+    /*
+     * FIXME: is there a way to make the base class call the parse() method for the right type of class?
+     */
+    JumpInstructionImpl(const std::string opcode, const std::string leftOperand, const std::string rightOperand) : InstructionImpl(opcode, leftOperand, rightOperand) {
+        this->parse();
+    };
+    size_t parseFlags();
+    void parseOpcode();
+    void validate();
+    void encode();
+};
+
 
 class Instruction {
 public:
     typedef enum {
         LOAD,
+        JUMP,
         STORE,
         ADD,
         XOR,

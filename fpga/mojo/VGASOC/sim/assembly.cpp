@@ -10,8 +10,9 @@
 
 namespace ISA {
 
-static short opcodes [] {
+short opcodes [] {
     [Instruction::LOAD] = 0x1,
+    [Instruction::JUMP] = 0x3,
 };
 
 
@@ -46,6 +47,14 @@ void Instruction::parse() {
             mType = LOAD;
             mInstruction = new LoadInstructionImpl(opcode, operand1, operand2);
             break;
+        case OP('j', 'r'):
+            mType = JUMP;
+            mInstruction = new JumpInstructionImpl(opcode, operand1, operand2);
+            break;
+        default:
+            std::stringstream ss;
+            ss << "unimplemented opcode '" << opcode <<"'";
+            throw std::runtime_error(ss.str());
     }
 }
 

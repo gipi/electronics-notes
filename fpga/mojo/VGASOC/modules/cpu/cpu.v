@@ -28,6 +28,7 @@ parameter width_reg   = 32;       // width in bits of the registers
 parameter width_flags_reg = 16;
 
 reg [width_reg - 1:0] registers[n_reg - 1:0]; // here our registers
+reg [width_reg - 1:0] _registers[n_reg - 1:0]; // here our copy to store final writes
 /*
  * FLAGS
  *
@@ -62,10 +63,19 @@ reg [width_flags_reg - 1:0] flags;
  *
  * > Jumps
  *
- * - we can indicate the register containing the address where jump to
- * - Xbits to indicate the condition for the jump
- * - 1bit to indicate if conditional or not
- * - 1bit to save the return address to r15
+ * - 4bits: indicate the register containing the address where jump to
+ * - 4bits: indicate the condition for the jump
+ * - 1bit:  conditional or not
+ * - 1bit:  relative
+ * - 1bit:  save the return address to r15
+ *
+ *   |  op  |    cond   |   reg source  |  reg return  |    offset   |
+ *    31  28 27       24 23           20 19          16 15          0
+ *
+ *
+ *  jr r7               pc = r7
+ *  jrl r7              r15 = pc, pc = r7
+ *  jrl r7, r6          r6 = pc, pc = r7
  *
  * Note that mov r0, rX is like a jump so we could save the conditional bit
  */
@@ -95,6 +105,7 @@ initial begin
         next_pc = 32'hb0000000;
 end
 
+integer i;
 /* Sequential part */
 always @(posedge clk)
 begin
@@ -106,23 +117,13 @@ begin
     else
         current_state <= next_state;
         // q_addr <= d_addr;
-        registers[0] <= next_pc;
         q_instruction <= i_data; /* we are reading the instruction from the*/
         q_opcode <= d_opcode;
 
-        /*
-         * TODO: factorize in a sub-module and use load_value as src_idx
-         *       using load_type in a case() block.
-         *       Probably should be a generic module to allow any number of
-         *       registers to be loaded.
-         */
-        if (load_type == 2'b01)
-        begin
-            registers[dst_idx] <= load_value;
-        end
-        else if (load_type == 2'b10)
-        begin
-            registers[dst_idx] <= registers[load_value];
+        if (store) begin
+            for (i = 0 ; i < 16 ; i++) begin
+                registers[i] <= _registers[i];
+            end
         end
 end
 
@@ -133,6 +134,7 @@ reg [31:0] q_instruction, d_instruction;
 reg [31:0] q_addr, _addr;
 reg [31:0] next_pc;
 reg [3:0]  q_opcode, d_opcode;
+reg store;
 
 /* load related signals */
 reg  [3:0] dst_idx; /* for LOAD operation */
@@ -147,8 +149,9 @@ if (reset) begin
         case (current_state)
             s_fetch:
             begin
+                store = 0;
                 _addr = registers[0]; /* set the address line */
-                next_pc = registers[0] + 4;
+                _registers[0] = registers[0] + 4;
 
                 next_state = s_decode;
             end
@@ -169,9 +172,8 @@ if (reset) begin
                         // isImmediate = q_instruction[27:27];
                         // isDirect = q_instruction[26:26];
                         // width = q_instruction[25:25]
-                        dst_idx = q_instruction[23:20];
+                        _registers[q_instruction[23:20]] = {16'b0, q_instruction[15:0]};
                         // FIXME: use 'u' to load upper part
-                        load_value = {16'b0, q_instruction[15:0]};
                         load_type = 1;
                     end
                     JUMP:
@@ -179,7 +181,7 @@ if (reset) begin
                      * We simply want to perform a move into the PC
                      */
                     begin
-                        next_pc = registers[q_instruction[3:0]]; /* FIXME: width for jump */
+                        _registers[0] = registers[q_instruction[23:20]];
                     end
                     ADD:
                     begin
@@ -207,6 +209,7 @@ if (reset) begin
             s_store:
             begin
                 load_type = 0; /* reset possible loads */
+                store = 1; /* now we can commit the changes to the registers */
                 next_state = s_fetch;
             end
         endcase

@@ -83,7 +83,11 @@ int main(int argc, char* argv[]) {
     // store
     tick(cpu);
     LOGCPU(cpu);
-    cpu->i_data = 0x30feb007;
+
+    mnemonic = "jrl r7";
+    ISA::Instruction jump(mnemonic);
+    LOG(" [#] instruction \'%s\': %08x\n", mnemonic.c_str(), jump.getEncoding());
+    cpu->i_data = jump.getEncoding();
     // fetch
     tick(cpu);
     LOGCPU(cpu);
