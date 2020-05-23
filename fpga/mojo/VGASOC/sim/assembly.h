@@ -24,19 +24,22 @@ protected:
     std::string mOpcode;
     std::string mStrLOperand;
     std::string mStrROperand;
+    std::string mStrXOperand;
 
     Operand mLOperand;
     Operand mROperand;
+    Operand mXOperand;
 
     virtual void parseOpcode() = 0;
     void parseLeftOperand();
     void parseRightOperand();
+    void parseExtraOperand();
     void parse();
     virtual void validate() = 0;
     virtual void encode() = 0;
 public:
-    InstructionImpl(const std::string opcode, const std::string leftOperand, const std::string rightOperand) :
-        mOpcode(opcode), mStrLOperand(leftOperand), mStrROperand(rightOperand) {
+    InstructionImpl(const std::string opcode, const std::string leftOperand, const std::string rightOperand, const std::string extraOperand = "") :
+        mOpcode(opcode), mStrLOperand(leftOperand), mStrROperand(rightOperand), mStrXOperand(extraOperand) {
     } ;
     uint32_t getEncoding() { return mEncoded;}; /* TODO: call parse() only on getEncoding() */
 };

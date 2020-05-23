@@ -31,6 +31,7 @@ void Instruction::parse() {
     std::string opcode = "";
     std::string operand1 = "";
     std::string operand2 = "";
+    std::string operand3 = "";
 
     if (indexSpace != std::string::npos) {
         opcode = mMnemonic.substr(0, indexSpace);
@@ -38,8 +39,14 @@ void Instruction::parse() {
     }
 
     if (indexComma != std::string::npos) {
-        operand1 = mMnemonic.substr(indexSpace + 1, indexComma - indexSpace + 1);
+        operand1 = mMnemonic.substr(indexSpace + 1, indexComma - indexSpace);
         operand2 = mMnemonic.substr(indexComma + 1);
+    }
+
+    indexComma = operand2.find(',');
+    if (indexComma != std::string::npos) {
+        operand3 = operand2.substr(indexComma + 1);
+        operand2 = operand2.substr(0, indexComma);
     }
 
     switch (code) {
@@ -130,10 +137,15 @@ void InstructionImpl::parseRightOperand() {
     mROperand = Instruction::parseOperand(mStrROperand);
 }
 
+void InstructionImpl::parseExtraOperand() {
+    mXOperand = Instruction::parseOperand(mStrXOperand);
+}
+
 void InstructionImpl::parse() {
     parseOpcode();
     parseLeftOperand();
     parseRightOperand();
+    parseExtraOperand();
     validate();
     encode();
 }
