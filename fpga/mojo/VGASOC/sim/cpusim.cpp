@@ -137,8 +137,13 @@ int main(int argc, char* argv[]) {
         { .idx = 0, .value = 0x00000004},
         { .idx = 7, .value = 0x1af}
     });
-    do_instruction(cpu, "jrl r7", {{.idx = 7, .value = 0xcafebabe}}, {
+    do_instruction(cpu, "jr r7", {{.idx = 7, .value = 0xcafebabe}}, {
         { .idx = 0, .value = 0xcafebabe},
+    });
+
+    do_instruction(cpu, "jrl r9", {{.idx = 9, .value = 0xbabe7007}}, {
+        { .idx = 0, .value = 0xbabe7007},
+        { .idx = 15, .value = 0x04},
     });
 
     cpu->i_data = 0xabad1d34;

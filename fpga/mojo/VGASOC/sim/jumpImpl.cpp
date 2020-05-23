@@ -8,6 +8,9 @@ extern short opcodes[];
 
 void JumpInstructionImpl::parseOpcode() {
     mEncoded  = opcodes[Instruction::JUMP] << 28;
+    if (mOpcode[2] == 'l') {
+        mIsLink = true;
+    }
 }
 
 void JumpInstructionImpl::validate() {
@@ -21,7 +24,8 @@ void JumpInstructionImpl::validate() {
 
 void JumpInstructionImpl::encode() {
     mEncoded |= mLOperand.reg << 20;
-    mEncoded |= mROperand.type == OperandType::REGISTER ? mROperand.reg << 16 : 0; 
+    mEncoded |= (mROperand.type == OperandType::REGISTER ? mROperand.reg : 7) << 16;
+    mEncoded |= mIsLink << 19;
 }
 
 } // end namespace ISA

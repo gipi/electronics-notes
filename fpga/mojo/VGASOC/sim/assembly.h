@@ -50,6 +50,7 @@ class LoadInstructionImpl : public InstructionImpl {
 };
 
 class JumpInstructionImpl : public InstructionImpl {
+    bool mIsLink = false;
     using InstructionImpl::InstructionImpl;
     size_t parseFlags();
     void parseOpcode();

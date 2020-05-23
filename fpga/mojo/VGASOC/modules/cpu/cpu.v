@@ -63,14 +63,15 @@ reg [width_flags_reg - 1:0] flags;
  *
  * > Jumps
  *
- * - 4bits: indicate the register containing the address where jump to
+ * - 4bits: opcode
  * - 4bits: indicate the condition for the jump
- * - 1bit:  conditional or not
- * - 1bit:  relative
- * - 1bit:  save the return address to r15
+ * - 4bits: register containing the address where jump to
+ * - 1bit:  save the return address
+ * - 3bits: register where to put the return address (r8-r15)
+ * - 16bits: offset
  *
- *   |  op  |    cond   |   reg source  |  reg return  |    offset   |
- *    31  28 27       24 23           20 19          16 15          0
+ *   |  op  |    cond   |   reg source  | save | reg return  |    offset   |
+ *    31  28 27       24 23           20   19   18         16 15          0
  *
  *
  *  jr r7               pc = r7
@@ -182,6 +183,9 @@ if (reset) begin
                      */
                     begin
                         _registers[0] = registers[q_instruction[23:20]];
+                        if (q_instruction[19]) begin
+                            _registers[q_instruction[19:16]] = registers[0] + 4;
+                        end
                     end
                     ADD:
                     begin
