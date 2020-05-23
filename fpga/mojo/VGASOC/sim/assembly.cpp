@@ -42,7 +42,6 @@ void Instruction::parse() {
         operand2 = mMnemonic.substr(indexComma + 1);
     }
 
-
     switch (code) {
         case OP('l', 'd'):
             mType = LOAD;
@@ -57,6 +56,8 @@ void Instruction::parse() {
             ss << "unimplemented opcode '" << opcode <<"'";
             throw std::runtime_error(ss.str());
     }
+
+    mInstruction->parse();
 }
 
 /*
@@ -115,6 +116,10 @@ Operand Instruction::parseOperand(const std::string operand) {
     }
 
     return resultOperand;
+}
+
+Instruction::~Instruction() {
+    delete mInstruction;
 }
 
 void InstructionImpl::parseLeftOperand() {

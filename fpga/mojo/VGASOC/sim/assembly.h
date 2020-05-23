@@ -42,13 +42,7 @@ public:
 };
 
 class LoadInstructionImpl : public InstructionImpl {
-    friend class Instruction;
-    /*
-     * FIXME: is there a way to make the base class call the parse() method for the right type of class?
-     */
-    LoadInstructionImpl(const std::string opcode, const std::string leftOperand, const std::string rightOperand) : InstructionImpl(opcode, leftOperand, rightOperand) {
-        this->parse();
-    };
+    using InstructionImpl::InstructionImpl;
     size_t parseFlags();
     void parseOpcode();
     void validate();
@@ -56,13 +50,7 @@ class LoadInstructionImpl : public InstructionImpl {
 };
 
 class JumpInstructionImpl : public InstructionImpl {
-    friend class Instruction;
-    /*
-     * FIXME: is there a way to make the base class call the parse() method for the right type of class?
-     */
-    JumpInstructionImpl(const std::string opcode, const std::string leftOperand, const std::string rightOperand) : InstructionImpl(opcode, leftOperand, rightOperand) {
-        this->parse();
-    };
+    using InstructionImpl::InstructionImpl;
     size_t parseFlags();
     void parseOpcode();
     void validate();
@@ -84,6 +72,7 @@ public:
     Instruction(const std::string mnemonic) : mMnemonic(mnemonic) {
         parse();
     }
+    ~Instruction();
     uint32_t getEncoding() { return mInstruction->getEncoding();};
     static Operand parseOperand(const std::string operand);
 
