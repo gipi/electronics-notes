@@ -66,7 +66,7 @@ void Instruction::parse() {
             break;
         default:
             std::stringstream ss;
-            ss << "unimplemented opcode '" << opcode <<"'";
+            ss << "unimplemented opcode '" << opcode << "'";
             throw std::runtime_error(ss.str());
     }
 

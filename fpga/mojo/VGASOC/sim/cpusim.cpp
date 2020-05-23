@@ -168,21 +168,6 @@ int main(int argc, char* argv[]) {
         { .idx = 0, .value = 0x04},
         { .idx = 9, .value = 0x03},
     });
-    cpu->i_data = 0xabad1d34;
-    // fetch
-    tick(cpu);
-    LOGCPU(cpu);
-
-    // decode
-    tick(cpu);
-    LOGCPU(cpu);
-
-#if 0
-    while(1) {
-    tick(cpu);
-    LOGCPU(cpu);
-    }
-#endif
 
     return EXIT_SUCCESS;
 }
