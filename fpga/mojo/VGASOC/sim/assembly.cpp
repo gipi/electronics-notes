@@ -102,13 +102,14 @@ Operand Instruction::parseOperand(const std::string operand) {
     }
 
     /* now we have the value parsable or as an immediate or as a register (+ offset) */
-    /* TODO: this code is fragile, doesn't handle spaces */
-    if (innerOperand[0] == 'r') {
+    /* TODO: this code is fragile */
+    size_t indexR = innerOperand.find('r');
+    if (indexR != std::string::npos) {
         size_t plusIndex = innerOperand.find('+');
         if (plusIndex == std::string::npos) {
             /* if starts with "r" and contain '+' then we have an offset */
             resultOperand.type = isReference ? OperandType::REFERENCE_REGISTER : OperandType::REGISTER;
-            resultOperand.reg = atoi(innerOperand.substr(1).c_str()); /* FIXME: check for errors */
+            resultOperand.reg = atoi(innerOperand.substr(indexR + 1).c_str()); /* FIXME: check for errors */
         } else if (!isReference) {
             throw std::runtime_error("operand parsing: an immediate doesn't allow for offset");
         } else {
