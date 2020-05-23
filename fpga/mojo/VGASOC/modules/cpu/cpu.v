@@ -87,6 +87,25 @@ reg [width_flags_reg - 1:0] _flags;
  * The flags are preserved during a jump.
  *
  * Note that mov r0, rX is like a jump so we could save the conditional bit
+ *
+ * > Add
+ *
+ *  - 4bits: opcode
+ *  - 4bits: destination register
+ *  - 4bits: first source register
+ *  - 1bit: upper/lower
+ *  - 3bits: second source register (r8-r15)
+ *  - 16bits: immediate value
+ *
+ *  |    op     |   dest   |   src   |  u/l | src2  |   immediate  |
+ *   31       28 27      24 23     20   19   18   16 15           0
+ *
+ *  add r7, r11, r12                 r7 = r11 + r12
+ *  add r7, r7, 0xabcd               r7 = r7 + 0xabcd
+ *  addu r7, r7, 0xabcd              r7 = r7 + 0xabcd0000
+ *  add r6, r2, r9 + 0x1d34           r6 = r2 + r9 + 0x1d34
+ *
+ *  The flags are modified depending on the result of the operation.
  */
 
 parameter HALT = 4'b0000; /* 0 */
@@ -201,6 +220,8 @@ if (reset) begin
                     end
                     ADD:
                     begin
+                        {_flags[CARRY], _registers[q_instruction[27:24]]} = 
+                            registers[q_instruction[23:20]] + registers[{1'b1, q_instruction[18:16]}];
                     end
                     SUB:
                     begin

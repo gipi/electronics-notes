@@ -10,9 +10,11 @@
 
 namespace ISA {
 
-short opcodes [] {
+short opcodes [] { /* you MUST set without jumps in the index [] otherwise fails to compile */
     [Instruction::LOAD] = 0x1,
     [Instruction::JUMP] = 0x3,
+    [Instruction::STORE] = 0x7,
+    [Instruction::ADD] =  0x4,
 };
 
 
@@ -57,6 +59,10 @@ void Instruction::parse() {
         case OP('j', 'r'):
             mType = JUMP;
             mInstruction = new JumpInstructionImpl(opcode, operand1, operand2);
+            break;
+        case OP('a', 'd'):
+            mType = ADD;
+            mInstruction = new AddInstructionImpl(opcode, operand1, operand2, operand3);
             break;
         default:
             std::stringstream ss;

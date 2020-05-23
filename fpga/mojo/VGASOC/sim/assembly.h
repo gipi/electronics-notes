@@ -61,6 +61,14 @@ class JumpInstructionImpl : public InstructionImpl {
     void encode();
 };
 
+class AddInstructionImpl : public InstructionImpl {
+    bool mIsUpper = false;
+    using InstructionImpl::InstructionImpl;
+    void parseOpcode();
+    void validate();
+    void encode();
+};
+
 
 class Instruction {
 public:

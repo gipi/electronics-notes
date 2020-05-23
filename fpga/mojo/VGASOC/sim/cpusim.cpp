@@ -160,6 +160,14 @@ int main(int argc, char* argv[]) {
         { .idx = 15, .value = 0x04},
     });
 
+    do_instruction(cpu, "add r9, r7, r10",
+    0xcafe, {
+        {.idx = 7, .value = 0x00000002},
+        {.idx = 10, .value = 0x00000001}},
+    0xcafe, {
+        { .idx = 0, .value = 0x04},
+        { .idx = 9, .value = 0x03},
+    });
     cpu->i_data = 0xabad1d34;
     // fetch
     tick(cpu);
