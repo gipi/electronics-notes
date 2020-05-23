@@ -43,20 +43,36 @@ void tick(Vcpu* cpu) {
     cpu->eval();
 }
 
+#define EMPTY_REGISTERS {}
+
 /* contains the values to assert */
-struct reg_check {
+struct reg_state {
     uint8_t idx;
     uint32_t value;
 };
 
-void do_instruction(Vcpu* cpu, std::string mnemonic, std::vector<reg_check> constraints) {
+/*
+ * This function checks the correct functioning of an instruction.
+ *
+ * cpu: instance of the cpu
+ * mnemonic: string containing the instruction to execute
+ * start: the state of the register at the fetch stage (what not indicate is zero)
+ * stop: the registers that have changed (what not indicate is equal at the state indicate in start)
+ */
+void do_instruction(Vcpu* cpu, std::string mnemonic, std::vector<reg_state> start, std::vector<reg_state> end) {
     ISA::Instruction instructionA(mnemonic);
 
     LOG(" [#] instruction \'%s\': %08x\n", mnemonic.c_str(), instructionA.getEncoding());
 
     // save the registers and flags
     uint32_t* registers = (uint32_t*)malloc(sizeof(cpu->cpu__DOT__registers));
+    memset(cpu->cpu__DOT__registers, 0x00, sizeof(cpu->cpu__DOT__registers));
+
+    for (reg_state r: start) {
+        cpu->cpu__DOT__registers[r.idx] = r.value;
+    }
     memcpy(registers, cpu->cpu__DOT__registers, sizeof(cpu->cpu__DOT__registers));
+    memcpy(cpu->cpu__DOT___registers, cpu->cpu__DOT__registers, sizeof(cpu->cpu__DOT__registers));
 
     cpu->i_data = instructionA.getEncoding();
     // fetch
@@ -77,7 +93,7 @@ void do_instruction(Vcpu* cpu, std::string mnemonic, std::vector<reg_check> cons
 
     for (uint index = 0 ; index < sizeof(cpu->cpu__DOT__registers)/sizeof(cpu->cpu__DOT__registers[0]); index++) {
         uint32_t finalValue = registers[index];
-        for (std::vector<reg_check>::iterator it = constraints.begin(); it != constraints.end() ; it++) {
+        for (std::vector<reg_state>::iterator it = end.begin(); it != end.end() ; it++) {
             if (index == it->idx) {
                 finalValue = it->value;
                 break;
@@ -117,12 +133,12 @@ int main(int argc, char* argv[]) {
 
     LOG(" [+] out of reset\n");
 
-    do_instruction(cpu, "ldids r7, 1af", {
-        { .idx = 0, .value = 0xb0000004},
+    do_instruction(cpu, "ldids r7, 1af", EMPTY_REGISTERS, {
+        { .idx = 0, .value = 0x00000004},
         { .idx = 7, .value = 0x1af}
     });
-    do_instruction(cpu, "jrl r7", {
-        { .idx = 0, .value = 0x1af},
+    do_instruction(cpu, "jrl r7", {{.idx = 7, .value = 0xcafebabe}}, {
+        { .idx = 0, .value = 0xcafebabe},
     });
 
     cpu->i_data = 0xabad1d34;
