@@ -37,8 +37,12 @@ reg [width_reg - 1:0] _registers[n_reg - 1:0]; // here our copy to store final w
  *  - zero
  *  - overflow
  */
-/* verilator lint_off UNUSED */
+parameter CARRY = 0;
+parameter SIGN  = 1;
+parameter ZERO  = 2;
+parameter OVERF = 3;
 reg [width_flags_reg - 1:0] flags;
+reg [width_flags_reg - 1:0] _flags;
 /*
  * Layout instructions
  *
@@ -61,6 +65,8 @@ reg [width_flags_reg - 1:0] flags;
  *  ldimw  r8, [0xcafababe]   r8 = *0xcafababe
  *  ldrmw  r8, [r10 + 0x1d34] r8 = *(r10 + 0x1d34)
  *
+ * The flags are reset during a load.
+ *
  * > Jumps
  *
  * - 4bits: opcode
@@ -77,6 +83,8 @@ reg [width_flags_reg - 1:0] flags;
  *  jr r7               pc = r7
  *  jrl r7              r15 = pc, pc = r7
  *  jrl r7, r6          r6 = pc, pc = r7
+ *
+ * The flags are preserved during a jump.
  *
  * Note that mov r0, rX is like a jump so we could save the conditional bit
  */
@@ -104,6 +112,7 @@ reg [1:0] next_state;
 initial begin
         registers[0] = 32'hb0000000;
         next_pc = 32'hb0000000;
+        _flags = 16'b0;
 end
 
 integer i;
@@ -114,6 +123,7 @@ begin
     begin
         current_state <= s_fetch;
         registers[0] <= 32'hb0000000;
+        flags <= 16'b0;
     end
     else
         current_state <= next_state;
@@ -125,6 +135,7 @@ begin
             for (i = 0 ; i < 16 ; i++) begin
                 registers[i] <= _registers[i];
             end
+            flags <= _flags;
         end
 end
 
@@ -174,6 +185,7 @@ if (reset) begin
                         // isDirect = q_instruction[26:26];
                         // width = q_instruction[25:25]
                         _registers[q_instruction[23:20]] = {16'b0, q_instruction[15:0]};
+                        _flags[3:0] = 4'b0;
                         // FIXME: use 'u' to load upper part
                         load_type = 1;
                     end

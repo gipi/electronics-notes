@@ -26,6 +26,8 @@ const char* STATES[] = {
     LOG("\n");                               \
 } while(0)
 
+#define LOGFLAGS(c) LOG("\tflags: %08x\n", (c)->cpu__DOT__flags)
+
 #define LOGCPU(c) LOG("state: %s\to_addr: %08x i_data: %08x instruction: %08x opcode: %02x next_state: %02x\n",\
     STATES[(c)->cpu__DOT__current_state], \
     (c)->o_addr,                  \
@@ -33,7 +35,7 @@ const char* STATES[] = {
     (c)->cpu__DOT__q_instruction, \
     (c)->cpu__DOT__q_opcode,      \
     (c)->cpu__DOT__next_state     \
-);LOGREGISTERS(c)
+);LOGFLAGS(c);LOGREGISTERS(c)
 
 void tick(Vcpu* cpu) {
     cpu->clk = 0;
@@ -51,20 +53,26 @@ struct reg_state {
     uint32_t value;
 };
 
+typedef unsigned short flags_state;
+
 /*
  * This function checks the correct functioning of an instruction.
  *
  * cpu: instance of the cpu
  * mnemonic: string containing the instruction to execute
+ * fstart: the starting state of the flags register
  * start: the state of the register at the fetch stage (what not indicate is zero)
- * stop: the registers that have changed (what not indicate is equal at the state indicate in start)
+ * fend: the ending state of the flags register
+ * end: the registers that have changed (what not indicate is equal at the state indicate in start)
  */
-void do_instruction(Vcpu* cpu, std::string mnemonic, std::vector<reg_state> start, std::vector<reg_state> end) {
+void do_instruction(Vcpu* cpu, std::string mnemonic, flags_state fstart, std::vector<reg_state> start, flags_state fend, std::vector<reg_state> end) {
     ISA::Instruction instructionA(mnemonic);
 
     LOG(" [#] instruction \'%s\': %08x\n", mnemonic.c_str(), instructionA.getEncoding());
 
     // save the registers and flags
+    cpu->cpu__DOT__flags = fstart;
+    cpu->cpu__DOT___flags = fstart;
     uint32_t* registers = (uint32_t*)malloc(sizeof(cpu->cpu__DOT__registers));
     memset(cpu->cpu__DOT__registers, 0x00, sizeof(cpu->cpu__DOT__registers));
 
@@ -104,9 +112,15 @@ void do_instruction(Vcpu* cpu, std::string mnemonic, std::vector<reg_state> star
 
         if (actualValue != finalValue) {
             std::stringstream ss;
-            ss << "fatal: expected for r" << std::hex << index << ":" << finalValue << " obtained: " << actualValue;
+            ss << "fatal: expected for r" << std::hex << index << ":" << std::hex << finalValue << " obtained: " << std::hex << actualValue;
             throw std::runtime_error(ss.str());
         }
+    }
+
+    if (fend != cpu->cpu__DOT__flags) {
+        std::stringstream ss;
+        ss << "fatal: expected for flags: " << std::hex << fend << " obtained: " << std::hex << cpu->cpu__DOT__flags;
+        throw std::runtime_error(ss.str());
     }
 
     free(registers);
@@ -133,15 +147,15 @@ int main(int argc, char* argv[]) {
 
     LOG(" [+] out of reset\n");
 
-    do_instruction(cpu, "ldids r7, 1af", EMPTY_REGISTERS, {
+    do_instruction(cpu, "ldids r7, 1af", 0xefab, EMPTY_REGISTERS, 0xefa0, {
         { .idx = 0, .value = 0x00000004},
         { .idx = 7, .value = 0x1af}
     });
-    do_instruction(cpu, "jr r7", {{.idx = 7, .value = 0xcafebabe}}, {
+    do_instruction(cpu, "jr r7", 0x1d34, {{.idx = 7, .value = 0xcafebabe}}, 0x1d34, {
         { .idx = 0, .value = 0xcafebabe},
     });
 
-    do_instruction(cpu, "jrl r9", {{.idx = 9, .value = 0xbabe7007}}, {
+    do_instruction(cpu, "jrl r9", 0xcafe, {{.idx = 9, .value = 0xbabe7007}}, 0xcafe, {
         { .idx = 0, .value = 0xbabe7007},
         { .idx = 15, .value = 0x04},
     });
