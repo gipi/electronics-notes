@@ -10,7 +10,12 @@ module cpu(
     input wire reset,
 /* verilator lint_off UNUSED */
     input wire [31:0] i_data,
-    output wire [31:0] o_addr
+/* verilator lint_off UNDRIVEN */
+    output wire [31:0] o_data,
+    output wire [31:0] o_addr,
+    output wire o_wb_stb,
+    input wire i_wb_ack,
+    input wire i_wb_stall
 );
 
 /*
