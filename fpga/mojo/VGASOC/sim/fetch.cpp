@@ -12,7 +12,7 @@
 void tick(Vfetch* f, uint64_t tickcount, VerilatedVcdC* tfp) {
     f->eval();
     if (tfp)
-        tfp->dump(tickcount*10 - 2);
+        tfp->dump(tickcount*10 - 4);
     f->clk = 1;
     f->eval();
     if (tfp)
@@ -80,6 +80,11 @@ int main(int argc, char* argv[]) {
     assert(fetch->o_instruction == 0xabad1dea);
 
     fetch->i_wb_ack = 0;
+    tick(fetch, ++timetick, tfp);
+
+    assert(fetch->o_completed == 0);
+
+    fetch->i_enable = 0;
     tick(fetch, ++timetick, tfp);
 
     assert(fetch->o_completed == 0);

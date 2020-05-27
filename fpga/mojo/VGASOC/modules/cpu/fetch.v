@@ -18,6 +18,9 @@
  *   <https://zipcpu.com/zipcpu/2017/11/18/wb-prefetch.html>.
  *
  */
+`timescale 1ns/1ps
+`default_nettype none
+
 module fetch(
     input wire clk,
     input wire reset,
@@ -46,7 +49,7 @@ begin
     o_wb_stb <= 1'b0;
 end
 /* START TRANSACTION: it's enabled so we assert cycle and strobe */
-else if (!o_wb_cyc && i_enable)
+else if (!o_wb_cyc && i_enable && !o_completed)
 begin
     o_wb_cyc <= 1'b1;
     o_wb_stb <= 1'b1;
@@ -65,6 +68,11 @@ always @(posedge clk) begin
         o_instruction <= i_wb_data;
         o_completed <= 1'b1;
     end
+end
+
+always @(posedge clk) begin
+    if (o_completed)
+        o_completed <= 1'b0;
 end
 
 endmodule
