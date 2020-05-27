@@ -1,5 +1,11 @@
 /*
  * Simple 32bit cpu with load/store operations.
+ *
+ * Phases:
+ *  1. fetch
+ *  2. decode
+ *  3. execute
+ *  4. store
  */
 `timescale 1ns/1ps
 `default_nettype none
@@ -13,6 +19,7 @@ module cpu(
 /* verilator lint_off UNDRIVEN */
     output wire [31:0] o_data,
     output wire [31:0] o_addr,
+    output wire o_wb_cyc,
     output wire o_wb_stb,
     input wire i_wb_ack,
     input wire i_wb_stall
@@ -124,18 +131,16 @@ parameter PUSH = 4'b1000; /* 8 */
 parameter POP  = 4'b1001; /* 9 */
 
 // the cycle states of our cpu, i.e. the Control Unit states
-parameter s_fetch   = 2'b00;    // fetch next instruction from memory
-parameter s_decode  = 2'b01;    // decode instruction into opcode and operands
-parameter s_execute = 2'b10;    // execute the instruction inside the ALU
-parameter s_store   = 2'b11;    // store the result back to memory
+parameter s_fetch   = 4'b0001;    // fetch next instruction from memory
+parameter s_decode  = 4'b0010;    // decode instruction into opcode and operands
+parameter s_execute = 4'b0100;    // execute the instruction inside the ALU
+parameter s_store   = 4'b1000;    // store the result back to memory
 
-reg [1:0] current_state;
-reg [1:0] next_state;
+wire [3:0] current_state;
 
 /* Initialize internals */
 initial begin
         registers[0] = 32'hb0000000;
-        next_pc = 32'hb0000000;
         _flags = 16'b0;
 end
 
@@ -145,16 +150,12 @@ always @(posedge clk)
 begin
     if (~reset)
     begin
-        current_state <= s_fetch;
+        current_state = 4'b0001;
         registers[0] <= 32'hb0000000;
         flags <= 16'b0;
+        //_flags <= 16'b0;
     end
     else
-        current_state <= next_state;
-        // q_addr <= d_addr;
-        q_instruction <= i_data; /* we are reading the instruction from the*/
-        q_opcode <= d_opcode;
-
         if (store) begin
             for (i = 0 ; i < 16 ; i++) begin
                 registers[i] <= _registers[i];
@@ -166,10 +167,6 @@ end
 /*
  * d and q are the conventional labels to the input/output of the flip-flops
  */
-reg [31:0] q_instruction, d_instruction;
-reg [31:0] q_addr, _addr;
-reg [31:0] next_pc;
-reg [3:0]  q_opcode, d_opcode;
 reg store;
 
 /* load related signals */
@@ -185,21 +182,12 @@ if (reset) begin
         case (current_state)
             s_fetch:
             begin
-                store = 0;
-                _addr = registers[0]; /* set the address line */
                 _registers[0] = registers[0] + 4;
 
-                next_state = s_decode;
-            end
-            s_decode:
-            begin
-                d_opcode = q_instruction[31:28];
-
-                next_state = s_execute;
             end
             s_execute:
             begin
-                case (q_opcode)
+                case (opcode)
                     HALT:
                     begin
                     end
@@ -208,7 +196,7 @@ if (reset) begin
                         // isImmediate = q_instruction[27:27];
                         // isDirect = q_instruction[26:26];
                         // width = q_instruction[25:25]
-                        _registers[q_instruction[23:20]] = {16'b0, q_instruction[15:0]};
+                        //_registers[q_instruction[23:20]] = {16'b0, q_instruction[15:0]};
                         _flags[3:0] = 4'b0;
                         // FIXME: use 'u' to load upper part
                         load_type = 1;
@@ -218,15 +206,19 @@ if (reset) begin
                      * We simply want to perform a move into the PC
                      */
                     begin
+                    /*
                         _registers[0] = registers[q_instruction[23:20]];
                         if (q_instruction[19]) begin
                             _registers[q_instruction[19:16]] = registers[0] + 4;
                         end
+                        */
                     end
                     ADD:
                     begin
+                    /*
                         {_flags[CARRY], _registers[q_instruction[27:24]]} = 
                             registers[q_instruction[23:20]] + registers[{1'b1, q_instruction[18:16]}];
+                            */
                     end
                     SUB:
                     begin
@@ -243,20 +235,50 @@ if (reset) begin
                     POP:
                     begin
                     end
-                    default:
-                        next_state = s_fetch; /* FIXME */
                 endcase
-                next_state = s_store;
             end
             s_store:
             begin
                 load_type = 0; /* reset possible loads */
                 store = 1; /* now we can commit the changes to the registers */
-                next_state = s_fetch;
             end
         endcase
 end
 
-assign o_addr = _addr; /* probably should be hiZ when not driven by the CPU */
+wire enable_fetch;
+
+fetch fetch_phase(
+    .clk(clk),
+    .reset(reset),
+    .i_enable(enable_fetch),
+    .i_pc(registers[0]),
+    .o_instruction(fetched_instruction),
+    .o_completed(enable_decode),
+    .o_wb_addr(o_addr),
+    .o_wb_cyc(o_wb_cyc),
+    .o_wb_stb(o_wb_stb),
+    .i_wb_ack(i_wb_ack),
+    .i_wb_data(i_data)
+);
+
+wire fetched_instruction;
+wire enable_decode;
+
+decode decode_phase(
+    .reset(reset),
+    .i_enable(enable_decode),
+    .i_instruction(fetched_instruction),
+    .o_opcode(opcode),
+    .o_operandA(operandA),
+    .o_operandB(operandB),
+    .o_operandC(operandC),
+    .o_completed(enable_execute)
+);
+
+wire opcode, operandA, operandB, operandC;
+
+wire enable_execute;
+
+assign current_state = {0, enable_execute, enable_decode, enable_fetch};
 
 endmodule
