@@ -46,7 +46,7 @@ public:
 
 class LoadInstructionImpl : public InstructionImpl {
     using InstructionImpl::InstructionImpl;
-    size_t parseFlags();
+    void parseFlags();
     void parseOpcode();
     void validate();
     void encode();

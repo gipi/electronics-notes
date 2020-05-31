@@ -40,7 +40,9 @@ parameter width_reg   = 32;       // width in bits of the registers
 parameter width_flags_reg = 16;
 
 reg [width_reg - 1:0] registers[n_reg - 1:0]; // here our registers
-reg [width_reg - 1:0] _registers[n_reg - 1:0]; // here our copy to store final writes
+reg [width_reg - 1:0] inner_registers[n_reg - 1:0]; // here our copy to store final writes
+
+
 /*
  * FLAGS
  *
@@ -55,23 +57,109 @@ parameter ZERO  = 2;
 parameter OVERF = 3;
 reg [width_flags_reg - 1:0] flags;
 reg [width_flags_reg - 1:0] _flags;
+
+
+/* Initialize internals */
+initial begin
+        registers[0] = 32'hb0000000;
+        inner_registers[0] = 32'hb0000000;
+        _flags = 16'b0;
+        enable_fetch = 1'b0;
+end
+
+/* Sequential part */
+always @(posedge clk)
+begin
+    if (~reset)
+    begin
+        registers[0] <= 32'hb0000000;
+        flags <= 16'b0;
+        //_flags <= 16'b0;
+        enable_fetch <= 1'b1;
+    end
+    else
+        enable_fetch <= feedback_enable_fetch;
+end
+
+
+reg enable_fetch;
+
+fetch fetch_phase(
+    .clk(clk),
+    .reset(reset),
+    .i_enable(enable_fetch),
+    .i_pc(registers[0]),
+    .o_instruction(fetched_instruction),
+    .o_completed(enable_decode),
+    .o_wb_addr(o_addr),
+    .o_wb_cyc(o_wb_cyc),
+    .o_wb_stb(o_wb_stb),
+    .i_wb_ack(i_wb_ack),
+    .i_wb_data(i_data)
+);
+
+wire [31:0] fetched_instruction;
+wire enable_decode;
+
+decode decode_phase(
+    .clk(clk),
+    .reset(reset),
+    .i_enable(enable_decode),
+    .i_instruction(fetched_instruction),
+    .o_opcode(opcode),
+    .o_extra(extra),
+    .o_operandA(operandA),
+    .o_operandB(operandB),
+    .o_immediate(immediate),
+    .o_completed(enable_execute)
+);
+
+reg enable_execute;
+wire [3:0] opcode;
+wire [3:0] extra;
+wire [3:0] operandA;
+wire [3:0] operandB;
+wire [15:0] immediate;
+
+parameter NOP  = 4'b0000; /* 0 */
+parameter LOAD = 4'b0001; /* 1 */
+parameter MOVE = 4'b0010; /* 2 */
+parameter JUMP = 4'b0011; /* 3 */
+parameter ADD  = 4'b0100; /* 4 */
+parameter SUB  = 4'b0101; /* 5 */
+parameter MUL  = 4'b0110; /* 6 */
+parameter STR  = 4'b0111; /* 7 */
+parameter PUSH = 4'b1000; /* 8 */
+parameter POP  = 4'b1001; /* 9 */
+parameter XOR  = 4'b1010; /* a */
+parameter HALT = 4'b1011; /* b */
+
 /*
  * Layout instructions
  *
- * |              |
- * '..............'
+ *  - 4bits: opcode
+ *  - 4bits: extra
+ *  - 4bits: destination register
+ *  - 4bits: operand register
+ *  - 16bits: immediate
+ *
+ *   |  op  |    extra  |   reg dest    |    op  reg      n  |    offset   |
+ *    31  28 27       24 23           20 19                16 15          0
  *
  * > Loads
  *
+ * This instruction loads into a destination register (rd) the value
+ * pointed in the location in memory pointed by a source register
+ * plus an offset or an immediate.
+ *
  *  - 4bits: opcode
- *  - 1bit:  direct/memory
- *  - 1bit:  immediate/register [ldi/ldr]
  *  - 2bits: width of the operation (byte, short, word).
+ *  - 1bit:  immediate/register [ldi/ldr]
+ *  - 1bit:  upper/lower for the intermediate
  *  - 4bits: destination register idx
- *  - 4bits: if immediate: msb indicate lower/upper else source register idx
+ *  - 4bits: source register idx
  *  - 16bits: value (when reg as source use msb to indicate relative addressing)
  *
- *  ldrw  r8, r9              r8 = r9
  *  ldis  r8, #0x100          r8 = 0x....0100
  *  ldius r8, #0x100          r8 = 0x01000000
  *  ldimw  r8, [0xcafababe]   r8 = *0xcafababe
@@ -119,166 +207,111 @@ reg [width_flags_reg - 1:0] _flags;
  *
  *  The flags are modified depending on the result of the operation.
  */
+/*********************************
+ * EXECUTE STEP
+ *********************************/
+/*
+ * Here we are in trouble: some operations need first to load something from
+ * memory to set a register (LOAD) and other to save something in memory.
+ *
+ * The latter is not a problem, for the former we need to save the register
+ * index where to load the data meanwhile we are waiting to fetch the data
+ * itself.
+ */
+reg [3:0] store_reg_idx;
+wire loadImmediate, loadUpper;
 
-parameter HALT = 4'b0000; /* 0 */
-parameter LOAD = 4'b0001; /* 1 */
-parameter JUMP = 4'b0011; /* 3 */
-parameter ADD  = 4'b0100; /* 4 */
-parameter SUB  = 4'b0101; /* 5 */
-parameter MUL  = 4'b0110; /* 6 */
-parameter STR  = 4'b0111; /* 7 */
-parameter PUSH = 4'b1000; /* 8 */
-parameter POP  = 4'b1001; /* 9 */
+assign loadImmediate = extra[0];
+assign loadUpper = extra[1];
 
-// the cycle states of our cpu, i.e. the Control Unit states
-parameter s_fetch   = 4'b0001;    // fetch next instruction from memory
-parameter s_decode  = 4'b0010;    // decode instruction into opcode and operands
-parameter s_execute = 4'b0100;    // execute the instruction inside the ALU
-parameter s_store   = 4'b1000;    // store the result back to memory
+/* JUMP */
+wire saveLink;
+wire [3:0] linkRegister;
 
-wire [3:0] current_state;
+assign saveLink = operandB[3];
+assign linkRegister = {1'b1, operandB[2:0]};
 
-/* Initialize internals */
-initial begin
-        registers[0] = 32'hb0000000;
-        _flags = 16'b0;
-end
+reg enableWriteBack; /* rename "commit"? */
 
-integer i;
-/* Sequential part */
 always @(posedge clk)
 begin
-    if (~reset)
-    begin
-        current_state = 4'b0001;
-        registers[0] <= 32'hb0000000;
-        flags <= 16'b0;
-        //_flags <= 16'b0;
-    end
-    else
-        if (store) begin
-            for (i = 0 ; i < 16 ; i++) begin
-                registers[i] <= _registers[i];
+        if (enable_execute)
+        begin
+        inner_registers[0] <= inner_registers[0] + 4;
+        enable_execute <= 1'b0;
+        case (opcode)
+            NOP:
+            begin
+                enableWriteBack <= 1'b1;
             end
-            flags <= _flags;
+            LOAD:
+            begin
+                if (loadImmediate) begin
+                    if (loadUpper)
+                        inner_registers[operandA][31:16] <= immediate ;
+                    else
+                        inner_registers[operandA][15:0] <= immediate ;
+
+                    enableWriteBack <= 1'b1;
+                end
+                else begin
+                    store_reg_idx <= operandA;
+                end
+            end
+            MOVE:
+            begin
+               inner_registers[operandA] <= inner_registers[operandB];
+               enableWriteBack <= 1'b1;
+            end
+            HALT:
+            begin
+            end
+            JUMP:
+            begin
+                /* we allow only 4bits aligned addresses */
+                /* should we fault? */
+                inner_registers[0] <= inner_registers[operandA] & ~(32'h3);
+                if (saveLink)
+                    inner_registers[linkRegister] <= inner_registers[0];
+                enableWriteBack <= 1'b1;
+            end
+            ADD:
+            begin
+            end
+            SUB:
+            begin
+            end
+            MUL:
+            begin
+            end
+            STR:
+            begin
+            end
+            PUSH:
+            begin
+            end
+            POP:
+            begin
+            end
+            XOR:
+            begin
+            end
+            default:
+            begin
+            end
+        endcase
         end
 end
 
-/*
- * d and q are the conventional labels to the input/output of the flip-flops
- */
-reg store;
-
-/* load related signals */
-reg  [3:0] dst_idx; /* for LOAD operation */
-reg [31:0] load_value;
-reg  [1:0] load_type; /* 0: no registers involved 1: immediate 2: registers */
-
-/*
- * Combinatorial logic part
- */
-always @*
-if (reset) begin
-        case (current_state)
-            s_fetch:
-            begin
-                _registers[0] = registers[0] + 4;
-
-            end
-            s_execute:
-            begin
-                case (opcode)
-                    HALT:
-                    begin
-                    end
-                    LOAD:
-                    begin
-                        // isImmediate = q_instruction[27:27];
-                        // isDirect = q_instruction[26:26];
-                        // width = q_instruction[25:25]
-                        //_registers[q_instruction[23:20]] = {16'b0, q_instruction[15:0]};
-                        _flags[3:0] = 4'b0;
-                        // FIXME: use 'u' to load upper part
-                        load_type = 1;
-                    end
-                    JUMP:
-                    /*
-                     * We simply want to perform a move into the PC
-                     */
-                    begin
-                    /*
-                        _registers[0] = registers[q_instruction[23:20]];
-                        if (q_instruction[19]) begin
-                            _registers[q_instruction[19:16]] = registers[0] + 4;
-                        end
-                        */
-                    end
-                    ADD:
-                    begin
-                    /*
-                        {_flags[CARRY], _registers[q_instruction[27:24]]} = 
-                            registers[q_instruction[23:20]] + registers[{1'b1, q_instruction[18:16]}];
-                            */
-                    end
-                    SUB:
-                    begin
-                    end
-                    MUL:
-                    begin
-                    end
-                    STR:
-                    begin
-                    end
-                    PUSH:
-                    begin
-                    end
-                    POP:
-                    begin
-                    end
-                endcase
-            end
-            s_store:
-            begin
-                load_type = 0; /* reset possible loads */
-                store = 1; /* now we can commit the changes to the registers */
-            end
-        endcase
+always @(posedge clk)
+begin
+    if (enableWriteBack) begin
+        registers <= inner_registers;
+        enable_fetch <= 1;
+        enableWriteBack <= 1'b0;
+    end
 end
 
-wire enable_fetch;
-
-fetch fetch_phase(
-    .clk(clk),
-    .reset(reset),
-    .i_enable(enable_fetch),
-    .i_pc(registers[0]),
-    .o_instruction(fetched_instruction),
-    .o_completed(enable_decode),
-    .o_wb_addr(o_addr),
-    .o_wb_cyc(o_wb_cyc),
-    .o_wb_stb(o_wb_stb),
-    .i_wb_ack(i_wb_ack),
-    .i_wb_data(i_data)
-);
-
-wire fetched_instruction;
-wire enable_decode;
-
-decode decode_phase(
-    .reset(reset),
-    .i_enable(enable_decode),
-    .i_instruction(fetched_instruction),
-    .o_opcode(opcode),
-    .o_operandA(operandA),
-    .o_operandB(operandB),
-    .o_operandC(operandC),
-    .o_completed(enable_execute)
-);
-
-wire opcode, operandA, operandB, operandC;
-
-wire enable_execute;
-
-assign current_state = {0, enable_execute, enable_decode, enable_fetch};
+wire feedback_enable_fetch;
 
 endmodule
