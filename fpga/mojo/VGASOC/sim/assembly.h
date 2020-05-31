@@ -44,6 +44,16 @@ public:
     uint32_t getEncoding() { return mEncoded;}; /* TODO: call parse() only on getEncoding() */
 };
 
+class HaltInstructionImpl : public InstructionImpl {
+    using InstructionImpl::InstructionImpl;
+    void encode();
+};
+
+class NopInstructionImpl : public InstructionImpl {
+    using InstructionImpl::InstructionImpl;
+    void encode();
+};
+
 class LoadInstructionImpl : public InstructionImpl {
     using InstructionImpl::InstructionImpl;
     void parseFlags();
@@ -78,6 +88,8 @@ public:
         STORE,
         ADD,
         XOR,
+        HALT,
+        NOP,
     } InstructionType;
 
 
