@@ -30,12 +30,12 @@ protected:
     Operand mROperand;
     Operand mXOperand;
 
-    virtual void parseOpcode() = 0;
+    virtual void parseOpcode() {} ;
     void parseLeftOperand();
     void parseRightOperand();
     void parseExtraOperand();
     void parse();
-    virtual void validate() = 0;
+    virtual void validate() {} ;
     virtual void encode() = 0;
 public:
     InstructionImpl(const std::string opcode, const std::string leftOperand, const std::string rightOperand, const std::string extraOperand = "") :
