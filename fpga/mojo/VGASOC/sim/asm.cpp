@@ -3,6 +3,7 @@
  */
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 #include "assembly.h"
 
 void usage(char* progname) {
@@ -29,7 +30,7 @@ int main(int argc, char* argv[]) {
 
         ISA::Instruction instruction(line);
 
-        std::cout << std::hex << instruction.getEncoding() << std::endl;
+        std::cout << std::setfill('0') <<  std::setw(8) << std::hex << instruction.getEncoding() << std::endl;
     }
 
 }
