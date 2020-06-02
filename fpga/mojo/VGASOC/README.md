@@ -10,7 +10,8 @@ the ``ROM``, ``RAM`` and ``Flash``; we can divide them chunk having size of 1GiB
 
 | Name           | Size   |Address range | Description |
 |------          |--------|--------------|-------------|
-| Boot ROM       |   1MiB | 0x00000000 - 0x000fffff | after reset procedures |
+| Boot ROM       |  32KiB | 0xb0000000 - 0xb0007fff | after reset procedures |
+| internal RAM   |  32KiB | 0xb0008000 - 0xb000ffff |  |
 | VGA controller |        |              | a wishbone slave with a memory interface containing the glyph ROM |
 | External RAM   |  32MiB | 0x40000000 - 0x7fffffff | |
 | External Flash | 512MiB | 0x80000000 - 0xffffffff | |
@@ -39,19 +40,27 @@ store an immediate 32-bit value with only one operation: you can think
 
  - [ ] SoC
    - [ ] Memory mapping
-     - [ ] ROM
-     - [ ] RAM
-     - [ ] Flash
+     - [x] ROM
+     - [x] internal SRAM
+     - [ ] external SDRAM
+     - [ ] external Flash
      - [ ] peripherals (GPIO)
    - [ ] Instruction set
-     - [ ] load/store immediate
-     - [ ] load/store from memory
+     - [ ] move
+     - [x] load immediate
+     - [ ] load from memory
+     - [ ] store to memory
+     - [ ] jumps
+       - [ ] relative
+       - [ ] absolute
+       - [ ] conditional
+       - [x] save the return address
      - [ ] ALU
        - [ ] add
        - [ ] sub
        - [ ] mul
        - [ ] xor
        - [ ] left/right shift
-  - [ ] booting from Boot ROM
+  - [x] booting from Boot ROM
     - [ ] showing a load screen (with [DOOM fire](http://fabiensanglard.net/doom_fire_psx/))
 

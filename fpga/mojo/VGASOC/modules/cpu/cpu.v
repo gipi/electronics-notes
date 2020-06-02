@@ -6,6 +6,10 @@
  *  2. decode
  *  3. execute
  *  4. store
+ *
+ * TODO:
+ *  - traps/exceptions/interrupts
+ *
  */
 `timescale 1ns/1ps
 `default_nettype none
@@ -15,10 +19,13 @@ module cpu(
     input wire clk,
     input wire reset,
 /* verilator lint_off UNUSED */
+    input wire i_exception,
+/* verilator lint_off UNUSED */
     input wire [31:0] i_data,
 /* verilator lint_off UNDRIVEN */
     output wire [31:0] o_data,
     output wire [31:0] o_addr,
+    output wire o_we,
     output wire o_wb_cyc,
     output wire o_wb_stb,
     input wire i_wb_ack,

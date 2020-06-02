@@ -1,8 +1,9 @@
 /*
  */
 `timescale 1ns/1ps
-module bootrom(
+module bootrom #(parameter ROMFILE="") (
     input wire clk,
+    input wire i_enable,
     input wire i_wb_stb,
     output wire o_wb_stall,
     output reg  o_wb_ack,
@@ -15,20 +16,24 @@ module bootrom(
 reg [31:0] ram[64:0];
 
 initial begin
-    $readmemh("../modules/blockrams/boot.rom", ram);
+    /* verilator lint_off WIDTH */
+    if (ROMFILE != "")
+        $readmemh(ROMFILE, ram);
 end
 
 always @ (posedge clk)
 begin
+    if (i_enable) begin
     if (i_wb_stb && !o_wb_stall) begin
         if(i_we)
             ram[i_addr] <= i_data;
         else
             o_data <= ram[i_addr];
-        o_wb_ack <= i_wb_stb && !o_wb_stall;
     end
     else
         o_data <= 32'b0;
+    o_wb_ack <= i_wb_stb && !o_wb_stall;
+    end // if (i_enable)
 end
 
 assign o_wb_stall = 1'b0;
