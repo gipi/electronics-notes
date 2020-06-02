@@ -16,9 +16,10 @@ void LoadInstructionImpl::parseFlags() {
 
     /* the letter after the ld is the immediate/register */
     //char u_flag  = *mOpcode.substr(5, 1).c_str();
+    std::string::size_type indexU = mOpcode.find('u');
 
     short width;
-    bool isUpper = false;
+    bool isUpper = (indexU != std::string::npos);
     char w_flag = 'w';
 
     switch (w_flag) {
@@ -36,6 +37,7 @@ void LoadInstructionImpl::parseFlags() {
     }
 
     mEncoded |= width << 26;
+    mEncoded |= isUpper << 25;
 }
 
 void LoadInstructionImpl::parseOpcode() {
