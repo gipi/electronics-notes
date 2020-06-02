@@ -54,7 +54,7 @@ always @(*) begin
             exception = 1;
     endcase
 end
-bootrom #(.ROMFILE("../modules/blockrams/boot.rom")) br(
+wb_memory #(.ROMFILE("../modules/blockrams/boot.rom")) br(
     .clk(clk),
     .i_enable(enable_bootrom),
     .i_data(cpu_to_rom_signal_data),
@@ -66,7 +66,7 @@ bootrom #(.ROMFILE("../modules/blockrams/boot.rom")) br(
     .i_we(0)
 );
 
-bootrom internal_ram(
+wb_memory internal_ram(
     .clk(clk),
     .i_enable(enable_internal_sram),
     .i_data(cpu_to_rom_signal_data),

@@ -1,7 +1,7 @@
 /*
  */
 `timescale 1ns/1ps
-module bootrom #(parameter ROMFILE="") (
+module wb_memory #(parameter ROMFILE="") (
     input wire clk,
     input wire i_enable,
     input wire i_wb_stb,
