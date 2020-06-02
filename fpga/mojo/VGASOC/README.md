@@ -5,16 +5,16 @@ This is an attempt to build a rudimentary CPU with boot ROM, VRAM and Text RAM.
 ## Memory layout
 
 Each component can be accessed via its own address space; using 32-bit as address space dimension
-we know that we have 4GiB at our disposal. There are three region to be taken into account:
+we know that we have 4GiB at our disposal. There are three regions to be taken into account:
 the ``ROM``, ``RAM`` and ``Flash``; we can divide them chunk having size of 1GiB, 1GiB and 2GiB respectively.
 
 | Name           | Size   |Address range | Description |
 |------          |--------|--------------|-------------|
-| Boot ROM       |  32KiB | 0xb0000000 - 0xb0007fff | after reset procedures |
-| internal RAM   |  32KiB | 0xb0008000 - 0xb000ffff |  |
+| Boot ROM       |  32KiB | ``0xb0000000`` - ``0xb0007fff`` | after reset procedures |
+| internal RAM   |  32KiB | ``0xb0008000`` - ``0xb000ffff`` |  |
 | VGA controller |        |              | a wishbone slave with a memory interface containing the glyph ROM |
-| External RAM   |  32MiB | 0x40000000 - 0x7fffffff | |
-| External Flash | 512MiB | 0x80000000 - 0xffffffff | |
+| External RAM   |  32MiB | ``0x40000000`` - ``0x7fffffff`` | |
+| External Flash | 512MiB | ``0x80000000`` - ``0xffffffff`` | |
 
 ## Instruction set
 
@@ -44,7 +44,10 @@ store an immediate 32-bit value with only one operation: you can think
      - [x] internal SRAM
      - [ ] external SDRAM
      - [ ] external Flash
-     - [ ] peripherals (GPIO)
+     - [ ] peripherals
+       - [ ] GPIO
+       - [ ] UART
+       - [ ] VGA
    - [ ] Instruction set
      - [ ] move
      - [x] load immediate
@@ -61,6 +64,11 @@ store an immediate 32-bit value with only one operation: you can think
        - [ ] mul
        - [ ] xor
        - [ ] left/right shift
-  - [x] booting from Boot ROM
-    - [ ] showing a load screen (with [DOOM fire](http://fabiensanglard.net/doom_fire_psx/))
+   - [ ] traps/interrupts/exceptions
+     - [ ] instructions (enable/disable)
+     - [ ] signals
+     - [ ] vector table
+   - [x] booting from Boot ROM
+     - [ ] showing a load screen (with [DOOM fire](http://fabiensanglard.net/doom_fire_psx/))
+   - [ ] debug (live dump of registers and memory access)
 
