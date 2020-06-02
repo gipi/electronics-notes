@@ -178,7 +178,8 @@ parameter HALT = 4'b1011; /* b */
  *
  * - 4bits: opcode
  * - 4bits: indicate the condition for the jump
- * - 4bits: register containing the address where jump to
+ * - 1bit:  absolute/relative (MIPS has branch and jump as different instructions)
+ * - 3bits: register containing the address where jump to (r8-r15)
  * - 1bit:  save the return address
  * - 3bits: register where to put the return address (r8-r15)
  * - 16bits: offset
@@ -186,10 +187,10 @@ parameter HALT = 4'b1011; /* b */
  *   |  op  |    cond   |   reg source  | save | reg return  |    offset   |
  *    31  28 27       24 23           20   19   18         16 15          0
  *
- *
- *  jr r7               pc = r7
- *  jrl r7              r15 = pc, pc = r7
- *  jrl r7, r6          r6 = pc, pc = r7
+ *  jr r8               pc = r7
+ *  jrl r8              r15 = pc, pc = r8
+ *  jrl r8, r12         r12 = pc, pc = r8
+ *  jrr r11             pc += r12
  *
  * The flags are preserved during a jump.
  *
@@ -232,10 +233,11 @@ assign loadImmediate = extra[0];
 assign loadUpper = extra[1];
 
 /* JUMP */
-wire saveLink;
+wire saveLink, jumpRelative;
 wire [3:0] linkRegister;
 
 assign saveLink = operandB[3];
+assign jumpRelative = operandA[3];
 assign linkRegister = {1'b1, operandB[2:0]};
 
 reg enableWriteBack; /* rename "commit"? */
@@ -277,7 +279,10 @@ begin
             begin
                 /* we allow only 4bits aligned addresses */
                 /* should we fault? */
-                inner_registers[0] <= inner_registers[operandA] & ~(32'h3);
+                if (jumpRelative)
+                    inner_registers[0] <= inner_registers[0] + (inner_registers[operandA] & ~(32'h3));
+                else
+                    inner_registers[0] <= inner_registers[operandA] & ~(32'h3);
                 if (saveLink)
                     inner_registers[linkRegister] <= inner_registers[0];
                 enableWriteBack <= 1'b1;

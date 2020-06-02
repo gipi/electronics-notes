@@ -51,8 +51,8 @@ store an immediate 32-bit value with only one operation: you can think
      - [ ] load from memory
      - [ ] store to memory
      - [ ] jumps
-       - [ ] relative
-       - [ ] absolute
+       - [x] relative
+       - [x] absolute
        - [ ] conditional
        - [x] save the return address
      - [ ] ALU

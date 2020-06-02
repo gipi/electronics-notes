@@ -8,8 +8,11 @@ extern short opcodes[];
 
 void JumpInstructionImpl::parseOpcode() {
     mEncoded  = opcodes[Instruction::JUMP] << 28;
-    if (mOpcode[2] == 'l') {
+    if ((mOpcode.size() == 3 && mOpcode[2] == 'l') || (mOpcode.size() == 4 && mOpcode[3] == 'l')) {
         mIsLink = true;
+    }
+    if ((mOpcode.size() == 3 && mOpcode[2] == 'r') || mOpcode.size() == 4 && mOpcode[3] == 'r') {
+        mIsRelative = true;
     }
 }
 
@@ -26,6 +29,7 @@ void JumpInstructionImpl::encode() {
     mEncoded |= mLOperand.reg << 20;
     mEncoded |= (mROperand.type == OperandType::REGISTER ? mROperand.reg : 7) << 16;
     mEncoded |= mIsLink << 19;
+    mEncoded |= mIsRelative << 23;
 }
 
 } // end namespace ISA
