@@ -114,6 +114,11 @@ fetch fetch_phase(
 wire [31:0] fetched_instruction;
 wire enable_decode;
 
+always @(posedge clk) begin
+    if (enable_decode) /* modify here the pc so that after we don't have race condition */
+        inner_registers[PC] <= inner_registers[PC] + 4;
+end
+
 decode decode_phase(
     .clk(clk),
     .reset(reset),
@@ -262,7 +267,6 @@ always @(posedge clk)
 begin
         if (enable_execute)
         begin
-        inner_registers[0] <= inner_registers[0] + 4;
         enable_execute <= 1'b0;
         case (opcode)
             NOP:
