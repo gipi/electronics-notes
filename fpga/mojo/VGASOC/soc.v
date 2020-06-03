@@ -35,25 +35,12 @@ cpu core(
  * 0xb0008000 - 0xb000ffff  internal RAM
  * 0xc0000000 IO
  */
-wire enable_bootrom, enable_internal_sram;
-reg enable_internals_memory;
+wire enable_internal, enable_bootrom, enable_sram;
 
-assign enable_bootrom = enable_internals_memory;
-assign enable_internal_sram = ~enable_internals_memory;
+assign enable_internal = 16'hb000 == signal_address[31:16];
+assign enable_bootrom = enable_internal && ~signal_address[15];
+assign enable_sram = enable_internal && signal_address[15];
 
-always @(*) begin
-    case (signal_address[31:16])
-        16'hb000:
-            case (signal_address[15])
-                1'b0:
-                    enable_internals_memory = 1'b1;
-                1'b1:
-                    enable_internals_memory = 1'b0;
-            endcase
-        default:
-            exception = 1;
-    endcase
-end
 wb_memory #(.ROMFILE("../modules/blockrams/boot.rom")) br(
     .clk(clk),
     .i_enable(enable_bootrom),
@@ -68,7 +55,7 @@ wb_memory #(.ROMFILE("../modules/blockrams/boot.rom")) br(
 
 wb_memory internal_ram(
     .clk(clk),
-    .i_enable(enable_internal_sram),
+    .i_enable(enable_sram),
     .i_data(cpu_to_rom_signal_data),
     .o_data(rom_to_cpu_signal_data),
     .i_addr(signal_address[6:0] & (~3)),
