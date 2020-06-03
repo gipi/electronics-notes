@@ -1,7 +1,7 @@
 ROOT_DIR:=$(strip $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST)))))
 
 PATH_MODULES = $(ROOT_DIR)/../modules/
-ASM_CXX_SOURCES = assembly.cpp loadImpl.cpp jumpImpl.cpp addImpl.cpp
+ASM_CXX_SOURCES = assembly.cpp loadImpl.cpp jumpImpl.cpp addImpl.cpp mulImpl.cpp
 CPU_CXX_SOURCES = cpusim.cpp $(ASM_CXX_SOURCES)
 BOOTROM = $(PATH_MODULES)/blockrams/boot.rom
 

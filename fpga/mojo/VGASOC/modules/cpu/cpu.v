@@ -214,6 +214,11 @@ parameter HALT = 4'b1011; /* b */
  *  add r6, r2, r9 + 0x1d34           r6 = r2 + r9 + 0x1d34
  *
  *  The flags are modified depending on the result of the operation.
+ *
+ * > Multiplication
+ *
+ * mul r7, r6
+ *
  */
 /*********************************
  * EXECUTE STEP
@@ -239,6 +244,11 @@ wire [3:0] linkRegister;
 assign saveLink = operandB[3];
 assign jumpRelative = operandA[3];
 assign linkRegister = {1'b1, operandB[2:0]};
+
+/* multiplication */
+wire [3:0] destinationMSB, destinationLSB;
+assign destinationMSB = operandA;
+assign destinationLSB = operandB;
 
 reg enableWriteBack; /* rename "commit"? */
 
@@ -295,6 +305,8 @@ begin
             end
             MUL:
             begin
+                {inner_registers[destinationMSB], inner_registers[destinationLSB]} <= inner_registers[operandA] * inner_registers[operandB];
+                enableWriteBack <= 1;
             end
             STR:
             begin

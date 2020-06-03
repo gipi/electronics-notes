@@ -15,6 +15,7 @@ short opcodes [] { /* you MUST set without jumps in the index [] otherwise fails
     [Instruction::JUMP] = 0x3,
     [Instruction::STORE] = 0x7,
     [Instruction::ADD] =  0x4,
+    [Instruction::MUL] =  0x6,
     [Instruction::XOR] =  0xa,
     [Instruction::HALT] = 0xb,
     [Instruction::NOP] = 0x0,
@@ -76,6 +77,10 @@ void Instruction::parse() {
         case OP('n', 'o'):
             mType = NOP;
             mInstruction = new NopInstructionImpl(opcode, operand1, operand2, operand3);
+            break;
+        case OP('m', 'u'):
+            mType = MUL;
+            mInstruction = new MulInstructionImpl(opcode, operand1, operand2, operand3);
             break;
         default:
             std::stringstream ss;

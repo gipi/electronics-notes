@@ -80,6 +80,12 @@ class AddInstructionImpl : public InstructionImpl {
     void encode();
 };
 
+class MulInstructionImpl : public InstructionImpl {
+    using InstructionImpl::InstructionImpl;
+    void validate();
+    void encode();
+};
+
 
 class Instruction {
 public:
@@ -88,6 +94,7 @@ public:
         JUMP,
         STORE,
         ADD,
+        MUL,
         XOR,
         HALT,
         NOP,

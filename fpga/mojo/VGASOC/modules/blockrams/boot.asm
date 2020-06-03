@@ -1,7 +1,7 @@
-ld r8, 0x10
+ld r8, 0xc
 ldu r11, 0xa5a5
-nop
-nop
+ld r13, 0xff
+mul r11, r13
 nop
 nop
 nop
