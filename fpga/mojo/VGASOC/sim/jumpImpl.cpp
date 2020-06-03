@@ -11,7 +11,7 @@ void JumpInstructionImpl::parseOpcode() {
     if ((mOpcode.size() == 3 && mOpcode[2] == 'l') || (mOpcode.size() == 4 && mOpcode[3] == 'l')) {
         mIsLink = true;
     }
-    if ((mOpcode.size() == 3 && mOpcode[2] == 'r') || mOpcode.size() == 4 && mOpcode[3] == 'r') {
+    if ((mOpcode.size() == 3 && mOpcode[2] == 'r') || (mOpcode.size() == 4 && mOpcode[3] == 'r')) {
         mIsRelative = true;
     }
 }
