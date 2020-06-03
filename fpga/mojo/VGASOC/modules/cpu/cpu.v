@@ -41,6 +41,9 @@ module cpu(
  *  - r14 the stack pointer
  *  - r15 is the comeback register used by the jump
  */
+parameter PC = 0;
+parameter SP = 14;
+parameter LN = 15;
 parameter opcode_size = 4;        // size of opcode in bits
 parameter n_reg       = 16;       // number of registers
 parameter width_reg   = 32;       // width in bits of the registers
@@ -58,10 +61,10 @@ reg [width_reg - 1:0] inner_registers[n_reg - 1:0]; // here our copy to store fi
  *  - zero
  *  - overflow
  */
-parameter CARRY = 0;
-parameter SIGN  = 1;
-parameter ZERO  = 2;
-parameter OVERF = 3;
+parameter CARRY = 2'b0;
+parameter SIGN  = 2'b1;
+parameter ZERO  = 2'b10;
+parameter OVERF = 2'b11;
 reg [width_flags_reg - 1:0] flags;
 reg [width_flags_reg - 1:0] _flags;
 
@@ -79,7 +82,10 @@ always @(posedge clk)
 begin
     if (~reset)
     begin
-        registers[0] <= 32'hb0000000;
+        registers[PC] <= 32'hb0000000;
+        inner_registers[PC] <= 32'hb0000000;
+        registers[SP] <= 32'hb000fffc; /* at reset we use the internal RAM for the stack */
+        inner_registers[SP] <= 32'hb000fffc; /* at reset we use the internal RAM for the stack */
         flags <= 16'b0;
         //_flags <= 16'b0;
         enable_fetch <= 1'b1;
@@ -289,12 +295,12 @@ begin
             begin
                 /* we allow only 4bits aligned addresses */
                 /* should we fault? */
-                if (jumpRelative)
-                    inner_registers[0] <= inner_registers[0] + (inner_registers[operandA] & ~(32'h3));
+                if (jumpRelative) /* FIXME: negative offset? */
+                    inner_registers[PC] <= inner_registers[PC] + (inner_registers[operandA] & ~(32'h3));
                 else
-                    inner_registers[0] <= inner_registers[operandA] & ~(32'h3);
+                    inner_registers[PC] <= inner_registers[operandA] & ~(32'h3);
                 if (saveLink)
-                    inner_registers[linkRegister] <= inner_registers[0];
+                    inner_registers[linkRegister] <= inner_registers[PC];
                 enableWriteBack <= 1'b1;
             end
             ADD:
