@@ -52,9 +52,14 @@ void LoadInstructionImpl::validate() {
 }
 
 void LoadInstructionImpl::encode() {
+    if (mROperand.type == REFERENCE_REGISTER || mROperand.type == REFERENCE_REGISTER_OFFSET) {
+        mEncoded |= mROperand.offset;
+    } else {
+        mEncoded |= 1 << 24;
+        mEncoded |= mROperand.immediate;
+    }
     mEncoded |= mLOperand.reg << 20;
-    mEncoded |= 1 << 24;
-    mEncoded |= mROperand.immediate;
+    mEncoded |= mROperand.reg << 16;
 }
 
 } // end ISA namespace

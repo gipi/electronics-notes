@@ -180,7 +180,6 @@ parameter HALT = 4'b1011; /* b */
  *
  *  ldis  r8, #0x100          r8 = 0x....0100
  *  ldius r8, #0x100          r8 = 0x01000000
- *  ldimw  r8, [0xcafababe]   r8 = *0xcafababe
  *  ldrmw  r8, [r10 + 0x1d34] r8 = *(r10 + 0x1d34)
  *
  * The flags are reset during a load.
@@ -244,6 +243,8 @@ parameter HALT = 4'b1011; /* b */
  */
 reg [3:0] store_reg_idx;
 wire loadImmediate, loadUpper;
+reg [31:0] memoryReference; /* address used in the memory phase */
+reg [31:0] memoryValue; /* value read/stored */
 
 assign loadImmediate = extra[0];
 assign loadUpper = extra[1];
@@ -284,6 +285,9 @@ begin
                     enableWriteBack <= 1'b1;
                 end
                 else begin
+                    enableMemory <= 1'b1;
+                    memoryWrite <= 1'b0;
+                    memoryReference <= inner_registers[operandB] + {16'h0000, immediate};
                     store_reg_idx <= operandA;
                 end
             end
@@ -337,6 +341,35 @@ begin
         end
 end
 
+reg enableMemory;
+reg memoryCompleted;
+
+/* HERE WE ARE GOING TO LOAD/STORE */
+always @(posedge clk) begin
+    if (enableMemory)
+        enableMemory <= 1'b0;
+
+    if (memoryCompleted) begin
+            inner_registers[store_reg_idx] <= memoryValue;
+        enableWriteBack <= 1'b1;
+    end
+end
+
+fetch loadOperation(
+    .clk(clk),
+    .reset(reset),
+    .i_enable(enableMemory),
+    .i_pc(memoryReference),
+    .o_instruction(memoryValue),
+    .o_completed(memoryCompleted),
+    .o_wb_addr(o_addr),
+    .o_wb_cyc(o_wb_cyc),
+    .o_wb_stb(o_wb_stb),
+    .i_wb_ack(i_wb_ack),
+    .i_wb_data(i_data)
+);
+
+/* COMMIT STAGE */
 always @(posedge clk)
 begin
     if (enableWriteBack) begin

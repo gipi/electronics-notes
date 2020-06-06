@@ -17,6 +17,8 @@
  *  Some hints adopted from
  *   <https://zipcpu.com/zipcpu/2017/11/18/wb-prefetch.html>.
  *
+ * FIXME: this module is a smoking shit, I should rework it! the use of a flag
+ * to remember it has been selected it's not a smart move.
  */
 `timescale 1ns/1ps
 `default_nettype none
@@ -27,7 +29,7 @@ module fetch(
     input wire i_enable, /* from cpu */
     input wire [31:0] i_pc, /* from cpu */
     output reg [31:0] o_instruction, /* to cpu */
-    output wire o_completed, /* to cpu */
+    output reg o_completed, /* to cpu */
     output reg o_wb_cyc,
     output reg o_wb_stb,
     input wire [31:0] i_wb_data,
@@ -40,33 +42,41 @@ initial begin
     o_wb_stb = 1'b0;
 end
 
+/* this signal is used to REMEMBER WE HAVE BEEN SELECTED */
+reg selected;
+
 always @(posedge clk)
 /* IDLE: from a reset or from an ack during a transaction */
-if (~reset | (i_wb_ack && o_wb_cyc))
+if (~reset | (i_wb_ack && o_wb_cyc && selected))
 begin
+    if (~reset)
+        selected <= 1'b0;
     o_wb_cyc <= 1'b0;
     o_wb_stb <= 1'b0;
 end
 /* START TRANSACTION: it's enabled so we assert cycle and strobe */
 else if (!o_wb_cyc && i_enable)
 begin
+    selected <= 1'b1;
     o_wb_cyc <= 1'b1;
     o_wb_stb <= 1'b1;
     o_wb_addr <= i_pc;
 end
 /* WAITING RESULT */
-else if(o_wb_cyc)
+else if(o_wb_cyc && selected)
 begin
     o_wb_stb <= 1'b0;
 end
 
 /* COMPLETED */
 always @(posedge clk) begin
-    if (o_wb_cyc && i_wb_ack) begin
+    if (o_wb_cyc && i_wb_ack && selected) begin
         o_instruction <= i_wb_data;
+        o_completed <= 1'b1;
     end
-end
 
-assign o_completed = reset && (i_wb_ack);
+    if (o_completed && selected)
+        o_completed <= 1'b0;
+end
 
 endmodule
