@@ -1,4 +1,4 @@
-# VGA SoC
+# SoC
 
 This is an attempt to build a rudimentary CPU with boot ROM, VRAM and Text RAM.
 
