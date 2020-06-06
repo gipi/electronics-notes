@@ -90,12 +90,14 @@ begin
         //_flags <= 16'b0;
         enable_fetch <= 1'b1;
     end
-    else
-        enable_fetch <= feedback_enable_fetch;
 end
 
 
 reg enable_fetch;
+
+always @(posedge clk)
+    if (reset && enable_fetch)
+        enable_fetch <= 1'b0;
 
 fetch fetch_phase(
     .clk(clk),
@@ -398,6 +400,5 @@ begin
     end
 end
 
-wire feedback_enable_fetch;
 
 endmodule
