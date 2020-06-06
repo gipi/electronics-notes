@@ -85,7 +85,7 @@ begin
         registers[PC] <= 32'hb0000000;
         inner_registers[PC] <= 32'hb0000000;
         registers[SP] <= 32'hb000fffc; /* at reset we use the internal RAM for the stack */
-        inner_registers[SP] <= 32'hb000fffc; /* at reset we use the internal RAM for the stack */
+        inner_registers[SP] <= 32'hb0010000; /* at reset we use the internal RAM for the stack */
         flags <= 16'b0;
         //_flags <= 16'b0;
         enable_fetch <= 1'b1;
@@ -104,11 +104,13 @@ fetch fetch_phase(
     .i_pc(registers[0]),
     .o_instruction(fetched_instruction),
     .o_completed(enable_decode),
+    .o_wb_we(o_we),
     .o_wb_addr(o_addr),
     .o_wb_cyc(o_wb_cyc),
     .o_wb_stb(o_wb_stb),
     .i_wb_ack(i_wb_ack),
-    .i_wb_data(i_data)
+    .i_wb_data(i_data),
+    .i_we(1'b0)
 );
 
 wire [31:0] fetched_instruction;
@@ -229,6 +231,12 @@ parameter HALT = 4'b1011; /* b */
  *
  * mul r7, r6
  *
+ * > Push/Pop
+ *
+ * These instructions use the stack pointer (r14).
+ *
+ * push r12           sp -= 4; *(sp) = r12
+ * pop r3             r3 = *(sp); sp += 4
  */
 /*********************************
  * EXECUTE STEP
@@ -244,6 +252,7 @@ parameter HALT = 4'b1011; /* b */
 reg [3:0] store_reg_idx;
 wire loadImmediate, loadUpper;
 reg [31:0] memoryReference; /* address used in the memory phase */
+reg memoryWrite; /* we are going to write */
 reg [31:0] memoryValue; /* value read/stored */
 
 assign loadImmediate = extra[0];
@@ -327,6 +336,11 @@ begin
             end
             PUSH:
             begin
+                inner_registers[SP] <= inner_registers[SP] - 4;
+                memoryReference <= inner_registers[SP] - 4;
+                memoryValue <= inner_registers[operandA];
+                memoryWrite <= 1'b1;
+                enableMemory <= 1'b1;
             end
             POP:
             begin
@@ -350,8 +364,11 @@ always @(posedge clk) begin
         enableMemory <= 1'b0;
 
     if (memoryCompleted) begin
+        if (~memoryWrite)
             inner_registers[store_reg_idx] <= memoryValue;
+
         enableWriteBack <= 1'b1;
+        memoryWrite <= 1'b0;
     end
 end
 
@@ -365,8 +382,10 @@ fetch loadOperation(
     .o_wb_addr(o_addr),
     .o_wb_cyc(o_wb_cyc),
     .o_wb_stb(o_wb_stb),
+    .o_wb_we(o_we),
     .i_wb_ack(i_wb_ack),
-    .i_wb_data(i_data)
+    .i_wb_data(i_data),
+    .i_we(memoryWrite)
 );
 
 /* COMMIT STAGE */

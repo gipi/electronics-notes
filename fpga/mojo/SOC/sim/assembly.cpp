@@ -18,6 +18,7 @@ short opcodes [] { /* you MUST set without jumps in the index [] otherwise fails
     [Instruction::MUL] =  0x6,
     [Instruction::XOR] =  0xa,
     [Instruction::HALT] = 0xb,
+    [Instruction::PUSH] = 0x8,
     [Instruction::NOP] = 0x0,
 };
 
@@ -81,6 +82,10 @@ void Instruction::parse() {
         case OP('m', 'u'):
             mType = MUL;
             mInstruction = new MulInstructionImpl(opcode, operand1, operand2, operand3);
+            break;
+        case OP('p', 'u'):
+            mType = PUSH;
+            mInstruction = new PushInstructionImpl(opcode, operand1, operand2, operand3);
             break;
         default:
             std::stringstream ss;
@@ -188,6 +193,15 @@ void HaltInstructionImpl::encode() {
 
 void NopInstructionImpl::encode() {
     mEncoded = opcodes[Instruction::NOP] << 28;
+}
+
+void PushInstructionImpl::validate() {
+    // FIXME: check only one register argument
+}
+
+void PushInstructionImpl::encode() {
+    mEncoded  = opcodes[Instruction::PUSH] << 28;
+    mEncoded |= mLOperand.reg << 20;
 }
 
 } // end ISA namespace

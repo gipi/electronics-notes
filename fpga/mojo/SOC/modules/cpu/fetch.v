@@ -32,9 +32,11 @@ module fetch(
     output reg o_completed, /* to cpu */
     output reg o_wb_cyc,
     output reg o_wb_stb,
-    input wire [31:0] i_wb_data,
+    output wire o_wb_we,
+    input wire [31:0] i_wb_data, /* from here is coming the data from the memory*/
     input wire i_wb_ack,
-    output reg [31:0] o_wb_addr
+    input wire i_we,
+    output reg [31:0] o_wb_addr /* this is the requested address */
 );
 
 initial begin
@@ -74,9 +76,12 @@ always @(posedge clk) begin
         o_instruction <= i_wb_data;
         o_completed <= 1'b1;
     end
-
-    if (o_completed && selected)
+    else if (o_completed && selected) begin
         o_completed <= 1'b0;
+        selected <= 1'b0;
+    end
 end
+
+assign o_wb_we = i_we;
 
 endmodule

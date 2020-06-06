@@ -86,6 +86,12 @@ class MulInstructionImpl : public InstructionImpl {
     void encode();
 };
 
+class PushInstructionImpl : public InstructionImpl {
+    using InstructionImpl::InstructionImpl;
+    void validate();
+    void encode();
+};
+
 
 class Instruction {
 public:
@@ -97,6 +103,7 @@ public:
         MUL,
         XOR,
         HALT,
+        PUSH,
         NOP,
     } InstructionType;
 
