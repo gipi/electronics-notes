@@ -11,6 +11,23 @@ void usage(char* progname) {
     exit(1);
 }
 
+enum LineType {
+    COMMENT,
+    DIRECTIVE,
+    CODE,
+};
+
+
+LineType getType(char* line) {
+    if (line[0] == '#') {
+        return COMMENT;
+    } else if (line[0] == '.') {
+        return DIRECTIVE;
+    }
+
+    return CODE;
+}
+
 
 int main(int argc, char* argv[]) {
     if (argc < 2) {
@@ -20,17 +37,31 @@ int main(int argc, char* argv[]) {
     std::ifstream source(argv[1], std::ios::in);
 
     while (true) {
-        char line[21];
+        char line[64];
 
-        source.getline(line, 20);
+        source.getline(line, 63); /* FIXME: understand how behaves the count argument! */
 
         if (source.fail()) {
             break;
         }
 
-        ISA::Instruction instruction(line);
-
-        std::cout << std::setfill('0') <<  std::setw(8) << std::hex << instruction.getEncoding() << std::endl;
+        switch (getType(line)) {
+            case CODE: {
+                ISA::Instruction instruction(line);
+                std::cout << std::setfill('0') <<  std::setw(8) << std::hex << instruction.getEncoding() << std::endl;
+                break;
+            }
+            case COMMENT:
+                std::cerr << "found comment" << std::endl;
+                break;
+            case DIRECTIVE:
+                std::string directive(line);
+                std::cerr << "found directive '" << directive << "'" << std::endl;
+                if (directive.find(".word") != std::string::npos) {
+                    std::cout << directive.substr(6) << std::endl;
+                }
+                break;
+        }
     }
 
 }
