@@ -108,15 +108,20 @@ Operand Instruction::parseOperand(const std::string operand) {
         return resultOperand;
     }
     std::string innerOperand = operand;
+
     /* TODO: trim whitespaces (seems that in C++ is like impossible to do wo magic) */
-    if (operand[0] == '[') {
+    std::string::size_type indexBracket = operand.find('[');
+    std::string::size_type indexClosingBracket = operand.find(']');
+
+    if (indexBracket != std::string::npos) {
         /* we have an open bracket could be a reference */
-        if (operand[operand.size() - 1] != ']') {
+        if (indexClosingBracket == std::string::npos) {
             std::stringstream ss;
             ss << "'" << operand << "' has not closing bracket";
             throw std::runtime_error(ss.str());
         }
-        innerOperand = operand.substr(1, operand.size() - 2);
+        isReference = true;
+        innerOperand = operand.substr(indexBracket + 1, indexClosingBracket - indexBracket - 1);
     }
 
     /* now we have the value parsable or as an immediate or as a register (+ offset) */
@@ -129,11 +134,13 @@ Operand Instruction::parseOperand(const std::string operand) {
             resultOperand.type = isReference ? OperandType::REFERENCE_REGISTER : OperandType::REGISTER;
             resultOperand.reg = atoi(innerOperand.substr(indexR + 1).c_str()); /* FIXME: check for errors */
         } else if (!isReference) {
-            throw std::runtime_error("operand parsing: an immediate doesn't allow for offset");
+            std::stringstream ss;
+            ss << "'" << operand << "': an immediate doesn't allow for offset";
+            throw std::runtime_error(ss.str());
         } else {
             resultOperand.type = OperandType::REFERENCE_REGISTER_OFFSET;
             resultOperand.reg = atoi(innerOperand.substr(1, plusIndex - 1).c_str());
-            resultOperand.offset = atoi(innerOperand.substr(plusIndex + 1).c_str());
+            resultOperand.offset = strtol(innerOperand.substr(plusIndex + 1).c_str(), NULL, 16);
         }
     } else { /* if we are here then this is an immediate */
         char* endptr;
