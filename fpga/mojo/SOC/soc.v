@@ -13,6 +13,10 @@ wire [31:0] rom_to_cpu_signal_data;
 wire [31:0] signal_address;
 wire wb_cyc, wb_stb, wb_stall, wb_ack, cpu_we;
 
+initial begin
+    exception = 1'b0;
+end
+
 cpu core(
     .clk(clk),
     .reset(reset),
@@ -40,6 +44,7 @@ wire enable_internal, enable_bootrom, enable_sram;
 assign enable_internal = 16'hb000 == signal_address[31:16];
 assign enable_bootrom = enable_internal && ~signal_address[15];
 assign enable_sram = enable_internal && signal_address[15];
+assign exception = ~enable_internal;
 
 wb_memory #(.ROMFILE("../modules/blockrams/boot.rom")) br(
     .clk(clk),
