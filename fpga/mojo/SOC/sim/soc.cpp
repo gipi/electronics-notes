@@ -6,21 +6,19 @@
 #include "verilated.h"
 #include "verilated_vcd_c.h"
 
-const char* STATES[] = {
-    "FETCH",
-    "DECODE",
-    "EXECUTE",
-    "STORE",
-};
 
 #define LOG(...) fprintf(stderr, __VA_ARGS__)
 
+#if 0
 #define LOGSOC(c) LOG("state: %s\ti_data: %08x instruction: %08x opcode: %02x next_state: %02x\n",\
     STATES[(c)->soc__DOT__core__DOT__current_state], \
     (c)->soc__DOT__cpu_to_rom_signal_data,           \
     (c)->soc__DOT__core__DOT__q_instruction,         \
     (c)->soc__DOT__core__DOT__q_opcode,              \
     (c)->soc__DOT__core__DOT__next_state)
+#else
+#define LOGSOC(c) 
+#endif
 
 void tick(Vsoc* s, uint64_t tickcount, VerilatedVcdC* tfp) {
     s->eval();
@@ -61,7 +59,7 @@ int main(int argc, char* argv[]) {
 
     LOG(" [+] out of reset\n");
 
-    while(timetick < 30) {
+    while(timetick < 100) {
         tick(soc, ++timetick, tfp);
 
         LOGSOC(soc);
