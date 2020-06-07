@@ -315,9 +315,9 @@ begin
                 /* we allow only 4bits aligned addresses */
                 /* should we fault? */
                 if (jumpRelative) /* FIXME: negative offset? */
-                    inner_registers[PC] <= inner_registers[PC] + (inner_registers[operandA] & ~(32'h3));
+                    inner_registers[PC] <= inner_registers[PC] + (inner_registers[{1'b1, operandA[2:0]}] & ~(32'h3));
                 else
-                    inner_registers[PC] <= inner_registers[operandA] & ~(32'h3);
+                    inner_registers[PC] <= inner_registers[{1'b1, operandA[2:0]}] & ~(32'h3);
                 if (saveLink)
                     inner_registers[linkRegister] <= inner_registers[PC];
                 enableWriteBack <= 1'b1;
