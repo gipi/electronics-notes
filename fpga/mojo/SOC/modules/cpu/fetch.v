@@ -18,7 +18,9 @@
  *   <https://zipcpu.com/zipcpu/2017/11/18/wb-prefetch.html>.
  *
  * FIXME: this module is a smoking shit, I should rework it! the use of a flag
- * to remember it has been selected it's not a smart move.
+ * to remember it has been selected it's not a smart move. Also the o_wb_we
+ * signal should be a simple wire but the simulator seems to behaves strangely
+ * using it.
  */
 `timescale 1ns/1ps
 `default_nettype none
@@ -32,7 +34,7 @@ module fetch(
     output reg o_completed, /* to cpu */
     output reg o_wb_cyc,
     output reg o_wb_stb,
-    output wire o_wb_we,
+    output reg o_wb_we,
     input wire [31:0] i_wb_data, /* from here is coming the data from the memory*/
     input wire i_wb_ack,
     input wire i_we,
@@ -68,6 +70,7 @@ end
 else if(o_wb_cyc && selected)
 begin
     o_wb_stb <= 1'b0;
+    o_wb_we <= i_we;
 end
 
 /* COMPLETED */
@@ -79,9 +82,8 @@ always @(posedge clk) begin
     else if (o_completed && selected) begin
         o_completed <= 1'b0;
         selected <= 1'b0;
+        o_wb_we <= 1'b0;
     end
 end
-
-assign o_wb_we = i_we;
 
 endmodule
