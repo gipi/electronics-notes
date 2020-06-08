@@ -12,6 +12,7 @@ void usage(char* progname) {
 }
 
 enum LineType {
+    EMPTY,
     COMMENT,
     DIRECTIVE,
     CODE,
@@ -23,6 +24,8 @@ LineType getType(char* line) {
         return COMMENT;
     } else if (line[0] == '.') {
         return DIRECTIVE;
+    } else if (line[0] == '\0') {
+        return EMPTY;
     }
 
     return CODE;
