@@ -346,6 +346,9 @@ begin
             end
             POP:
             begin
+                store_reg_idx <= operandA;
+                memoryReference <= inner_registers[SP];
+                enableMemory <= 1'b1;
             end
             XOR:
             begin
@@ -366,8 +369,11 @@ always @(posedge clk) begin
         enableMemory <= 1'b0;
 
     if (memoryCompleted) begin
-        if (~memoryWrite)
+        if (~memoryWrite) begin
             inner_registers[store_reg_idx] <= memoryValue;
+            if (opcode == POP)
+                inner_registers[SP] <= inner_registers[SP] + 4;
+        end
 
         enableWriteBack <= 1'b1;
         memoryWrite <= 1'b0;

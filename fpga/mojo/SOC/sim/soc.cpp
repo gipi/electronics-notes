@@ -59,7 +59,7 @@ int main(int argc, char* argv[]) {
 
     LOG(" [+] out of reset\n");
 
-    while(timetick < 100) {
+    while(timetick < 150) {
         tick(soc, ++timetick, tfp);
 
         LOGSOC(soc);

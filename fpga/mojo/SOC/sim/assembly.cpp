@@ -19,6 +19,7 @@ short opcodes [] { /* you MUST set without jumps in the index [] otherwise fails
     [Instruction::XOR] =  0xa,
     [Instruction::HALT] = 0xb,
     [Instruction::PUSH] = 0x8,
+    [Instruction::POP] = 0x9,
     [Instruction::NOP] = 0x0,
 };
 
@@ -86,6 +87,10 @@ void Instruction::parse() {
         case OP('p', 'u'):
             mType = PUSH;
             mInstruction = new PushInstructionImpl(opcode, operand1, operand2, operand3);
+            break;
+        case OP('p', 'o'):
+            mType = POP;
+            mInstruction = new PopInstructionImpl(opcode, operand1, operand2, operand3);
             break;
         default:
             std::stringstream ss;
@@ -201,6 +206,15 @@ void PushInstructionImpl::validate() {
 
 void PushInstructionImpl::encode() {
     mEncoded  = opcodes[Instruction::PUSH] << 28;
+    mEncoded |= mLOperand.reg << 20;
+}
+
+void PopInstructionImpl::validate() {
+    // FIXME: check only one register argument
+}
+
+void PopInstructionImpl::encode() {
+    mEncoded  = opcodes[Instruction::POP] << 28;
     mEncoded |= mLOperand.reg << 20;
 }
 

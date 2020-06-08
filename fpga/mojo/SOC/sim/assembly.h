@@ -92,6 +92,12 @@ class PushInstructionImpl : public InstructionImpl {
     void encode();
 };
 
+class PopInstructionImpl : public InstructionImpl {
+    using InstructionImpl::InstructionImpl;
+    void validate();
+    void encode();
+};
+
 
 class Instruction {
 public:
@@ -104,6 +110,7 @@ public:
         XOR,
         HALT,
         PUSH,
+        POP,
         NOP,
     } InstructionType;
 

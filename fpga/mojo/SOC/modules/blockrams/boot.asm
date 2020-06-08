@@ -7,7 +7,7 @@ ld r13, 0xff
 # try to multiply something
 mul r11, r13
 # now load from memory
-ld r9, [r0 + 0x24]
+ld r9, [r0 + 0x28]
 # try to push
 push r9
 ld r1, 0x7
@@ -19,6 +19,7 @@ nop
 nop
 nop
 # STOP THE CPU
+pop r2
 hl
 # this is loaded above
 .word 0x01020304
