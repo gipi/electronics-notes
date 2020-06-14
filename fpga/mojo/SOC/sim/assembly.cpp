@@ -4,6 +4,7 @@
 #include <iostream> // FIXME
 #include <stdexcept>
 #include <sstream>
+#include <plog/Log.h>
 #include "assembly.h"
 
 #define OP(a,b) (a | (b << 8))
@@ -24,10 +25,14 @@ short opcodes [] { /* you MUST set without jumps in the index [] otherwise fails
 };
 
 
+Instruction::Instruction(const std::string mnemonic) : mMnemonic(mnemonic) {
+    PLOG_DEBUG << "instruction: " << mnemonic;
+    parse();
+}
 /*
  * This is the code that decides which instruction we are going to assemble.
  *
- * The generic structure of an instruction is "opcode operand1,operand2", and these
+ * The generic structure of an instruction is "opcode operand1,operand2,operand3", and these
  * are the arguments passed to the XInstructionImpl constructor.
  */
 void Instruction::parse() {
@@ -71,7 +76,6 @@ void Instruction::parse() {
             mType = ADD;
             mInstruction = new AddInstructionImpl(opcode, operand1, operand2, operand3);
             break;
-
         case OP('h', 'l'):
             mType = HALT;
             mInstruction = new HaltInstructionImpl(opcode, operand1, operand2, operand3);
@@ -107,6 +111,8 @@ void Instruction::parse() {
  * r8      --> register
  * 0xabc ----> immediate
  * [...] ----> reference
+ *
+ * TODO: add possibility to have a "variable", something starting with "$".
  */
 Operand Instruction::parseOperand(const std::string operand) {
     bool isReference = false;

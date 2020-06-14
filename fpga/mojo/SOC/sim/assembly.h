@@ -115,9 +115,7 @@ public:
     } InstructionType;
 
 
-    Instruction(const std::string mnemonic) : mMnemonic(mnemonic) {
-        parse();
-    }
+    Instruction(const std::string mnemonic);
     ~Instruction();
     uint32_t getEncoding() { return mInstruction->getEncoding();};
     static Operand parseOperand(const std::string operand);

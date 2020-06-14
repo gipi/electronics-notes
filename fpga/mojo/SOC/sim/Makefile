@@ -1,12 +1,13 @@
 ROOT_DIR:=$(strip $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST)))))
 
 PATH_MODULES = $(ROOT_DIR)/../modules/
-ASM_CXX_SOURCES = assembly.cpp loadImpl.cpp jumpImpl.cpp addImpl.cpp mulImpl.cpp
+ASM_CXX_SOURCES = assembly.cpp loadImpl.cpp jumpImpl.cpp addImpl.cpp mulImpl.cpp source.cpp
 CPU_CXX_SOURCES = cpusim.cpp $(ASM_CXX_SOURCES)
 BOOTROM = $(PATH_MODULES)/blockrams/boot.rom
+PATH_LOG_INCLUDE = plog/include/
 
 asm: asm.cpp $(ASM_CXX_SOURCES)
-	g++ -g -Wall $^ -o $@
+	g++ -Wfatal-errors -I$(PATH_LOG_INCLUDE) -g -Wall $^ -o $@
 
 $(BOOTROM): $(BOOTROM:.rom=.asm) asm
 	./asm $< > $@

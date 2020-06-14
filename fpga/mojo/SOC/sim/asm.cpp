@@ -1,34 +1,33 @@
 /*
  * Assembler for our personal ISA.
+ *
+ * TODO: add Line class that represents each line
+ *
+ * Example for source code:
+ *
+ *    ld r1, 0xabad
+ *    ldu r1, 0x1dea
+ *    ld r10, $whatever
+ *    jrl r10
+ *    hl
+ *   .whatever:
+ *    mov r5, r1
+ *    jr r15
+ *
+ *  We have decoding from source code to an abstract representation of it by line
+ *  and by relations between variables.
  */
 #include <iostream>
 #include <fstream>
-#include <iomanip>
-#include "assembly.h"
+#include <plog/Log.h>
+#include <plog/Init.h>
+#include <plog/Formatters/TxtFormatter.h>
+#include <plog/Appenders/ColorConsoleAppender.h>
+#include "source.h"
 
 void usage(char* progname) {
     std::cout << "usage: " << progname << " <source file>" << std::endl;
     exit(1);
-}
-
-enum LineType {
-    EMPTY,
-    COMMENT,
-    DIRECTIVE,
-    CODE,
-};
-
-
-LineType getType(char* line) {
-    if (line[0] == '#') {
-        return COMMENT;
-    } else if (line[0] == '.') {
-        return DIRECTIVE;
-    } else if (line[0] == '\0') {
-        return EMPTY;
-    }
-
-    return CODE;
 }
 
 
@@ -37,34 +36,13 @@ int main(int argc, char* argv[]) {
         usage(argv[0]);
     }
 
-    std::ifstream source(argv[1], std::ios::in);
+    static plog::ColorConsoleAppender<plog::TxtFormatter> consoleAppender;
+    plog::init(plog::verbose, &consoleAppender);
 
-    while (true) {
-        char line[64];
-
-        source.getline(line, 63); /* FIXME: understand how behaves the count argument! */
-
-        if (source.fail()) {
-            break;
-        }
-
-        switch (getType(line)) {
-            case CODE: {
-                ISA::Instruction instruction(line);
-                std::cout << std::setfill('0') <<  std::setw(8) << std::hex << instruction.getEncoding() << std::endl;
-                break;
-            }
-            case COMMENT:
-                std::cerr << "found comment" << std::endl;
-                break;
-            case DIRECTIVE:
-                std::string directive(line);
-                std::cerr << "found directive '" << directive << "'" << std::endl;
-                if (directive.find(".word") != std::string::npos) {
-                    std::cout << directive.substr(6) << std::endl;
-                }
-                break;
-        }
-    }
-
+    PLOG_INFO << "reading source file '" << argv[1] << "'";
+    std::ifstream stream(argv[1], std::ios::in);
+    Source source(stream, 0xb0000000);
+    
+    PLOG_INFO << "encoding source";
+    std::cout << source.encode();
 }
