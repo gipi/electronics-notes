@@ -50,9 +50,19 @@ store an immediate 32-bit value with only one operation: you can think
        - [ ] VGA
    - [ ] Instruction set
      - [ ] move
-     - [x] load immediate
-     - [ ] load from memory
+     - [ ] load
+         - [ ] different sizes (byte, short, word)
+         - [x] immediate
+         - [x] from memory
      - [ ] store to memory
+     - [ ] push
+       - [ ] byte
+       - [ ] short
+       - [x] word
+     - [ ] pop
+       - [ ] byte
+       - [ ] short
+       - [x] word
      - [ ] jumps
        - [x] relative
        - [x] absolute
