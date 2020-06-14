@@ -22,7 +22,6 @@ module cpu(
     input wire i_exception,
 /* verilator lint_off UNUSED */
     input wire [31:0] i_data,
-/* verilator lint_off UNDRIVEN */
     output wire [31:0] o_data,
     output wire [31:0] o_addr,
     output wire o_we,
@@ -104,6 +103,7 @@ fetch fetch_phase(
     .reset(reset),
     .i_enable(enable_fetch),
     .i_pc(registers[0]),
+    .i_value(32'h0000),
     .o_instruction(fetched_instruction),
     .o_completed(enable_decode),
     .o_wb_we(o_we),
@@ -112,6 +112,7 @@ fetch fetch_phase(
     .o_wb_stb(o_wb_stb),
     .i_wb_ack(i_wb_ack),
     .i_wb_data(i_data),
+    .o_wb_data(o_data),
     .i_we(1'b0)
 );
 
@@ -386,6 +387,7 @@ fetch loadOperation(
     .i_enable(enableMemory),
     .i_pc(memoryReference),
     .o_instruction(memoryValue),
+    .i_value(memoryValue),
     .o_completed(memoryCompleted),
     .o_wb_addr(o_addr),
     .o_wb_cyc(o_wb_cyc),
@@ -393,6 +395,7 @@ fetch loadOperation(
     .o_wb_we(o_we),
     .i_wb_ack(i_wb_ack),
     .i_wb_data(i_data),
+    .o_wb_data(o_data),
     .i_we(memoryWrite)
 );
 

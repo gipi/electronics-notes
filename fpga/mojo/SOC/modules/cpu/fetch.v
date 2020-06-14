@@ -31,11 +31,13 @@ module fetch(
     input wire i_enable, /* from cpu */
     input wire [31:0] i_pc, /* from cpu */
     output reg [31:0] o_instruction, /* to cpu */
+    input wire [31:0] i_value,
     output reg o_completed, /* to cpu */
     output reg o_wb_cyc,
     output reg o_wb_stb,
     output reg o_wb_we,
-    input wire [31:0] i_wb_data, /* from here is coming the data from the memory*/
+    input wire [31:0] i_wb_data, /* from here is coming the data from the memory */
+    output reg [31:0] o_wb_data, /* from here is going the data to memory */
     input wire i_wb_ack,
     input wire i_we,
     output reg [31:0] o_wb_addr /* this is the requested address */
@@ -65,12 +67,16 @@ begin
     o_wb_cyc <= 1'b1;
     o_wb_stb <= 1'b1;
     o_wb_addr <= i_pc;
+
+    if (i_we) begin
+        o_wb_we <= i_we;
+        o_wb_data <= i_value;
+    end
 end
 /* WAITING RESULT */
 else if(o_wb_cyc && selected)
 begin
     o_wb_stb <= 1'b0;
-    o_wb_we <= i_we;
 end
 
 /* COMPLETED */
