@@ -28,5 +28,9 @@ glyph_rom:
 	verilator -I$(PATH_MODULES) -Wall --trace -cc blockrams/glyph_rom.v --exe glyph_rom.cpp
 	make -C obj_dir -j 8 -f V$@.mk V$@
 
+wb_memory:
+	verilator -I$(PATH_MODULES) -Wall --trace -cc blockrams/wb_memory.v --exe wb_memory.cpp
+	make -C obj_dir -j 8 -f V$@.mk V$@
+
 clean:
 	rm -vfr obj_dir ./asm $(BOOTROM)

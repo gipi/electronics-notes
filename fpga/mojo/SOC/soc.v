@@ -58,7 +58,7 @@ wb_memory #(.ROMFILE("../modules/blockrams/boot.rom")) br(
     .i_we(0)
 );
 
-wb_memory internal_ram(
+wb_memory #(.SIZE(4096)) internal_ram(
     .clk(clk),
     .i_enable(enable_sram),
     .i_data(cpu_to_rom_signal_data),
