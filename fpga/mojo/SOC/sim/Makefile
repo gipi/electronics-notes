@@ -1,19 +1,24 @@
 ROOT_DIR:=$(strip $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST)))))
 
 PATH_MODULES = $(ROOT_DIR)/../modules/
-ASM_CXX_SOURCES = assembly.cpp loadImpl.cpp jumpImpl.cpp addImpl.cpp mulImpl.cpp source.cpp
-CPU_CXX_SOURCES = cpusim.cpp $(ASM_CXX_SOURCES)
+CPU_CXX_SOURCES = cpusim.cpp
 BOOTROM = $(PATH_MODULES)/blockrams/boot.rom
 PATH_LOG_INCLUDE = plog/include/
+# with respect to the obj_dir/
+PATH_ASM_INCLUDE = ../../ISA/
+PATH_ASM_LIBRARY = ../../ISA/
+ASM = ../ISA/asm
 
-asm: asm.cpp $(ASM_CXX_SOURCES)
-	g++ -Wfatal-errors -I$(PATH_LOG_INCLUDE) -g -Wall $^ -o $@
+.PHONY : all
 
-$(BOOTROM): $(BOOTROM:.rom=.asm) asm
-	./asm $< > $@
+
+all: $(BOOTROM) soc fetch cpu glyph_rom wb_memory
+
+$(BOOTROM): $(BOOTROM:.rom=.asm)
+	$(ASM) $< > $@
 
 soc: $(BOOTROM)
-	verilator -I$(PATH_MODULES)/cpu/ -I../ -I$(PATH_MODULES)/blockrams/ -CFLAGS '-std=gnu++2a -Wextra -Wall -g -Wpedantic' -Wall --trace -cc soc.v --exe soc.cpp
+	verilator -I$(PATH_MODULES)/cpu/ -I../ -I$(PATH_MODULES)/blockrams/ -CFLAGS '-std=gnu++2a -Wextra -Wall -g -Wpedantic -I$(PATH_LOG_INCLUDE) -I$(PATH_ASM_INCLUDE)' -Wall --trace -cc soc.v --exe soc.cpp
 	make -C obj_dir -j 8 -f V$@.mk V$@
 
 fetch:
@@ -21,7 +26,7 @@ fetch:
 	make -C obj_dir -j 8 -f V$@.mk V$@
 
 cpu:
-	verilator -I$(PATH_MODULES)/cpu/ -CFLAGS '-std=gnu++2a -Wextra -Wall -g -Wpedantic' -Wall --trace -cc cpu.v --exe $(CPU_CXX_SOURCES)
+	verilator -I$(PATH_MODULES)/cpu/ -CFLAGS '-std=gnu++2a -Wextra -Wall -g -Wpedantic -I$(PATH_LOG_INCLUDE) -I$(PATH_ASM_INCLUDE)' -LDFLAGS '-L$(PATH_ASM_LIBRARY) -lisa' -Wall --trace -cc cpu.v --exe $(CPU_CXX_SOURCES)
 	make -C obj_dir -j 8 -f V$@.mk V$@
 
 glyph_rom:
@@ -33,4 +38,4 @@ wb_memory:
 	make -C obj_dir -j 8 -f V$@.mk V$@
 
 clean:
-	rm -vfr obj_dir ./asm $(BOOTROM)
+	rm -vfr obj_dir $(BOOTROM)

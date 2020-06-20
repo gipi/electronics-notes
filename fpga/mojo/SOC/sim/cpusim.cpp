@@ -4,7 +4,7 @@
 #include <stdexcept>
 #include "Vcpu.h"
 #include "verilated.h"
-#include "assembly.h"
+#include <assembly.h>
 
 #define LOG(...) fprintf(stderr, __VA_ARGS__)
 
@@ -26,16 +26,16 @@ const char* STATES[] = {
     LOG("\n");                               \
 } while(0)
 
-#define LOGFLAGS(c) LOG("\tflags: %08x\n", (c)->cpu__DOT__flags)
+#define LOGFLAGS(c) //LOG("\tflags: %08x\n", (c)->cpu__DOT__flags)
 
-#define LOGCPU(c) LOG("state: %s\to_addr: %08x i_data: %08x instruction: %08x opcode: %02x next_state: %02x\n",\
+#define LOGCPU(c) /*LOG("state: %s\to_addr: %08x i_data: %08x instruction: %08x opcode: %02x next_state: %02x\n",\
     STATES[(c)->cpu__DOT__current_state], \
     (c)->o_addr,                  \
     (c)->i_data,                  \
     (c)->cpu__DOT__q_instruction, \
     (c)->cpu__DOT__q_opcode,      \
     (c)->cpu__DOT__next_state     \
-);LOGFLAGS(c);LOGREGISTERS(c)
+);LOGFLAGS(c);LOGREGISTERS(c)*/
 
 void tick(Vcpu* cpu) {
     cpu->clk = 0;
@@ -65,14 +65,14 @@ typedef unsigned short flags_state;
  * fend: the ending state of the flags register
  * end: the registers that have changed (what not indicate is equal at the state indicate in start)
  */
-void do_instruction(Vcpu* cpu, std::string mnemonic, flags_state fstart, std::vector<reg_state> start, flags_state fend, std::vector<reg_state> end) {
+void do_instruction(Vcpu* cpu, const std::string mnemonic, flags_state fstart, std::vector<reg_state> start, flags_state fend, std::vector<reg_state> end) {
     ISA::Instruction instructionA(mnemonic);
 
     LOG(" [#] instruction \'%s\': %08x\n", mnemonic.c_str(), instructionA.getEncoding());
 
     // save the registers and flags
     cpu->cpu__DOT__flags = fstart;
-    cpu->cpu__DOT___flags = fstart;
+    //cpu->cpu__DOT___flags = fstart;
     uint32_t* registers = (uint32_t*)malloc(sizeof(cpu->cpu__DOT__registers));
     memset(cpu->cpu__DOT__registers, 0x00, sizeof(cpu->cpu__DOT__registers));
 
@@ -80,7 +80,7 @@ void do_instruction(Vcpu* cpu, std::string mnemonic, flags_state fstart, std::ve
         cpu->cpu__DOT__registers[r.idx] = r.value;
     }
     memcpy(registers, cpu->cpu__DOT__registers, sizeof(cpu->cpu__DOT__registers));
-    memcpy(cpu->cpu__DOT___registers, cpu->cpu__DOT__registers, sizeof(cpu->cpu__DOT__registers));
+    //memcpy(cpu->cpu__DOT___registers, cpu->cpu__DOT__registers, sizeof(cpu->cpu__DOT__registers));
 
     cpu->i_data = instructionA.getEncoding();
     // fetch
