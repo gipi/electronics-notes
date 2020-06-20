@@ -16,25 +16,14 @@ the ``ROM``, ``RAM`` and ``Flash``; we can divide them chunk having size of 1GiB
 | External RAM   |  32MiB | ``0x40000000`` - ``0x7fffffff`` | |
 | External Flash | 512MiB | ``0x80000000`` - ``0xffffffff`` | |
 
-## Instruction set
+## Getting started
 
-For now we are interested in have only read and write primitive to memory address, without mathematical
-operations, maybe jumps.
+From the directory containing this file you can compile with a simple ``make``;
+internally the project is divided into three main sub-sections
 
-Memory addresses cannot be accessed directly but instead you have to deference them using a register.
-This indicates that we want a **load/store** architecture.
-
-The instructions are
-
-| Instruction | Description | Opcode |
-|-------------|-------------|--------|
-| ``LDI Rn, I`` | Load an immediate value ``I`` to register ``Rn`` |
-| ``LDA Rn, A`` | Load the value at the address ``A`` to register ``Rn`` |
-| ``ST  Rn, Rm`` | Store the value contained into register ``Rn`` to location ``A`` |
-
-Take in mind that being the registers and instructions 32-bit long, it's not possible to
-store an immediate 32-bit value with only one operation: you can think
-
+ - simulation in the ``sim/`` directory
+ - instruction set in the ``ISA/`` directory
+ - hdl in the ``modules/`` directory
 
 ## Roadmap
 
