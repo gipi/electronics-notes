@@ -46,12 +46,12 @@ assign enable_bootrom = enable_internal && ~signal_address[15];
 assign enable_sram = enable_internal && signal_address[15];
 assign exception = ~enable_internal;
 
-wb_memory #(.ROMFILE("../modules/blockrams/boot.rom")) br(
+wb_memory #(.SIZE(4096),.ROMFILE("../modules/blockrams/boot.rom")) br(
     .clk(clk),
     .i_enable(enable_bootrom),
     .i_data(cpu_to_rom_signal_data),
     .o_data(rom_to_cpu_signal_data),
-    .i_addr(signal_address[8:2]),
+    .i_addr(signal_address[13:2]),
     .i_wb_stb(wb_stb),
     .o_wb_stall(wb_stall),
     .o_wb_ack(wb_ack),
@@ -63,7 +63,7 @@ wb_memory #(.SIZE(4096)) internal_ram(
     .i_enable(enable_sram),
     .i_data(cpu_to_rom_signal_data),
     .o_data(rom_to_cpu_signal_data),
-    .i_addr(signal_address[6:0] & (~3)),
+    .i_addr(signal_address[13:2]),
     .i_wb_stb(wb_stb),
     .o_wb_stall(wb_stall),
     .o_wb_ack(wb_ack),
