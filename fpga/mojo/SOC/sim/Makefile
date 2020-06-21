@@ -2,7 +2,7 @@ ROOT_DIR:=$(strip $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST)))))
 
 PATH_MODULES = $(ROOT_DIR)/../modules/
 CPU_CXX_SOURCES = cpusim.cpp
-BOOTROM = $(PATH_MODULES)/blockrams/boot.rom
+BOOTROM = ../firmwares/bootrom.rom
 PATH_LOG_INCLUDE = plog/include/
 # with respect to the obj_dir/
 PATH_ASM_INCLUDE = ../../ISA/
@@ -12,10 +12,7 @@ ASM = ../ISA/asm
 .PHONY : all
 
 
-all: $(BOOTROM) soc fetch cpu glyph_rom wb_memory
-
-$(BOOTROM): $(BOOTROM:.rom=.asm)
-	$(ASM) $< > $@
+all: soc fetch cpu glyph_rom wb_memory
 
 soc: $(BOOTROM)
 	verilator -I$(PATH_MODULES)/cpu/ -I../ -I$(PATH_MODULES)/blockrams/ -CFLAGS '-std=gnu++2a -Wextra -Wall -g -Wpedantic -I$(PATH_LOG_INCLUDE) -I$(PATH_ASM_INCLUDE)' -Wall --trace -cc soc.v --exe soc.cpp

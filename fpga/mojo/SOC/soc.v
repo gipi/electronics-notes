@@ -46,7 +46,7 @@ assign enable_bootrom = enable_internal && ~signal_address[15];
 assign enable_sram = enable_internal && signal_address[15];
 assign exception = ~enable_internal;
 
-wb_memory #(.SIZE(4096),.ROMFILE("../modules/blockrams/boot.rom")) br(
+wb_memory #(.SIZE(4096),.ROMFILE("../firmwares/bootrom.rom")) br(
     .clk(clk),
     .i_enable(enable_bootrom),
     .i_data(cpu_to_rom_signal_data),

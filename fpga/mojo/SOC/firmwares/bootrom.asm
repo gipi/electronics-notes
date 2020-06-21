@@ -7,11 +7,11 @@ ld r13, 0xff
 # try to multiply something
 mul r11, r13
 # now load from memory
-ld r9, [r0 + $fixed_value ]
+ld r9, [r0 + 0x28]
 # try to push
 push r9
 ld r1, 0x7
-ld r10, $function
+ld r10, 0x1c
 jrrl r10
 # JUMP to halt
 jrrl r8, r12
