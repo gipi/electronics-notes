@@ -36,13 +36,13 @@ int main(int argc, char* argv[]) {
         usage(argv[0]);
     }
 
-    static plog::ColorConsoleAppender<plog::TxtFormatter> consoleAppender;
+    static plog::ColorConsoleAppender<plog::TxtFormatter> consoleAppender(plog::streamStdErr);
     plog::init(plog::verbose, &consoleAppender);
 
     PLOG_INFO << "reading source file '" << argv[1] << "'";
     std::ifstream stream(argv[1], std::ios::in);
     Source source(stream, 0xb0000000);
-    
+
     PLOG_INFO << "encoding source";
     std::cout << source.encode();
 }
