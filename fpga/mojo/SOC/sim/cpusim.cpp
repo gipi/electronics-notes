@@ -4,6 +4,7 @@
 #include <stdexcept>
 #include "Vcpu.h"
 #include "verilated.h"
+#include "verilated_vcd_c.h"
 #include <assembly.h>
 
 #define LOG(...) fprintf(stderr, __VA_ARGS__)
@@ -37,12 +38,24 @@ const char* STATES[] = {
     (c)->cpu__DOT__next_state     \
 );LOGFLAGS(c);LOGREGISTERS(c)*/
 
-void tick(Vcpu* cpu) {
-    cpu->clk = 0;
-    cpu->eval();
+uint64_t tickcount = 0;
 
+void tick(Vcpu* cpu, VerilatedVcdC* tracer) {
+    cpu->eval();
+    if (tracer)
+        tracer->dump(tickcount*10 - 2);
     cpu->clk = 1;
     cpu->eval();
+    if (tracer)
+        tracer->dump(tickcount*10);
+    cpu->clk = 0;
+    cpu->eval();
+    if (tracer) {
+        tracer->dump(tickcount*10 + 5);
+        tracer->flush();
+    }
+
+    tickcount++;
 }
 
 #define EMPTY_REGISTERS {}
@@ -66,6 +79,17 @@ typedef unsigned short flags_state;
  * end: the registers that have changed (what not indicate is equal at the state indicate in start)
  */
 void do_instruction(Vcpu* cpu, const std::string mnemonic, flags_state fstart, std::vector<reg_state> start, flags_state fend, std::vector<reg_state> end) {
+    /* create an instance for tracing purposes */
+    VerilatedVcdC tracer;
+    /* associate it to the cpu */
+    cpu->trace(&tracer, 99);
+
+    /* save to a custom trace */
+    std::stringstream tracename;
+    tracename << mnemonic << ".vcd";
+    tracer.open(tracename.str().c_str());
+
+    /* initialize the instruction */
     ISA::Instruction instructionA(mnemonic);
 
     LOG(" [#] instruction \'%s\': %08x\n", mnemonic.c_str(), instructionA.getEncoding());
@@ -80,23 +104,34 @@ void do_instruction(Vcpu* cpu, const std::string mnemonic, flags_state fstart, s
         cpu->cpu__DOT__registers[r.idx] = r.value;
     }
     memcpy(registers, cpu->cpu__DOT__registers, sizeof(cpu->cpu__DOT__registers));
-    //memcpy(cpu->cpu__DOT___registers, cpu->cpu__DOT__registers, sizeof(cpu->cpu__DOT__registers));
+    memcpy(cpu->cpu__DOT__inner_registers, cpu->cpu__DOT__registers, sizeof(cpu->cpu__DOT__registers));
 
     cpu->i_data = instructionA.getEncoding();
     // fetch
-    tick(cpu);
+    tick(cpu, &tracer);
     LOGCPU(cpu);
+
+    cpu->i_wb_ack = 1;
 
     // decode
-    tick(cpu);
+    tick(cpu, &tracer);
     LOGCPU(cpu);
 
+    cpu->i_wb_ack = 0;
     // execute
-    tick(cpu);
+    tick(cpu, &tracer);
     LOGCPU(cpu);
 
     // store
-    tick(cpu);
+    tick(cpu, &tracer);
+    LOGCPU(cpu);
+
+    // store
+    tick(cpu, &tracer);
+    LOGCPU(cpu);
+
+    // store
+    tick(cpu, &tracer);
     LOGCPU(cpu);
 
     for (uint index = 0 ; index < sizeof(cpu->cpu__DOT__registers)/sizeof(cpu->cpu__DOT__registers[0]); index++) {
@@ -131,16 +166,14 @@ int main(int argc, char* argv[]) {
     Verilated::commandArgs(argc, argv);
 
     Vcpu* cpu = new Vcpu;
-
-    uint64_t timetick = 0;
+    Verilated::traceEverOn(true);
 
     cpu->reset = 0;
     LOGCPU(cpu);
-    while(timetick < 10) {
-        tick(cpu);
+    while(tickcount < 10) {
+        tick(cpu, nullptr);
 
         LOGCPU(cpu);
-        timetick++;
     }
 
     cpu->reset = 1;

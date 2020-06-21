@@ -29,3 +29,8 @@ store an immediate 32-bit value with only one operation: you can think
 | ``pop`` | 09 |
 | ``xor`` | 0a |
 | ``hl`` | 0b |
+
+## Tests
+
+In the simulations there is the ``Vcpu`` module that is intended in the near
+future to work as unit tests for the single instructions.
