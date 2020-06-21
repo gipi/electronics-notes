@@ -17,3 +17,15 @@ The instructions are
 Take in mind that being the registers and instructions 32-bit long, it's not possible to
 store an immediate 32-bit value with only one operation: you can think
 
+| Instruction | Opcode |
+|-------------|--------|
+| ``nop`` | 00 |
+| ``ld`` | 01 |
+| ``jr`` | 03 |
+| ``add`` | 04 |
+| ``mul`` | 06 |
+| ``st`` | 07 |
+| ``push`` | 08 |
+| ``pop`` | 09 |
+| ``xor`` | 0a |
+| ``hl`` | 0b |
