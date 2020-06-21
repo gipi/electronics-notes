@@ -43,7 +43,8 @@ void Line::preprocess() {
            // data representation
            std::string directive(mLine);
            if (directive.find(".word") != std::string::npos) {
-               std::cout << directive.substr(6) << std::endl;
+               mDirective = directive.substr(6);
+               PLOG_DEBUG << "found directive '" << mDirective;
            }
            break;
         }
@@ -82,11 +83,17 @@ void Line::setCodeLine(size_t n) {
     mCodeN = n;
 }
 
+/* TODO: pass as argument the way we want to encode, namely
+ *
+ *  1. hex
+ *  2. binary
+ *  3. debug info: this format could be something like 0xb000003c: 183e0000 ld r3, [r14]
+ */
 std::string Line::encode() {
-    PLOG_DEBUG << "encoding instruction '" << mLine << "'";
+    PLOG_DEBUG << "encoding line '" << mLine << "'";
     std::stringstream ss;
     switch (type()) {
-        case CODE:
+        case CODE: {
             std::string instr = mLine;
             /* 
              * TODO: move resolution to the instruction itself, in particular
@@ -109,8 +116,13 @@ std::string Line::encode() {
             PLOG_DEBUG << "fixing unknowns: '" << mLine << "' -> '" << instr << "'";
             ISA::Instruction instruction(instr);
             ss << std::setfill('0') << std::setw(8) << std::hex << instruction.getEncoding() << std::endl;
+            }
+            break;
+        case DIRECTIVE:
+            ss << mDirective << std::endl;
             break;
     }
+    PLOG_DEBUG << "encoded line as " << ss.str();
     return ss.str();
 }
 

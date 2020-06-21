@@ -56,6 +56,7 @@ class Line {
         std::vector<size_t> mValues;
         uint32_t mReference; /* for the label */
         std::string mLabel;
+        std::string mDirective;
         LineType mType;
         LineType getType(const char*);
         void preprocess();
