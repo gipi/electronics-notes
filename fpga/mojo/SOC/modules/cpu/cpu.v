@@ -121,7 +121,7 @@ wire enable_decode;
 
 always @(posedge clk) begin
     if (enable_decode) /* modify here the pc so that after we don't have race condition */
-        inner_registers[PC] <= inner_registers[PC] + 4;
+        inner_registers[PC] <= registers[PC] + 4;
 end
 
 decode decode_phase(
@@ -321,10 +321,10 @@ begin
                 /* we allow only 4bits aligned addresses */
                 /* should we fault? */
                 if (jumpRelative) /* FIXME: negative offset? */
-                    inner_registers[PC] <= inner_registers[PC] + (inner_registers[{1'b1, operandA[2:0]}] & ~(32'h3));
+                    inner_registers[PC] <= registers[PC] + (registers[{1'b1, operandA[2:0]}] & ~(32'h3));
                 else
-                    inner_registers[PC] <= inner_registers[{1'b1, operandA[2:0]}] & ~(32'h3);
-                if (saveLink)
+                    inner_registers[PC] <= registers[{1'b1, operandA[2:0]}];
+                if (saveLink) // here we are saving the return address and inner_ has it
                     inner_registers[linkRegister] <= inner_registers[PC];
                 enableWriteBack <= 1'b1;
             end
