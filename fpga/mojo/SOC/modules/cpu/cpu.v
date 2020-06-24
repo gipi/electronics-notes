@@ -60,19 +60,19 @@ reg [width_reg - 1:0] inner_registers[n_reg - 1:0]; // here our copy to store fi
  *  - zero
  *  - overflow
  */
-parameter CARRY = 2'b0;
-parameter SIGN  = 2'b1;
-parameter ZERO  = 2'b10;
-parameter OVERF = 2'b11;
+parameter CARRY = 0;
+parameter SIGN  = 1;
+parameter ZERO  = 2;
+parameter OVERF = 3;
 reg [width_flags_reg - 1:0] flags;
-reg [width_flags_reg - 1:0] _flags;
+reg [width_flags_reg - 1:0] inner_flags;
 
 
 /* Initialize internals */
 initial begin
         registers[0] = 32'hb0000000;
         inner_registers[0] = 32'hb0000000;
-        _flags = 16'b0;
+        inner_flags = 16'b0;
         enable_fetch = 1'b0;
 end
 
@@ -291,8 +291,13 @@ begin
                 if (loadImmediate) begin
                     if (loadUpper)
                         inner_registers[operandA][31:16] <= immediate ;
-                    else
+                    else begin // it's impossible to set a flag with a lower immediate
                         inner_registers[operandA][15:0] <= immediate ;
+                        inner_flags[ZERO]  <= 1'b0;
+                        inner_flags[OVERF] <= 1'b0;
+                        inner_flags[SIGN]  <= 1'b0;
+                        inner_flags[CARRY] <= 1'b0;
+                    end
 
                     enableWriteBack <= 1'b1;
                 end
@@ -404,6 +409,7 @@ always @(posedge clk)
 begin
     if (enableWriteBack) begin
         registers <= inner_registers;
+        flags <= inner_flags;
         enable_fetch <= 1;
         enableWriteBack <= 1'b0;
     end

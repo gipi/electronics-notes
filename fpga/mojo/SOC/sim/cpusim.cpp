@@ -96,6 +96,7 @@ void do_instruction(Vcpu* cpu, const std::string mnemonic, flags_state fstart, s
 
     // save the registers and flags
     cpu->cpu__DOT__flags = fstart;
+    cpu->cpu__DOT__inner_flags = fstart;
     //cpu->cpu__DOT___flags = fstart;
     uint32_t* registers = (uint32_t*)malloc(sizeof(cpu->cpu__DOT__registers));
     memset(cpu->cpu__DOT__registers, 0x00, sizeof(cpu->cpu__DOT__registers));
