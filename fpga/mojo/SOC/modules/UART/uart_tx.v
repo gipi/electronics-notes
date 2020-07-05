@@ -1,5 +1,10 @@
 /*
  * UART TRANSMITTER MODULE
+ *
+ * To transmit you need to set the i_data line and i_start in order to begin the
+ * transmission; when is completed the signal o_done is raised. When o_done is
+ * not raised is not possible to start the communication. o_done is set logic
+ * false when the transmission is started.
  */
 `default_nettype none
 `timescale 1ns/1ps
@@ -44,6 +49,7 @@ begin
                 if (i_start)
                 begin
                     state <= START;
+                    o_done <= 1'b0;
                     o_tx <= 1'b0;
                     data <= i_data;
                 end
