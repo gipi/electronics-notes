@@ -12,7 +12,7 @@ ASM = $(ROOT_DIR)/../ISA/asm
 .PHONY : all
 
 
-all: soc fetch cpu glyph_rom wb_memory uart_tx
+all: soc fetch cpu glyph_rom wb_memory uart_tx wb_uart
 
 soc: $(BOOTROM)
 	verilator -I$(PATH_MODULES)/cpu/ -I../ -I$(PATH_MODULES)/blockrams/ -CFLAGS '-std=gnu++2a -Wextra -Wall -g -Wpedantic' -Wall --trace -cc soc.v --exe soc.cpp
@@ -36,6 +36,10 @@ wb_memory:
 
 uart_tx:
 	verilator -I$(PATH_MODULES) -CFLAGS '-std=gnu++2a -Wextra -Wall -g -Wpedantic -I$(PATH_LOG_INCLUDE)' -Wall --trace -cc UART/uart_tx.v --exe uart_tx.cpp
+	make -C obj_dir -j 8 -f V$@.mk V$@
+
+wb_uart:
+	verilator -I$(PATH_MODULES)/UART/ -CFLAGS '-std=gnu++2a -Wextra -Wall -g -Wpedantic -I$(PATH_LOG_INCLUDE)' -Wall --trace -cc wb_uart.v --exe uart_tx.cpp
 	make -C obj_dir -j 8 -f V$@.mk V$@
 
 clean:
