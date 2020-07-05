@@ -14,10 +14,10 @@ module uart_tx(
 );
 
 
-parameter IDLE  = 0;
-parameter START = 1;
-parameter DATA  = 2;
-parameter STOP  = 3;
+localparam [2:0] IDLE  = 0,
+                START = 1,
+                DATA  = 2,
+                STOP  = 3;
 
 reg [2:0] state;
 reg [7:0] data;
@@ -71,6 +71,9 @@ begin
                 o_done <= 1'b1;
                 state <= IDLE;
             end
+            default:
+                begin
+                end
         endcase
     end
 end
