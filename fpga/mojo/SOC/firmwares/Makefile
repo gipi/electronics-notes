@@ -4,6 +4,7 @@ ASM = ../ISA/asm
 
 .PHONY: all bootrom
 
+all: bootrom
 bootrom: $(BOOTROM)
 
 $(BOOTROM): $(BOOTROM:.rom=.asm) $(ASM)

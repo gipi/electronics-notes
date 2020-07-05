@@ -1,14 +1,18 @@
-all: ISA sim
-.PHONY: all sim ISA bootrom
 
-bootrom: ISA
-	make -C firmwares bootrom
+SUBPROJECTS = firmwares ISA sim
 
-sim: ISA bootrom
-	make -C sim
+.PHONY: subprojects $(SUBPROJECTS)
 
-ISA:
-	make -C ISA
+subprojects: $(SUBPROJECTS)
+
+$(SUBPROJECTS):
+	$(MAKE) -C $@
+
+all: subprojects
+
+firmwares: ISA
+sim: ISA firmwares
 
 clean:
 	make -C sim clean && make -C ISA clean && make -C firmwares clean
+	rm -vf *.vcd
