@@ -35,7 +35,7 @@ wb_memory:
 	make -C obj_dir -j 8 -f V$@.mk V$@
 
 uart_tx:
-	verilator -I$(PATH_MODULES) -CFLAGS '-std=gnu++2a -Wextra -Wall -g -Wpedantic' -Wall --trace -cc UART/uart_tx.v --exe uart_tx.cpp
+	verilator -I$(PATH_MODULES) -CFLAGS '-std=gnu++2a -Wextra -Wall -g -Wpedantic -I$(PATH_LOG_INCLUDE)' -Wall --trace -cc UART/uart_tx.v --exe uart_tx.cpp
 	make -C obj_dir -j 8 -f V$@.mk V$@
 
 clean:
