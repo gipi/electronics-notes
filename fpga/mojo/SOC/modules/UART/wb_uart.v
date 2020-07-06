@@ -6,6 +6,8 @@
  * We are going to use three addresses to access TX, RX and CTL, each one with
  * 1byte width.
  *
+ * This implements the "3.2.4 Classic pipelined SINGLE WRITE Cycle"
+ *
  */
 `timescale 1ns/1ps
 `default_nettype none
@@ -47,7 +49,7 @@ always @* begin
         case (i_wb_addr)
             TX_REG: begin
                 if (i_wb_we)
-                    tx_start = i_wb_stb;
+                    tx_start = i_wb_stb; /* FIXME: i_wb_stb is always logic true here :P */
                 else begin
                     tx_start = 1'b0;
                     o_wb_data = 8'b0;
@@ -64,6 +66,10 @@ always @* begin
             end
             default: begin end
         endcase
+    end /* if () */
+    else begin
+        tx_start = 1'b0;
+        o_wb_data = 8'b0;
     end
 end
 
