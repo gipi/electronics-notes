@@ -39,7 +39,7 @@ uart_tx:
 	make -C obj_dir -j 8 -f V$@.mk V$@
 
 wb_uart:
-	verilator -I$(PATH_MODULES)/UART/ -CFLAGS '-std=gnu++2a -Wextra -Wall -g -Wpedantic -I$(PATH_LOG_INCLUDE)' -Wall --trace -cc wb_uart.v --exe wb_uart.cpp
+	verilator -I$(PATH_MODULES)/UART/ -CFLAGS '-std=gnu++2a -Wextra -Wall -g -Wpedantic -I$(PATH_LOG_INCLUDE)' -Wall --trace -cc wb_uart.v --exe wb_uart.cpp peripherals.cpp
 	make -C obj_dir -j 8 -f V$@.mk V$@
 
 clean:
