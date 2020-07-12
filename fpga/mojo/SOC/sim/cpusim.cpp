@@ -71,12 +71,15 @@ void do_instruction(const std::string mnemonic, flags_state fstart, std::vector<
     cpu->device->cpu__DOT__sign = fstart.sign;
     cpu->device->cpu__DOT__overflow = fstart.overflow;
     cpu->device->cpu__DOT__inner_carry = fstart.carry;
+    //cpu->device->cpu__DOT___flags = fstart;
+    uint32_t* registers = (uint32_t*)malloc(sizeof(cpu->device->cpu__DOT__registers));
+    memset(cpu->device->cpu__DOT__registers, 0x00, sizeof(cpu->device->cpu__DOT__registers));
 
     for (reg_state r: start) {
-        cpu->cpu__DOT__registers[r.idx] = r.value;
+        cpu->device->cpu__DOT__registers[r.idx] = r.value;
     }
-    memcpy(registers, cpu->cpu__DOT__registers, sizeof(cpu->cpu__DOT__registers));
-    memcpy(cpu->cpu__DOT__inner_registers, cpu->cpu__DOT__registers, sizeof(cpu->cpu__DOT__registers));
+    memcpy(registers, cpu->device->cpu__DOT__registers, sizeof(cpu->device->cpu__DOT__registers));
+    memcpy(cpu->device->cpu__DOT__inner_registers, cpu->device->cpu__DOT__registers, sizeof(cpu->device->cpu__DOT__registers));
 
     cpu->device->i_data = instructionA.getEncoding();
     // fetch
