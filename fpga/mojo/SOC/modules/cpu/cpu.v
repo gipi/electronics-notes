@@ -60,19 +60,16 @@ reg [width_reg - 1:0] inner_registers[n_reg - 1:0]; // here our copy to store fi
  *  - zero
  *  - overflow
  */
-parameter CARRY = 0;
-parameter SIGN  = 1;
-parameter ZERO  = 2;
-parameter OVERF = 3;
 reg [width_flags_reg - 1:0] flags;
-reg [width_flags_reg - 1:0] inner_flags;
+
+reg carry, sign, zero, overflow;
+reg inner_carry;
 
 
 /* Initialize internals */
 initial begin
         registers[0] = 32'hb0000000;
         inner_registers[0] = 32'hb0000000;
-        inner_flags = 16'b0;
         enable_fetch = 1'b0;
 end
 
@@ -85,8 +82,10 @@ begin
         inner_registers[PC] <= 32'hb0000000;
         registers[SP] <= 32'hb000fffc; /* at reset we use the internal RAM for the stack */
         inner_registers[SP] <= 32'hb0010000; /* at reset we use the internal RAM for the stack */
-        flags <= 16'b0;
-        //_flags <= 16'b0;
+        carry <= 1'b0;
+        zero <= 1'b0;
+        sign <= 1'b0;
+        overflow <= 1'b0;
         enable_fetch <= 1'b1;
     end
 end
@@ -293,13 +292,10 @@ begin
                         inner_registers[operandA][31:16] <= immediate ;
                     else begin // it's impossible to set a flag with a lower immediate
                         inner_registers[operandA][15:0] <= immediate ;
-                        inner_flags[ZERO]  <= 1'b0;
-                        inner_flags[OVERF] <= 1'b0;
-                        inner_flags[SIGN]  <= 1'b0;
-                        inner_flags[CARRY] <= 1'b0;
                     end
 
                     enableWriteBack <= 1'b1;
+                    updateFlags <= 1'b0;
                 end
                 else begin
                     enableMemory <= 1'b1;
@@ -330,6 +326,10 @@ begin
             end
             ADD:
             begin
+                {inner_carry, inner_registers[extra]} <= registers[operandA] + registers[{1'b1, operandB[2:0]}];
+                enableWriteBack <= 1'b1;
+                updateFlags <= 1'b1;
+                store_reg_idx <= extra;
             end
             SUB:
             begin
@@ -404,16 +404,26 @@ fetch loadOperation(
     .i_we(memoryWrite)
 );
 
+reg updateFlags;
+
 /* COMMIT STAGE */
 always @(posedge clk)
 begin
     if (enableWriteBack) begin
         registers <= inner_registers;
-        flags <= inner_flags;
         enable_fetch <= 1;
         enableWriteBack <= 1'b0;
     end
+
+    /* if the operation involves flags here we are going to update it */
+    if (updateFlags) begin
+        carry <= inner_carry;
+        zero <= inner_registers[store_reg_idx] == width_reg * {1'b0};
+        sign <= inner_registers[store_reg_idx][width_reg - 1] == 1'b1;
+        overflow <= 1'b0;
+    end
 end
 
+assign flags = {12'b0, overflow, sign, zero, carry};
 
 endmodule

@@ -27,7 +27,12 @@ struct reg_state {
     uint32_t value;
 };
 
-typedef unsigned short flags_state;
+typedef struct {
+    int carry;
+    int zero;
+    int sign;
+    int overflow;
+} flags_state;
 
 /*
  * This function checks the correct functioning of an instruction.
@@ -52,11 +57,11 @@ void do_instruction(const std::string mnemonic, flags_state fstart, std::vector<
     LOG(" [#] instruction \'%s\': %08x\n", mnemonic.c_str(), instructionA.getEncoding());
 
     // save the registers and flags
-    cpu->cpu__DOT__flags = fstart;
-    cpu->cpu__DOT__inner_flags = fstart;
-    //cpu->cpu__DOT___flags = fstart;
-    uint32_t* registers = (uint32_t*)malloc(sizeof(cpu->cpu__DOT__registers));
-    memset(cpu->cpu__DOT__registers, 0x00, sizeof(cpu->cpu__DOT__registers));
+    cpu->device->cpu__DOT__carry = fstart.carry;
+    cpu->device->cpu__DOT__zero = fstart.zero;
+    cpu->device->cpu__DOT__sign = fstart.sign;
+    cpu->device->cpu__DOT__overflow = fstart.overflow;
+    cpu->device->cpu__DOT__inner_carry = fstart.carry;
 
     for (reg_state r: start) {
         cpu->cpu__DOT__registers[r.idx] = r.value;
@@ -86,7 +91,8 @@ void do_instruction(const std::string mnemonic, flags_state fstart, std::vector<
     // store
     cpu->tick();
 
-    for (uint index = 0 ; index < sizeof(cpu->cpu__DOT__registers)/sizeof(cpu->cpu__DOT__registers[0]); index++) {
+    /* check registers */
+    for (uint index = 0 ; index < sizeof(cpu->device->cpu__DOT__registers)/sizeof(cpu->device->cpu__DOT__registers[0]); index++) {
         uint32_t finalValue = registers[index];
         for (std::vector<reg_state>::iterator it = end.begin(); it != end.end() ; it++) {
             if (index == it->idx) {
@@ -95,7 +101,7 @@ void do_instruction(const std::string mnemonic, flags_state fstart, std::vector<
             }
         }
 
-        uint32_t actualValue = cpu->cpu__DOT__registers[index];
+        uint32_t actualValue = cpu->device->cpu__DOT__registers[index];
 
         if (actualValue != finalValue) {
             std::stringstream ss;
@@ -104,9 +110,25 @@ void do_instruction(const std::string mnemonic, flags_state fstart, std::vector<
         }
     }
 
-    if (fend != cpu->cpu__DOT__flags) {
+    /* check flags */
+    if (fend.carry != cpu->device->cpu__DOT__carry) {
         std::stringstream ss;
-        ss << "fatal: expected for flags: " << std::hex << fend << " obtained: " << std::hex << cpu->cpu__DOT__flags;
+        ss << "fatal: expected for CARRY: " << std::hex << fend.carry << " obtained: " << std::hex << static_cast<int>(cpu->device->cpu__DOT__carry);
+        throw std::runtime_error(ss.str());
+    }
+    if (fend.zero != cpu->device->cpu__DOT__zero) {
+        std::stringstream ss;
+        ss << "fatal: expected for ZERO: " << std::hex << fend.zero << " obtained: " << std::hex << static_cast<int>(cpu->device->cpu__DOT__zero);
+        throw std::runtime_error(ss.str());
+    }
+    if (fend.sign != cpu->device->cpu__DOT__sign) {
+        std::stringstream ss;
+        ss << "fatal: expected for SIGN: " << std::hex << fend.sign << " obtained: " << std::hex << static_cast<int>(cpu->device->cpu__DOT__sign);
+        throw std::runtime_error(ss.str());
+    }
+    if (fend.overflow != cpu->device->cpu__DOT__overflow) {
+        std::stringstream ss;
+        ss << "fatal: expected for OVERFLOW: " << std::hex << fend.overflow << " obtained: " << std::hex << static_cast<int>(cpu->device->cpu__DOT__overflow);
         throw std::runtime_error(ss.str());
     }
 
@@ -114,33 +136,42 @@ void do_instruction(const std::string mnemonic, flags_state fstart, std::vector<
     delete cpu->device;
 }
 
+#define FLAGS_ALL_SET {.carry = 1, .zero = 1, .sign = 1, .overflow = 1}
+#define FLAGS_ALL_NOT_SET {.carry = 0, .zero = 0, .sign = 0, .overflow = 0}
 int main(int argc, char* argv[]) {
     LOG(" [+] starting CPU simulation\n");
     Verilated::commandArgs(argc, argv);
 
     Verilated::traceEverOn(true);
 
-
-    do_instruction(cpu, "ldids r7, 1af", 0xefab, EMPTY_REGISTERS, 0xefa0, {
+    do_instruction("ldids r7, 1af", FLAGS_ALL_SET,  EMPTY_REGISTERS, FLAGS_ALL_SET , {
         { .idx = 0, .value = 0x00000004},
         { .idx = 7, .value = 0x1af}
     });
-    do_instruction(cpu, "jr r8", 0x1d34, {{.idx = 8, .value = 0xcafebabe}}, 0x1d34, {
+    do_instruction("jr r8", FLAGS_ALL_SET, {{.idx = 8, .value = 0xcafebabe}}, FLAGS_ALL_SET, {
         { .idx = 0, .value = 0xcafebabe},
     });
 
-    do_instruction(cpu, "jrl r9", 0xcafe, {{.idx = 9, .value = 0xbabe7007}}, 0xcafe, {
+    do_instruction("jrl r9", FLAGS_ALL_SET, {{.idx = 9, .value = 0xbabe7007}}, FLAGS_ALL_SET, {
         { .idx = 0, .value = 0xbabe7007},
         { .idx = 15, .value = 0x04},
     });
 
-    do_instruction(cpu, "add r9, r7, r10",
-    0xcafe, {
+    do_instruction("add r9, r7, r10",
+    FLAGS_ALL_SET, {
         {.idx = 7, .value = 0x00000002},
         {.idx = 10, .value = 0x00000001}},
-    0xcafe, {
+    FLAGS_ALL_NOT_SET, {
         { .idx = 0, .value = 0x04},
         { .idx = 9, .value = 0x03},
+    });
+    do_instruction("add r9, r7, r10",
+    FLAGS_ALL_NOT_SET, {
+        {.idx = 7, .value = 0xffffffff},
+        {.idx = 10, .value = 0x00000001}},
+    {.carry = 1, .zero = 1, .sign = 0, .overflow = 0}, {
+        { .idx = 0, .value = 0x04},
+        { .idx = 9, .value = 0x00},
     });
 
     return EXIT_SUCCESS;
