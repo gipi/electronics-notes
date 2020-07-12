@@ -5,6 +5,8 @@
 #include "Vcpu.h"
 #include "verilated.h"
 #include "verilated_vcd_c.h"
+#define _WISHBONE_
+#include "peripherals.h"
 #include <assembly.h>
 
 #define LOG(...) fprintf(stderr, __VA_ARGS__)
@@ -16,47 +18,6 @@ const char* STATES[] = {
     "STORE",
 };
 
-#define LOGREGISTERS(c) do { \
-    size_t __index = 0;               \
-    for (__index = 0 ; __index < 16 ; __index++) { \
-        if (__index && (__index % 4) == 0) {  \
-            LOG("\n");                       \
-        }                                    \
-        LOG("\tr%-2lu 0x%08x", __index, (c)->cpu__DOT__registers[__index]); \
-    }                                        \
-    LOG("\n");                               \
-} while(0)
-
-#define LOGFLAGS(c) //LOG("\tflags: %08x\n", (c)->cpu__DOT__flags)
-
-#define LOGCPU(c) /*LOG("state: %s\to_addr: %08x i_data: %08x instruction: %08x opcode: %02x next_state: %02x\n",\
-    STATES[(c)->cpu__DOT__current_state], \
-    (c)->o_addr,                  \
-    (c)->i_data,                  \
-    (c)->cpu__DOT__q_instruction, \
-    (c)->cpu__DOT__q_opcode,      \
-    (c)->cpu__DOT__next_state     \
-);LOGFLAGS(c);LOGREGISTERS(c)*/
-
-uint64_t tickcount = 0;
-
-void tick(Vcpu* cpu, VerilatedVcdC* tracer) {
-    cpu->eval();
-    if (tracer)
-        tracer->dump(tickcount*10 - 2);
-    cpu->clk = 1;
-    cpu->eval();
-    if (tracer)
-        tracer->dump(tickcount*10);
-    cpu->clk = 0;
-    cpu->eval();
-    if (tracer) {
-        tracer->dump(tickcount*10 + 5);
-        tracer->flush();
-    }
-
-    tickcount++;
-}
 
 #define EMPTY_REGISTERS {}
 
@@ -78,17 +39,13 @@ typedef unsigned short flags_state;
  * fend: the ending state of the flags register
  * end: the registers that have changed (what not indicate is equal at the state indicate in start)
  */
-void do_instruction(Vcpu* cpu, const std::string mnemonic, flags_state fstart, std::vector<reg_state> start, flags_state fend, std::vector<reg_state> end) {
-    /* create an instance for tracing purposes */
-    VerilatedVcdC tracer;
-    /* associate it to the cpu */
-    cpu->trace(&tracer, 99);
-
+void do_instruction(const std::string mnemonic, flags_state fstart, std::vector<reg_state> start, flags_state fend, std::vector<reg_state> end) {
     /* save to a custom trace */
     std::stringstream tracename;
     tracename << mnemonic << ".vcd";
-    tracer.open(tracename.str().c_str());
+    SysCon<Vcpu>* cpu = new SysCon<Vcpu>(tracename.str().c_str());
 
+    cpu->warmup();
     /* initialize the instruction */
     ISA::Instruction instructionA(mnemonic);
 
@@ -107,33 +64,27 @@ void do_instruction(Vcpu* cpu, const std::string mnemonic, flags_state fstart, s
     memcpy(registers, cpu->cpu__DOT__registers, sizeof(cpu->cpu__DOT__registers));
     memcpy(cpu->cpu__DOT__inner_registers, cpu->cpu__DOT__registers, sizeof(cpu->cpu__DOT__registers));
 
-    cpu->i_data = instructionA.getEncoding();
+    cpu->device->i_data = instructionA.getEncoding();
     // fetch
-    tick(cpu, &tracer);
-    LOGCPU(cpu);
+    cpu->tick();
 
-    cpu->i_wb_ack = 1;
+    cpu->device->i_wb_ack = 1;
 
     // decode
-    tick(cpu, &tracer);
-    LOGCPU(cpu);
+    cpu->tick();
 
-    cpu->i_wb_ack = 0;
+    cpu->device->i_wb_ack = 0;
     // execute
-    tick(cpu, &tracer);
-    LOGCPU(cpu);
+    cpu->tick();
 
     // store
-    tick(cpu, &tracer);
-    LOGCPU(cpu);
+    cpu->tick();
 
     // store
-    tick(cpu, &tracer);
-    LOGCPU(cpu);
+    cpu->tick();
 
     // store
-    tick(cpu, &tracer);
-    LOGCPU(cpu);
+    cpu->tick();
 
     for (uint index = 0 ; index < sizeof(cpu->cpu__DOT__registers)/sizeof(cpu->cpu__DOT__registers[0]); index++) {
         uint32_t finalValue = registers[index];
@@ -160,26 +111,15 @@ void do_instruction(Vcpu* cpu, const std::string mnemonic, flags_state fstart, s
     }
 
     free(registers);
+    delete cpu->device;
 }
 
 int main(int argc, char* argv[]) {
     LOG(" [+] starting CPU simulation\n");
     Verilated::commandArgs(argc, argv);
 
-    Vcpu* cpu = new Vcpu;
     Verilated::traceEverOn(true);
 
-    cpu->reset = 0;
-    LOGCPU(cpu);
-    while(tickcount < 10) {
-        tick(cpu, nullptr);
-
-        LOGCPU(cpu);
-    }
-
-    cpu->reset = 1;
-
-    LOG(" [+] out of reset\n");
 
     do_instruction(cpu, "ldids r7, 1af", 0xefab, EMPTY_REGISTERS, 0xefa0, {
         { .idx = 0, .value = 0x00000004},

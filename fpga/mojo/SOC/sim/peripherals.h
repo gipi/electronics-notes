@@ -27,8 +27,15 @@ class SysCon {
     public:
         T* device = new T;
         SysCon(std::string tracename) : mTraceName(tracename) { init(); };
+        void warmup();
         void tick();
+#ifdef _WISHBONE_
         void transmit(uint8_t);
+#endif
+    protected:
+#ifdef _WISHBONE_
+        uint32_t wb_transaction(uint32_t addr, uint32_t data, bool write);
+#endif
     private:
         VerilatedVcdC* mTrace = new VerilatedVcdC;
         std::string mTraceName;
@@ -48,8 +55,24 @@ void SysCon<T>::init() {
     PLOG_INFO << " [+] start tracing into '" << mTraceName << "'";
 }
 
+/* this function simply starts the system in reset for a couple of cycle and
+ * then starts it */
+template<typename T>
+void SysCon<T>::warmup() {
+    device->reset = 0;
+    size_t count = 0;
+    while(count++ < 10) {
+        tick();
+    }
+
+    device->reset = 1;
+
+    tick();
+}
+
 template<typename T>
 void SysCon<T>::tickPeripherals() {
+#ifdef _UART_
     // if in reset state we have nothing to do
     if (!device->reset)
         return;
@@ -78,6 +101,7 @@ void SysCon<T>::tickPeripherals() {
             }
             break;
     }
+#endif
 }
 
 template<typename T>
@@ -100,12 +124,13 @@ void SysCon<T>::tick() {
     tickPeripherals();
 }
 
+#ifdef _WISHBONE_
 
 template<typename T>
-void SysCon<T>::transmit(uint8_t data) {
+uint32_t SysCon<T>::wb_transaction(uint32_t addr, uint32_t data, bool write) {
     /* configure starting handshake */
-    device->i_wb_addr = 0; /* TX_REG */
-    device->i_wb_we = 1;   /* writing */
+    device->i_wb_addr = addr; /* TX_REG */
+    device->i_wb_we = write;   /* writing */
     device->i_wb_cyc = 1;  /* start cycle */
     device->i_wb_stb = 1;  /* start phase */
     device->i_wb_data = data; /* data to TX */
@@ -115,13 +140,21 @@ void SysCon<T>::transmit(uint8_t data) {
     assert(device->o_wb_ack == 1); /* the slave asserts o_wb_ack in response to i_wb_stb */
     device->i_wb_stb = 0; /* the master negates i_wb_stb in response to o_wb_ack */
 
+    uint32_t result = device->o_wb_data;
     tick();
 
+    assert(device->o_wb_ack == 0);
     device->i_wb_cyc = 0;
+
+    return result;
+}
+
+template<typename T>
+void SysCon<T>::transmit(uint8_t data) {
+    wb_transaction(0, data, true);
 
     for (unsigned int count = 0; count < 20 ; count++) {
         tick();
     }
-
-    assert(device->o_wb_ack == 0);
 }
+#endif

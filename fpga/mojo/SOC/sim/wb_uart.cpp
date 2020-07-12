@@ -7,6 +7,8 @@
 #include "Vwb_uart.h"
 #include "verilated_vcd_c.h"
 #include "verilated.h"
+#define _UART_ 1
+#define _WISHBONE_
 #include "peripherals.h"
 
 
