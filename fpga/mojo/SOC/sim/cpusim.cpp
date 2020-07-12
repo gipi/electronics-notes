@@ -34,6 +34,15 @@ typedef struct {
     int overflow;
 } flags_state;
 
+typedef struct {
+    uint32_t o_wb_addr;
+    uint32_t i_wb_data;
+} wb_transaction_t;
+
+#define WB_NO_TRANSACTION {.o_wb_addr = 0xffffffff, .i_wb_data = 0xffffffff}
+
+#define wb_is_there_transaction(wb) ((wb).o_wb_addr != 0xffffffff)
+
 /*
  * This function checks the correct functioning of an instruction.
  *
@@ -44,7 +53,7 @@ typedef struct {
  * fend: the ending state of the flags register
  * end: the registers that have changed (what not indicate is equal at the state indicate in start)
  */
-void do_instruction(const std::string mnemonic, flags_state fstart, std::vector<reg_state> start, flags_state fend, std::vector<reg_state> end) {
+void do_instruction(const std::string mnemonic, flags_state fstart, std::vector<reg_state> start, flags_state fend, std::vector<reg_state> end, wb_transaction_t wb_transaction = WB_NO_TRANSACTION) {
     /* save to a custom trace */
     std::stringstream tracename;
     tracename << mnemonic << ".vcd";
@@ -88,8 +97,37 @@ void do_instruction(const std::string mnemonic, flags_state fstart, std::vector<
     // store
     cpu->tick();
 
+    if (wb_is_there_transaction(wb_transaction)) {
+        if (!cpu->device->o_wb_stb) {
+            std::stringstream ss;
+            ss << "fatal: I was expecting a strobe signal for the wishbone transaction";
+            throw std::runtime_error(ss.str());
+        }
+        uint32_t address_requested = cpu->device->o_wb_addr;
+
+        if (address_requested != wb_transaction.o_wb_addr) {
+            std::stringstream ss;
+            ss << "fatal: expected access to memory at " << std::hex << wb_transaction.o_wb_addr << " instead have been requested address " << std::hex << address_requested;
+            throw std::runtime_error(ss.str());
+        }
+        /* set the response from the slave */
+        cpu->device->i_wb_ack = 1;
+        cpu->device->i_data = wb_transaction.i_wb_data;
+        // store
+        cpu->tick();
+        cpu->device->i_wb_ack = 0;
+        cpu->tick();
+        cpu->tick();
+    }
+
+    if (cpu->device->cpu__DOT__enable_fetch != 1) {
+        std::stringstream ss;
+        ss << "fatal: at the end of the instruction enable_fetch is not asserted";
+        throw std::runtime_error(ss.str());
+    }
+
     // store
-    cpu->tick();
+    //cpu->tick();
 
     /* check registers */
     for (uint index = 0 ; index < sizeof(cpu->device->cpu__DOT__registers)/sizeof(cpu->device->cpu__DOT__registers[0]); index++) {
@@ -148,6 +186,10 @@ int main(int argc, char* argv[]) {
         { .idx = 0, .value = 0x00000004},
         { .idx = 7, .value = 0x1af}
     });
+    do_instruction("ld r7, [r10]", FLAGS_ALL_SET,  {{.idx = 10, .value = 0xabad1dea}}, FLAGS_ALL_SET , {
+        { .idx = 0, .value = 0x00000004},
+        { .idx = 7, .value = 0xcafebabe}
+    }, {.o_wb_addr = 0xabad1dea, .i_wb_data = 0xcafebabe});
     do_instruction("jr r8", FLAGS_ALL_SET, {{.idx = 8, .value = 0xcafebabe}}, FLAGS_ALL_SET, {
         { .idx = 0, .value = 0xcafebabe},
     });

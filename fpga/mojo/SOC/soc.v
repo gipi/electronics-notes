@@ -23,7 +23,7 @@ cpu core(
     .i_exception(exception),
     .i_data(rom_to_cpu_signal_data),
     .o_data(cpu_to_rom_signal_data),
-    .o_addr(signal_address), /* it addresses one word at the time */
+    .o_wb_addr(signal_address), /* it addresses one word at the time */
     .o_we(cpu_we),
     .o_wb_cyc(wb_cyc),
     .o_wb_stb(wb_stb),
