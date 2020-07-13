@@ -61,13 +61,12 @@ template<typename T>
 void SysCon<T>::warmup() {
     device->reset = 0;
     size_t count = 0;
-    while(count++ < 10) {
+    while(count++ < 2) {
         tick();
     }
 
     device->reset = 1;
 
-    tick();
 }
 
 template<typename T>
