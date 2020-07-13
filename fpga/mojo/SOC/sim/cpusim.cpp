@@ -146,7 +146,7 @@ void do_instruction(const std::string mnemonic, flags_state fstart, std::vector<
 
         if (actualValue != finalValue) {
             std::stringstream ss;
-            ss << "fatal: expected for r" << std::hex << index << ":" << std::hex << finalValue << " obtained: " << std::hex << actualValue;
+            ss << "fatal: expected for r" << index << ": " << std::hex << finalValue << " obtained: " << std::hex << actualValue;
             throw std::runtime_error(ss.str());
         }
     }
