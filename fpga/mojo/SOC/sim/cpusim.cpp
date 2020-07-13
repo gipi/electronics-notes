@@ -218,6 +218,21 @@ int main(int argc, char* argv[]) {
         { .idx = 0, .value = 0x04},
         { .idx = 9, .value = 0x00},
     });
+    do_instruction("pop r7", FLAGS_ALL_SET, {
+        { .idx = 7, .value = 0xabad1dea },
+        { .idx = 14, .value = 0xfeed1337 },
+    }, FLAGS_ALL_SET , {
+        { .idx = 0, .value = 0x00000004 },
+        { .idx = 7, .value = 0xcafebabe },
+        { .idx = 14, .value = 0xfeed1338 }
+    }, { .o_wb_addr = 0xfeed1334, .i_wb_data = 0xcafebabe });
+    do_instruction("push r7", FLAGS_ALL_SET, {
+        { .idx = 7, .value = 0xabad1dea },
+        { .idx = 14, .value = 0xfeed1337 },
+    }, FLAGS_ALL_SET , {
+        { .idx = 0, .value = 0x00000004 },
+        { .idx = 14, .value = 0xfeed1330 }
+    }, { .o_wb_addr = 0xfeed1330, .i_wb_data = 0xabad1dea });
 
     return EXIT_SUCCESS;
 }
