@@ -186,6 +186,25 @@ parameter HALT = 4'b1011; /* b */
  *  ldius r8, #0x100          r8 = 0x01000000
  *  ldrmw  r8, [r10 + 0x1d34] r8 = *(r10 + 0x1d34)
  *
+ * The flags are reset during a load. <--- FIX
+ *
+ * > Stores
+ *
+ * This instruction stores from a source register (rs) to
+ * location in memory pointed by a destination register (rd)
+ * plus an optional offset. IT IS NOT ALLOWED AN IMMEDIATE
+ *
+ *  - 4bits: opcode
+ *  - 2bits: width of the operation (byte, short, word).
+ *  - 1bit:  immediate/register [ldi/ldr] <--- fix
+ *  - 1bit:  upper/lower for the intermediate
+ *  - 4bits: destination register idx
+ *  - 4bits: source register idx
+ *  - 16bits: value (when reg as source is for offset)
+ *
+ *  st  r8, [r10 + 0x1d34] *(r10 + 0x1d34) = r8
+ *
+ * The flags are reset during a store. <--- FIX
  * The flags are reset during a load.
  *
  * > Jumps
@@ -304,6 +323,13 @@ begin
                     store_reg_idx <= operandA;
                 end
             end
+            STR:
+            begin
+                memoryValue <= inner_registers[operandA];
+                memoryReference <= inner_registers[operandB] + {16'h0000, immediate};
+                memoryWrite <= 1'b1;
+                enableMemory <= 1'b1;
+            end
             MOVE:
             begin
                inner_registers[operandA] <= inner_registers[operandB];
@@ -338,9 +364,6 @@ begin
             begin
                 {inner_registers[destinationMSB], inner_registers[destinationLSB]} <= inner_registers[operandA] * inner_registers[operandB];
                 enableWriteBack <= 1;
-            end
-            STR:
-            begin
             end
             PUSH:
             begin

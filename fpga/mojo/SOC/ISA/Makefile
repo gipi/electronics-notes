@@ -1,5 +1,5 @@
 
-ASM_CXX_SOURCES = assembly.cpp loadImpl.cpp jumpImpl.cpp addImpl.cpp mulImpl.cpp source.cpp
+ASM_CXX_SOURCES = assembly.cpp loadImpl.cpp storeImpl.cpp jumpImpl.cpp addImpl.cpp mulImpl.cpp source.cpp
 ASM_CXX_OBJECTS = $(ASM_CXX_SOURCES:.cpp=.o)
 PATH_LOG_INCLUDE = ../plog/include/
 

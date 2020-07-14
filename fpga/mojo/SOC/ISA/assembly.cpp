@@ -68,6 +68,10 @@ void Instruction::parse() {
             mType = LOAD;
             mInstruction = new LoadInstructionImpl(opcode, operand1, operand2);
             break;
+        case OP('s', 't'):
+            mType = STORE;
+            mInstruction = new StoreInstructionImpl(opcode, operand1, operand2, operand3);
+            break;
         case OP('j', 'r'):
             mType = JUMP;
             mInstruction = new JumpInstructionImpl(opcode, operand1, operand2);

@@ -44,6 +44,9 @@ internally the project is divided into three main sub-sections
          - [x] immediate
          - [x] from memory
      - [ ] store to memory
+         - [x] word
+         - [ ] byte
+         - [ ] short
      - [ ] push
        - [ ] byte
        - [ ] short

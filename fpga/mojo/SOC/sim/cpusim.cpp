@@ -239,6 +239,13 @@ int main(int argc, char* argv[]) {
         { .idx = 0, .value = 0x00000004 },
         { .idx = 14, .value = 0xfeed1330 }
     }, { .o_wb_addr = 0xfeed1330, .i_wb_data = 0xabad1dea, .o_wb_we = true });
+    do_instruction("st r7, [r10]",
+        FLAGS_ALL_SET,  {
+            { .idx = 10, .value = 0xabad1dea},
+            { .idx = 7, .value = 0xcafebabe },
+        }, FLAGS_ALL_SET , {
+            { .idx = 0, .value = 0x00000004},
+    }, { .o_wb_addr = 0xabad1dea, .i_wb_data = 0xcafebabe, .o_wb_we = true });
 
     return EXIT_SUCCESS;
 }

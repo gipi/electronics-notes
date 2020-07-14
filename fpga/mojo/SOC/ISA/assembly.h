@@ -62,6 +62,14 @@ class LoadInstructionImpl : public InstructionImpl {
     void encode();
 };
 
+class StoreInstructionImpl : public InstructionImpl {
+    using InstructionImpl::InstructionImpl;
+    void parseFlags();
+    void parseOpcode();
+    void validate();
+    void encode();
+};
+
 class JumpInstructionImpl : public InstructionImpl {
     bool mIsLink = false;
     bool mIsRelative = false;
