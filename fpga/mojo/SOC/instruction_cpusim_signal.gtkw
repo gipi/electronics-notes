@@ -37,6 +37,9 @@ TOP.cpu.memoryReference[31:0]
 @28
 TOP.cpu.o_wb_cyc
 TOP.cpu.o_wb_stb
+@29
+TOP.cpu.o_wb_we
+@28
 TOP.cpu.i_wb_ack
 @22
 TOP.cpu.o_wb_addr[31:0]

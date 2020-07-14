@@ -37,9 +37,10 @@ typedef struct {
 typedef struct {
     uint32_t o_wb_addr;
     uint32_t i_wb_data;
+    bool o_wb_we;
 } wb_transaction_t;
 
-#define WB_NO_TRANSACTION {.o_wb_addr = 0xffffffff, .i_wb_data = 0xffffffff}
+#define WB_NO_TRANSACTION {.o_wb_addr = 0xffffffff, .i_wb_data = 0xffffffff, .o_wb_we = 0}
 
 #define wb_is_there_transaction(wb) ((wb).o_wb_addr != 0xffffffff)
 
@@ -104,6 +105,11 @@ void do_instruction(const std::string mnemonic, flags_state fstart, std::vector<
         if (!cpu->device->o_wb_stb) {
             std::stringstream ss;
             ss << "fatal: I was expecting a strobe signal for the wishbone transaction";
+            throw std::runtime_error(ss.str());
+        }
+        if (cpu->device->o_wb_we != wb_transaction.o_wb_we) {
+            std::stringstream ss;
+            ss << "fatal: I was expecting a write enable signal " << static_cast<int>(wb_transaction.o_wb_we) << " for the wishbone transaction";
             throw std::runtime_error(ss.str());
         }
         uint32_t address_requested = cpu->device->o_wb_addr;
@@ -192,7 +198,7 @@ int main(int argc, char* argv[]) {
     do_instruction("ld r7, [r10]", FLAGS_ALL_SET,  {{.idx = 10, .value = 0xabad1dea}}, FLAGS_ALL_SET , {
         { .idx = 0, .value = 0x00000004},
         { .idx = 7, .value = 0xcafebabe}
-    }, {.o_wb_addr = 0xabad1dea, .i_wb_data = 0xcafebabe});
+    }, { .o_wb_addr = 0xabad1dea, .i_wb_data = 0xcafebabe, .o_wb_we = false });
     do_instruction("jr r8", FLAGS_ALL_SET, {{.idx = 8, .value = 0xcafebabe}}, FLAGS_ALL_SET, {
         { .idx = 0, .value = 0xcafebabe},
     });
@@ -225,14 +231,14 @@ int main(int argc, char* argv[]) {
         { .idx = 0, .value = 0x00000004 },
         { .idx = 7, .value = 0xcafebabe },
         { .idx = 14, .value = 0xfeed1338 }
-    }, { .o_wb_addr = 0xfeed1334, .i_wb_data = 0xcafebabe });
+    }, { .o_wb_addr = 0xfeed1334, .i_wb_data = 0xcafebabe, .o_wb_we = false });
     do_instruction("push r7", FLAGS_ALL_SET, {
         { .idx = 7, .value = 0xabad1dea },
         { .idx = 14, .value = 0xfeed1337 },
     }, FLAGS_ALL_SET , {
         { .idx = 0, .value = 0x00000004 },
         { .idx = 14, .value = 0xfeed1330 }
-    }, { .o_wb_addr = 0xfeed1330, .i_wb_data = 0xabad1dea });
+    }, { .o_wb_addr = 0xfeed1330, .i_wb_data = 0xabad1dea, .o_wb_we = true });
 
     return EXIT_SUCCESS;
 }
