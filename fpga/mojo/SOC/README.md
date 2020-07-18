@@ -36,6 +36,9 @@ internally the project is divided into three main sub-sections
      - [ ] peripherals
        - [ ] GPIO
        - [ ] UART
+         - [x] TX
+         - [ ] RX
+         - [ ] real baudrate generator
        - [ ] VGA
    - [ ] Instruction set
      - [ ] move
