@@ -64,7 +64,7 @@ internally the project is divided into three main sub-sections
        - [ ] conditional
        - [x] save the return address
      - [ ] ALU
-       - [ ] add
+       - [x] add
        - [ ] sub
        - [ ] mul
        - [ ] xor
