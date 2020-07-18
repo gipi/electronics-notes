@@ -3,12 +3,15 @@
 
 module soc(
     input wire clk,
-    input wire reset
+    input wire reset,
+    output wire o_uart_tx
 );
 
 reg exception;
-wire [31:0] cpu_to_rom_signal_data;
-wire [31:0] rom_to_cpu_signal_data;
+wire [31:0] cpu_to_peripherals_data;
+//  FIXME
+// verilator lint_off BLKANDNBLK
+wire [31:0] peripherals_to_cpu_data;
 /* verilator lint_off UNUSED */
 wire [31:0] signal_address;
 wire wb_cyc, wb_stb, wb_stall, wb_ack, cpu_we;
@@ -21,8 +24,8 @@ cpu core(
     .clk(clk),
     .reset(reset),
     .i_exception(exception),
-    .i_data(rom_to_cpu_signal_data),
-    .o_data(cpu_to_rom_signal_data),
+    .i_data(peripherals_to_cpu_data),
+    .o_data(cpu_to_peripherals_data),
     .o_wb_addr(signal_address), /* it addresses one word at the time */
     .o_wb_we(cpu_we),
     .o_wb_cyc(wb_cyc),
@@ -49,8 +52,8 @@ assign exception = ~enable_internal;
 wb_memory #(.SIZE(4096),.ROMFILE("../firmwares/bootrom.rom")) br(
     .clk(clk),
     .i_enable(enable_bootrom),
-    .i_data(cpu_to_rom_signal_data),
-    .o_data(rom_to_cpu_signal_data),
+    .i_data(cpu_to_peripherals_data),
+    .o_data(peripherals_to_cpu_data),
     .i_addr(signal_address[13:2]),
     .i_wb_stb(wb_stb),
     .o_wb_stall(wb_stall),
@@ -61,13 +64,31 @@ wb_memory #(.SIZE(4096),.ROMFILE("../firmwares/bootrom.rom")) br(
 wb_memory #(.SIZE(4096)) internal_ram(
     .clk(clk),
     .i_enable(enable_sram),
-    .i_data(cpu_to_rom_signal_data),
-    .o_data(rom_to_cpu_signal_data),
+    .i_data(cpu_to_peripherals_data),
+    .o_data(peripherals_to_cpu_data),
     .i_addr(signal_address[13:2]),
     .i_wb_stb(wb_stb),
     .o_wb_stall(wb_stall),
     .o_wb_ack(wb_ack),
     .i_we(cpu_we)
+);
+
+/* I/O Peripherals */
+wire enable_uart;
+assign enable_uart = 16'hc000 == signal_address[31:16];
+
+wb_uart uart(
+    .clk(clk),
+    .reset(reset),
+    .i_wb_cyc(enable_uart & wb_cyc),
+    .i_wb_stb(wb_stb),
+    .i_wb_we(cpu_we),
+    .i_wb_addr(signal_address[3:2]),
+    .i_wb_data(cpu_to_peripherals_data[7:0]),
+    .o_wb_ack(wb_ack),
+    .o_wb_stall(wb_stall),
+    .o_wb_data(peripherals_to_cpu_data[7:0]),
+    .o_uart_tx(o_uart_tx)
 );
 
 endmodule

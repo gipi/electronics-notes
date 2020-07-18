@@ -36,10 +36,13 @@ localparam [1:0] TX_REG = 0,
 reg tx_start;
 reg tx_done;
 
+reg [7:0] _o_wb_data; /* this only to have a latch on o_wb_data */
+
 /* ACKNOWNLEDGE */
 always @(posedge clk) begin
     if (i_wb_cyc) begin
         o_wb_ack <= i_wb_stb && !o_wb_stall;
+        o_wb_data <= _o_wb_data;
     end
 end
 
@@ -52,7 +55,7 @@ always @* begin
                     tx_start = i_wb_stb; /* FIXME: i_wb_stb is always logic true here :P */
                 else begin
                     tx_start = 1'b0;
-                    o_wb_data = 8'b0;
+                    _o_wb_data = 8'b0;
                 end
             end
             RX_REG: begin
@@ -60,16 +63,16 @@ always @* begin
             CTL_REG: begin
                 tx_start = 1'b0;
                 if (i_wb_we)
-                    o_wb_data = 8'b0;
+                    _o_wb_data = 8'b0;
                 else
-                    o_wb_data = {7'b0, tx_done};
+                    _o_wb_data = {7'b0, tx_done};
             end
             default: begin end
         endcase
     end /* if () */
     else begin
         tx_start = 1'b0;
-        o_wb_data = 8'b0;
+        _o_wb_data = 8'b0;
     end
 end
 
