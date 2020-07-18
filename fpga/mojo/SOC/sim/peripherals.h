@@ -49,6 +49,8 @@ class SysCon {
 
 template<typename T>
 void SysCon<T>::init() {
+    Verilated::traceEverOn(true);
+
     device->trace(mTrace, TRACING_LEVEL);
     mTrace->open(mTraceName.c_str());
 

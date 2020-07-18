@@ -189,8 +189,6 @@ int main(int argc, char* argv[]) {
     LOG(" [+] starting CPU simulation\n");
     Verilated::commandArgs(argc, argv);
 
-    Verilated::traceEverOn(true);
-
     do_instruction("ldids r7, 1af", FLAGS_ALL_SET,  EMPTY_REGISTERS, FLAGS_ALL_SET , {
         { .idx = 0, .value = 0x00000004},
         { .idx = 7, .value = 0x1af}
