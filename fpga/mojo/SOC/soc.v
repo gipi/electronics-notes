@@ -14,6 +14,7 @@ wire [31:0] cpu_to_peripherals_data;
 wire [31:0] peripherals_to_cpu_data;
 /* verilator lint_off UNUSED */
 wire [31:0] signal_address;
+wire [1:0] data_width;
 wire wb_cyc, wb_stb, wb_stall, wb_ack, cpu_we;
 
 initial begin
@@ -31,7 +32,8 @@ cpu core(
     .o_wb_cyc(wb_cyc),
     .o_wb_stb(wb_stb),
     .i_wb_stall(wb_stall),
-    .i_wb_ack(wb_ack)
+    .i_wb_ack(wb_ack),
+    .o_data_width(data_width)
 );
 
 /*
@@ -54,10 +56,11 @@ wb_memory #(.SIZE(4096),.ROMFILE("../firmwares/bootrom.rom")) br(
     .i_enable(enable_bootrom),
     .i_data(cpu_to_peripherals_data),
     .o_data(peripherals_to_cpu_data),
-    .i_addr(signal_address[13:2]),
+    .i_addr(signal_address[11:0]),
     .i_wb_stb(wb_stb),
     .o_wb_stall(wb_stall),
     .o_wb_ack(wb_ack),
+    .i_width(data_width),
     .i_we(0)
 );
 
@@ -66,10 +69,11 @@ wb_memory #(.SIZE(4096)) internal_ram(
     .i_enable(enable_sram),
     .i_data(cpu_to_peripherals_data),
     .o_data(peripherals_to_cpu_data),
-    .i_addr(signal_address[13:2]),
+    .i_addr(signal_address[11:0]),
     .i_wb_stb(wb_stb),
     .o_wb_stall(wb_stall),
     .o_wb_ack(wb_ack),
+    .i_width(data_width),
     .i_we(cpu_we)
 );
 
@@ -83,7 +87,7 @@ wb_uart uart(
     .i_wb_cyc(enable_uart & wb_cyc),
     .i_wb_stb(wb_stb),
     .i_wb_we(cpu_we),
-    .i_wb_addr(signal_address[3:2]),
+    .i_wb_addr(signal_address[1:0]),
     .i_wb_data(cpu_to_peripherals_data[7:0]),
     .o_wb_ack(wb_ack),
     .o_wb_stall(wb_stall),

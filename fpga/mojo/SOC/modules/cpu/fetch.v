@@ -40,7 +40,9 @@ module fetch(
     output reg [31:0] o_wb_data, /* from here is going the data to memory */
     input wire i_wb_ack,
     input wire i_we,
-    output reg [31:0] o_wb_addr /* this is the requested address */
+    output reg [31:0] o_wb_addr, /* this is the requested address */
+    input wire [1:0] i_data_width, /* this indicates if access happens in byte/short/word */
+    output wire [1:0] o_data_width /* this indicates if access happens in byte/short/word */
 );
 
 initial begin
@@ -91,5 +93,7 @@ always @(posedge clk) begin
         o_wb_we <= 1'b0;
     end
 end
+
+assign o_data_width = i_data_width;
 
 endmodule
