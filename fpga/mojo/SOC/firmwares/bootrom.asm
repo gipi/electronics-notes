@@ -23,7 +23,7 @@ pop r2
 hl
 # this is loaded above
 fixed_value:
-.word 0x01020304
+.word 00 00 00 c0
 
 # function
 # calling convention: r1, r2, r3, r4 argument, r5 return value

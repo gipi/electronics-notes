@@ -13,6 +13,13 @@
 #include <fstream>
 #include <map>
 
+enum class Encoding {
+    BYTE,
+    WORD,
+    HUMAN_READABLE,
+    DEBUG,
+    BINARY,
+};
 
 class Comment {
 };
@@ -46,7 +53,7 @@ class Line {
             mAddress = address;
             mValues = values; /* set the unknowns */
         };
-        std::string encode();
+        std::string encode(Encoding encoding = Encoding::BYTE);
     private:
         size_t mN;
         size_t mCodeN;
@@ -74,5 +81,5 @@ class Source {
         void resolve();
     public:
         Source(std::ifstream& stream, size_t startingAddress = 0);
-        std::string encode();
+        std::string encode(Encoding encoding = Encoding::BYTE);
 };

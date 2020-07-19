@@ -89,7 +89,7 @@ void Line::setCodeLine(size_t n) {
  *  2. binary
  *  3. debug info: this format could be something like 0xb000003c: 183e0000 ld r3, [r14]
  */
-std::string Line::encode() {
+std::string Line::encode(Encoding encoding) {
     PLOG_DEBUG << "encoding line '" << mLine << "'";
     std::stringstream ss;
     switch (type()) {
@@ -115,7 +115,20 @@ std::string Line::encode() {
             }
             PLOG_DEBUG << "fixing unknowns: '" << mLine << "' -> '" << instr << "'";
             ISA::Instruction instruction(instr);
-            ss << std::setfill('0') << std::setw(8) << std::hex << instruction.getEncoding() << std::endl;
+            uint32_t opcode = instruction.getEncoding();
+            switch (encoding) {
+                case Encoding::BYTE: {
+                    for (size_t step = 0 ; step < 4 ; step++) {
+                        ss << std::setfill('0') << std::setw(2) << std::hex << ((opcode & (0xff << (8 * step))) >> (8 * step)) << " ";
+                    }
+                    ss << std::endl;
+                }
+                break;
+                case Encoding::WORD: {
+                        ss << std::setfill('0') << std::setw(8) << std::hex << instruction.getEncoding() << std::endl;
+                    }
+                    break;
+                }
             }
             break;
         case DIRECTIVE:
@@ -214,7 +227,7 @@ void Source::resolve() {
     }
 }
 
-std::string Source::encode() {
+std::string Source::encode(Encoding encoding) {
     resolve();
     std::stringstream ss;
     for (Line& line : mLines) {
@@ -222,7 +235,7 @@ std::string Source::encode() {
         if ((line.type() != Line::LineType::CODE) && (line.type() != Line::LineType::DIRECTIVE))
             continue;
 
-        ss << line.encode();
+        ss << line.encode(encoding);
     }
 
     return ss.str();
