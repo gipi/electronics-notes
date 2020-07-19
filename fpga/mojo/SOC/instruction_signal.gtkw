@@ -1,0 +1,72 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Sun Jul 19 20:37:37 2020
+[*]
+[dumpfile] "/opt/3043096/fpga/mojo/SOC/sim/soc_trace.vcd"
+[dumpfile_mtime] "Sun Jul 19 20:30:24 2020"
+[dumpfile_size] 18233
+[savefile] "/opt/3043096/fpga/mojo/SOC/instruction_signal.gtkw"
+[timestart] 8
+[size] 1918 1019
+[pos] -1 -1
+*-7.325902 105 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.soc.
+[treeopen] TOP.soc.core.
+[treeopen] TOP.soc.uart.
+[sst_width] 221
+[signals_width] 373
+[sst_expanded] 1
+[sst_vpaned_height] 292
+@28
+TOP.soc.core.reset
+TOP.soc.core.clk
+@200
+-CPU
+@28
+TOP.soc.core.enable_fetch
+TOP.soc.core.enable_decode
+TOP.soc.core.enable_execute
+TOP.soc.core.enableMemory
+@22
+TOP.soc.core.memoryReference[31:0]
+@23
+TOP.soc.core.memoryValue[31:0]
+@28
+TOP.soc.core.enableWriteBack
+TOP.soc.core.i_wb_ack
+TOP.soc.core.i_wb_stall
+@22
+TOP.soc.core.o_wb_addr[31:0]
+TOP.soc.core.i_data[31:0]
+TOP.soc.core.inner_registers(0)[31:0]
+TOP.soc.core.inner_registers(2)[31:0]
+TOP.soc.core.registers(0)[31:0]
+TOP.soc.core.registers(1)[31:0]
+TOP.soc.core.registers(2)[31:0]
+TOP.soc.core.registers(9)[31:0]
+TOP.soc.core.fetched_instruction[31:0]
+TOP.soc.core.opcode[3:0]
+@28
+TOP.soc.core.updateFlags
+TOP.soc.core.zero
+TOP.soc.core.sign
+TOP.soc.core.overflow
+TOP.soc.core.carry
+@200
+-BUS
+@28
+TOP.soc.enable_bootrom
+TOP.soc.enable_internal
+TOP.soc.enable_sram
+TOP.soc.enable_uart
+TOP.soc.cpu_we
+@200
+-PERIPHERALS
+@28
+TOP.soc.o_uart_tx
+TOP.soc.uart.rx_clk
+TOP.soc.uart.tx_clk
+TOP.soc.uart.reset
+[pattern_trace] 1
+[pattern_trace] 0
