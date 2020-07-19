@@ -8,8 +8,7 @@ ld r13, 0xff
 mul r11, r13
 # now load from memory
 ld r9, [r0 + 0x28]
-# try to push
-push r9
+st r8, [r9]
 ld r1, 0x7
 ld r10, 0x1c
 jrrl r10
