@@ -30,11 +30,18 @@ localparam [1:0] TX_REG = 0,
                  RX_REG = 1,
                  CTL_REG = 2;
 
-// FIXME: add baudrate generation module, for now we use the clock as comes from
-// the cpu
+baudgenerator clocks(
+    .clk(clk),
+    .reset(reset),
+    .o_tx_clk(tx_clk),
+    .o_rx_clk(rx_clk)
+);
 
 reg tx_start;
 reg tx_done;
+wire tx_clk;
+/* verilator lint_off UNUSED */
+wire rx_clk;
 
 reg [7:0] _o_wb_data; /* this only to have a latch on o_wb_data */
 
@@ -77,7 +84,7 @@ always @* begin
 end
 
 uart_tx tx(
-    .clk(clk),
+    .clk(tx_clk),
     .reset(reset),
     .i_start(tx_start),
     .i_data(i_wb_data),
