@@ -15,7 +15,7 @@ ASM = $(ROOT_DIR)/../ISA/asm
 all: soc fetch cpu glyph_rom wb_memory uart_tx wb_uart
 
 soc: $(BOOTROM)
-	verilator -I$(PATH_MODULES)/cpu/ -I../ -I$(PATH_MODULES)/UART/ -I$(PATH_MODULES)/blockrams/ -CFLAGS '-std=gnu++2a -Wextra -Wall -g -Wpedantic -I$(PATH_LOG_INCLUDE)' -Wall --trace -cc soc.v --exe soc.cpp peripherals.cpp
+	verilator -I$(PATH_MODULES)/cpu/ -I../ -I$(PATH_MODULES)/UART/ -I$(PATH_MODULES)/blockrams/ -GPATH_BOOTROM='"$(BOOTROM)"' -CFLAGS '-std=gnu++2a -Wextra -Wall -g -Wpedantic -I$(PATH_LOG_INCLUDE)' -Wall --trace -cc soc.v --exe soc.cpp peripherals.cpp
 	make -C obj_dir -j 8 -f V$@.mk V$@
 
 fetch:
