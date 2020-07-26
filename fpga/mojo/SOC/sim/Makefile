@@ -43,4 +43,4 @@ wb_uart:
 	make -C obj_dir -j 8 -f V$@.mk V$@
 
 clean:
-	rm -vfr obj_dir $(BOOTROM)
+	rm -vfr obj_dir $(BOOTROM) *.vcd
