@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
-[*] Sun Jul 12 18:00:36 2020
+[*] Sun Jul 26 10:35:12 2020
 [*]
-[dumpfile] "/opt/3043096/fpga/mojo/SOC/ld r7, [r10].vcd"
-[dumpfile_mtime] "Sun Jul 12 17:59:29 2020"
-[dumpfile_size] 9071
+[dumpfile] "/opt/3043096/fpga/mojo/SOC/sim/ldids r7, 1af.vcd"
+[dumpfile_mtime] "Sun Jul 26 10:27:48 2020"
+[dumpfile_size] 8812
 [savefile] "/opt/3043096/fpga/mojo/SOC/instruction_cpusim_signal.gtkw"
 [timestart] 8
-[size] 1920 1021
+[size] 1918 1020
 [pos] -1 -1
-*-4.826668 190 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-4.826668 40 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] TOP.
 [treeopen] TOP.cpu.
 [sst_width] 221
@@ -20,11 +20,10 @@
 TOP.cpu.clk
 TOP.cpu.reset
 TOP.cpu.enable_fetch
+TOP.cpu.fetch_phase.o_completed
 TOP.cpu.enable_decode
 TOP.cpu.enable_execute
-@29
 TOP.cpu.enableMemory
-@28
 TOP.cpu.memoryCompleted
 @22
 TOP.cpu.immediate[15:0]
@@ -37,9 +36,7 @@ TOP.cpu.memoryReference[31:0]
 @28
 TOP.cpu.o_wb_cyc
 TOP.cpu.o_wb_stb
-@29
 TOP.cpu.o_wb_we
-@28
 TOP.cpu.i_wb_ack
 @22
 TOP.cpu.o_wb_addr[31:0]
@@ -50,5 +47,16 @@ TOP.cpu.inner_registers(10)[31:0]
 TOP.cpu.registers(0)[31:0]
 @28
 TOP.cpu.updateFlags
+@200
+-Load
+@28
+TOP.cpu.loadOperation.i_enable
+@22
+TOP.cpu.loadOperation.i_pc[31:0]
+TOP.cpu.loadOperation.i_value[31:0]
+@28
+TOP.cpu.fetch_phase.i_wb_ack
+@29
+TOP.cpu.fetch_phase.o_completed
 [pattern_trace] 1
 [pattern_trace] 0
