@@ -17,7 +17,7 @@ module hvsync_generator(
     output vga_v_sync,
     output reg inDisplayArea,
     output reg [9:0] CounterX,
-    output reg [8:0] CounterY
+    output reg [9:0] CounterY
   );
 reg vga_HS, vga_VS;
 
