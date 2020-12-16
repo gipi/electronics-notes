@@ -49,6 +49,11 @@ void LoadInstructionImpl::validate() {
     if (mLOperand.type != OperandType::REGISTER) {
         throw std::runtime_error("validate: load instruction must have a register as a left operand");
     }
+    if (mROperand.type != OperandType::IMMEDIATE
+            && mROperand.type != OperandType::REFERENCE_REGISTER
+            && mROperand.type != OperandType::REFERENCE_REGISTER_OFFSET) {
+        throw std::runtime_error("validate: load instruction must have an immediate or a reference  as a right operand");
+    }
 }
 
 void LoadInstructionImpl::encode() {
