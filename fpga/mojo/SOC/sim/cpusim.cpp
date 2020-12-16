@@ -87,6 +87,7 @@ void do_instruction(const std::string mnemonic, flags_state fstart, std::vector<
     cpu->tick();
 
     cpu->device->i_wb_ack = 1;
+    cpu->tick();
 
     // decode
     cpu->tick();
@@ -121,6 +122,7 @@ void do_instruction(const std::string mnemonic, flags_state fstart, std::vector<
         }
         /* set the response from the slave */
         cpu->device->i_wb_ack = 1;
+        cpu->tick();
         cpu->device->i_data = wb_transaction.i_wb_data;
         // store
         cpu->tick();

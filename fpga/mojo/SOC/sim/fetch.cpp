@@ -10,13 +10,18 @@
 #define LOG(...) fprintf(stderr, __VA_ARGS__)
 
 void tick(Vfetch* f, uint64_t tickcount, VerilatedVcdC* tfp) {
+    f->clk = 0;
     f->eval();
+
     if (tfp)
-        tfp->dump(tickcount*10 - 4);
+        tfp->dump(tickcount*10 - 2);
+
+
     f->clk = 1;
     f->eval();
     if (tfp)
         tfp->dump(tickcount*10);
+
     f->clk = 0;
     f->eval();
     if (tfp) {
@@ -54,12 +59,14 @@ int main(int argc, char* argv[]) {
         assert(fetch->o_completed == 0);
     }
 
+    LOG(" [I] start transaction\n");
     // start a transaction
     fetch->i_enable = 1;
     fetch->i_pc = 0xcafebabe;
 
     tick(fetch, ++timetick, tfp);
 
+    fetch->i_enable = 0;
     assert(fetch->o_wb_cyc == 1);
     assert(fetch->o_wb_stb == 1);
 
