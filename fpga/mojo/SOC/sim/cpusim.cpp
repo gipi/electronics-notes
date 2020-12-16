@@ -64,7 +64,7 @@ void do_instruction(const std::string mnemonic, flags_state fstart, std::vector<
     /* initialize the instruction */
     ISA::Instruction instructionA(mnemonic);
 
-    LOG(" [#] instruction \'%s\': %08x\n", mnemonic.c_str(), instructionA.getEncoding());
+    LOG(" [#] instruction \'%s\': %08x ", mnemonic.c_str(), instructionA.getEncoding());
 
     // save the registers and flags
     cpu->device->cpu__DOT__carry = fstart.carry;
@@ -183,6 +183,8 @@ void do_instruction(const std::string mnemonic, flags_state fstart, std::vector<
 
     free(registers);
     delete cpu->device;
+
+    LOG(" [ok]\n");
 }
 
 #define FLAGS_ALL_SET {.carry = 1, .zero = 1, .sign = 1, .overflow = 1}
