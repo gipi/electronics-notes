@@ -27,11 +27,11 @@ cpu core(
     .i_exception(exception),
     .i_data(peripherals_to_cpu_data),
     .o_data(cpu_to_peripherals_data),
-    .o_wb_addr(signal_address), /* it addresses one word at the time */
+    .o_wb_addr(signal_address),
     .o_wb_we(cpu_we),
     .o_wb_cyc(wb_cyc),
     .o_wb_stb(wb_stb),
-    .i_wb_stall(wb_stall),
+    .i_wb_stl(wb_stall),
     .i_wb_ack(wb_ack),
     .o_data_width(data_width)
 );
@@ -55,12 +55,12 @@ parameter PATH_BOOTROM="../firmwares/bootrom.rom";
 
 wb_memory #(.SIZE(4096),.ROMFILE(PATH_BOOTROM)) br(
     .clk(clk),
-    .i_enable(enable_bootrom),
     .i_data(cpu_to_peripherals_data),
     .o_data(peripherals_to_cpu_data),
     .i_addr(signal_address[11:0]),
-    .i_wb_stb(wb_stb),
-    .o_wb_stall(wb_stall),
+    .i_wb_cyc(wb_cyc),
+    .i_wb_stb(wb_stb & enable_bootrom),
+    .o_wb_stl(wb_stall),
     .o_wb_ack(wb_ack),
     .i_width(data_width),
     .i_we(0)
@@ -68,12 +68,12 @@ wb_memory #(.SIZE(4096),.ROMFILE(PATH_BOOTROM)) br(
 
 wb_memory #(.SIZE(4096)) internal_ram(
     .clk(clk),
-    .i_enable(enable_sram),
     .i_data(cpu_to_peripherals_data),
     .o_data(peripherals_to_cpu_data),
     .i_addr(signal_address[11:0]),
-    .i_wb_stb(wb_stb),
-    .o_wb_stall(wb_stall),
+    .i_wb_cyc(wb_cyc),
+    .i_wb_stb(wb_stb & enable_internal),
+    .o_wb_stl(wb_stall),
     .o_wb_ack(wb_ack),
     .i_width(data_width),
     .i_we(cpu_we)
@@ -86,13 +86,13 @@ assign enable_uart = 16'hc000 == signal_address[31:16];
 wb_uart uart(
     .clk(clk),
     .reset(reset),
-    .i_wb_cyc(enable_uart & wb_cyc),
-    .i_wb_stb(wb_stb),
+    .i_wb_cyc(wb_cyc),
+    .i_wb_stb(wb_stb & enable_uart),
     .i_wb_we(cpu_we),
     .i_wb_addr(signal_address[1:0]),
     .i_wb_data(cpu_to_peripherals_data[7:0]),
     .o_wb_ack(wb_ack),
-    .o_wb_stall(wb_stall),
+    .o_wb_stl(wb_stall),
     .o_wb_data(peripherals_to_cpu_data[7:0]),
     .o_uart_tx(o_uart_tx)
 );

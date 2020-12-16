@@ -47,7 +47,7 @@ int main(int argc, char **argv) {
 
     // READ
     // 1. read back a word (32bit)
-    uut->i_enable = 1;
+    uut->i_wb_cyc = 1;
     uut->i_wb_stb = 1;
     uut->i_width = 3;
 
@@ -57,12 +57,12 @@ int main(int argc, char **argv) {
     assert(uut->o_data == 0xabad1d34); // check we have what we expect
 
     uut->i_wb_stb = 0;
-    uut->i_enable = 0;
+    uut->i_wb_cyc = 0;
 
     tick(++tickcount, uut, tfp);
 
     // 2. read a short (16bit)
-    uut->i_enable = 1;
+    uut->i_wb_cyc = 1;
     uut->i_wb_stb = 1;
     uut->i_width = 1;
 
@@ -72,12 +72,12 @@ int main(int argc, char **argv) {
     assert(uut->o_data == 0x1d34); // check we have what we expect
 
     uut->i_wb_stb = 0;
-    uut->i_enable = 0;
+    uut->i_wb_cyc = 0;
 
     tick(++tickcount, uut, tfp);
 
     // 3. read a byte (8bit)
-    uut->i_enable = 1;
+    uut->i_wb_cyc = 1;
     uut->i_wb_stb = 1;
     uut->i_width = 0;
 
@@ -87,13 +87,13 @@ int main(int argc, char **argv) {
     assert(uut->o_data == 0x34); // check we have what we expect
 
     uut->i_wb_stb = 0;
-    uut->i_enable = 0;
+    uut->i_wb_cyc = 0;
 
     tick(++tickcount, uut, tfp);
 
     // WRITE
     // 1. write a word (32bit)
-    uut->i_enable = 1;
+    uut->i_wb_cyc = 1;
     uut->i_wb_stb = 1;
     uut->i_we = 1;
     uut->i_width = 3;
@@ -109,12 +109,12 @@ int main(int argc, char **argv) {
 
     tick(++tickcount, uut, tfp);
 
-    uut->i_enable = 0;
+    uut->i_wb_cyc = 0;
     uut->i_we = 0;
 
     tick(++tickcount, uut, tfp);
 
-    uut->i_enable = 1;
+    uut->i_wb_cyc = 1;
     uut->i_wb_stb = 1;
 
     tick(++tickcount, uut, tfp);
@@ -122,7 +122,7 @@ int main(int argc, char **argv) {
     assert(uut->o_wb_ack == 1);
     assert(uut->o_data == 0xcafebabe);
     // 2. write a short (16bit)
-    uut->i_enable = 1;
+    uut->i_wb_cyc = 1;
     uut->i_wb_stb = 1;
     uut->i_we = 1;
     uut->i_width = 1;
@@ -138,12 +138,12 @@ int main(int argc, char **argv) {
 
     tick(++tickcount, uut, tfp);
 
-    uut->i_enable = 0;
+    uut->i_wb_cyc = 0;
     uut->i_we = 0;
 
     tick(++tickcount, uut, tfp);
 
-    uut->i_enable = 1;
+    uut->i_wb_cyc = 1;
     uut->i_width = 3;
     uut->i_wb_stb = 1;
 
@@ -153,9 +153,9 @@ int main(int argc, char **argv) {
     assert(uut->o_data == 0xcafe1d3a);
 
     uut->i_wb_stb = 0;
-    uut->i_enable = 0;
+    uut->i_wb_cyc = 0;
     // 3. write a byte (8bit)
-    uut->i_enable = 1;
+    uut->i_wb_cyc = 1;
     uut->i_wb_stb = 1;
     uut->i_we = 1;
     uut->i_width = 0;
@@ -171,12 +171,12 @@ int main(int argc, char **argv) {
 
     tick(++tickcount, uut, tfp);
 
-    uut->i_enable = 0;
+    uut->i_wb_cyc = 0;
     uut->i_we = 0;
 
     tick(++tickcount, uut, tfp);
 
-    uut->i_enable = 1;
+    uut->i_wb_cyc = 1;
     uut->i_width = 3;
     uut->i_wb_stb = 1;
 
@@ -186,7 +186,7 @@ int main(int argc, char **argv) {
     assert(uut->o_data == 0xcafe1dff);
 
     uut->i_wb_stb = 0;
-    uut->i_enable = 0;
+    uut->i_wb_cyc = 0;
 
     // Tick the clock until we are done
     for (unsigned int count = 0; count < 10 ; count++) {

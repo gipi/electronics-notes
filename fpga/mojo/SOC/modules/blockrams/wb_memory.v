@@ -5,12 +5,14 @@
  * TODO: add reset, wb_cyc
  */
 `timescale 1ns/1ps
+`default_nettype none
+
 module wb_memory #(parameter ROMFILE="", SIZE=64) (
     input wire clk,
-    input wire i_enable,
+    input wire i_wb_cyc,
     input wire i_wb_stb,
-    output wire o_wb_stall,
-    output reg  o_wb_ack,
+    output wire o_wb_stl,
+    output wire o_wb_ack,
     input wire i_we,
     input wire [1:0] i_width,
     input wire [$clog2(SIZE) - 1:0] i_addr, /* the width varies with the size of the ROM */
@@ -28,9 +30,8 @@ end
 
 always @ (posedge clk)
 begin
-    if (i_enable) begin
-    if (i_wb_stb && !o_wb_stall) begin
-        o_data <= 32'b0;
+    if (i_wb_cyc && i_wb_stb && !o_wb_stl) begin
+        //o_data <= 32'b0;
         if(i_we) begin
             ram[i_addr] <= i_data[7:0];
             if (i_width[0] | i_width[1]) begin
@@ -51,10 +52,9 @@ begin
             end
         end
     end
-    o_wb_ack <= i_wb_stb && !o_wb_stall;
-    end // if (i_enable)
 end
 
-assign o_wb_stall = 1'b0;
+assign o_wb_ack = i_wb_cyc && i_wb_stb && !o_wb_stl;
+assign o_wb_stl = 1'b0;
 
 endmodule

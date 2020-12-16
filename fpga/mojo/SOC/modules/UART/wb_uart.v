@@ -21,7 +21,7 @@ module wb_uart(
     input [1:0] i_wb_addr,
     input [7:0] i_wb_data,
     output reg o_wb_ack,
-    output wire o_wb_stall,
+    output wire o_wb_stl,
     output reg [7:0] o_wb_data,
     output wire o_uart_tx
 );
@@ -48,14 +48,14 @@ reg [7:0] _o_wb_data; /* this only to have a latch on o_wb_data */
 /* ACKNOWNLEDGE */
 always @(posedge clk) begin
     if (i_wb_cyc) begin
-        o_wb_ack <= i_wb_stb && !o_wb_stall;
+        o_wb_ack <= i_wb_stb && !o_wb_stl;
         o_wb_data <= _o_wb_data;
     end
 end
 
 /* WRITING / READING */
 always @* begin
-    if (i_wb_cyc && i_wb_stb && !o_wb_stall) begin
+    if (i_wb_cyc && i_wb_stb && !o_wb_stl) begin
         case (i_wb_addr)
             TX_REG: begin
                 if (i_wb_we)
@@ -92,6 +92,6 @@ uart_tx tx(
     .o_tx(o_uart_tx)
 );
 
-assign o_wb_stall = 1'b0;
+assign o_wb_stl = 1'b0;
 
 endmodule

@@ -28,7 +28,7 @@ module cpu(
     output wire o_wb_cyc,
     output wire o_wb_stb,
     input wire i_wb_ack,
-    input wire i_wb_stall,
+    input wire i_wb_stl,
     output wire [1:0] o_data_width
 );
 
@@ -111,6 +111,7 @@ fetch fetch_phase(
     .o_wb_cyc(o_wb_cyc),
     .o_wb_stb(o_wb_stb),
     .i_wb_ack(i_wb_ack),
+    .i_wb_stl(i_wb_stl),
     .i_wb_data(i_data),
     .o_wb_data(o_data),
     .i_data_width(2'b11),
@@ -425,6 +426,7 @@ fetch loadOperation(
     .o_wb_stb(o_wb_stb),
     .o_wb_we(o_wb_we),
     .i_wb_ack(i_wb_ack),
+    .i_wb_stl(i_wb_stl),
     .i_wb_data(i_data),
     .o_wb_data(o_data),
     .i_data_width(2'b11),
