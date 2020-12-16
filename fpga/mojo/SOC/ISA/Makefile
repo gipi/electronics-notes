@@ -1,5 +1,6 @@
 
 ASM_CXX_SOURCES = assembly.cpp loadImpl.cpp storeImpl.cpp jumpImpl.cpp addImpl.cpp mulImpl.cpp source.cpp
+ASM_CXX_INCLUDES = assembly.h source.h
 ASM_CXX_OBJECTS = $(ASM_CXX_SOURCES:.cpp=.o)
 PATH_LOG_INCLUDE = ../plog/include/
 
@@ -9,6 +10,8 @@ TARGETS = libisa.so asm
 
 all: $(TARGETS)
 .PHONY: all
+
+asm: $(ASM_CXX_INCLUDES)
 
 asm: asm.cpp $(ASM_CXX_SOURCES)
 	g++ -Wfatal-errors -I$(PATH_LOG_INCLUDE) -g -Wall $^ -o $@
