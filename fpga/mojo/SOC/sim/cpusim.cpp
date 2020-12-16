@@ -102,6 +102,7 @@ void do_instruction(const std::string mnemonic, flags_state fstart, std::vector<
     // store
     cpu->tick();
 
+#if 1
     if (wb_is_there_transaction(wb_transaction)) {
         if (!cpu->device->o_wb_stb) {
             std::stringstream ss;
@@ -130,6 +131,7 @@ void do_instruction(const std::string mnemonic, flags_state fstart, std::vector<
         cpu->tick();
         cpu->tick();
     }
+#endif
 
     if (cpu->device->cpu__DOT__enable_fetch != 1) {
         std::stringstream ss;
@@ -248,6 +250,9 @@ int main(int argc, char* argv[]) {
         }, FLAGS_ALL_SET , {
             { .idx = 0, .value = 0x00000004},
     }, { .o_wb_addr = 0xabad1dea, .i_wb_data = 0xcafebabe, .o_wb_we = true });
+    do_instruction("jr r8", FLAGS_ALL_SET, {{.idx = 8, .value = 0xcafebabe}}, FLAGS_ALL_SET, {
+        { .idx = 0, .value = 0xcafebabe},
+    });
 
     return EXIT_SUCCESS;
 }
