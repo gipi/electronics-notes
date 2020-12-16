@@ -25,6 +25,82 @@ internally the project is divided into three main sub-sections
  - instruction set in the ``ISA/`` directory
  - hdl in the ``modules/`` directory
 
+With a simple ``make`` it's possible to build the simulation programs to test
+the design.
+
+```
+$ make tests
+ <...>
+>>>>>>>>>>>>> obj_dir/Vglyph_rom <<<<<<<<<<<<<<<<<<<<<<<
+ [+] starting Glyph ROM simulation
+[character code 0]
+        
+        
+## ## # 
+      # 
+#       
+#     # 
+      # 
+#       
+#     # 
+      # 
+#       
+# ## ##
+ <...>
+
+[character code 83]
+######  
+######  
+######  
+######  
+######  
+######  
+######  
+######  
+##>>>>>>>>>>>>> obj_dir/Vcpu <<<<<<<<<<<<<<<<<<<<<<<
+ [+] starting CPU simulation
+ [#] instruction 'ldids r7, 1af': 197001af
+ [#] instruction 'ld r7, [r10]': 187a0000
+ [#] instruction 'jr r8': 30070000
+ [#] instruction 'jrl r9': 301f0000
+ [#] instruction 'add r9, r7, r10': 497a0000
+ [#] instruction 'add r9, r7, r10': 497a0000
+ [#] instruction 'pop r7': 90700000
+ [#] instruction 'push r7': 80700000
+ [#] instruction 'st r7, [r10]': 787a0000
+ [#] instruction 'jr r8': 30070000
+>>>>>>>>>>>>> obj_dir/Vsoc <<<<<<<<<<<<<<<<<<<<<<<
+2020-12-16 12:17:19.050 INFO  [418529] [main@19]  [+] starting SOC simulation
+2020-12-16 12:17:19.050 INFO  [418529] [SysCon<T>::init@57]  [+] start tracing into 'soc_trace.vcd'
+>>>>>>>>>>>>> obj_dir/Vwb_memory <<<<<<<<<<<<<<<<<<<<<<<
+Vwb_memory: ../wb_memory.cpp:72: int main(int, char**): Assertion `uut->o_data == 0x1d34' failed.
+Aborted
+>>>>>>>>>>>>> obj_dir/Vfetch <<<<<<<<<<<<<<<<<<<<<<<
+ [+] starting fetch stage simulation
+ [+] out of reset
+ [I] start transaction
+>>>>>>>>>>>>> obj_dir/Vwb_uart <<<<<<<<<<<<<<<<<<<<<<<
+2020-12-16 12:17:19.055 INFO  [418532] [SysCon<T>::init@57]  [+] start tracing into 'wb_uart.vcd'
+2020-12-16 12:17:19.055 DEBUG [418532] [SysCon<T>::tickPeripherals@85]  [+] tx starting communications
+2020-12-16 12:17:19.055 DEBUG [418532] [SysCon<T>::tickPeripherals@100] transmitted byte: '' (aa)
+2020-12-16 12:17:19.055 DEBUG [418532] [SysCon<T>::tickPeripherals@85]  [+] tx starting communications
+2020-12-16 12:17:19.055 DEBUG [418532] [SysCon<T>::tickPeripherals@100] transmitted byte: 'U' (55)
+2020-12-16 12:17:19.055 DEBUG [418532] [SysCon<T>::tickPeripherals@85]  [+] tx starting communications
+2020-12-16 12:17:19.055 DEBUG [418532] [SysCon<T>::tickPeripherals@100] transmitted byte: 'h' (68)
+2020-12-16 12:17:19.055 DEBUG [418532] [SysCon<T>::tickPeripherals@85]  [+] tx starting communications
+2020-12-16 12:17:19.055 DEBUG [418532] [SysCon<T>::tickPeripherals@100] transmitted byte: '' (1)
+>>>>>>>>>>>>> obj_dir/Vuart_tx <<<<<<<<<<<<<<<<<<<<<<<
+2020-12-16 12:17:19.056 INFO  [418533] [main@104]  [+] start tracing
+2020-12-16 12:17:19.057 DEBUG [418533] [tickPeripherals@32]  [+] tx starting communications
+2020-12-16 12:17:19.057 DEBUG [418533] [tickPeripherals@47] transmitted byte: '' (aa)
+2020-12-16 12:17:19.057 DEBUG [418533] [tickPeripherals@32]  [+] tx starting communications
+2020-12-16 12:17:19.057 DEBUG [418533] [tickPeripherals@47] transmitted byte: 'U' (55)
+2020-12-16 12:17:19.057 DEBUG [418533] [tickPeripherals@32]  [+] tx starting communications
+2020-12-16 12:17:19.057 DEBUG [418533] [tickPeripherals@47] transmitted byte: 'h' (68)
+2020-12-16 12:17:19.057 DEBUG [418533] [tickPeripherals@32]  [+] tx starting communications
+2020-12-16 12:17:19.057 DEBUG [418533] [tickPeripherals@47] transmitted byte: '' (1)
+```
+
 ## Roadmap
 
  - [ ] SoC
