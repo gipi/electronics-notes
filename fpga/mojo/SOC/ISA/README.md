@@ -30,6 +30,19 @@ store an immediate 32-bit value with only one operation: you can think
 | ``xor`` | 0a |
 | ``hl`` | 0b |
 
+
+## Calling convention
+
+When a function is called the registers ``r1``, ``r2``, ``r3`` and ``r4`` are
+used to pass arguments to it, if more that four arguments are needed the
+remaining are stored in the stack. ``r1`` will contain the return value (if
+any). These registers can be modified by the callee as ``r5``, ``r6``, ``r7``
+and ``r8``; the remaining seven registers must be preserved by the call.
+
+Some registers are used directly to interact with the memory, like ``r0`` is the
+**program counter** (``pc``) and ``r14`` is the **stack pointer** (``sp``).
+These **must** be aligned to 4 bytes.
+
 ## Tests
 
 In the simulations there is the ``Vcpu`` module that is intended in the near

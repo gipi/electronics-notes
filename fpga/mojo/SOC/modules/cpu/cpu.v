@@ -369,10 +369,12 @@ begin
                 {inner_registers[destinationMSB], inner_registers[destinationLSB]} <= inner_registers[operandA] * inner_registers[operandB];
                 enableWriteBack <= 1;
             end
+            /* the stack register has only memory related meaning, so it's
+             * mandatory to be aligned to 4bytes*/
             PUSH:
             begin
-                inner_registers[SP] <= inner_registers[SP] - 4;
-                memoryReference <= inner_registers[SP] - 4;
+                inner_registers[SP] <= (inner_registers[SP] & ~32'b11) - 4;
+                memoryReference <= (inner_registers[SP] & ~32'b11) - 4;
                 memoryValue <= inner_registers[operandA];
                 memoryWrite <= 1'b1;
                 enableMemory <= 1'b1;
@@ -380,7 +382,7 @@ begin
             POP:
             begin
                 store_reg_idx <= operandA;
-                memoryReference <= inner_registers[SP];
+                memoryReference <= inner_registers[SP] & ~32'b11;
                 enableMemory <= 1'b1;
             end
             XOR:
@@ -405,7 +407,7 @@ always @(posedge clk) begin
         if (~memoryWrite) begin
             inner_registers[store_reg_idx] <= memoryValue;
             if (opcode == POP)
-                inner_registers[SP] <= inner_registers[SP] + 4;
+                inner_registers[SP] <= (inner_registers[SP] & ~32'b11) + 4;
         end
 
         enableWriteBack <= 1'b1;
