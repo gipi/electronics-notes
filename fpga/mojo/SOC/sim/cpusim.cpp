@@ -61,6 +61,9 @@ void do_instruction(const std::string mnemonic, flags_state fstart, std::vector<
     SysCon<Vcpu>* cpu = new SysCon<Vcpu>(tracename.str().c_str());
 
     cpu->warmup();
+
+    assert(cpu->device->cpu__DOT__enable_fetch == 1);
+
     /* initialize the instruction */
     ISA::Instruction instructionA(mnemonic);
 
@@ -83,16 +86,28 @@ void do_instruction(const std::string mnemonic, flags_state fstart, std::vector<
     memcpy(cpu->device->cpu__DOT__inner_registers, cpu->device->cpu__DOT__registers, sizeof(cpu->device->cpu__DOT__registers));
 
     cpu->device->i_data = instructionA.getEncoding();
-    // fetch
+
+    assert(cpu->device->o_wb_cyc == 0);
+    assert(cpu->device->o_wb_stb == 0);
+    // fetch ******************************************
     cpu->tick();
 
+    /* verify the enable fetch is asserted only one cycle */
+    assert(cpu->device->cpu__DOT__enable_fetch == 0);
+
+    /* the wishbone answers */
+    assert(cpu->device->o_wb_stb == 1);
+    assert(cpu->device->o_wb_cyc == 1);
+
+    cpu->tick();
+    /* now the slave sees the request and answers */
     cpu->device->i_wb_ack = 1;
-    cpu->tick();
 
-    // decode
-    cpu->tick();
 
+    // decode **********************************************
+    cpu->tick();
     cpu->device->i_wb_ack = 0;
+
     // execute
     cpu->tick();
 
