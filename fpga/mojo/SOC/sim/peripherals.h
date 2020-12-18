@@ -62,6 +62,8 @@ void SysCon<T>::init() {
 template<typename T>
 void SysCon<T>::warmup() {
     device->reset = 0;
+    device->clk = 0;
+
     size_t count = 0;
     while(count++ < 2) {
         tick();
@@ -105,20 +107,39 @@ void SysCon<T>::tickPeripherals() {
 #endif
 }
 
+#define TICK_STEP 100
+#define TICK_OFFSET_LOW -10
+#define TICK_OFFSET_HIGH 50
+/**
+ * Execute a clock cycle.
+ *
+ * The idea here is that the caller set the values needed just before a rasing
+ * edge of the clock
+ *      _____
+ *     |     |
+ *     |     |
+ * ____|     |_
+ *
+ * 
+ */
 template<typename T>
 void SysCon<T>::tick() {
+    assert(device->clk == 0); /* we are in a asserted clock but not raising edge */
+
     tickcount++;
-    device->eval();
+    device->eval(); /* eval combinational logic */
     if (mTrace)
-        mTrace->dump(tickcount*10 - 2);
-    device->clk = 1;
-    device->eval();
+        mTrace->dump(tickcount * TICK_STEP + TICK_OFFSET_LOW); /* dump it */
+
+    device->clk = 1; /* falling edge */
+    device->eval();  /* evaluate sequential */
     if (mTrace)
-        mTrace->dump(tickcount*10);
-    device->clk = 0;
+        mTrace->dump(tickcount * TICK_STEP);
+
+    device->clk = 0; /* raising edge */
     device->eval();
     if (mTrace) {
-        mTrace->dump(tickcount*10 + 5);
+        mTrace->dump(tickcount * TICK_STEP + TICK_STEP / 2);
         mTrace->flush();
     }
 
