@@ -72,7 +72,7 @@ wb_memory #(.SIZE(4096)) internal_ram(
     .o_data(peripherals_to_cpu_data),
     .i_addr(signal_address[11:0]),
     .i_wb_cyc(wb_cyc),
-    .i_wb_stb(wb_stb & enable_internal),
+    .i_wb_stb(wb_stb & enable_sram),
     .o_wb_stl(wb_stall),
     .o_wb_ack(wb_ack),
     .i_width(data_width),
