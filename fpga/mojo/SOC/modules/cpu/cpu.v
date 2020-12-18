@@ -141,25 +141,28 @@ decode decode_phase(
 );
 
 reg enable_execute;
-wire [3:0] opcode;
 wire [3:0] extra;
 wire [3:0] operandA;
 wire [3:0] operandB;
 wire [15:0] immediate;
 
-parameter NOP  = 4'b0000; /* 0 */
-parameter LOAD = 4'b0001; /* 1 */
-parameter MOVE = 4'b0010; /* 2 */
-parameter JUMP = 4'b0011; /* 3 */
-parameter ADD  = 4'b0100; /* 4 */
-parameter SUB  = 4'b0101; /* 5 */
-parameter MUL  = 4'b0110; /* 6 */
-parameter STR  = 4'b0111; /* 7 */
-parameter PUSH = 4'b1000; /* 8 */
-parameter POP  = 4'b1001; /* 9 */
-parameter XOR  = 4'b1010; /* a */
-parameter HALT = 4'b1011; /* b */
 
+typedef enum logic[3:0] {
+    NOP=0,
+    LOAD=1,
+    MOVE=4'b0010,
+    JUMP=4'b0011,
+    ADD=4'b0100,
+    SUB=4'b0101,
+    MUL=4'b0110,
+    STR=4'b0111,
+    PUSH=4'b1000,
+    POP=4'b1001,
+    XOR=4'b1010,
+    HALT=4'b1011
+} enumed_t;
+
+enumed_t opcode;
 /*
  * Layout instructions
  *
