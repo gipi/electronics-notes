@@ -221,6 +221,9 @@ int main(int argc, char* argv[]) {
     do_instruction("jr r8", FLAGS_ALL_SET, {{.idx = 8, .value = 0xcafebabe}}, FLAGS_ALL_SET, {
         { .idx = 0, .value = 0xcafebabe},
     });
+    do_instruction("jrr r8", FLAGS_ALL_SET, {{ .idx = 0, .value = 0xcafebabe}, {.idx = 8, .value = 0x10}}, FLAGS_ALL_SET, {
+        { .idx = 0, .value = 0xcafebace},
+    });
 
     do_instruction("jrl r9", FLAGS_ALL_SET, {{.idx = 9, .value = 0xbabe7007}}, FLAGS_ALL_SET, {
         { .idx = 0, .value = 0xbabe7007},
@@ -265,9 +268,6 @@ int main(int argc, char* argv[]) {
         }, FLAGS_ALL_SET , {
             { .idx = 0, .value = 0x00000004},
     }, { .o_wb_addr = 0xabad1dea, .i_wb_data = 0xcafebabe, .o_wb_we = true });
-    do_instruction("jr r8", FLAGS_ALL_SET, {{.idx = 8, .value = 0xcafebabe}}, FLAGS_ALL_SET, {
-        { .idx = 0, .value = 0xcafebabe},
-    });
 
     return EXIT_SUCCESS;
 }
