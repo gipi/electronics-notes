@@ -49,12 +49,13 @@ typedef struct {
  *
  * cpu: instance of the cpu
  * mnemonic: string containing the instruction to execute
+ * description: what the test is about
  * fstart: the starting state of the flags register
  * start: the state of the register at the fetch stage (what not indicate is zero)
  * fend: the ending state of the flags register
  * end: the registers that have changed (what not indicate is equal at the state indicate in start)
  */
-void do_instruction(const std::string mnemonic, flags_state fstart, std::vector<reg_state> start, flags_state fend, std::vector<reg_state> end, wb_transaction_t wb_transaction = WB_NO_TRANSACTION) {
+void do_instruction(const std::string mnemonic, const std::string description, flags_state fstart, std::vector<reg_state> start, flags_state fend, std::vector<reg_state> end, wb_transaction_t wb_transaction = WB_NO_TRANSACTION) {
     /* save to a custom trace */
     std::stringstream tracename;
     tracename << mnemonic << ".vcd";
@@ -67,7 +68,7 @@ void do_instruction(const std::string mnemonic, flags_state fstart, std::vector<
     /* initialize the instruction */
     ISA::Instruction instructionA(mnemonic);
 
-    LOG(" [#] instruction \'%s\': %08x ", mnemonic.c_str(), instructionA.getEncoding());
+    LOG(" [#] instruction \'%s\': %08x %s", mnemonic.c_str(), instructionA.getEncoding(), description.c_str());
 
     // save the registers and flags
     cpu->device->cpu__DOT__carry = fstart.carry;
@@ -210,27 +211,27 @@ int main(int argc, char* argv[]) {
     LOG(" [+] starting CPU simulation\n");
     Verilated::commandArgs(argc, argv);
 
-    do_instruction("ldids r7, 1af", FLAGS_ALL_SET,  EMPTY_REGISTERS, FLAGS_ALL_SET , {
+    do_instruction("ldids r7, 1af", "LOAD immediate", FLAGS_ALL_SET,  EMPTY_REGISTERS, FLAGS_ALL_SET , {
         { .idx = 0, .value = 0x00000004},
         { .idx = 7, .value = 0x1af}
     });
-    do_instruction("ld r7, [r10]", FLAGS_ALL_SET,  {{.idx = 10, .value = 0xabad1dea}}, FLAGS_ALL_SET , {
+    do_instruction("ld r7, [r10]", "LOAD reference", FLAGS_ALL_SET,  {{.idx = 10, .value = 0xabad1dea}}, FLAGS_ALL_SET , {
         { .idx = 0, .value = 0x00000004},
         { .idx = 7, .value = 0xcafebabe}
     }, { .o_wb_addr = 0xabad1dea, .i_wb_data = 0xcafebabe, .o_wb_we = false });
-    do_instruction("jr r8", FLAGS_ALL_SET, {{.idx = 8, .value = 0xcafebabe}}, FLAGS_ALL_SET, {
+    do_instruction("jr r8", "JUMP absolute", FLAGS_ALL_SET, {{.idx = 8, .value = 0xcafebabe}}, FLAGS_ALL_SET, {
         { .idx = 0, .value = 0xcafebabe},
     });
-    do_instruction("jrr r8", FLAGS_ALL_SET, {{ .idx = 0, .value = 0xcafebabe}, {.idx = 8, .value = 0x10}}, FLAGS_ALL_SET, {
-        { .idx = 0, .value = 0xcafebace},
+    do_instruction("jrr r8", "JUMP relative", FLAGS_ALL_SET, {{ .idx = 0, .value = 0xcafebab0}, {.idx = 8, .value = 0x10}}, FLAGS_ALL_SET, {
+        { .idx = 0, .value = 0xcafebac0},
     });
 
-    do_instruction("jrl r9", FLAGS_ALL_SET, {{.idx = 9, .value = 0xbabe7007}}, FLAGS_ALL_SET, {
+    do_instruction("jrl r9", "JUMP absolute with link", FLAGS_ALL_SET, {{.idx = 9, .value = 0xbabe7007}}, FLAGS_ALL_SET, {
         { .idx = 0, .value = 0xbabe7007},
         { .idx = 15, .value = 0x04},
     });
 
-    do_instruction("add r9, r7, r10",
+    do_instruction("add r9, r7, r10", "ADD",
     FLAGS_ALL_SET, {
         {.idx = 7, .value = 0x00000002},
         {.idx = 10, .value = 0x00000001}},
@@ -238,7 +239,7 @@ int main(int argc, char* argv[]) {
         { .idx = 0, .value = 0x04},
         { .idx = 9, .value = 0x03},
     });
-    do_instruction("add r9, r7, r10",
+    do_instruction("add r9, r7, r10", "ADD two's complement",
     FLAGS_ALL_NOT_SET, {
         {.idx = 7, .value = 0xffffffff},
         {.idx = 10, .value = 0x00000001}},
@@ -246,7 +247,7 @@ int main(int argc, char* argv[]) {
         { .idx = 0, .value = 0x04},
         { .idx = 9, .value = 0x00},
     });
-    do_instruction("pop r7", FLAGS_ALL_SET, {
+    do_instruction("pop r7", "POP", FLAGS_ALL_SET, {
         { .idx = 7, .value = 0xabad1dea },
         { .idx = 14, .value = 0xfeed1337 },
     }, FLAGS_ALL_SET , {
@@ -254,14 +255,14 @@ int main(int argc, char* argv[]) {
         { .idx = 7, .value = 0xcafebabe },
         { .idx = 14, .value = 0xfeed1338 }
     }, { .o_wb_addr = 0xfeed1334, .i_wb_data = 0xcafebabe, .o_wb_we = false });
-    do_instruction("push r7", FLAGS_ALL_SET, {
+    do_instruction("push r7", "PUSH", FLAGS_ALL_SET, {
         { .idx = 7, .value = 0xabad1dea },
         { .idx = 14, .value = 0xfeed1337 },
     }, FLAGS_ALL_SET , {
         { .idx = 0, .value = 0x00000004 },
         { .idx = 14, .value = 0xfeed1330 }
     }, { .o_wb_addr = 0xfeed1330, .i_wb_data = 0xabad1dea, .o_wb_we = true });
-    do_instruction("st r7, [r10]",
+    do_instruction("st r7, [r10]", "STORE reference", 
         FLAGS_ALL_SET,  {
             { .idx = 10, .value = 0xabad1dea},
             { .idx = 7, .value = 0xcafebabe },
