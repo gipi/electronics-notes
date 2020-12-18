@@ -21,6 +21,7 @@ module wb_memory #(parameter ROMFILE="", SIZE=64) (
 );
 
 reg [7:0] ram[SIZE - 1:0];
+reg _wb_ack;
 
 initial begin
     /* verilator lint_off WIDTH */
@@ -32,6 +33,7 @@ always @ (posedge clk)
 begin
     if (i_wb_cyc && i_wb_stb && !o_wb_stl) begin
         //o_data <= 32'b0;
+        _wb_ack <= 1'b1;
         if(i_we) begin
             ram[i_addr] <= i_data[7:0];
             if (i_width[0] | i_width[1]) begin
@@ -54,7 +56,11 @@ begin
     end
 end
 
-assign o_wb_ack = i_wb_cyc && i_wb_stb && !o_wb_stl;
+always @ (posedge clk)
+    if (_wb_ack)
+        _wb_ack <= 1'b0;
+
+assign o_wb_ack = _wb_ack ? _wb_ack : 1'bz;
 assign o_wb_stl = 1'b0;
 
 endmodule

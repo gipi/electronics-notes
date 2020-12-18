@@ -20,7 +20,7 @@ module wb_uart(
     input i_wb_we,
     input [1:0] i_wb_addr,
     input [7:0] i_wb_data,
-    output reg o_wb_ack,
+    output wire o_wb_ack,
     output wire o_wb_stl,
     output reg [7:0] o_wb_data,
     output wire o_uart_tx
@@ -44,11 +44,12 @@ wire tx_clk;
 wire rx_clk;
 
 reg [7:0] _o_wb_data; /* this only to have a latch on o_wb_data */
+reg internal_wb_ack;
 
 /* ACKNOWNLEDGE */
 always @(posedge clk) begin
-    if (i_wb_cyc) begin
-        o_wb_ack <= i_wb_stb && !o_wb_stl;
+    if (i_wb_cyc && i_wb_stb) begin
+        internal_wb_ack <= 1'b1;
         o_wb_data <= _o_wb_data;
     end
 end
@@ -83,6 +84,10 @@ always @* begin
     end
 end
 
+always @ (posedge clk)
+    if (internal_wb_ack)
+        internal_wb_ack <= 1'b0;
+
 uart_tx tx(
     .clk(tx_clk),
     .reset(reset),
@@ -92,6 +97,7 @@ uart_tx tx(
     .o_tx(o_uart_tx)
 );
 
+assign o_wb_ack = (internal_wb_ack) ? internal_wb_ack : 1'bz;
 assign o_wb_stl = 1'b0;
 
 endmodule
