@@ -9,6 +9,7 @@
 
 module wb_memory #(parameter ROMFILE="", SIZE=64) (
     input wire clk,
+    input wire rst_n,
     input wire i_wb_cyc,
     input wire i_wb_stb,
     output wire o_wb_stl,
@@ -29,9 +30,19 @@ initial begin
         $readmemh(ROMFILE, ram);
 end
 
+/*
+ * At reset time negate all the output signals
+ */
+always @ (posedge clk)
+    if (~rst_n) begin
+        _wb_ack <= 1'b0;
+        o_data <= 32'b0;
+    end
+
+
 always @ (posedge clk)
 begin
-    if (i_wb_cyc && i_wb_stb && !o_wb_stl) begin
+    if (rst_n & i_wb_cyc && i_wb_stb && !o_wb_stl) begin
         //o_data <= 32'b0;
         _wb_ack <= 1'b1;
         if(i_we) begin

@@ -55,6 +55,7 @@ parameter PATH_BOOTROM="../firmwares/bootrom.rom";
 
 wb_memory #(.SIZE(4096),.ROMFILE(PATH_BOOTROM)) br(
     .clk(clk),
+    .rst_n(reset),
     .i_data(cpu_to_peripherals_data),
     .o_data(peripherals_to_cpu_data),
     .i_addr(signal_address[11:0]),
@@ -68,6 +69,7 @@ wb_memory #(.SIZE(4096),.ROMFILE(PATH_BOOTROM)) br(
 
 wb_memory #(.SIZE(4096)) internal_ram(
     .clk(clk),
+    .rst_n(reset),
     .i_data(cpu_to_peripherals_data),
     .o_data(peripherals_to_cpu_data),
     .i_addr(signal_address[11:0]),
