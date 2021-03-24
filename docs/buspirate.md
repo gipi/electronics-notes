@@ -50,7 +50,7 @@ $ python -m serial.tools.miniterm /dev/ttyUSB0 --baud=115200 --lf
 
 Exist different versions of cable colors, in this text we use the [seeedstudio](http://www.seeedstudio.com/depot/Bus-Pirate-Cable-p-932.html) one
 
-![PIN SCHEME](http://dangerousprototypes.com/docs/images/1/1b/Bp-pin-cable-color.png)
+![PIN SCHEME](Images/Bp-pin-cable-color.png)
 
 ### Mode
 
