@@ -24,6 +24,11 @@ process reducing oxidation and, in some cases, reducing the surface tension of t
 
 ## Wick
 
+To be used with flux to remove excess solder from solder joint; the way to do it
+it's to raise the temperature with respect to the normal soldering
+
+ - [How to repair bridge and excess solder](https://www.youtube.com/watch?v=OaBRak0HnQs)
+
 ## Helping hand
 
 ## Links
