@@ -353,7 +353,7 @@ and [here](http://www.avrfreaks.net/forum/tutsoft-recovering-locked-out-avr).
 It's possible to program the non-volatile memory directly on-board using the **in-system programming**[(reference)](http://www.atmel.com/images/doc0943.pdf):
 it's a 3-wire SPI interface.
 
-![](images/ISP-6-way-pinout.png)
+![](Images/ISP-6-way-pinout.png)
 
 A client to use is ``avrdude``, capable of using several hardware interface in order to program
 the chip (in the example below is indicated with the ``-c`` option):
