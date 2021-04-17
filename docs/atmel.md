@@ -669,6 +669,10 @@ ATTINY85
 
 ![Arduino micro pinout](Images/arduino-micro-pinout.png)
 
+## Arduino Mega
+
+![Arduino Mega pinout](Images/arduino-mega-pinout.jpg)
+
 ## Arduino
 
 Pin 0 and 1 [are connected by 10k resistors to the serial hardware](http://forum.arduino.cc/index.php?topic=47654.0) so cannot be used,
