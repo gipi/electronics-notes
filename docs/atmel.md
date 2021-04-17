@@ -665,6 +665,10 @@ ATTINY85
 
 ![Arduino to ATMega328 pinout](http://arduino.cc/en/uploads/Hacking/Atmega168PinMap2.png)
 
+## Arduino Micro
+
+![Arduino micro pinout](Images/arduino-micro-pinout.png)
+
 ## Arduino
 
 Pin 0 and 1 [are connected by 10k resistors to the serial hardware](http://forum.arduino.cc/index.php?topic=47654.0) so cannot be used,
