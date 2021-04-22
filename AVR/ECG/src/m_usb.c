@@ -804,165 +804,165 @@ static inline void usb_ack_out(void)
 //
 ISR(USB_COM_vect)
 {
-        uint8_t intbits;
-	const uint8_t *list;
-        const uint8_t *cfg;
-	uint8_t i, n, len, en;
-	uint8_t *p;
-	uint8_t bmRequestType;
-	uint8_t bRequest;
-	uint16_t wValue;
-	uint16_t wIndex;
-	uint16_t wLength;
-	uint16_t desc_val;
-	const uint8_t *desc_addr;
-	uint8_t	desc_length;
+    uint8_t intbits;
+    const uint8_t *list;
+    const uint8_t *cfg;
+    uint8_t i, n, len, en;
+    uint8_t *p;
+    uint8_t bmRequestType;
+    uint8_t bRequest;
+    uint16_t wValue;
+    uint16_t wIndex;
+    uint16_t wLength;
+    uint16_t desc_val;
+    const uint8_t *desc_addr;
+    uint8_t	desc_length;
 
-        UENUM = 0;
-        intbits = UEINTX;
-        if (intbits & (1<<RXSTPI)) {
-                bmRequestType = UEDATX;
-                bRequest = UEDATX;
-                wValue = UEDATX;
-                wValue |= (UEDATX << 8);
-                wIndex = UEDATX;
-                wIndex |= (UEDATX << 8);
-                wLength = UEDATX;
-                wLength |= (UEDATX << 8);
-                UEINTX = ~((1<<RXSTPI) | (1<<RXOUTI) | (1<<TXINI));
-                if (bRequest == GET_DESCRIPTOR) {
-			list = (const uint8_t *)descriptor_list;
-			for (i=0; ; i++) {
-				if (i >= NUM_DESC_LIST) {
-					UECONX = (1<<STALLRQ)|(1<<EPEN);  //stall
-					return;
-				}
-				desc_val = pgm_read_word(list);
-				if (desc_val != wValue) {
-					list += sizeof(struct descriptor_list_struct);
-					continue;
-				}
-				list += 2;
-				desc_val = pgm_read_word(list);
-				if (desc_val != wIndex) {
-					list += sizeof(struct descriptor_list_struct)-2;
-					continue;
-				}
-				list += 2;
-				desc_addr = (const uint8_t *)pgm_read_word(list);
-				list += 2;
-				desc_length = pgm_read_byte(list);
-				break;
-			}
-			len = (wLength < 256) ? wLength : 255;
-			if (len > desc_length) len = desc_length;
-			do {
-				// wait for host ready for IN packet
-				do {
-					i = UEINTX;
-				} while (!(i & ((1<<TXINI)|(1<<RXOUTI))));
-				if (i & (1<<RXOUTI)) return;	// abort
-				// send IN packet
-				n = len < ENDPOINT0_SIZE ? len : ENDPOINT0_SIZE;
-				for (i = n; i; i--) {
-					UEDATX = pgm_read_byte(desc_addr++);
-				}
-				len -= n;
-				usb_send_in();
-			} while (len || n == ENDPOINT0_SIZE);
-			return;
+    UENUM = 0;
+    intbits = UEINTX;
+    if (intbits & (1 << RXSTPI)) {
+        bmRequestType = UEDATX;
+        bRequest = UEDATX;
+        wValue = UEDATX;
+        wValue |= (UEDATX << 8);
+        wIndex = UEDATX;
+        wIndex |= (UEDATX << 8);
+        wLength = UEDATX;
+        wLength |= (UEDATX << 8);
+        UEINTX = ~((1<<RXSTPI) | (1<<RXOUTI) | (1<<TXINI));
+        if (bRequest == GET_DESCRIPTOR) {
+            list = (const uint8_t *)descriptor_list;
+            for (i=0; ; i++) {
+                if (i >= NUM_DESC_LIST) {
+                    UECONX = (1<<STALLRQ)|(1<<EPEN);  //stall
+                    return;
                 }
-		if (bRequest == SET_ADDRESS) {
-			usb_send_in();
-			usb_wait_in_ready();
-			UDADDR = wValue | (1<<ADDEN);
-			return;
-		}
-		if (bRequest == SET_CONFIGURATION && bmRequestType == 0) {
-			usb_configuration = wValue;
-			cdc_line_rtsdtr = 0;
-			transmit_flush_timer = 0;
-			usb_send_in();
-			cfg = endpoint_config_table;
-			for (i=1; i<5; i++) {
-				UENUM = i;
-				en = pgm_read_byte(cfg++);
-				UECONX = en;
-				if (en) {
-					UECFG0X = pgm_read_byte(cfg++);
-					UECFG1X = pgm_read_byte(cfg++);
-				}
-			}
-        		UERST = 0x1E;
-        		UERST = 0;
-			return;
-		}
-		if (bRequest == GET_CONFIGURATION && bmRequestType == 0x80) {
-			usb_wait_in_ready();
-			UEDATX = usb_configuration;
-			usb_send_in();
-			return;
-		}
-		if (bRequest == CDC_GET_LINE_CODING && bmRequestType == 0xA1) {
-			usb_wait_in_ready();
-			p = cdc_line_coding;
-			for (i=0; i<7; i++) {
-				UEDATX = *p++;
-			}
-			usb_send_in();
-			return;
-		}
-		if (bRequest == CDC_SET_LINE_CODING && bmRequestType == 0x21) {
-			usb_wait_receive_out();
-			p = cdc_line_coding;
-			for (i=0; i<7; i++) {
-				*p++ = UEDATX;
-			}
-			usb_ack_out();
-			usb_send_in();
-			return;
-		}
-		if (bRequest == CDC_SET_CONTROL_LINE_STATE && bmRequestType == 0x21) {
-			cdc_line_rtsdtr = wValue;
-			usb_wait_in_ready();
-			usb_send_in();
-			return;
-		}
-		if (bRequest == GET_STATUS) {
-			usb_wait_in_ready();
-			i = 0;
-			#ifdef SUPPORT_ENDPOINT_HALT
-			if (bmRequestType == 0x82) {
-				UENUM = wIndex;
-				if (UECONX & (1<<STALLRQ)) i = 1;
-				UENUM = 0;
-			}
-			#endif
-			UEDATX = i;
-			UEDATX = 0;
-			usb_send_in();
-			return;
-		}
-		#ifdef SUPPORT_ENDPOINT_HALT
-		if ((bRequest == CLEAR_FEATURE || bRequest == SET_FEATURE)
-		  && bmRequestType == 0x02 && wValue == 0) {
-			i = wIndex & 0x7F;
-			if (i >= 1 && i <= MAX_ENDPOINT) {
-				usb_send_in();
-				UENUM = i;
-				if (bRequest == SET_FEATURE) {
-					UECONX = (1<<STALLRQ)|(1<<EPEN);
-				} else {
-					UECONX = (1<<STALLRQC)|(1<<RSTDT)|(1<<EPEN);
-					UERST = (1 << i);
-					UERST = 0;
-				}
-				return;
-			}
-		}
-		#endif
+                desc_val = pgm_read_word(list);
+                if (desc_val != wValue) {
+                    list += sizeof(struct descriptor_list_struct);
+                    continue;
+                }
+                list += 2;
+                desc_val = pgm_read_word(list);
+                if (desc_val != wIndex) {
+                    list += sizeof(struct descriptor_list_struct)-2;
+                    continue;
+                }
+                list += 2;
+                desc_addr = (const uint8_t *)pgm_read_word(list);
+                list += 2;
+                desc_length = pgm_read_byte(list);
+                break;
+            }
+            len = (wLength < 256) ? wLength : 255;
+            if (len > desc_length) len = desc_length;
+            do {
+                // wait for host ready for IN packet
+                do {
+                    i = UEINTX;
+                } while (!(i & ((1<<TXINI)|(1<<RXOUTI))));
+                if (i & (1<<RXOUTI)) return;	// abort
+                // send IN packet
+                n = len < ENDPOINT0_SIZE ? len : ENDPOINT0_SIZE;
+                for (i = n; i; i--) {
+                    UEDATX = pgm_read_byte(desc_addr++);
+                }
+                len -= n;
+                usb_send_in();
+            } while (len || n == ENDPOINT0_SIZE);
+            return;
         }
-	UECONX = (1<<STALLRQ) | (1<<EPEN);	// stall
+        if (bRequest == SET_ADDRESS) {
+            usb_send_in();
+            usb_wait_in_ready();
+            UDADDR = wValue | (1<<ADDEN);
+            return;
+        }
+        if (bRequest == SET_CONFIGURATION && bmRequestType == 0) {
+            usb_configuration = wValue;
+            cdc_line_rtsdtr = 0;
+            transmit_flush_timer = 0;
+            usb_send_in();
+            cfg = endpoint_config_table;
+            for (i=1; i<5; i++) {
+                UENUM = i;
+                en = pgm_read_byte(cfg++);
+                UECONX = en;
+                if (en) {
+                    UECFG0X = pgm_read_byte(cfg++);
+                    UECFG1X = pgm_read_byte(cfg++);
+                }
+            }
+            UERST = 0x1E;
+            UERST = 0;
+            return;
+        }
+        if (bRequest == GET_CONFIGURATION && bmRequestType == 0x80) {
+            usb_wait_in_ready();
+            UEDATX = usb_configuration;
+            usb_send_in();
+            return;
+        }
+        if (bRequest == CDC_GET_LINE_CODING && bmRequestType == 0xA1) {
+            usb_wait_in_ready();
+            p = cdc_line_coding;
+            for (i=0; i<7; i++) {
+                UEDATX = *p++;
+            }
+            usb_send_in();
+            return;
+        }
+        if (bRequest == CDC_SET_LINE_CODING && bmRequestType == 0x21) {
+            usb_wait_receive_out();
+            p = cdc_line_coding;
+            for (i=0; i<7; i++) {
+                *p++ = UEDATX;
+            }
+            usb_ack_out();
+            usb_send_in();
+            return;
+        }
+        if (bRequest == CDC_SET_CONTROL_LINE_STATE && bmRequestType == 0x21) {
+            cdc_line_rtsdtr = wValue;
+            usb_wait_in_ready();
+            usb_send_in();
+            return;
+        }
+        if (bRequest == GET_STATUS) {
+            usb_wait_in_ready();
+            i = 0;
+#ifdef SUPPORT_ENDPOINT_HALT
+            if (bmRequestType == 0x82) {
+                UENUM = wIndex;
+                if (UECONX & (1<<STALLRQ)) i = 1;
+                UENUM = 0;
+            }
+#endif
+            UEDATX = i;
+            UEDATX = 0;
+            usb_send_in();
+            return;
+        }
+#ifdef SUPPORT_ENDPOINT_HALT
+        if ((bRequest == CLEAR_FEATURE || bRequest == SET_FEATURE)
+                && bmRequestType == 0x02 && wValue == 0) {
+            i = wIndex & 0x7F;
+            if (i >= 1 && i <= MAX_ENDPOINT) {
+                usb_send_in();
+                UENUM = i;
+                if (bRequest == SET_FEATURE) {
+                    UECONX = (1<<STALLRQ)|(1<<EPEN);
+                } else {
+                    UECONX = (1<<STALLRQC)|(1<<RSTDT)|(1<<EPEN);
+                    UERST = (1 << i);
+                    UERST = 0;
+                }
+                return;
+            }
+        }
+#endif
+    }
+    UECONX = (1<<STALLRQ) | (1<<EPEN);	// stall
 }
 
 
