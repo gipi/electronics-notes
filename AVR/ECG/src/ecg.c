@@ -37,18 +37,20 @@ void led_signal() {
     }
 }
 
-int main() {
-    // usart_init();
-    //init_timer();
-    // sei(); // needed in order to enable interrupts
-    led_init();
 
-    m_usb_init();
 
+usb_detach() {
     // detach USB (strangely enough, with the atmega32u4 keyboard this is not needed)
     UDCON |= (1 << DETACH);
     _delay_ms(100);
     UDCON &= ~(1 << DETACH);
+}
+
+int main() {
+    led_init();
+    m_usb_init();
+
+    usb_detach();
 
     while(!m_usb_isconnected()); // wait for a connection
 
