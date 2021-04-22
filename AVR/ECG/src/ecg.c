@@ -7,17 +7,16 @@
 
 // static int usart_putchar(char c, FILE *stream);
 // static FILE mystdout = FDEV_SETUP_STREAM(usart_putchar, NULL, _FDEV_SETUP_WRITE);
-#if 0
 void init_timer() {
-    TCCR0B |= _BV(CS00) | _BV(CS02); // clk/1024
+    TCCR0B |= _BV(CS00); // clk/1
     TIMSK0 |= _BV(TOIE0);            // enable Timer0 Overflow Interrupt
 }
 
+volatile uint32_t timestamp = 0;
+
 ISR(TIMER0_OVF_vect) {
-    // do stuffs
-    printf("A");
+    timestamp++;
 }
-#endif
 
 void led_init() {
   DDRC |= (1 << DDC7);
@@ -37,6 +36,33 @@ void led_signal() {
     }
 }
 
+void adc_init() {
+    // AREF = AVcc
+    ADMUX = (1 << REFS0);
+ 
+    // ADC Enable and prescaler of 128
+    // 16000000/128 = 125000
+    ADCSRA = (1 << ADEN) | (1 << ADPS2) |(1 << ADPS1) | (1 << ADPS0);
+}
+
+uint16_t adc_read(uint8_t ch) {
+  // select the corresponding channel 0~7
+  // ANDing with ’7′ will always keep the value
+  // of ‘ch’ between 0 and 7
+  ch &= 0b00000111;  // AND operation with 7
+  ADMUX = (ADMUX & 0xF8) | ch; // clears the bottom 3 bits before ORing
+ 
+  // start single convertion
+  // write ’1′ to ADSC
+  ADCSRA |= (1 << ADSC);
+ 
+  // wait for conversion to complete
+  // ADSC becomes ’0′ again
+  // till then, run loop continuously
+  while(ADCSRA & (1 << ADSC));
+ 
+  return (ADC);
+}
 
 
 usb_detach() {
@@ -47,6 +73,8 @@ usb_detach() {
 }
 
 int main() {
+    init_timer();
+    adc_init();
     led_init();
     m_usb_init();
 
@@ -54,9 +82,16 @@ int main() {
 
     while(!m_usb_isconnected()); // wait for a connection
 
+    led_signal();
+    m_usb_tx_string("HELLO\n");
 
-    while(1) // needed in order to don't crash the code (?)
-        m_usb_tx_string("ciao\n");
+    while(1) {
+        uint16_t value = adc_read(7);
+        m_usb_tx_ulong(timestamp);
+        m_usb_tx_string(" ");
+        m_usb_tx_uint(value);
+        m_usb_tx_string("\n");
+    }
 
     return 0;
 }
