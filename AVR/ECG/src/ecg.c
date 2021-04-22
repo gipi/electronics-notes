@@ -45,6 +45,11 @@ int main() {
 
     m_usb_init();
 
+    // detach USB (strangely enough, with the atmega32u4 keyboard this is not needed)
+    UDCON |= (1 << DETACH);
+    _delay_ms(100);
+    UDCON &= ~(1 << DETACH);
+
     while(!m_usb_isconnected()); // wait for a connection
 
 
