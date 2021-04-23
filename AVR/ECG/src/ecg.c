@@ -36,14 +36,15 @@ ISR(TIMER0_OVF_vect) {
 }
 
 void led_init() {
-  DDRC |= (1 << DDC7);
+  // set as an output
+  DDRC |= (1 << PC7);
 }
 
 void led_cycle() {
     // LED Animation
-    PORTC |= (1 << DDC7);
+    PORTC |= (1 << PC7);
     _delay_ms(500);
-    PORTC &= ~(1 << DDC7);
+    PORTC &= ~(1 << PC7);
     _delay_ms(500);
 }
 
