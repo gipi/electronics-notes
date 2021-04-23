@@ -1,9 +1,26 @@
+/*
+ * Simple DIY ECG
+ *
+ */
 #include <avr/io.h>
 #include <stdio.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
 #include "m_general.h"
 #include "m_usb.h"
+
+/*
+ * The AD8232 has the following connections with the ATMega32U4
+ *
+ *  LO- -> PD6
+ *  LO+ -> PB7
+ *  OUTPUT -> PF7 (ADC mode)
+ */
+void ecg_init() {
+    // set pins as input
+    DDRD &= ~_BV(PD6);
+    DDRB &= ~_BV(PB7);
+}
 
 // static int usart_putchar(char c, FILE *stream);
 // static FILE mystdout = FDEV_SETUP_STREAM(usart_putchar, NULL, _FDEV_SETUP_WRITE);
@@ -74,6 +91,7 @@ usb_detach() {
 
 int main() {
     init_timer();
+    ecg_init();
     adc_init();
     led_init();
     m_usb_init();
@@ -86,7 +104,8 @@ int main() {
     m_usb_tx_string("HELLO\n");
 
     while(1) {
-        uint16_t value = adc_read(7);
+        // we want to read from the ADC only if the leads are not detached
+        uint16_t value = (bit_is_clear(PORTD, PD6) && bit_is_clear(PORTB, PB7)) ? adc_read(7) : 0;
         m_usb_tx_ulong(timestamp);
         m_usb_tx_string(" ");
         m_usb_tx_uint(value);
