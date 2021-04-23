@@ -17,7 +17,7 @@
 #include "uart.h"
 
 /* some mcus have multiple uarts */
-#ifdef UDR0
+#if defined(UDR0)
 #define UBRRH UBRR0H
 #define UBRRL UBRR0L
 #define UDR UDR0
@@ -36,11 +36,31 @@
 #define UCSZ0 UCSZ00
 #define UCSZ1 UCSZ01
 #define UCSRC_SELECT 0
+#elif defined(UDR1)
+#define UBRRH UBRR1H
+#define UBRRL UBRR1L
+#define UDR UDR1
+
+#define UCSRA UCSR1A
+#define UDRE UDRE1
+#define RXC RXC1
+
+#define UCSRB UCSR1B
+#define RXEN RXEN1
+#define TXEN TXEN1
+#define RXCIE RXCIE1
+
+#define UCSRC UCSR1C
+#define URSEL 
+#define UCSZ0 UCSZ10
+#define UCSZ1 UCSZ11
+#define UCSRC_SELECT 1
 #else
 #define UCSRC_SELECT (1 << URSEL)
 #endif
 
 #ifndef USART_RXC_vect
+
 #if defined(UART0_RX_vect)
 #define USART_RXC_vect UART0_RX_vect
 #elif defined(UART_RX_vect)
@@ -53,9 +73,22 @@
 #define USART_RXC_vect USART0_RXC_vect
 #elif defined(USART_RXC_vect)
 #define USART_RXC_vect USART_RXC_vect
+#elif defined(UART1_RX_vect)
+#define USART_RXC_vect UART1_RX_vect
+#elif defined(UART_RX_vect)
+#define USART_RXC_vect UART_RX_vect
+#elif defined(USART1_RX_vect)
+#define USART_RXC_vect USART1_RX_vect
+#elif defined(USART_RX_vect)
+#define USART_RXC_vect USART_RX_vect
+#elif defined(USART0_RXC_vect)
+#define USART_RXC_vect USART1_RXC_vect
+#elif defined(USART_RXC_vect)
+#define USART_RXC_vect USART_RXC_vect
 #else
 #error "Uart receive complete interrupt not defined!"
 #endif
+
 #endif
 
 #define BAUD 9600UL

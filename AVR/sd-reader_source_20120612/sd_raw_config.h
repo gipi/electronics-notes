@@ -98,7 +98,8 @@ extern "C"
     #define unselect_card() PORTB |= (1 << PORTB4)
 #elif defined(__AVR_ATmega64__) || \
       defined(__AVR_ATmega128__) || \
-      defined(__AVR_ATmega169__)
+      defined(__AVR_ATmega169__) || \
+      defined(__AVR_ATmega32U4__)
     #define configure_pin_mosi() DDRB |= (1 << DDB2)
     #define configure_pin_sck() DDRB |= (1 << DDB1)
     #define configure_pin_ss() DDRB |= (1 << DDB0)
@@ -110,11 +111,11 @@ extern "C"
     #error "no sd/mmc pin mapping available!"
 #endif
 
-#define configure_pin_available() DDRC &= ~(1 << DDC4)
-#define configure_pin_locked() DDRC &= ~(1 << DDC5)
+#define configure_pin_available()
+#define configure_pin_locked()
 
-#define get_pin_available() (PINC & (1 << PINC4))
-#define get_pin_locked() (PINC & (1 << PINC5))
+#define get_pin_available() 0
+#define get_pin_locked() 1
 
 #if SD_RAW_SDHC
     typedef uint64_t offset_t;
