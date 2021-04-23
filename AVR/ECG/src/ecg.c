@@ -82,7 +82,7 @@ uint16_t adc_read(uint8_t ch) {
 }
 
 
-usb_detach() {
+void usb_detach() {
     // detach USB (strangely enough, with the atmega32u4 keyboard this is not needed)
     UDCON |= (1 << DETACH);
     _delay_ms(100);
