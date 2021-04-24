@@ -1,4 +1,7 @@
-[Post with microcontroller comparison](https://jaycarlson.net/microcontrollers/)
+# ATmel and AVR chips
+
+If you are interested in comparisons between microcontrollers,
+see [this post](https://jaycarlson.net/microcontrollers/).
 
 **AVR** is a modified Harvard 8-bit RISC single chip microcontroller
 
@@ -38,6 +41,7 @@ as external](http://www.avrfreaks.net/forum/atmega16u2-minimal-connections-test-
 
  - [ATMega8/16/32U2](http://www.atmel.com/images/doc7799.pdf)
  - [ATMega2560](http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-2549-8-bit-AVR-Microcontroller-ATmega640-1280-1281-2560-2561_datasheet.pdf)
+ - [ATMEGA32U4](https://www.pjrc.com/teensy/atmega32u4.pdf)
 
 ## Memory
 
@@ -258,6 +262,12 @@ int main(void) {
 The ADC converts an analog input voltage to a 10-bit digital value through successive approximation. The minimum
 value represents GND and the maximum value represents the voltage on VCC, the voltage on the AREF pin
 or an internal 1.1V / 2.56V voltage reference.
+
+To improve quality it's possible to activate the **ADC noise reduction mode**:
+it not only shuts down the CPU and I/O clocks, but it also triggers an ADC
+conversion after the CPU has stopped, and wakes everything back up once the ADC
+is done (but note that if you’re expecting I/O during the ADC sampling time,
+you’ll miss it.).
 
  - http://nicecircuits.com/playing-with-analog-to-digital-converter-on-arduino-due/
  - [Tutorial](http://maxembedded.com/2011/06/the-adc-of-the-avr/) about the ``ADC``
