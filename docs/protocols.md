@@ -62,8 +62,11 @@ The pin ``CD`` stand for **card detection**: when is low the card is inserted in
 ### Links
 
  - https://learn.sparkfun.com/tutorials/serial-peripheral-interface-spi
- - [Reference](https://www.sdcard.org/downloads/pls/part1_410.pdf) for SD card protocol
+ - [Reference](https://web.archive.org/web/20131205014133/https://www.sdcard.org/downloads/pls/simplified_specs/archive/part1_301.pdf) for SD card protocol
  - [SD Card Protocol](http://wiki.seabright.co.nz/wiki/SdCardProtocol.html)
+ - [Interfacing Microcontrollers with SD Card](https://openlabpro.com/guide/interfacing-microcontrollers-with-sd-card/)
+ - [Interfacing Micro SD Card Module with Arduino](https://lastminuteengineers.com/arduino-micro-sd-card-module-tutorial/)
+ - [SPI and SD cards](http://www.dejazzer.com/ee379/lecture_notes/lec12_sd_card.pdf)
 
 ## PS/2
 
