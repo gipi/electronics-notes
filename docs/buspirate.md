@@ -143,6 +143,90 @@ raw UXBRG register value.
 
  - https://github.com/tgvaughan/PirateScope
 
+## SPI
+
+Here below a simple script to use the [raw SPI mode](http://dangerousprototypes.com/docs/SPI_(binary)) and read the
+JEDEC of a flash chip
+
+```python
+#!/usr/bin/env python3
+# http://dangerousprototypes.com/docs/SPI_(binary)
+import sys
+from serial import Serial
+import time
+
+
+def wait():
+    time.sleep(1)
+
+
+def bp_reset(ser):
+    ser.write(b"\x0f")
+    wait()
+
+    print(ser.read(ser.in_waiting))
+
+
+def bp_enter_bitbang_mode(ser):
+    # enter bitbang mode
+    [ser.write(b"\x00") for _ in range(20)]
+    wait()
+
+    print(ser.read(ser.in_waiting))
+
+
+def bp_enter_spi_mode(ser):
+    ser.write(b"\x01")
+    wait()
+
+    print(ser.read(ser.in_waiting))
+
+
+def bp_exit_spi_mode(ser):
+    ser.write(b"\x00")
+    wait()
+
+    print(ser.read(ser.in_waiting))
+
+
+def bp_setup(ser):
+    ser.write(bytearray([0b10001000]))
+    wait()
+    print("setup 3v3: %s" % ser.read(ser.in_waiting))
+
+    # ser.write(bytearray([0b01001000]))
+    ser.write(b"\x4b")
+    wait()
+    print("setup power %s" % ser.read(ser.in_waiting))
+
+    # Set SPI config: output type, idle, clock edge, sample
+    ser.write(b"\x88");
+    wait()
+    print("setup clk %s" % ser.read(ser.in_waiting))
+
+
+def bp_send_receive(ser, data, output_size):
+    packet = b"\x04\x00\x01\x00\x03\x9f"
+    ser.write(packet)
+    wait()
+
+    print("CHIP ID %s" % ser.read(ser.in_waiting).hex())
+
+
+if __name__ == '__main__':
+    s = Serial(sys.argv[1], int(sys.argv[2]))
+
+    bp_enter_bitbang_mode(s)
+    bp_enter_spi_mode(s)
+    bp_setup(s)
+    bp_send_receive(s, None, 10)
+    bp_exit_spi_mode(s)
+
+    bp_reset(s)
+
+
+```
+
 ## I2C
 
 ### Example with the ADXL345
