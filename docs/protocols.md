@@ -1,4 +1,4 @@
-# Protocols
+# Protocols&Interfaces
 
 Electronics is about voltage and stuffs but as humans we use it for
 connect devices and devices connected need ways to communicate.
@@ -168,7 +168,10 @@ Below the image of the handshake, for more explanation, refer to this [post](htt
 
 ## Floppy driver
 
+ - [Floppy Disk Notes](https://www.wdj-consulting.com/blog/floppy-lit/)
  - [Preserving a floppy disk with a logic analyzer and a serial cable](https://www.chzsoft.de/site/hardware/preserving-a-floppy-disk-with-a-logic-analyzer/)
+ - [Recovering "lost" treasure-filled floppy discs with an oscilloscope](https://scarybeastsecurity.blogspot.com/2021/05/recovering-lost-treasure-filled-floppy.html)
+ - [keirf/Greaseweazle](https://github.com/keirf/Greaseweazle): Tools and USB interface for accessing a floppy drive at the raw flux level
 
 ## TLS
 
