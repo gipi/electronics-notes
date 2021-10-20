@@ -149,7 +149,6 @@ but it's possible also to DIY one with chemicals as described [here](https://ult
 
 ### Links
 
-
  - [Debugging your pcb](http://aa-pcbassembly.com/about_pcb_assembly/debugging-your-pcb/)
  - [Tutorial](https://learn.sparkfun.com/tutorials/designing-pcbs-advanced-smd) by Sparkfun with a lot of info about manually routing
  - [Guide](http://www.alternatezone.com/electronics/files/PCBDesignTutorialRevA.pdf) PCB Design Tutorial
@@ -187,6 +186,7 @@ but it's possible also to DIY one with chemicals as described [here](https://ult
  - http://kb.gr8bit.ru/KB0015/GR8BIT-KB0015-Best-practices-creating-designs-with-EAGLE.html
  - https://github.com/lachlanA/eagle-to-kicad
  - https://github.com/electroniceel/protoboard
+ - [High-Speed PCB Design Tips](https://www.youtube.com/watch?v=VRJI0X-6yTg)
 
 ## 3D
 

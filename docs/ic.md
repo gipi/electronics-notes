@@ -1,5 +1,7 @@
 # Integrated circuit
 
+ - [SMD code book](http://www.marsport.org.uk/smd/mainframe.htm)
+
 ## Logic levels
 
 In the digital world, where exist only 1 and 0 you have to decide which
@@ -69,6 +71,7 @@ history and ratio about packages
 
  - http://how-to.wikia.com/wiki/Guide_to_IC_packages
  - Sparkfun's [tutorial](https://learn.sparkfun.com/tutorials/integrated-circuits)
+ - [TI's application note about packaging](ti.com/lit/sl/sszb138a/sszb138a.pdf)
 
 ## SHIFT REGISTER
 

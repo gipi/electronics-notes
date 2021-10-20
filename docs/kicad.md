@@ -73,6 +73,14 @@ README there are the installation instruction.
  - [Importing Libraries into KiCad](http://www.accelerated-designs.com/help/KiCad_Library.html)
  - [Several useful libraries of components](http://smisioto.no-ip.org/elettronica/kicad/kicad-en.htm)
  - [Preparing PCB for SeeedStudio](http://support.seeedstudio.com/knowledgebase/articles/1824574-how-to-generate-gerber-and-drill-files-from-kicad)
+ - [Preparing PCB for PCBway](https://www.pcbway.com/blog/help_center/Generate_Gerber_file_from_Kicad.html)
+ - [Preparing PCB for JLCPCB](https://support.jlcpcb.com/article/149-how-to-generate-gerber-and-drill-files-in-kicad)
  - [OSH Park design rules for Kicad](http://docs.oshpark.com/design-tools/kicad/kicad-design-rules/)
  - [TECHNIQUES, TIPS AND WORK-AROUNDS](https://flyingcarsandstuff.com/2016/10/kicad-techniques-tips-and-work-arounds/)
  - [Via Stitching In KiCad (without traces)](https://www.youtube.com/watch?v=Hp5ngKtl7S4)
+ - [yaqwsx/PcbDraw](https://github.com/yaqwsx/PcbDraw) Convert your KiCAD board into a nicely looking 2D drawing suitable for pinout diagrams
+ - [pointhi/kicad-color-schemes](https://github.com/pointhi/kicad-color-schemes)
+ - [yaqwsx/KiKit](https://github.com/yaqwsx/KiKit) Automation tools for KiCAD
+ - [stimulu/stimulu-kicad-plugins](https://github.com/stimulu/stimulu-kicad-plugins) KiCad plugins to reproduce or use Stimulu board files
+ - [Connect pins with KiCad Bus, Labels, and Global Labels](https://www.baldengineer.com/kicad-bus-labels-and-global-labels.html)
+ - [LAYOUT FILES: KiCad footprints useful for PCB panelization (mouse-bites...)](https://github.com/madworm/Panelization.pretty)
