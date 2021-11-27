@@ -183,6 +183,8 @@ they are small and cheap.
  - http://www.thebox.myzen.co.uk/Tutorial/De-coupling.html
  - http://sites.fas.harvard.edu/~phys123/analog_notes/noise_note_sept09.pdf
 
+![](Images/capacitor-applications.jpg)
+
 ## Inductors
 
 They are like capacitors, but for magnetic fields.
