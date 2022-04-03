@@ -84,3 +84,6 @@ README there are the installation instruction.
  - [stimulu/stimulu-kicad-plugins](https://github.com/stimulu/stimulu-kicad-plugins) KiCad plugins to reproduce or use Stimulu board files
  - [Connect pins with KiCad Bus, Labels, and Global Labels](https://www.baldengineer.com/kicad-bus-labels-and-global-labels.html)
  - [LAYOUT FILES: KiCad footprints useful for PCB panelization (mouse-bites...)](https://github.com/madworm/Panelization.pretty)
+ - [KiCad 5 (Part 23) Using a Net Tie](https://www.youtube.com/watch?v=7uGGPNSqA-A)
+ - [kicadStepUp-WB](https://github.com/easyw/kicadStepUpMod) KiCad StepUp tools are a FreeCAD Macro and a FreeCAD WorkBench to help in Mechanical Collaboration between KiCad EDA and FreeCAD or a Mechanical CAD.
+ - [svg2mod](https://github.com/svg2mod/svg2mod) convert SVG drawings to KiCad footprint module files

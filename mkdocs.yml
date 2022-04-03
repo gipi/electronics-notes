@@ -2,7 +2,7 @@ site_name: electronics notes
 markdown_extensions: 
  - mdx_math
 extra_javascript: ['https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML','mathjaxhelper.js']
-pages:
+nav:
 - Home: index.md
 - Atmel: atmel.md
 - Bus Pirate: buspirate.md
@@ -18,11 +18,11 @@ pages:
 - Motors: motors.md
 - OpAmp: opamp.md
 - Oscillators: oscillator.md
-- Protocols: protocols.md
+- Protocols&Interfaces: protocols.md
 - Prototyping: Prototyping.md
 - Eagle: eagle.md
 - KiCad: kicad.md
-- Sampling: sampling.md
+- Sampling and ADC: sampling.md
 - Sensors: Sensors.md
 - Signal: signal.md
 - Soldering: soldering.md
